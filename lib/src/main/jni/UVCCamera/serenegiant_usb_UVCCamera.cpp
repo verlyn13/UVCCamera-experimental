@@ -40,6 +40,7 @@
 #include "UVCCamera.h"
 #include "FrameBufferRing.h"
 #include "HandleManager.h"
+#include "OutputMode.h"
 
 /**
  * set the value into the long field
@@ -547,6 +548,61 @@ static jint nativeSetUseRingBuffer(JNIEnv *env, jobject thiz,
 	}
 	UVCCamera *camera = static_cast<UVCCamera *>(ref.ptr);
 	RETURN(camera->setUseRingBuffer(use == JNI_TRUE), jint);
+}
+
+// ============================================================
+// OUTPUT MODE JNI METHODS - Single Source of Truth for Frame Routing
+// ============================================================
+
+/**
+ * Set the output mode for frame routing.
+ *
+ * This is the primary API for controlling where frames go.
+ * Mode transitions are atomic and take effect on the next frame.
+ *
+ * @param mode Output mode: 0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER
+ * @return 0 on success, negative error code on failure
+ *
+ * IDLE mode enables "WARM state" - USB streaming continues but
+ * frames are discarded after capture callback (active drain).
+ * This allows instant resume when returning from Gallery.
+ */
+static jint nativeSetOutputMode(JNIEnv *env, jobject thiz,
+	ID_TYPE id_camera, jint mode) {
+
+	ENTER();
+	auto ref = getCameraHandleManager().acquire(id_camera);
+	if (!ref) {
+		RETURN(JNI_ERR_INVALID_HANDLE, jint);
+	}
+
+	// Validate mode value
+	if (!scopecam::isValidOutputMode(mode)) {
+		LOGE("nativeSetOutputMode: Invalid mode value %d", mode);
+		RETURN(-2, jint);
+	}
+
+	UVCCamera *camera = static_cast<UVCCamera *>(ref.ptr);
+	scopecam::OutputMode outputMode = static_cast<scopecam::OutputMode>(mode);
+	RETURN(camera->setOutputMode(outputMode), jint);
+}
+
+/**
+ * Get the current output mode.
+ *
+ * @return Current output mode: 0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER
+ *         Returns -1 on error (invalid camera handle)
+ */
+static jint nativeGetOutputMode(JNIEnv *env, jobject thiz,
+	ID_TYPE id_camera) {
+
+	ENTER();
+	auto ref = getCameraHandleManager().acquire(id_camera);
+	if (!ref) {
+		RETURN(-1, jint);
+	}
+	UVCCamera *camera = static_cast<UVCCamera *>(ref.ptr);
+	RETURN(camera->getOutputModeInt(), jint);
 }
 
 /**
@@ -2676,6 +2732,10 @@ static JNINativeMethod methods[] = {
 	{ "nativeSetFrameBufferRing",		"(JJ)I", (void *) nativeSetFrameBufferRing },
 	{ "nativeInvalidateRingBufferHandle", "(J)V", (void *) nativeInvalidateRingBufferHandle },
 	{ "nativeIsRingBufferValid",		"(J)Z", (void *) nativeIsRingBufferValid },
+
+	// OutputMode - Single Source of Truth for Frame Routing (2026-01-10)
+	{ "nativeSetOutputMode",			"(JI)I", (void *) nativeSetOutputMode },
+	{ "nativeGetOutputMode",			"(J)I", (void *) nativeGetOutputMode },
 
 	// Telemetry methods
 	{ "nativeGetDroppedNoSurface",		"(J)J", (void *) nativeGetDroppedNoSurface },

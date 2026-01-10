@@ -1446,6 +1446,83 @@ int UVCPreview::setUseRingBuffer(bool use) {
 	RETURN(0, int);
 }
 
+// ============================================================
+// OUTPUT MODE - Single Source of Truth for Frame Routing
+// ============================================================
+
+/**
+ * Set the output mode for frame routing.
+ *
+ * This is the primary API for controlling where frames go.
+ * Mode transitions are atomic and take effect on the next frame.
+ *
+ * TRANSITION LOGGING:
+ * All transitions are logged at INFO level for debugging.
+ *
+ * @param mode The desired output mode
+ * @return 0 on success, -1 if mode requires resources that aren't ready
+ */
+int UVCPreview::setOutputMode(scopecam::OutputMode mode) {
+	ENTER();
+
+	scopecam::OutputMode oldMode = mOutputMode.load(std::memory_order_acquire);
+
+	// Validate mode-specific prerequisites
+	if (mode == scopecam::OutputMode::RING_BUFFER) {
+		if (!mFrameBufferRing.load(std::memory_order_acquire)) {
+			LOGE("OUTPUT_MODE: Cannot switch to RING_BUFFER - ring buffer not allocated");
+			RETURN(-1, int);
+		}
+	}
+
+	// Atomic state transition
+	mOutputMode.store(mode, std::memory_order_release);
+
+	// Transition logging for diagnostics
+	LOGI("OUTPUT_MODE_TRANSITION: %s -> %s",
+		 scopecam::outputModeToString(oldMode),
+		 scopecam::outputModeToString(mode));
+
+	// Sync legacy flags for backward compatibility
+	// This will be removed once all consumers migrate to OutputMode
+	switch (mode) {
+		case scopecam::OutputMode::RING_BUFFER:
+			mUseRingBuffer.store(true, std::memory_order_release);
+			mSurfaceReady.store(true, std::memory_order_release);
+			break;
+		case scopecam::OutputMode::DIRECT_WINDOW:
+			mUseRingBuffer.store(false, std::memory_order_release);
+			mSurfaceReady.store(true, std::memory_order_release);
+			break;
+		case scopecam::OutputMode::IDLE:
+		default:
+			// Don't change mUseRingBuffer - ring buffer may still be allocated
+			// Just set surface to not ready for active drain
+			mSurfaceReady.store(false, std::memory_order_release);
+			break;
+	}
+
+	RETURN(0, int);
+}
+
+/**
+ * Get the current output mode.
+ *
+ * Thread-safe: Uses atomic load with acquire semantics.
+ */
+scopecam::OutputMode UVCPreview::getOutputMode() const {
+	return mOutputMode.load(std::memory_order_acquire);
+}
+
+/**
+ * Get the current output mode as integer for JNI.
+ *
+ * @return 0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER
+ */
+int UVCPreview::getOutputModeInt() const {
+	return static_cast<int>(mOutputMode.load(std::memory_order_acquire));
+}
+
 /**
  * Allocate the frame buffer ring with the specified dimensions.
  * Uses AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM format.
@@ -2042,9 +2119,12 @@ void UVCPreview::detachSurface() {
 		mPreviewWindow = nullptr;
 	}
 
-	// 4. Update state
+	// 4. Update state (including OutputMode - Single Source of Truth)
 	mPreviewState.store(PreviewState::WARM, std::memory_order_release);
 	mSurfaceReady.store(false, std::memory_order_release);
+	mOutputMode.store(scopecam::OutputMode::IDLE, std::memory_order_release);
+
+	LOGI("OUTPUT_MODE_TRANSITION: -> IDLE (detachSurface)");
 
 	// Record state transition in telemetry (Phase 4)
 	FrameBufferRing* ring = mFrameBufferRing.load(std::memory_order_acquire);
@@ -2116,8 +2196,12 @@ void UVCPreview::attachSurface(ANativeWindow *window) {
 			}
 		}
 	} else {
+		// Success: Update state (including OutputMode - Single Source of Truth)
 		mSurfaceReady.store(true, std::memory_order_release);
 		mPreviewState.store(PreviewState::HOT, std::memory_order_release);
+		mOutputMode.store(scopecam::OutputMode::RING_BUFFER, std::memory_order_release);
+
+		LOGI("OUTPUT_MODE_TRANSITION: -> RING_BUFFER (attachSurface)");
 
 		// Record successful WARM→HOT transition in telemetry (Phase 4)
 		FrameBufferRing* ring = mFrameBufferRing.load(std::memory_order_acquire);
@@ -2821,39 +2905,50 @@ void UVCPreview::do_conversion_loop() {
 			}
 
 			// ═══════════════════════════════════════════════════════════════════════
-			// FRAME ROUTING DECISION (P0 Fix - 2026-01-09)
+			// FRAME ROUTING - OutputMode as Single Source of Truth (2026-01-10)
 			//
-			// Commit frames if ANY valid consumer exists:
-			// - ANativeWindow display path (surfaceReady=true)
-			// - Ring buffer consumer path (useRingBuffer=true + ringInjected=true)
+			// OutputMode determines frame routing:
+			// - RING_BUFFER: Commit frame for GPU rendering
+			// - DIRECT_WINDOW: Legacy path (currently uses ring for compatibility)
+			// - IDLE: Active drain - frame discarded after capture callback
 			//
-			// Only cancel (active drain) when NO consumer is available.
+			// BROADCASTER PATTERN: Capture callback already fired above, so
+			// capture works in ALL modes including IDLE.
 			// ═══════════════════════════════════════════════════════════════════════
-			bool surfaceReady = mSurfaceReady.load(std::memory_order_acquire);
-			bool ringConsumerActive = mUseRingBuffer.load(std::memory_order_acquire) &&
-			                          mRingBufferInjected.load(std::memory_order_acquire);
+			scopecam::OutputMode mode = mOutputMode.load(std::memory_order_acquire);
 
-			bool hasConsumer = surfaceReady || ringConsumerActive;
-
-			// STATE_TRACE: Log routing decision (LOGV for production, first 5 + every 1000)
+			// STATE_TRACE: Log routing decision (first 5 + every 1000)
 			static std::atomic<int> branchLogCount{0};
 			int blc = branchLogCount.fetch_add(1, std::memory_order_relaxed);
 			if (blc < 5 || blc % 1000 == 0) {
-				LOGV("STATE_TRACE[%d]: hasConsumer=%d (surface=%d ring=%d) → %s",
-					 blc, (int)hasConsumer, (int)surfaceReady, (int)ringConsumerActive,
-					 hasConsumer ? "COMMIT" : "CANCEL");
+				LOGV("FRAME_ROUTING[%d]: mode=%s → %s",
+					 blc,
+					 scopecam::outputModeToString(mode),
+					 (mode == scopecam::OutputMode::IDLE) ? "CANCEL" : "COMMIT");
 			}
 
-			if (hasConsumer) {
-				// HOT STATE: Commit to ring for consumption (Surface or Ring consumer)
-				ring->unlockWriteBuffer();
-			} else {
-				// WARM STATE: No consumer available, discard frame (active drain)
-				// We already got what we needed for capture callback.
-				ring->cancelWriteBuffer();
+			switch (mode) {
+				case scopecam::OutputMode::RING_BUFFER:
+					// Modern path: Commit frame to ring for GPU consumption
+					ring->unlockWriteBuffer();
+					break;
 
-				// Track metric for no-consumer drops
-				telemetry->framesDroppedNoSurface.fetch_add(1, std::memory_order_relaxed);
+				case scopecam::OutputMode::DIRECT_WINDOW:
+					// Legacy path: Currently still uses ring buffer for compatibility
+					// In future this would write directly to ANativeWindow
+					ring->unlockWriteBuffer();
+					break;
+
+				case scopecam::OutputMode::IDLE:
+				default:
+					// WARM STATE / Active Drain: No display consumer
+					// Frame already passed to capture callback above (Broadcaster pattern)
+					// Discard from ring buffer to prevent stale frames
+					ring->cancelWriteBuffer();
+
+					// Track metric for active drain drops
+					telemetry->framesDroppedNoSurface.fetch_add(1, std::memory_order_relaxed);
+					break;
 			}
 			// ============================================================
 

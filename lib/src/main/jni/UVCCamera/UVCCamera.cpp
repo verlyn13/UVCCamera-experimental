@@ -683,6 +683,42 @@ int UVCCamera::setUseRingBuffer(bool use) {
 	RETURN(result, int);
 }
 
+// ============================================================
+// OUTPUT MODE - Single Source of Truth for Frame Routing
+// ============================================================
+
+/**
+ * Set the output mode for frame routing.
+ *
+ * This is the primary API for controlling where frames go.
+ * Mode transitions are atomic and take effect on the next frame.
+ *
+ * @param mode Output mode (IDLE, DIRECT_WINDOW, RING_BUFFER)
+ * @return 0 on success, negative error code on failure
+ */
+int UVCCamera::setOutputMode(scopecam::OutputMode mode) {
+	ENTER();
+	int result = EXIT_FAILURE;
+	if (mPreview) {
+		result = mPreview->setOutputMode(mode);
+	}
+	RETURN(result, int);
+}
+
+/**
+ * Get the current output mode as integer.
+ *
+ * @return Current mode: 0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER, -1 on error
+ */
+int UVCCamera::getOutputModeInt() {
+	ENTER();
+	int result = -1;
+	if (mPreview) {
+		result = mPreview->getOutputModeInt();
+	}
+	RETURN(result, int);
+}
+
 /**
  * Allocate the ring buffer with specified dimensions.
  * Should be called after setPreviewSize with matching dimensions.

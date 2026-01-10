@@ -242,6 +242,10 @@ public:
 	void invalidateRingBufferHandle();
 	bool isRingBufferValid();
 
+	// OutputMode - Single Source of Truth for Frame Routing (2026-01-10)
+	int setOutputMode(scopecam::OutputMode mode);
+	int getOutputModeInt();
+
 	// Telemetry for native layer diagnostics
 	uint64_t getDroppedNoSurface();
 	uint64_t getDroppedQueueFull();

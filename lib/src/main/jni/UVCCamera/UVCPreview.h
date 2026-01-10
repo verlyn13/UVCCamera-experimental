@@ -33,6 +33,7 @@
 #include <android/native_window.h>
 #include "objectarray.h"
 #include "FrameBufferRing.h"
+#include "OutputMode.h"
 
 // Forward declaration
 class UVCReadinessCallback;
@@ -189,12 +190,19 @@ private:
 	void callbackPixelFormatChanged();
 //
 // ============================================================
+// OUTPUT MODE - SINGLE SOURCE OF TRUTH FOR FRAME ROUTING
+// ============================================================
+// Replaces the previous implicit boolean routing logic.
+// See OutputMode.h for detailed documentation.
+	std::atomic<scopecam::OutputMode> mOutputMode{scopecam::OutputMode::IDLE};
+
+// ============================================================
 // THREAD-SAFE RING BUFFER STATE (P0 FIX - 2026-01-05)
 // ============================================================
 // Ring buffer support for decoupled frame streaming
 // All members are atomic to prevent cross-thread visibility races
 	std::atomic<FrameBufferRing*> mFrameBufferRing{nullptr};
-	std::atomic<bool> mUseRingBuffer{false};
+	std::atomic<bool> mUseRingBuffer{false};       // DEPRECATED: Use mOutputMode
 	std::atomic<bool> mRingBufferInjected{false};  // External ownership flag
 
 // ============================================================
@@ -333,6 +341,38 @@ public:
 // Conversion thread control (hybrid architecture)
 	int startConversionThread();
 	void stopConversionThread();
+//
+// ============================================================
+// OUTPUT MODE CONTROL - Single Source of Truth for Frame Routing
+// ============================================================
+	/**
+	 * Set the output mode for frame routing.
+	 *
+	 * This is the primary API for controlling where frames go.
+	 * Mode transitions are atomic and take effect immediately.
+	 *
+	 * @param mode The desired output mode (IDLE, DIRECT_WINDOW, RING_BUFFER)
+	 * @return 0 on success, negative error code on failure
+	 *
+	 * Thread-safe: Uses atomic store with release semantics.
+	 */
+	int setOutputMode(scopecam::OutputMode mode);
+
+	/**
+	 * Get the current output mode.
+	 *
+	 * @return Current output mode
+	 *
+	 * Thread-safe: Uses atomic load with acquire semantics.
+	 */
+	scopecam::OutputMode getOutputMode() const;
+
+	/**
+	 * Get the current output mode as integer (for JNI).
+	 *
+	 * @return Current output mode value (0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER)
+	 */
+	int getOutputModeInt() const;
 //
 // Preview state accessors (Phase 2 - WARM state)
 	PreviewState getPreviewState() const;
