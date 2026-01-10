@@ -1356,6 +1356,62 @@ public class UVCCamera {
         return -1;
     }
 
+    // ═══════════════════════════════════════════════════════════════════════════
+    // OutputMode - Single Source of Truth for Frame Routing (2026-01-10)
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    /**
+     * Output mode constants for frame routing.
+     * These values must match the native OutputMode enum in OutputMode.h.
+     */
+    public static final int OUTPUT_MODE_IDLE = 0;          // WARM state: active drain
+    public static final int OUTPUT_MODE_DIRECT_WINDOW = 1; // Legacy ANativeWindow path
+    public static final int OUTPUT_MODE_RING_BUFFER = 2;   // Modern ring buffer path
+
+    /**
+     * Set the output mode for frame routing.
+     *
+     * <p>This is the primary API for controlling where frames go. Mode transitions
+     * are atomic and take effect on the next frame.</p>
+     *
+     * <p><b>OutputMode values:</b></p>
+     * <ul>
+     *   <li>{@link #OUTPUT_MODE_IDLE} (0): WARM state - USB streaming continues but
+     *       frames are discarded after capture callback (active drain). Used when
+     *       navigating away from preview (e.g., Gallery screen).</li>
+     *   <li>{@link #OUTPUT_MODE_DIRECT_WINDOW} (1): Legacy ANativeWindow path.</li>
+     *   <li>{@link #OUTPUT_MODE_RING_BUFFER} (2): Modern ring buffer path for GPU rendering.</li>
+     * </ul>
+     *
+     * <p><b>Broadcaster Pattern:</b> Capture callbacks fire in ALL modes, allowing
+     * photo capture even when surface is detached.</p>
+     *
+     * <p><b>Thread Safety:</b> Atomic operation, safe from any thread.</p>
+     *
+     * @param mode Output mode (0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER)
+     * @return 0 on success, negative error code on failure
+     */
+    public int setOutputMode(final int mode) {
+        if (mNativePtr != 0) {
+            return nativeSetOutputMode(mNativePtr, mode);
+        }
+        return -1;
+    }
+
+    /**
+     * Get the current output mode.
+     *
+     * <p><b>Thread Safety:</b> Atomic read, safe from any thread.</p>
+     *
+     * @return Current output mode (0=IDLE, 1=DIRECT_WINDOW, 2=RING_BUFFER), or -1 on error
+     */
+    public int getOutputMode() {
+        if (mNativePtr != 0) {
+            return nativeGetOutputMode(mNativePtr);
+        }
+        return -1;
+    }
+
     /**
      * Allocate the ring buffer with specified dimensions.
      * Call after {@link #setPreviewSize(int, int, int, int, int, float)} with matching dimensions.
@@ -1636,6 +1692,12 @@ public class UVCCamera {
     private static final native long nativeGetRingBufferHandle(final long id_camera);
     private static final native void nativeInvalidateRingBufferHandle(final long id_camera);
     private static final native boolean nativeIsRingBufferValid(final long id_camera);
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    // OutputMode - Single Source of Truth for Frame Routing (2026-01-10)
+    // ═══════════════════════════════════════════════════════════════════════════
+    private static final native int nativeSetOutputMode(final long id_camera, final int mode);
+    private static final native int nativeGetOutputMode(final long id_camera);
 
     // V2-HANDLE-001: Ring buffer injection for handle alignment
     // JNI: serenegiant_usb_UVCCamera.cpp:2350 - Signature: (JJ)I
