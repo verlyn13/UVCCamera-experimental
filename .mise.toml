@@ -25,13 +25,15 @@ GRADLE_OPTS = "-Xmx4g -XX:+UseG1GC"
 # Ensure consistent NDK version
 ANDROID_NDK_VERSION = "27.0.12077973"
 
+# Android SDK paths loaded from shell environment or local.properties
+# ANDROID_HOME and ANDROID_NDK_HOME are set by direnv (.envrc)
+
 [tasks.build]
 run = "./gradlew :lib:assembleRelease --no-daemon"
 description = "Build release AAR"
 
 [tasks.build-native]
 run = '''
-export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/ndk/$ANDROID_NDK_VERSION"
 "$ANDROID_NDK_HOME/ndk-build" -j10 \
   NDK_PROJECT_PATH=lib/src/main \
   NDK_APPLICATION_MK=lib/src/main/jni/Application.mk
