@@ -1,8 +1,8 @@
 # Implementation Status: ARCH-DECISIONS-001-R2
 
 **Last Updated:** 2026-01-13
-**Current Phase:** Phase 0-Pre (BLOCKER)
-**Overall Progress:** 18/19 Phase 0-Pre sub-tasks complete (1 pending: runtime verification)
+**Current Phase:** Phase 0 (ready to begin)
+**Overall Progress:** Phase 0-Pre COMPLETE (19/19 sub-tasks)
 
 ---
 
@@ -22,8 +22,8 @@
 
 | Phase | Status | Sub-tasks | Complete | Blocked |
 |-------|--------|-----------|----------|---------|
-| **0-Pre** | **ACTIVE** | 19 | 18 | 0 |
-| 0 | Waiting | 28 | 0 | 0 |
+| **0-Pre** | **COMPLETE** | 19 | 19 | 0 |
+| **0** | **READY** | 28 | 0 | 0 |
 | 1 | Waiting | 18 | 0 | 0 |
 | 2 | Waiting | 24 | 0 | 0 |
 | 3 | Waiting | 18 | 0 | 0 |
@@ -93,14 +93,14 @@
 
 - [x] All tasks above marked [x]
 - [x] `ndk-build` succeeds for both ABIs (arm64-v8a, armeabi-v7a)
-- [x] `sync_to_engine.sh` runs without errors (verified 2026-01-12)
-- [x] Build ID auto-logs at JNI_OnLoad (added 2026-01-13, commit dd34e43)
-- [~] scopecam-engine app logs correct build ID (ready for device test)
+- [x] `sync_to_engine.sh` runs without errors (verified 2026-01-13)
+- [x] Dependency libraries synced (libuvc.so, libusb100.so, libjpeg-turbo1500.so)
+- [x] Build manifest generated with SHA256 hashes
 - [x] No compiler warnings introduced
 
 ### Phase 0-Pre Notes
 
-**Status:** Ready for device test. All code changes complete.
+**Status:** COMPLETE. Phase 0 can begin.
 
 **CI/Tooling setup complete (2026-01-12):**
 - mise + direnv for tool version management (Java 17)
@@ -109,15 +109,16 @@
 - GitHub Actions CI with format-check and kotlin-lint jobs
 
 **Cross-repo sync verified (2026-01-13):**
-- Synced 8 libraries to scopecam-engine (4 per ABI: libUVCCamera.so, libuvc.so, libusb100.so, libjpeg-turbo1500.so)
-- Build ID symbols (`uvc_get_build_id`, `uvc_get_build_time`) confirmed in synced libUVCCamera.so
-- Build manifest generated with SHA256 hashes
+- Synced 6 dependency libraries to scopecam-engine (3 per ABI: libuvc.so, libusb100.so, libjpeg-turbo1500.so)
+- **NOT synced:** libUVCCamera.so - scopecam-engine builds its own via CMake/C++20
+- Build manifest generated with SHA256 hashes for dependency verification
 - CLAUDE.md updated with collaboration docs in both repos
 
-**Build ID auto-logging added (2026-01-13):**
-- Added LOGI call in _onload.cpp JNI_OnLoad
-- Logs automatically when library loads: `libuvc build: uvccamera-experimental:<sha>@<timestamp>`
-- Verify with: `adb logcat | grep 'libuvc build'`
+**Build ID in uvccamera-experimental (for local testing):**
+- Added LOGI call in _onload.cpp JNI_OnLoad (commit dd34e43)
+- Logs: `libuvc build: uvccamera-experimental:<sha>@<timestamp>`
+- Note: This applies to uvccamera-experimental's test builds only
+- scopecam-engine has its own libUVCCamera.so build with separate provenance
 
 ---
 

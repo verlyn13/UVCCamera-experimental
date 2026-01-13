@@ -34,7 +34,9 @@ ENGINE_ROOT="${ENGINE_ROOT:-$HOME/Development/personal/scopecam-engine}"
 
 # Build configuration
 ABIS=("arm64-v8a" "armeabi-v7a")
-LIBS=("libUVCCamera.so" "libuvc.so" "libusb100.so" "libjpeg-turbo1500.so")
+# Note: Only sync DEPENDENCY libraries. scopecam-engine builds its own libUVCCamera.so
+# via CMake/C++20 from nativecode/src/main/cpp/
+LIBS=("libuvc.so" "libusb100.so" "libjpeg-turbo1500.so")
 
 # JNI source directory
 JNI_DIR="$UVC_REPO_ROOT/lib/src/main"

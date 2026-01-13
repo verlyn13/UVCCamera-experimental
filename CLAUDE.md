@@ -341,11 +341,12 @@ mise run sync
 ./tools/sync_to_engine.sh
 ```
 
-**What gets synced:**
-- `libUVCCamera.so` - Main JNI bridge (includes build ID symbols)
-- `libuvc.so` - Core UVC library
+**What gets synced (dependency libraries only):**
+- `libuvc.so` - Core UVC library (refactored here)
 - `libusb100.so` - USB support
 - `libjpeg-turbo1500.so` - JPEG encoding
+
+**NOT synced:** `libUVCCamera.so` - scopecam-engine builds its own via CMake/C++20
 
 **Destination:** `../scopecam-engine/nativecode/src/main/libs/{ABI}/`
 
