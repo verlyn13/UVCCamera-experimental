@@ -1,6 +1,6 @@
 # Implementation Status: ARCH-DECISIONS-001-R2
 
-**Last Updated:** 2026-01-12
+**Last Updated:** 2026-01-13
 **Current Phase:** Phase 0-Pre (BLOCKER)
 **Overall Progress:** 18/19 Phase 0-Pre sub-tasks complete (1 pending: runtime verification)
 
@@ -108,7 +108,8 @@
 - GitHub Actions CI with format-check and kotlin-lint jobs
 
 **Cross-repo sync verified (2026-01-13):**
-- Synced 6 libraries to scopecam-engine
+- Synced 8 libraries to scopecam-engine (4 per ABI: libUVCCamera.so, libuvc.so, libusb100.so, libjpeg-turbo1500.so)
+- Build ID symbols (`uvc_get_build_id`, `uvc_get_build_time`) confirmed in synced libUVCCamera.so
 - Build manifest generated with SHA256 hashes
 - CLAUDE.md updated with collaboration docs in both repos
 
