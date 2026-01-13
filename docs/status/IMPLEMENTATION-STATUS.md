@@ -2,7 +2,7 @@
 
 **Last Updated:** 2026-01-12
 **Current Phase:** Phase 0-Pre (BLOCKER)
-**Overall Progress:** 13/19 Phase 0-Pre sub-tasks complete (2 blocked, 4 pending)
+**Overall Progress:** 18/19 Phase 0-Pre sub-tasks complete (1 pending: runtime verification)
 
 ---
 
@@ -22,7 +22,7 @@
 
 | Phase | Status | Sub-tasks | Complete | Blocked |
 |-------|--------|-----------|----------|---------|
-| **0-Pre** | **ACTIVE** | 19 | 13 | 2 |
+| **0-Pre** | **ACTIVE** | 19 | 18 | 0 |
 | 0 | Waiting | 28 | 0 | 0 |
 | 1 | Waiting | 18 | 0 | 0 |
 | 2 | Waiting | 24 | 0 | 0 |
@@ -61,14 +61,14 @@
 
 #### 0-Pre.3: Sync Script
 - [x] Create `tools/sync_to_engine.sh`
-- [!] Test clean build + copy (blocked: requires scopecam-engine repo)
-- [!] Test hash verification (blocked: requires scopecam-engine repo)
-- [x] Document in CLAUDE.md
+- [x] Test clean build + copy (verified 2026-01-12)
+- [x] Test hash verification (6 libraries synced with SHA256 verification)
+- [x] Document in CLAUDE.md (cross-repo collaboration section added)
 
 **Files:** `tools/sync_to_engine.sh`
 **Decision:** DECISION-017
 **Commit:** 0b85598
-**Note:** Script verified with --dry-run. Full testing blocked until scopecam-engine integration.
+**Verification:** Synced to ../scopecam-engine/nativecode/src/main/libs/
 
 #### 0-Pre.4: C++17 Standard
 - [x] Add `APP_CPPFLAGS += -std=c++17` to Application.mk
@@ -80,33 +80,37 @@
 **Commit:** 160bf71
 
 #### 0-Pre.5: Build Manifest Generation
-- [ ] Create script to generate `uvc_build_manifest.h`
-- [ ] Include prebuilt SHA256 hashes
-- [ ] Include NDK version
-- [ ] Integrate into build
+- [x] Create script to generate `uvc_build_manifest.h` (integrated into sync_to_engine.sh)
+- [x] Include prebuilt SHA256 hashes (6 libraries, both ABIs)
+- [x] Include NDK version (27.0.12077973)
+- [x] Integrate into build (generated on sync)
 
-**Files:** `tools/generate_manifest.sh`, `include/uvc_build_manifest.h`
+**Files:** `tools/sync_to_engine.sh`, `jni/include/uvc_build_manifest.h`
 **Decision:** DECISION-017
+**Generated:** `lib/src/main/jni/include/uvc_build_manifest.h`
 
 ### Phase 0-Pre Completion Criteria
 
-- [~] All tasks above marked [x] (0-Pre.3 blocked, 0-Pre.5 not started)
+- [x] All tasks above marked [x]
 - [x] `ndk-build` succeeds for both ABIs (arm64-v8a, armeabi-v7a)
-- [!] `sync_to_engine.sh` runs without errors (blocked: requires scopecam-engine)
-- [!] scopecam-engine app logs correct build ID (blocked: requires scopecam-engine)
+- [x] `sync_to_engine.sh` runs without errors (verified 2026-01-12)
+- [ ] scopecam-engine app logs correct build ID (pending: runtime verification)
 - [x] No compiler warnings introduced
 
 ### Phase 0-Pre Notes
 
-**Remaining blockers:**
-1. 0-Pre.5 (Build Manifest Generation) not started
-2. 0-Pre.3 sync testing blocked by missing scopecam-engine repo
+**Status:** Nearly complete. Only runtime verification pending.
 
 **CI/Tooling setup complete (2026-01-12):**
 - mise + direnv for tool version management (Java 17)
 - lefthook git hooks (clang-format, shellcheck, pre-push build)
 - ktlint + detekt lint passing
 - GitHub Actions CI with format-check and kotlin-lint jobs
+
+**Cross-repo sync verified (2026-01-13):**
+- Synced 6 libraries to scopecam-engine
+- Build manifest generated with SHA256 hashes
+- CLAUDE.md updated with collaboration docs in both repos
 
 ---
 
@@ -456,10 +460,9 @@
 **Discovered:** 2026-01-12
 **Phase:** 0-Pre
 **Task:** 0-Pre.3
-**Status:** Open
+**Status:** ✅ RESOLVED (2026-01-13)
 **Impact:** Cannot test sync script with actual destination repo
-**Workaround:** Script verified with --dry-run flag
-**Resolution:** Pending - need to set up or clone scopecam-engine repo
+**Resolution:** Repo found at ../scopecam-engine. Sync tested and working.
 
 <!-- Template for blocking issues:
 ### BLOCK-001: Description
@@ -487,6 +490,9 @@
 | 2026-01-12 | 0-Pre | 0-Pre.4 | C++17 standard enabled, static_assert added - commit 160bf71 |
 | 2026-01-12 | 0-Pre | 0-Pre.3 | Sync script created (partial) - commit 0b85598 |
 | 2026-01-12 | Infra | CI/Tooling | mise, lefthook, clang-format, ktlint, detekt, CI - commit 5538d20 |
+| 2026-01-13 | 0-Pre | 0-Pre.3 | Sync script fully tested with scopecam-engine |
+| 2026-01-13 | 0-Pre | 0-Pre.5 | Build manifest generation integrated into sync |
+| 2026-01-13 | Infra | Cross-Repo | Added collaboration docs to both CLAUDE.md files |
 
 <!-- Template:
 | 2026-01-12 | 0-Pre | 0-Pre.1 | Vendored tl::expected v0.6.1 |

@@ -318,4 +318,64 @@ When working autonomously on this project:
 
 ---
 
+## Cross-Repo Collaboration
+
+### Two-Repo Architecture
+
+This project works in tandem with **scopecam-engine** (located at `../scopecam-engine`):
+
+| Repository | Purpose | Primary Language |
+|------------|---------|------------------|
+| **uvccamera-experimental** | libuvc source, ndk-build, JNI bridge | C/C++ |
+| **scopecam-engine** | Kotlin app, native C++20, consumes prebuilt .so | Kotlin/C++ |
+
+### Sync Workflow
+
+After making changes in uvccamera-experimental:
+
+```bash
+# Build and sync to scopecam-engine
+mise run sync
+
+# Or manually:
+./tools/sync_to_engine.sh
+```
+
+**What gets synced:**
+- `libuvc.so` - Core UVC library
+- `libusb100.so` - USB support
+- `libjpeg-turbo1500.so` - JPEG encoding
+
+**Destination:** `../scopecam-engine/nativecode/src/main/libs/{ABI}/`
+
+### Build Manifest
+
+The sync script generates `lib/src/main/jni/include/uvc_build_manifest.h`:
+- Git SHA and timestamp
+- SHA256 hashes of all prebuilt libraries
+- NDK version for reproducibility
+
+### Cross-Repo Agent Instructions
+
+When working on features that span both repos:
+
+1. **Make changes here first** (uvccamera-experimental)
+2. **Run sync** to update scopecam-engine prebuilts
+3. **Switch context** to scopecam-engine for Kotlin/C++20 integration
+4. **Reference**: scopecam-engine has its own CLAUDE.md with project context
+
+### Verification
+
+After sync, in scopecam-engine:
+```bash
+# Build the app
+./gradlew assembleDebug
+
+# Check logcat for build ID
+adb logcat | grep 'libuvc build'
+# Expected: libuvc build: uvccamera-experimental:<sha>@<timestamp>
+```
+
+---
+
 *This file is the project-level configuration for Claude Code CLI.*
