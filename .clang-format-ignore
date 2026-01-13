@@ -1,0 +1,17 @@
+# Vendor/upstream code - do not format
+# These directories contain forked or upstream code that should not be modified
+
+# libusb - upstream USB library
+lib/src/main/jni/libusb/
+
+# libjpeg-turbo - upstream JPEG library
+lib/src/main/jni/libjpeg-turbo-1.5.0/
+
+# libuvc original sources (reference copies)
+lib/src/main/jni/libuvc/src/*_original.c
+
+# rapidjson - header-only upstream library
+lib/src/main/jni/rapidjson/
+
+# Third-party vendored headers
+lib/src/main/jni/third_party/

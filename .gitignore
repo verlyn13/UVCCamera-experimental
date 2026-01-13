@@ -219,6 +219,8 @@ gradle-app.setting
 
 ## Local development config (not tracked)
 .windsurf/
-config/
+config/*
+# Exception: detekt config should be tracked
+!config/detekt/
 cspell.json
 *.iterm2.json

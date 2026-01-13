@@ -1,0 +1,75 @@
+# UVCCamera-experimental tool configuration
+# See: https://mise.jdx.dev/configuration.html
+
+[tools]
+# Java 17 for Gradle builds (required by Android Gradle Plugin)
+java = "temurin-17"
+
+# Git hooks manager
+lefthook = "latest"
+
+# Shell script linting
+shellcheck = "latest"
+
+# YAML linting (for CI configs)
+yamllint = "latest"
+
+[env]
+# Project identification
+PROJECT_NAME = "uvccamera-experimental"
+
+# Build optimization (M3 Max tuned)
+MAKEFLAGS = "-j10"
+GRADLE_OPTS = "-Xmx4g -XX:+UseG1GC"
+
+# Ensure consistent NDK version
+ANDROID_NDK_VERSION = "27.0.12077973"
+
+[tasks.build]
+run = "./gradlew :lib:assembleRelease --no-daemon"
+description = "Build release AAR"
+
+[tasks.build-native]
+run = '''
+export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/ndk/$ANDROID_NDK_VERSION"
+"$ANDROID_NDK_HOME/ndk-build" -j10 \
+  NDK_PROJECT_PATH=lib/src/main \
+  NDK_APPLICATION_MK=lib/src/main/jni/Application.mk
+'''
+description = "Build native libraries with ndk-build"
+
+[tasks.clean]
+run = "./gradlew clean && rm -rf lib/src/main/libs lib/src/main/obj"
+description = "Clean build artifacts"
+
+[tasks.sync]
+run = "./tools/sync_to_engine.sh"
+description = "Sync prebuilt .so files to scopecam-engine"
+
+[tasks.lint]
+run = "./gradlew ktlintCheck detekt --no-daemon"
+description = "Run Kotlin linters"
+
+[tasks.test]
+run = "./gradlew test --no-daemon"
+description = "Run unit tests"
+
+[tasks.test-native]
+run = '''
+cd lib/src/main/jni/test
+cmake -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
+'''
+description = "Run native C++ tests"
+
+[tasks.format]
+run = '''
+find lib/src/main/jni/UVCCamera -name "*.cpp" -o -name "*.c" -o -name "*.h" | \
+  xargs clang-format -i
+'''
+description = "Format C++ code with clang-format"
+
+[tasks.hooks-install]
+run = "lefthook install"
+description = "Install git hooks via lefthook"

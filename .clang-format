@@ -1,0 +1,47 @@
+# UVCCamera clang-format configuration
+# Based on Google style with project-specific adjustments
+
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 100
+
+# Pointer alignment - consistent left alignment
+PointerAlignment: Left
+DerivePointerAlignment: false
+
+# Function formatting
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+
+# Alignment for readability
+AlignConsecutiveMacros: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: false
+AlignTrailingComments: true
+AlignAfterOpenBracket: Align
+
+# Braces
+BreakBeforeBraces: Attach
+Cpp11BracedListStyle: true
+
+# Indentation
+AccessModifierOffset: -4
+IndentCaseLabels: false
+IndentPPDirectives: None
+NamespaceIndentation: None
+
+# Includes
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve
+
+# Penalties (prefer breaking before certain elements)
+PenaltyBreakBeforeFirstCallParameter: 100
+PenaltyReturnTypeOnItsOwnLine: 200
+
+# C++17 features
+Standard: c++17
+
+# JNI naming conventions (camelCase functions)
+# Note: clang-format doesn't enforce naming, but this config is optimized for it

@@ -1,0 +1,36 @@
+# Lefthook Git Hooks Configuration
+# Install: brew install lefthook && lefthook install
+# See: https://github.com/evilmartians/lefthook
+
+assert_lefthook_installed: true
+
+pre-commit:
+  parallel: true
+  commands:
+    clang-format:
+      glob: "lib/src/main/jni/UVCCamera/**/*.{c,cc,cpp,h,hpp}"
+      exclude: "_original\\.c$"
+      run: clang-format -i {staged_files}
+      stage_fixed: true
+
+    shellcheck:
+      glob: "tools/*.sh"
+      run: shellcheck {staged_files}
+
+    yaml-lint:
+      glob: "*.{yml,yaml}"
+      run: yamllint -c .yamllint {staged_files} 2>/dev/null || true
+
+pre-push:
+  commands:
+    quick-build:
+      run: ./gradlew :lib:assembleDebug --no-daemon -q
+
+    tidy-check:
+      glob: "lib/src/main/jni/UVCCamera/**/*.{c,cpp}"
+      run: |
+        if [ -f lib/src/main/jni/compile_commands.json ]; then
+          clang-tidy --quiet {staged_files} \
+            -p lib/src/main/jni/compile_commands.json \
+            --warnings-as-errors='bugprone-use-after-move,bugprone-dangling-handle'
+        fi

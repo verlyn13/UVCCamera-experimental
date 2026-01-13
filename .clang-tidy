@@ -1,0 +1,57 @@
+# UVCCamera clang-tidy configuration
+# Tiered analysis: PR runs diff-only, nightly runs full
+---
+Checks: >
+  -*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-narrowing-conversions,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-owning-memory,
+  misc-*,
+  -misc-non-private-member-variables-in-classes,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  -modernize-avoid-c-arrays,
+  performance-*,
+  readability-*,
+  -readability-magic-numbers,
+  -readability-identifier-length,
+  android-*,
+
+  # JNI-critical checks (from audit findings)
+  bugprone-use-after-move,
+  bugprone-dangling-handle,
+  cppcoreguidelines-slicing,
+  cppcoreguidelines-pro-type-member-init,
+
+WarningsAsErrors: >
+  bugprone-use-after-move,
+  bugprone-dangling-handle,
+  cppcoreguidelines-slicing
+
+CheckOptions:
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.ConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+  - key: performance-unnecessary-value-param.AllowedTypes
+    value: 'Expected.*'
+  - key: bugprone-argument-comment.StrictMode
+    value: true
+
+# Only analyze our code, not vendored dependencies
+HeaderFilterRegex: '.*/UVCCamera/.*\.h(pp)?$'
+
+# Note: SuppressionPatterns not supported in older clang-tidy versions
+# Use NOLINT comments or HeaderFilterRegex instead

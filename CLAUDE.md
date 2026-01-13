@@ -125,9 +125,64 @@ Phase 4 (Weeks 10-12)
 
 ---
 
+## Development Environment
+
+This project uses **mise** for tool version management and **direnv** for environment loading.
+
+### Setup
+
+```bash
+# Install prerequisites (if not already present)
+brew install mise direnv
+
+# Allow direnv in this directory
+direnv allow
+
+# Install project tools
+mise install
+```
+
+### Available mise Tasks
+
+| Command | Description |
+|---------|-------------|
+| `mise run build` | Build release AAR |
+| `mise run build-native` | Build native libraries with ndk-build |
+| `mise run clean` | Clean all build artifacts |
+| `mise run sync` | Sync prebuilt .so files to scopecam-engine |
+| `mise run lint` | Run ktlint and detekt |
+| `mise run test` | Run unit tests |
+| `mise run test-native` | Run native C++ tests (GTest) |
+| `mise run format` | Format C++ code with clang-format |
+| `mise run hooks-install` | Install git hooks via lefthook |
+
+### Pinned Tool Versions
+
+- **Java:** temurin-17 (required for Android Gradle Plugin)
+- **lefthook:** latest (git hooks)
+- **shellcheck:** latest (shell script linting)
+- **yamllint:** latest (CI config linting)
+
+### Git Hooks (Lefthook)
+
+Pre-commit hooks run automatically:
+- **clang-format** on staged C++ files
+- **shellcheck** on staged shell scripts
+
+Pre-push hooks:
+- **Quick build** to catch compile errors before push
+
+---
+
 ## Common Operations
 
-### Build libuvc
+### Build libuvc (via mise)
+
+```bash
+mise run build-native
+```
+
+### Build libuvc (manual)
 
 ```bash
 cd lib/src/main
@@ -139,6 +194,8 @@ $ANDROID_NDK_HOME/ndk-build -j$(sysctl -n hw.ncpu) \
 ### Sync to scopecam-engine
 
 ```bash
+mise run sync
+# or
 ./tools/sync_to_engine.sh
 ```
 
