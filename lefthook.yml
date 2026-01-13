@@ -24,7 +24,8 @@ pre-commit:
 pre-push:
   commands:
     quick-build:
-      run: ./gradlew :lib:assembleDebug --no-daemon -q
+      # Use mise exec to ensure correct Java version (temurin-17)
+      run: mise exec -- ./gradlew :lib:assembleDebug --no-daemon -q
 
     tidy-check:
       glob: "lib/src/main/jni/UVCCamera/**/*.{c,cpp}"
