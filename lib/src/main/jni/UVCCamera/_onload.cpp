@@ -32,6 +32,9 @@ extern int register_uvccamera(JNIEnv *env);
 extern int register_framebuffer(JNIEnv *env);
 extern int register_eglimagehelper(JNIEnv *env);
 
+// Build ID for runtime verification (DECISION-017)
+extern "C" const char* uvc_get_build_id(void);
+
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 #if LOCAL_DEBUG
     LOGD("JNI_OnLoad");
@@ -42,6 +45,9 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     LayoutContract::logLayoutDiagnostics();
     // Validate critical offsets - aborts if ABI is corrupted
     LayoutContract::validateCriticalOffsets();
+
+    // Log build ID for runtime verification (DECISION-017)
+    LOGI("libuvc build: %s", uvc_get_build_id());
 
     JNIEnv *env;
     if (vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_6) != JNI_OK) {
