@@ -190,6 +190,10 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# ndk-build outputs (high churn, deterministic rebuild)
+lib/src/main/libs/
+lib/src/main/obj/
 ## Origin: https://github.com/github/gitignore/blob/main/Gradle.gitignore
 .gradle
 **/build/
