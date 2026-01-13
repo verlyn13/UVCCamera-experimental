@@ -94,12 +94,13 @@
 - [x] All tasks above marked [x]
 - [x] `ndk-build` succeeds for both ABIs (arm64-v8a, armeabi-v7a)
 - [x] `sync_to_engine.sh` runs without errors (verified 2026-01-12)
-- [ ] scopecam-engine app logs correct build ID (pending: runtime verification)
+- [x] Build ID auto-logs at JNI_OnLoad (added 2026-01-13, commit dd34e43)
+- [~] scopecam-engine app logs correct build ID (ready for device test)
 - [x] No compiler warnings introduced
 
 ### Phase 0-Pre Notes
 
-**Status:** Nearly complete. Only runtime verification pending.
+**Status:** Ready for device test. All code changes complete.
 
 **CI/Tooling setup complete (2026-01-12):**
 - mise + direnv for tool version management (Java 17)
@@ -112,6 +113,11 @@
 - Build ID symbols (`uvc_get_build_id`, `uvc_get_build_time`) confirmed in synced libUVCCamera.so
 - Build manifest generated with SHA256 hashes
 - CLAUDE.md updated with collaboration docs in both repos
+
+**Build ID auto-logging added (2026-01-13):**
+- Added LOGI call in _onload.cpp JNI_OnLoad
+- Logs automatically when library loads: `libuvc build: uvccamera-experimental:<sha>@<timestamp>`
+- Verify with: `adb logcat | grep 'libuvc build'`
 
 ---
 
