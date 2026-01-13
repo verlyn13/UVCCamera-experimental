@@ -2,7 +2,7 @@
 
 **Last Updated:** 2026-01-12
 **Current Phase:** Phase 0-Pre (BLOCKER)
-**Overall Progress:** 11/58 tasks complete
+**Overall Progress:** 13/19 Phase 0-Pre sub-tasks complete (2 blocked, 4 pending)
 
 ---
 
@@ -20,14 +20,14 @@
 
 ## Phase Summary
 
-| Phase | Status | Tasks | Complete | Blocked |
-|-------|--------|-------|----------|---------|
-| **0-Pre** | **ACTIVE** | 7 | 11 | 0 |
-| 0 | Waiting | 12 | 0 | 0 |
-| 1 | Waiting | 10 | 0 | 0 |
-| 2 | Waiting | 11 | 0 | 0 |
-| 3 | Waiting | 10 | 0 | 0 |
-| 4 | Waiting | 8 | 0 | 0 |
+| Phase | Status | Sub-tasks | Complete | Blocked |
+|-------|--------|-----------|----------|---------|
+| **0-Pre** | **ACTIVE** | 19 | 13 | 2 |
+| 0 | Waiting | 28 | 0 | 0 |
+| 1 | Waiting | 18 | 0 | 0 |
+| 2 | Waiting | 24 | 0 | 0 |
+| 3 | Waiting | 18 | 0 | 0 |
+| 4 | Waiting | 18 | 0 | 0 |
 
 ---
 
@@ -42,37 +42,42 @@
 #### 0-Pre.1: Vendor tl::expected
 - [x] Download tl::expected header (pinned version)
 - [x] Create `lib/src/main/jni/third_party/tl/expected.hpp`
-- [x] Create `uvc/expected.h` alias header
+- [x] Create `lib/src/main/jni/include/uvc/expected.h` alias header
 - [x] Add license file
 
-**Files:** `third_party/tl/expected.hpp`, `include/uvc/expected.h`
+**Files:** `third_party/tl/expected.hpp`, `include/uvc/expected.h`, `third_party/tl/LICENSE`
 **Decision:** DECISION-016
+**Commit:** a48b8a2
 
 #### 0-Pre.2: Build ID System
 - [x] Create `lib/src/main/jni/UVCCamera/uvc_build_id.c`
 - [x] Add git SHA and timestamp defines to Android.mk
 - [x] Add `uvc_build_id.c` to LOCAL_SRC_FILES
-- [x] Verify symbol exports with `nm`
+- [x] Verify symbol exports with `nm` (exports: `uvc_get_build_id`, `uvc_get_build_time`)
 
 **Files:** `UVCCamera/uvc_build_id.c`, `UVCCamera/Android.mk`
 **Decision:** DECISION-017
+**Commit:** 160bf71
 
 #### 0-Pre.3: Sync Script
 - [x] Create `tools/sync_to_engine.sh`
-- [~] Test clean build + copy
-- [ ] Test hash verification
-- [x] Document in README or CLAUDE.md
+- [!] Test clean build + copy (blocked: requires scopecam-engine repo)
+- [!] Test hash verification (blocked: requires scopecam-engine repo)
+- [x] Document in CLAUDE.md
 
 **Files:** `tools/sync_to_engine.sh`
 **Decision:** DECISION-017
+**Commit:** 0b85598
+**Note:** Script verified with --dry-run. Full testing blocked until scopecam-engine integration.
 
 #### 0-Pre.4: C++17 Standard
 - [x] Add `APP_CPPFLAGS += -std=c++17` to Application.mk
-- [x] Add static_assert to UVCCamera.cpp
-- [x] Verify build succeeds
+- [x] Add static_assert to UVCCamera.cpp (line 51)
+- [x] Verify build succeeds (both arm64-v8a and armeabi-v7a)
 
 **Files:** `jni/Application.mk`, `UVCCamera/UVCCamera.cpp`
 **Decision:** DECISION-009
+**Commit:** 160bf71
 
 #### 0-Pre.5: Build Manifest Generation
 - [ ] Create script to generate `uvc_build_manifest.h`
@@ -85,11 +90,23 @@
 
 ### Phase 0-Pre Completion Criteria
 
-- [ ] All tasks above marked [x]
-- [x] `ndk-build` succeeds for both ABIs
-- [ ] `sync_to_engine.sh` runs without errors
-- [ ] scopecam-engine app logs correct build ID
+- [~] All tasks above marked [x] (0-Pre.3 blocked, 0-Pre.5 not started)
+- [x] `ndk-build` succeeds for both ABIs (arm64-v8a, armeabi-v7a)
+- [!] `sync_to_engine.sh` runs without errors (blocked: requires scopecam-engine)
+- [!] scopecam-engine app logs correct build ID (blocked: requires scopecam-engine)
 - [x] No compiler warnings introduced
+
+### Phase 0-Pre Notes
+
+**Remaining blockers:**
+1. 0-Pre.5 (Build Manifest Generation) not started
+2. 0-Pre.3 sync testing blocked by missing scopecam-engine repo
+
+**CI/Tooling setup complete (2026-01-12):**
+- mise + direnv for tool version management (Java 17)
+- lefthook git hooks (clang-format, shellcheck, pre-push build)
+- ktlint + detekt lint passing
+- GitHub Actions CI with format-check and kotlin-lint jobs
 
 ---
 
@@ -435,7 +452,14 @@
 
 ## Blocking Issues
 
-*No blocking issues currently.*
+### BLOCK-001: scopecam-engine repo not available
+**Discovered:** 2026-01-12
+**Phase:** 0-Pre
+**Task:** 0-Pre.3
+**Status:** Open
+**Impact:** Cannot test sync script with actual destination repo
+**Workaround:** Script verified with --dry-run flag
+**Resolution:** Pending - need to set up or clone scopecam-engine repo
 
 <!-- Template for blocking issues:
 ### BLOCK-001: Description
@@ -458,9 +482,11 @@
 
 | Date | Phase | Task | Notes |
 |------|-------|------|-------|
-| 2026-01-12 | 0-Pre | 0-Pre.1 | Vendored tl::expected v1.3 (master) |
-| 2026-01-12 | 0-Pre | 0-Pre.2 | Build ID system with git SHA/timestamp |
-| 2026-01-12 | 0-Pre | 0-Pre.4 | C++17 standard enabled, static_assert added |
+| 2026-01-12 | 0-Pre | 0-Pre.1 | Vendored tl::expected v1.3 (master) - commit a48b8a2 |
+| 2026-01-12 | 0-Pre | 0-Pre.2 | Build ID system with git SHA/timestamp - commit 160bf71 |
+| 2026-01-12 | 0-Pre | 0-Pre.4 | C++17 standard enabled, static_assert added - commit 160bf71 |
+| 2026-01-12 | 0-Pre | 0-Pre.3 | Sync script created (partial) - commit 0b85598 |
+| 2026-01-12 | Infra | CI/Tooling | mise, lefthook, clang-format, ktlint, detekt, CI - commit 5538d20 |
 
 <!-- Template:
 | 2026-01-12 | 0-Pre | 0-Pre.1 | Vendored tl::expected v0.6.1 |
