@@ -38,3 +38,8 @@ APP_STL := c++_shared
 # 16 KB page size alignment for Android 15+ compatibility
 # See: https://developer.android.com/guide/practices/page-sizes
 APP_LDFLAGS := -Wl,-z,max-page-size=16384
+
+# C++17 standard (DECISION-009)
+# Required for tl::expected and modern C++ patterns
+# Note: PRINCIPLE-008 requires C ABI at .so boundary
+APP_CPPFLAGS := -std=c++17

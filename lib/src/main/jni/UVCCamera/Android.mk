@@ -44,6 +44,15 @@ LOCAL_CFLAGS += -DLOG_NDEBUG
 LOCAL_CFLAGS += -DACCESS_RAW_DESCRIPTORS
 LOCAL_CFLAGS += -O3 -fstrict-aliasing -fprefetch-loop-arrays
 
+# Build ID defines (DECISION-017)
+# These are set by sync_to_engine.sh or can be overridden
+UVC_GIT_SHA ?= $(shell cd $(LOCAL_PATH) && git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+UVC_BUILD_TIME ?= $(shell date -u +%Y%m%dT%H%M%SZ)
+UVC_GIT_DIRTY ?= $(shell cd $(LOCAL_PATH) && git diff --quiet HEAD 2>/dev/null || echo "-dirty")
+LOCAL_CFLAGS += -DUVC_GIT_SHA=\"$(UVC_GIT_SHA)\"
+LOCAL_CFLAGS += -DUVC_BUILD_TIME=\"$(UVC_BUILD_TIME)\"
+LOCAL_CFLAGS += -DUVC_GIT_DIRTY=\"$(UVC_GIT_DIRTY)\"
+
 LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -ldl
 LOCAL_LDLIBS += -llog
 LOCAL_LDLIBS += -landroid
@@ -72,7 +81,8 @@ LOCAL_SRC_FILES := \
 		FrameBufferJNI.cpp \
 		LayoutContract.cpp \
 		EGLImageHelperJNI.cpp \
-		serenegiant_usb_UVCCamera.cpp
+		serenegiant_usb_UVCCamera.cpp \
+		uvc_build_id.c
 
 LOCAL_MODULE    := UVCCamera
 include $(BUILD_SHARED_LIBRARY)

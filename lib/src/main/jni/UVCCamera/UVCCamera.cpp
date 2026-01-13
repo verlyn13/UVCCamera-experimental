@@ -47,6 +47,9 @@
 #include "Parameters.h"
 #include "libuvc_internal.h"
 
+// C++17 verification (DECISION-009)
+static_assert(__cplusplus >= 201703L, "C++17 or later is required");
+
 #define	LOCAL_DEBUG 0
 
 //**********************************************************************
