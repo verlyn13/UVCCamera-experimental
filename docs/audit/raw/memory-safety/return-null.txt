@@ -1,0 +1,103 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init_original.c:90:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init.c:108:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:90:      return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:268:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:294:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:601:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:612:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:910:  return NULL; // return value ignored
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:67:    return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:79:      return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:639:  return NULL; /* @todo */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:82:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:98:			return NULL ;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:116:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:334:	return NULL ;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:368:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:799:		// libusb_get_iso_packet_buffer_simple will return NULL
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1308:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1321:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1712:	return NULL; // return value ignored
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:481:    if (!ref) return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:486:    if (!result) return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:744:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:751:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:767:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/pipeline_helper.cpp:20:	if (!pipeline_obj) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:234:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:281:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:325:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:404:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:422:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:759:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:987:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:994:        return nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:70:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:643:			return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:694:			return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:721:			return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:90:        if (!str) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:106:            return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:114:    if (!g) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:448:        return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:457:    if (!path) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:461:        if (n->type != yajl_t_object) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:468:        if (i == n->u.object.len) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl.c:57:            return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/missing.c:42:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/missing.c:46:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/missing.c:53:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/missing.c:63:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/missing.c:67:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/missing.c:76:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:94:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:172:	if (uuid == NULL) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:539:    return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1329:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2549: * available on Windows and will always return NULL.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2586:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:541:		return NULL ;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:546:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:775:		return NULL ;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:959:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1293:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:538:    return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1328:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:2486: * available on Windows and will always return NULL.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:2522:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:514:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:519:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:868:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1159:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:244:    return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_udev.c:195:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:199:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:204:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:208:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:374:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:135:	if (guid == NULL) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:207:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:220:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:331:			return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:343:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:376:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:397:			return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:408:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:459:	return NULL;}
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:192:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:357:	return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdtrans.c:65:        return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdtrans.c:90:  return NULL;                  /* keep compiler happy */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:573:		if(this) free(this);  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:591:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1234:		if(this) free(this);  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1252:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1333:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1965:		return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1969:	if(!handle) return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jsimd_none.c:403:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_powerpc.c:740:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:1129:  return NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cjpeg.c:128:  return NULL;                  /* suppress compiler warnings */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:54: *   The allocation routines provided here must never return NULL.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdgif.c:36:  return NULL;                  /* keep compiler happy */

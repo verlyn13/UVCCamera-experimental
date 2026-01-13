@@ -1,0 +1,618 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:52:// XXX assertはNDEBUGが定義されていたら引数を含めて丸ごと削除されてしまうので
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:53:// 関数実行を直接assertの引数にするとその関数はNDEBUGの時に実行されなくなるので注意
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:63:#if defined(USE_LOGALL) && defined(__ANDROID__) && !defined(LOG_NDEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:66:	#define LOGD(FMT, ...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "[%d*%s:%d:%s]:" FMT,	\
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:101:	#if defined(USE_LOGV) && defined(__ANDROID__) && !defined(LOG_NDEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:112:	#if defined(USE_LOGD) && defined(__ANDROID__) && !defined(LOG_NDEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:113:		#define LOGD(FMT, ...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "[%d*%s:%d:%s]:" FMT,	\
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:185:#ifdef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/utilbase.h:211:#if defined(__ANDROID__) && (defined(USE_LOGALL) || defined(USE_LOGI)) && !defined(LOG_NDEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:53: * Table 4-7 VC Request Error Code Control XXX add saki@serenegiant.com
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:69: * VS Request Error Code Control XXX add saki@serenegiant.com
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:121:#define UVC_COLOR_FORMAT_RGB565 UVC_FRAME_FORMAT_RGB565	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:122:#define UVC_COLOR_FORMAT_RGBX UVC_FRAME_FORMAT_RGBX		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:287:	UVC_PU_CONTRAST_AUTO_CONTROL = 0x13,		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:460:	/** XXX Size of actual received data to confirm whether the received bytes is same
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:507:	/** XXX add UVC 1.1 parameters */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:513:	/** XXX add UVC 1.5 parameters */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:543:// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:549:// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:575:		int height, int min_fps, int max_fps);	// XXX added
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:589:		uint8_t flags);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:603:		uvc_frame_callback_t *cb, void *user_ptr, float bandwidth, uint8_t flags);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:620:		uvc_vc_error_code_control_t *error_code, enum uvc_req_code req_code);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:622:		uvc_vs_error_code_control_t *error_code, enum uvc_req_code req_code);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:800:uvc_error_t uvc_mjpeg2bgr(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:801:uvc_error_t uvc_mjpeg2rgb565(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:802:uvc_error_t uvc_mjpeg2rgbx(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:803:uvc_error_t uvc_mjpeg2yuyv(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:806:uvc_error_t uvc_yuyv2rgb565(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:807:uvc_error_t uvc_uyvy2rgb565(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:808:uvc_error_t uvc_rgb2rgb565(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:809:uvc_error_t uvc_any2rgb565(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:811:uvc_error_t uvc_yuyv2rgbx(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:812:uvc_error_t uvc_uyvy2rgbx(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:813:uvc_error_t uvc_rgb2rgbx(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:814:uvc_error_t uvc_any2rgbx(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:816:uvc_error_t uvc_yuyv2yuv420P(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:817:uvc_error_t uvc_yuyv2yuv420SP(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:818:uvc_error_t uvc_any2yuv420SP(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:820:uvc_error_t uvc_yuyv2iyuv420SP(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:821:uvc_error_t uvc_yuyv2iyuv420SP(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:822:uvc_error_t uvc_any2iyuv420SP(uvc_frame_t *in, uvc_frame_t *out);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:824:uvc_error_t uvc_any2yuyv(uvc_frame_t *in, uvc_frame_t *out);		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:826:uvc_error_t uvc_ensure_frame_size(uvc_frame_t *frame, size_t need_bytes); // XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal_original.h:50:#ifdef UVC_DEBUGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal_original.h:52:#define UVC_DEBUG(format, ...) fprintf(stderr, "[%s:%d/%s] " format "\n", basename(__FILE__), __LINE__, __FUNCTION__, ##__VA_ARGS__)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal_original.h:57:#define UVC_DEBUG(format, ...)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:17://#define UVC_DEBUGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:74:#ifdef UVC_DEBUGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:77:	#define UVC_DEBUG(...) LOGD(__VA_ARGS__)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:82:	#define UVC_DEBUG(format, ...) fprintf(stderr, "[%s:%d/%s] " format "\n", basename(__FILE__), __LINE__, __FUNCTION__, ##__VA_ARGS__)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:88:	#define UVC_DEBUG(...)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:205:  uint8_t bmInfo;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:206:  uint8_t bStillCaptureMethod;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:207:  uint8_t bTriggerSupport;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:208:  uint8_t bTriggerUsage;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:209:  uint64_t *bmaControls;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:266:  uint8_t bfh_err, hold_bfh_err;	// XXX added to keep UVC_STREAM_ERR
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:272:  size_t size_buf;	// XXX add for boundary check
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:297:  pthread_mutex_t status_mutex;	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h:309:  uint8_t reset_on_release_if;	// XXX whether interface alt setting needs to reset to 0.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:67:#ifndef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:157:// XXX added to improve the performance of decoding
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:190:	out->actual_bytes = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:234:		out->actual_bytes = in->width * in->height * 3;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:238:	return lines_read == out->height ? UVC_SUCCESS : UVC_ERROR_OTHER;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:260:	out->actual_bytes = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:308:		out->actual_bytes = in->width * in->height * 3;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:312:	return lines_read == out->height ? UVC_SUCCESS : UVC_ERROR_OTHER;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:334:	out->actual_bytes = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:382:		out->actual_bytes = in->width * in->height * 2;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:386:	return lines_read == out->height ? UVC_SUCCESS : UVC_ERROR_OTHER;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:411:	out->actual_bytes = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:420:	out->frame_format = UVC_FRAME_FORMAT_RGBX;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:434:	jpeg_mem_src(&dinfo, in->data, in->actual_bytes/*in->data_bytes*/);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:455:		out->actual_bytes = in->width * in->height * 4;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:459:	return lines_read == out->height ? UVC_SUCCESS : UVC_ERROR_OTHER;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:484:	out->actual_bytes = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:517:	jpeg_mem_src(&dinfo, in->data, in->actual_bytes/*in->data_bytes*/);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:559:		out->actual_bytes = in->width * in->height * 2;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:71:			unit << 8,	// FIXME this will work wrong, invalid wIndex value
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:97:			unit << 8,	// FIXME this will work wrong, invalid wIndex value
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:117:			unit << 8,	// FIXME this will work wrong, invalid wIndex value
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:122:/** VC Request Error Code Control (UVC 4.2.1.2) */ // XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:130:			devh->info->ctrl_if.bInterfaceNumber,	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:141:/** VS Request Error Code Control */ // XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:150:			devh->info->stream_ifs->bInterfaceNumber,	// XXX is this OK?
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:171:			devh->info->ctrl_if.bInterfaceNumber,	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:189:			devh->info->ctrl_if.bInterfaceNumber,	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:778: * @param[out] roll_rel TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:779: * @param[out] speed TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:806: * @param roll_rel TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:807: * @param speed TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:831: * @param[out] privacy TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:857: * @param privacy TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:880: * @param[out] window_top TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:881: * @param[out] window_left TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:882: * @param[out] window_bottom TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:883: * @param[out] window_right TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:884: * @param[out] num_steps TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:885: * @param[out] num_steps_units TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:919: * @param window_top TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:920: * @param window_left TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:921: * @param window_bottom TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:922: * @param window_right TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:923: * @param num_steps TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:924: * @param num_steps_units TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:955: * @param[out] roi_top TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:956: * @param[out] roi_left TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:957: * @param[out] roi_bottom TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:958: * @param[out] roi_right TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:959: * @param[out] auto_controls TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:991: * @param roi_top TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:992: * @param roi_left TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:993: * @param roi_bottom TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:994: * @param roi_right TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:995: * @param auto_controls TODO
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1229:	// XXX AUTO(0x03) is only available for UVC1.5.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag.c:183:	case LIBUSB_DT_DEBUG:						// 0x0a,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:511:    UVC_DEBUG("not retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:517:        UVC_DEBUG("Freeing transfer %d (%p)", i, transfer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:525:      UVC_DEBUG("transfer %p not found; not freeing!", transfer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:536:    UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:807:      UVC_DEBUG("libusb_set_interface_alt_setting failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:844:        UVC_DEBUG("libusb_submit_transfer failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:201:  UVC_DEBUG("libusb_open() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:222:  UVC_DEBUG("claiming control interface %d", internal_devh->info->ctrl_if.bInterfaceNumber);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:246:    UVC_DEBUG("libusb_submit_transfer() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:425:    UVC_DEBUG("can't open device %04x:%04x, not fetching serial",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:548:      UVC_DEBUG("    UVC: %d", dev_idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:550:      UVC_DEBUG("non-UVC: %d", dev_idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:714:  UVC_DEBUG("claiming interface %d", idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:732:  UVC_DEBUG("releasing interface %d", idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1271:    UVC_DEBUG("Short read of status update (%d bytes)", transfer->actual_length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1285:      UVC_DEBUG("Short read of VideoControl status update (%d bytes)",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1295:      UVC_DEBUG("Unhandled update from VC interface");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1301:      UVC_DEBUG("Unhandled VC event %d", (int) event);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1327:      UVC_DEBUG("Got status update for unknown VideoControl entity %d",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1339:    UVC_DEBUG("Unhandled update from VideoStreaming interface");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1344:  UVC_DEBUG("Event: class=%d, event=%d, selector=%d, attribute=%d, data_len=%zd",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1348:    UVC_DEBUG("Running user-supplied status callback");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1372:    UVC_DEBUG("not processing/resubmitting, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1381:    UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1386:  UVC_DEBUG("libusb_submit_transfer() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:46:#define LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:50:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:51:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:56:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:57:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:188: * XXX add for non-rooted Android devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:219: * XXX add for non-rooted Android device, >= Android7
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:278:	UVC_DEBUG("libusb_open() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:290:	internal_devh->reset_on_release_if = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:292:	pthread_mutex_init(&internal_devh->status_mutex, NULL);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:300:	UVC_DEBUG("claiming control interface %d",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:311:		UVC_DEBUG("status check transfer:bEndpointAddress=0x%02x", internal_devh->info->ctrl_if.bEndpointAddress);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:323:		UVC_DEBUG("libusb_submit_transfer() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:346:	uvc_release_if(internal_devh, internal_devh->info->ctrl_if.bInterfaceNumber);	// XXX crash, assume when uvc_get_device_info failed.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:383:		// XXX assume libusb_get_active_config_descriptor　is better
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:465:		free(stream_if->bmaControls);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:510:		unsigned char str_buf[255];	// XXX 64 => 255
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:534:		UVC_DEBUG("can't open device %04x:%04x, not fetching serial",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:665:			UVC_DEBUG("    UVC: %d", dev_idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:667:			UVC_DEBUG("non-UVC: %d", dev_idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:836:	UVC_DEBUG("claiming interface %d", idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:844:		UVC_DEBUG("claiming interface %d", idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:847:	    UVC_DEBUG("not claiming interface %d: unable to detach kernel driver (%s)",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:866:	UVC_DEBUG("releasing interface %d", idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:870:	// XXX but resetting the alt setting here manytimes leads trouble
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:887:			UVC_DEBUG("reattached kernel driver to interface %d", idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:891:			UVC_DEBUG("error reattaching kernel driver to interface %d: %s",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:916:	if (LIKELY(info && info->config)) {	// XXX add to avoid crash
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:996:	case 0x0150:	// XXX add to support UVC 1.5
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1040:	term->bmControls = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1074:	term->request = (term->bTerminalID << 8) | info->ctrl_if.bInterfaceNumber;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1075:	// TODO depending on the wTerminalType
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1097:	unit->request = (unit->bUnitID << 8) | info->ctrl_if.bInterfaceNumber;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1099:	unit->bmControls = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1130:	unit->bmControls = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1203:	// XXX some device have it's format descriptions after the endpoint descriptor
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1248:	stream_if->bmInfo = block[7];	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1249:	stream_if->bStillCaptureMethod = block[9];	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1250:	stream_if->bTriggerSupport = block[10];	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1251:	stream_if->bTriggerUsage = block[11];	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1498://	case UVC_VS_STILL_IMAGE_FRAME:	// FIXME unsupported now
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1516://	case UVC_VS_COLORFORMAT:	// FIXME unsupported now
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1535:	pthread_mutex_destroy(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1630:		UVC_DEBUG("Short read of VideoControl status update (%d bytes)", len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1640:		UVC_DEBUG("Unhandled update from VC interface");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1646:		UVC_DEBUG("Unhandled VC event %d", (int) event);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1672:		UVC_DEBUG("Got status update for unknown VideoControl entity %d",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1682:	UVC_DEBUG("Event: class=%d, event=%d, selector=%d, attribute=%d, content_len=%zd",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1685:	pthread_mutex_lock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1688:		UVC_DEBUG("Running user-supplied status callback");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1697:	pthread_mutex_unlock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1707:		UVC_DEBUG("Invalid streaming status event received.\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1714:			UVC_DEBUG("Short read of status update (%d bytes)", len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1718:		UVC_DEBUG("Button (intf %u) %s len %d\n", data[1], data[3] ? "pressed" : "released", len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1720:		pthread_mutex_lock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1723:				UVC_DEBUG("Running user-supplied button callback");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1729:		pthread_mutex_unlock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1731:		UVC_DEBUG("Stream %u error event %02x %02x len %d.\n", data[1], data[2], data[3], len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1769:		UVC_DEBUG("not processing/resubmitting, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1778:		UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1783:	UVC_DEBUG("libusb_submit_transfer() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1796:	pthread_mutex_lock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1801:	pthread_mutex_unlock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1814:	pthread_mutex_lock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1819:	pthread_mutex_unlock(&devh->status_mutex);	// XXX saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:59:			frame->actual_bytes = frame->data_bytes = need_bytes;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:79:	uvc_frame_t *frame = malloc(sizeof(*frame));	// FIXME using buffer pool is better performance(5-30%) than directory use malloc everytime.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:85:	// XXX in many case, it is not neccesary to clear because all fields are set before use
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:89://	frame->library_owns_data = 1;	// XXX moved to lower
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:93:		frame->actual_bytes = frame->data_bytes = data_bytes;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:139:	out->actual_bytes = in->actual_bytes;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:141:#if USE_STRIDE	 // XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:161:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:165:	memcpy(out->data, in->data, in->actual_bytes); // XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:270:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:352:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:454:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:521:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:615:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:705:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:794:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:861:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:954:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:1043:		// compressed format? XXX if only one of the frame in / out has step, this may lead to crash...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:45:#define LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:49:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:50:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:55:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:56:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:60:#include <assert.h>		// XXX add assert for debugging
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:167:	uint8_t buf[48];	// XXX support UVC 1.1 & 1.5
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:196:			// XXX add to support UVC 1.1
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:203:				// XXX add to support UVC1.5
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:223:			UVC_DEBUG("libusb_control_transfer transfered zero length data");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:251:			// XXX add to support UVC 1.1
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:258:				// XXX add to support UVC1.5
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:381:	// XXX some camera may need to call uvc_query_stream_ctrl with UVC_GET_CUR/UVC_GET_MAX/UVC_GET_MIN
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:389:				LOGE("uvc_query_stream_ctrl:UVC_GET_MAX:err=%d", result);	// XXX 最大値の方を後で取得しないとだめ
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:431:	// XXX add check ctrl values
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:545:	memset(ctrl, 0, sizeof(*ctrl));	// XXX add
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:609:		strmh->hold_bfh_err = strmh->bfh_err;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:625:	strmh->bfh_err = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:633:	if (UNLIKELY(!strmh)) EXIT();		// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:636:	pthread_mutex_lock(&strmh->cb_mutex);	// XXX crash while calling uvc_stop_streaming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:641:				libusb_cancel_transfer(strmh->transfers[i]);	// XXX 20141112追加
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:642:				UVC_DEBUG("Freeing transfer %d (%p)", i, transfer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:650:			UVC_DEBUG("transfer %p not found; not freeing!", transfer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:708:			UVC_DEBUG("bogus packet: actual_len=%zd, header_len=%zd\n", payload_len, header_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:728:			UVC_DEBUG("bad packet: error bit set");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:745:			// XXX saki some camera may send broken packet or failed to receive all data
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:757:			// XXX saki some camera may send broken packet or failed to receive all data
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:791://			UVC_DEBUG("bad packet:status=%d,actual_length=%d", pkt->status, pkt->actual_length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:840:		// XXX accessing to pktbuf could lead to crash on the original implementation
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:843:		if (LIKELY(pktbuf)) {	// XXX add null check because libusb_get_iso_packet_buffer_simple could return null
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:844://			assert(pktbuf < transfer->buffer + transfer->length - 1);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:846:			// XXX optimaization because this flag never become true on Android devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:889:					// XXX saki some camera may send broken packet or failed to receive all data
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:899:					// XXX saki some camera may send broken packet or failed to receive all data
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:908:#ifdef __ANDROID__	// XXX optimaization because this flag never become true on Android devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:926:			// XXX original implementation could lead to trouble because unsigned values
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:972:#ifndef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1013:		UVC_DEBUG("not retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1020:		UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1025:		UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1029:		UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1039:		// XXX delete non-reusing transfer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1061:	size_t header_len;	// XXX unsigned int header_len
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1071:#ifndef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1096:			// XXX accessing to pktbuf could lead to crash on the original implementation
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1099:			if (LIKELY(pktbuf)) {	// XXX add null check because libusb_get_iso_packet_buffer_simple could return null
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1100://				assert(pktbuf < transfer->buffer + transfer->length - 1);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1102:				// XXX optimaization because this flag never become true on Android devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1145:						// XXX saki some camera may send broken packet or failed to receive all data
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1155:						// XXX saki some camera may send broken packet or failed to receive all data
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1164:#ifdef __ANDROID__	// XXX optimaization because this flag never become true on Android devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1182:				// XXX original implementation could lead to trouble because unsigned values
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1211:		UVC_DEBUG("not retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1218:		UVC_DEBUG("retrying transfer, status = %d", transfer->status);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1226:		// XXX delete non-reusing transfer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1443:	strmh->bfh_err = 0;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1504:		if (UNLIKELY(!config_bytes_per_packet)) {	// XXX added to privent zero divided exception at the following code
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1536:			// XXX config_bytes_per_packet should not be zero otherwise zero divided exception occur
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1539:					|| (alt_idx == num_alt) ) {	// XXX always match to last altsetting for buggy device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1544:							/ endpoint_bytes_per_packet;		// XXX cashed by zero divided exception occured
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1567:/*		if (UNLIKELY(alt_idx == interface->num_altsetting)) {	// XXX never hit this condition
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1568:			UVC_DEBUG("libusb_set_interface_alt_setting failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1588:			UVC_DEBUG("libusb_set_interface_alt_setting failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1642:			UVC_DEBUG("libusb_submit_transfer failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1703:			if (LIKELY(!strmh->hold_bfh_err))	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1708:		if (LIKELY(!strmh->hold_bfh_err))	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1736:	// XXX set actual_bytes to zero when erro bits is on
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1753:		frame->data = realloc(frame->data, strmh->hold_bytes);	// TODO add error handling when failed realloc
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1756:	memcpy(frame->data, strmh->holdbuf, strmh->hold_bytes/*frame->data_bytes*/);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1871:					UVC_DEBUG("libusb_cancel_transfer failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1872:					// XXX originally freed buffers and transfer here
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:310:			// XXX other interfaces
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:389:			// FIXME still image is not supported now
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:254:		// FIXME as current implementation, transferring frame data on my device is slower than that coming from UVC camera... just drop them now
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CaptureBasePipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CaptureBasePipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CaptureBasePipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CaptureBasePipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/IPipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/IPipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/IPipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/IPipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/IPipeline.cpp:59:	// XXX do I need to delete next_pipeline if it is not NULL?
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:8:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:9:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:14:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:15:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:108://	case UVC_FRAME_FORMAT_H264:	// XXX this definition does not exist now
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:6:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:7:		#define	LOG_NDEBUG		// ignore LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:12:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:13:	#undef NDEBUG		// depends on definition in Android.mk and Application.mk
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:167:		// FIXME if the number of record exceeds specific limit, need to delete old records or drop newer frames
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:168:		// FIXME otherwise device storage will become empty at some point.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:208:#ifndef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:221:#ifndef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:297:						const int64_t id = (*iter).get<int64_t>(0);	// XXX int64_t(long long int) may be better
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:26:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:27:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:32:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:33:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:53:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:75:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:27:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:28:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:33:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:34:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:50:#define	LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:229://			libusb_set_debug(mContext->usb_ctx, LIBUSB_LOG_LEVEL_DEBUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:270:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:297://				SAFE_DELETE(mDevice);	// 参照カウンタが0ならuvc_unref_deviceでmDeviceがfreeされるから不要 XXX クラッシュ, 既に破棄されているのを再度破棄しようとしたからみたい
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1977:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1983:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1989:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1996:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2002:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2008:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2015:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2021:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2027:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2072:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2079:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2086:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2096:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2103:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:2110:	// FIXME not implemented yet
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCReadinessCallback.cpp:30:#define LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCStatusCallback.cpp:8:#define	LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCButtonCallback.cpp:8:#define	LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:30:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:31:		#define	LOG_NDEBUG		// w/o LOGV/LOGD/MARK
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:36:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:37://	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:45:#define	LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:398:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:465:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:553:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:577:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:722:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:791:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:828:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:869:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:877:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:916:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1077:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1093:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/_onload.cpp:29:#define LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/_onload.cpp:36:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/_onload.cpp:59:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/localdefines.h:36:// write back array that got by getXXXArrayElements into original Java object and release its array
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/localdefines.h:38:// write back array that got by getXXXArrayElements into origianl Java object but do not release its array
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/localdefines.h:40:// never write back array that got by getXXXArrayElements but release its array
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/localdefines.h:60:#ifdef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/localdefines.h:64:#ifdef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/unittest.h:81:    strcpy(filename, "/tmp/fileXXXXXX");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/include/rapidjson/reader.h:581:    // Helper function to parse four hexidecimal digits in \uXXXX in ParseString().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/test_lib_json/main.cpp:5:// TODO:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:59:FIXME: While this is fine dandy and working it's a magic value mess which probably only the author understands.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:63:Table for pure ascii output escaping all characters above 127 to \uXXXX */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:92:FIXME: Keep track of how big these get across several encoder calls and try to make an estimate
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:194:FIXME:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:197:FIXME: The JSON spec says escape "/" but non of the others do and we don't 
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:325:				// \uXXXX encode
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:571:FIXME:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:575:FIXME:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:597:	4 bytes (of UTF-8) => "\uXXXX\uXXXX" (12 bytes)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:115:			//FIXME: Check for arithemtic overflow here
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:220:	//FIXME: Check for arithemtic overflow here
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:277:	//FIXME: Check for arithemtic overflow here
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:792:	FIXME: Base the size of escBuffer of that of cbBuffer so that the unicode escaping doesn't run into the wall each time */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajson.h:229:	If true output will be ASCII with all characters above 127 encoded as \uXXXX. If false output will be UTF-8 or what ever charset strings are brought as */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/include/yajl/yajl_gen.h:42:        /** A generator function (yajl_gen_XXX) was called while in an error
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_lex.c:25:#ifdef YAJL_LEXER_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_lex.c:374:    /** XXX: numbers are the only entities in json that we must lex
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_lex.c:674:#ifdef YAJL_LEXER_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:246:    // XXX: This checking could be done a little faster, in the same pass as
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/api/yajl_gen.h:42:        /** A generator function (yajl_gen_XXX) was called while in an error
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl.c:175:/* XXX: add utility routines to parse from file */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.h:53:    /* a stack of states.  access with yajl_state_XXX routines */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/config.h:26:// #define ENABLE_DEBUG_LOGGING 1
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/msvc/errno.h:18: * TODO: Can't be sure of some of these assignments, I guessed from the
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/stress.c:129:		libusb_set_debug(NULL, LIBUSB_LOG_LEVEL_DEBUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/stress.c:130:		libusb_set_debug(ctx, LIBUSB_LOG_LEVEL_DEBUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.h:64: * TODO: Could use some validation. Also where's the FX2?
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/getopt/getopt.c:259:   XXX This is no good solution.  We should rather copy the args so
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:334:		/* FIXME check for _physically_ contiguous not just virtually
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:793:	// TODO: what should we do for non HEX images there?
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:1097:	libusb_set_debug(NULL, debug_mode?LIBUSB_LOG_LEVEL_DEBUG:LIBUSB_LOG_LEVEL_INFO);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/android/config.h:21:/* #undef ENABLE_DEBUG_LOGGING */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/android/config_original.h:21:/* #undef ENABLE_DEBUG_LOGGING */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi_original.h:171:#define usbi_dbg(...) _usbi_log(NULL, LIBUSB_LOG_LEVEL_DEBUG, __VA_ARGS__)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi_original.h:206:	LOG_BODY(NULL,LIBUSB_LOG_LEVEL_DEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi_original.h:999:	/* FIXME: linux can't use this any more. if other OS's cannot either,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/config.h:21:/* #undef ENABLE_DEBUG_LOGGING */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:23:#include <assert.h>		// XXX add assert for debugging
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1121:	/* FIXME should use an eventfd on kernels that support it */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1365:	transfer->user_data = NULL;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1571:	/* FIXME: could be more intelligent with the timerfd here. we don't need
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1591:		if (rqlen != itransfer->transferred) {	// XXX itransfer->transferred is almost always zero on iso transfer mode...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1600:	transfer->actual_length = itransfer->transferred;	// XXX therefore transfer->actual_length is also almost always zero on iso transfer mode
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1719:	/* FIXME: perhaps we should be a bit more efficient by not broadcasting
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1884:		&ctx->event_waiters_lock, &timeout);	// XXX crash 2014/10/02 SIGABRT/SI_TKILL
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1924:		assert(cur_tv);				// XXX add assert
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1925:		if (!timerisset(cur_tv))	// XXX crash
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1995:		/* TODO: malloc when number of fd's changes, not on every poll */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1292: *  - LIBUSB_LOG_LEVEL_DEBUG (4)   : debug and informational messages are printed to stdout,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1300:	LIBUSB_LOG_LEVEL_DEBUG,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1650:	 * signed to avoid compiler warnings. FIXME for libusb-2. */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1690:	 * signed to avoid compiler warnings. FIXME for libusb-2. */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:126:	if (!list_empty(entry)) {	// XXX add saki@serenegiant because sometimes crash
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:168:#define usbi_dbg(...) _usbi_log(NULL, LIBUSB_LOG_LEVEL_DEBUG, __VA_ARGS__)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:203:LOG_BODY(NULL,LIBUSB_LOG_LEVEL_DEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:444:#if defined(OS_ANDROID) || defined(OS_LINUX) || defined(OS_DARWIN) || defined(OS_OPENBSD) || defined(OS_NETBSD)	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:626:	 * XXX function to set file descriptor, added for mainly non-rooted Android
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:641:			unsigned char *buffer, int *descriptors_len, int *host_endian);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:1013:	/* FIXME: linux can't use this any more. if other OS's cannot either,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:1020:extern const struct usbi_os_backend android_usbfs_backend;	// XXX added for mainly non-rooted Android
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:27:#define LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:31:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:32:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:37:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:38:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:43:#include <assert.h>		// XXX add assert for debugging
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:67:#if defined(OS_ANDROID)	// XXX for non rooted android device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:159: * LIBUSB_DEBUG outside of the application, can result in logging being
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:179: * The LIBUSB_DEBUG environment variable can be used to enable message logging
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:186: * systems. In this case, libusb_set_debug() and the LIBUSB_DEBUG environment
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:191: * always logged. libusb_set_debug() and the LIBUSB_DEBUG environment variable
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:756: * TODO it is better to check serial number for multiple device connection with same vender ID and product ID
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1435:	libusb_lock_events(ctx);	// XXX crash
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1438:		r = usbi_read(ctx->ctrl_pipe[0], &dummy, sizeof(dummy));	// XXX crash
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1444:		do_close(ctx, dev_handle);	// XXX this function internally call libusb_lock_events/libusb_unlock_events
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2019: * If the LIBUSB_DEBUG environment variable was set when libusb was
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2042:	char *dbg = getenv("LIBUSB_DEBUG");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2067:#ifdef ENABLE_DEBUG_LOGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2068:		ctx->debug = LIBUSB_LOG_LEVEL_DEBUG;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2194:	char *dbg = getenv("LIBUSB_DEBUG");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2218:#ifdef ENABLE_DEBUG_LOGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2219:		ctx->debug = LIBUSB_LOG_LEVEL_DEBUG;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2469:	case LIBUSB_LOG_LEVEL_NONE: break;	// XXX add to avoid warning when compiling with clang
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2473:	case LIBUSB_LOG_LEVEL_DEBUG: priority = ANDROID_LOG_DEBUG; break;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2482:	case LIBUSB_LOG_LEVEL_DEBUG: syslog_level = LOG_DEBUG; break;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2507:#ifdef ENABLE_DEBUG_LOGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2517:		char *dbg = getenv("LIBUSB_DEBUG");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2524:	global_debug = (ctx_level == LIBUSB_LOG_LEVEL_DEBUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2532:	if (level == LIBUSB_LOG_LEVEL_DEBUG && ctx_level < LIBUSB_LOG_LEVEL_DEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2539:		usbi_log_str(ctx, LIBUSB_LOG_LEVEL_DEBUG, "[timestamp] [threadID] facility level [function call] <message>\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2540:		usbi_log_str(ctx, LIBUSB_LOG_LEVEL_DEBUG, "--------------------------------------------------------------------------------\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2559:	case LIBUSB_LOG_LEVEL_DEBUG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:267:	/** XXX */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:270:	/** XXX */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:273:	/** XXX */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:276:	/** XXX */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:279:	/** XXX */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:280:	LIBUSB_DT_DEBUG = 0x0a,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:282:	/** XXX Interface Association descriptor(IAD) See libusb_association_descriptor */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:317:#define LIBUSB_DT_HEADER_SIZE					2	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:327:#define LIBUSB_DT_QUALIFER_SIZE					10	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:328:#define LIBUSB_DT_OTHER_SPEED_SIZE				9	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:329:#define LIBUSB_DT_ASSOCIATION_SIZE				8	// XXX add to support IAD
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:672:struct libusb_association_descriptor {	// XXX added to support composit device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1350: *  - LIBUSB_LOG_LEVEL_DEBUG (4)   : debug and informational messages are printed to stdout,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1358:	LIBUSB_LOG_LEVEL_DEBUG,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1378:	const int vid, const int pid, const char *sn, int fd);	// XXX add for mainly non-rooted Android
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1433:int LIBUSB_CALL libusb_set_device_fd(libusb_device *dev, int fd);	// XXX add for mainly non-rooted Android
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1753:	 * signed to avoid compiler warnings. FIXME for libusb-2. */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1793:	 * signed to avoid compiler warnings. FIXME for libusb-2. */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1120:	/* FIXME should use an eventfd on kernels that support it */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1531:	/* FIXME: could be more intelligent with the timerfd here. we don't need
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1672:	/* FIXME: perhaps we should be a bit more efficient by not broadcasting
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1939:	/* TODO: malloc when number of fd's changes, not on every poll */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:132: * LIBUSB_DEBUG outside of the application, can result in logging being
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:152: * The LIBUSB_DEBUG environment variable can be used to enable message logging
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:159: * systems. In this case, libusb_set_debug() and the LIBUSB_DEBUG environment
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:164: * always logged. libusb_set_debug() and the LIBUSB_DEBUG environment variable
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:781:		// TODO: see how the other backends want to implement HCDs as parents
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1762: * If the LIBUSB_DEBUG environment variable was set when libusb was
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1798:	char *dbg = getenv("LIBUSB_DEBUG");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1822:#ifdef ENABLE_DEBUG_LOGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1823:	ctx->debug = LIBUSB_LOG_LEVEL_DEBUG;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2063:	case LIBUSB_LOG_LEVEL_DEBUG: priority = ANDROID_LOG_DEBUG; break;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2072:	case LIBUSB_LOG_LEVEL_DEBUG: syslog_level = LOG_DEBUG; break;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2095:#ifdef ENABLE_DEBUG_LOGGING
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2105:		char *dbg = getenv("LIBUSB_DEBUG");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2109:	global_debug = (ctx_level == LIBUSB_LOG_LEVEL_DEBUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2116:	if (level == LIBUSB_LOG_LEVEL_DEBUG && ctx_level < LIBUSB_LOG_LEVEL_DEBUG)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2123:		usbi_log_str(ctx, LIBUSB_LOG_LEVEL_DEBUG, "[timestamp] [threadID] facility level [function call] <message>\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2124:		usbi_log_str(ctx, LIBUSB_LOG_LEVEL_DEBUG, "--------------------------------------------------------------------------------\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2143:	case LIBUSB_LOG_LEVEL_DEBUG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:176:			 * XXX If ugen(4) is attached to the USB device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:714:		 * XXX If the device is not attached to ugen(4) it is
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:715:		 * XXX still possible to submit a control transfer but
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:716:		 * XXX with the default timeout only.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.h:147:// TODO (v2+): move hid desc to libusb.h?
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:50://#define DEBUG_POLL_WINDOWS
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:51:#if defined(DEBUG_POLL_WINDOWS)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:28:#define LOCAL_DEBUG 0
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:32:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:33:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:38:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:39:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:201:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:421:static int op_init2(struct libusb_context *ctx, const char *usbfs) {	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:745:// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:879:		if (header.bDescriptorType == descriptor_type)	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:985:	// XXX at this point, we skipped device descriptor only and the next one
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:989:	// FIXME On current implementation, any descriptor other than config descriptor
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1054:	// XXX at this point, we skipped device descriptor only and the next one
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1058:	// FIXME On current implementation, any descriptor other than config descriptor
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1238:	/* XXX -- can we figure out the topology when using usbfs? */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1386:	/* FIXME: session ID is not guaranteed unique as addresses can wrap and
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1426:	/* FIXME: session ID is not guaranteed unique as addresses can wrap and
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1511:		/* FIXME: should handle valid race conditions like hub unplugged
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2097:		// XXX this function call may always fail on non-rooted Android devices with errno=22(EINVAL)...
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2249:#if LOCAL_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2404:		/* FIXME: interface for non-ASAP data? */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2579:static int handle_bulk_completion(struct libusb_device_handle *handle,	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2657:		op_clear_halt(handle, urb->endpoint);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2717:static int handle_iso_completion(struct libusb_device_handle *handle,	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2768:			op_clear_halt(handle, urb->endpoint);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2841:static int handle_control_completion(struct libusb_device_handle *handle,	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2880:		op_clear_halt(handle, urb->endpoint);	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2985:			usbi_mutex_lock(&ctx->events_lock);		// XXX as a note of usbi_handle_disconnect shows that need event_lock locked
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2987:			usbi_mutex_unlock(&ctx->events_lock);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:3036:	.init2 = op_init2,	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:3040:	.get_raw_descriptor = op_get_raw_descriptor,	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:3045:	.set_device_fd = op_set_device_fd,	// XXX add for no-rooted Android devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/threads_posix.c:78:	/* TODO: NetBSD thread ID support */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:25:	#ifndef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:26:		#define	LOG_NDEBUG		// LOGV/LOGD/MARKを出力しない時
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:31:	#undef LOG_NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:32:	#undef NDEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:144:	/* TODO -- add authentication */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:308:	char buffer[1024];	// XXX changed from unsigned char to char because the first argument of android_netlink_parse is char *
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:326:	/* TODO -- authenticate this message is from the kernel or udevd */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:653:	// TODO: (post hotplug): try without sanitizing
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1403://#define ENUM_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1404:#ifdef ENUM_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1464:#ifdef ENUM_DEBUG
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2741:				// TODO: can we move this whole business into the K/0 DLL?
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3105:// TODO: (post hotplug): see if we can force eject the device and redetect it (reuse hotplug?)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:994:	/* XXX -- can we figure out the topology when using usbfs? */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1057:	/* FIXME: session ID is not guaranteed unique as addresses can wrap and
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1141:		/* FIXME: should handle valid race conditions like hub unplugged
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1969:		/* FIXME: interface for non-ASAP data? */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:129:	/* TODO -- add authentication */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:308:	/* TODO -- authenticate this message is from the kernel or udevd */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:34://#define DESC_HEADER_LENGTH			2	// XXX this is same as LIBUSB_DT_HEADER_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:35://#define DEVICE_DESC_LENGTH			18	// XXX this is same as LIBUSB_DT_DEVICE_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:36://#define CONFIG_DESC_LENGTH			9	// XXX this is same as LIBUSB_DT_CONFIG_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:37://#define INTERFACE_DESC_LENGTH			9	// XXX this is same as LIBUSB_DT_INTERFACE_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:38://#define ENDPOINT_DESC_LENGTH			7	// XXX this is same as LIBUSB_DT_ENDPOINT_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:39://#define ENDPOINT_AUDIO_DESC_LENGTH	9	// XXX this is same as LIBUSB_DT_ENDPOINT_AUDIO_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:40://#define ASSOCIATION_DESC_LENGTH		8	// XXX this is same as LIBUSB_DT_ASSOCIATION_SIZE in libusb.h
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:111:		endpoint->extra = NULL; // XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:511:		config->interface = NULL;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:515:		config->extra = NULL;	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:737:		case LIBUSB_DT_DEBUG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:738:			LOGI("LIBUSB_DT_DEBUG(0x%02x),length=%d", header.bDescriptorType, header.bLength);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:866:	// FIXME add IAD support
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:896:	r = usbi_backend->get_active_config_descriptor(dev, tmp,	// XXX this function will return error on some buggy device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:911:	r = usbi_backend->get_active_config_descriptor(dev, buf,	// XXX this function will return error on some buggy device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:465:			/* FIXME: We should realloc and append here */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jerror.h:134:JMESSAGE(JERR_VIRTUAL_BUG, "Virtual array controller messed up")
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcmaster.c:617:  if (cinfo->progressive_mode && !cinfo->arith_code)  /*  TEMPORARY HACK ??? */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm.c:97: * FIXME: This code is racy under a multi-threaded environment.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:61: * FIXME: This code is racy under a multi-threaded environment.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm64.c:111: * FIXME: This code is racy under a multi-threaded environment.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_i386.c:39: * FIXME: This code is racy under a multi-threaded environment.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_x86_64.c:39: * FIXME: This code is racy under a multi-threaded environment.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrgif.c:392:    ERREXIT(cinfo, JERR_GIF_BUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cderror.h:59:JMESSAGE(JERR_GIF_BUG, "GIF output got confused")
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:828:      ERREXIT(cinfo, JERR_VIRTUAL_BUG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:913:      ERREXIT(cinfo, JERR_VIRTUAL_BUG);

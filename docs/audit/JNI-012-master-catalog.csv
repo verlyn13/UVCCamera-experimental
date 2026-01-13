@@ -1,0 +1,55 @@
+id,document,category,severity,finding,recommendation,status,notes
+JNI-001-001,JNI-001,Function Inventory,Info,160 JNI methods total,Well-organized,Verified,3 registration points across 3 files
+JNI-001-002,JNI-001,Function Inventory,Info,HandleManager used consistently,Keep pattern,Verified,Modern MTE-safe pattern
+JNI-001-003,JNI-001,Function Inventory,Medium,EGL handles use direct cast,Migrate to HandleManager,Open,EGLImageHelperJNI.cpp:282
+JNI-001-004,JNI-001,Function Inventory,Info,81 camera control methods,Consider codegen,Deferred,27 controls x 3 methods each
+JNI-001-005,JNI-001,Function Inventory,Low,"WhiteBlance typo preserved",Legacy compatibility,Accepted,Deliberate for API stability
+JNI-001-006,JNI-001,Function Inventory,Info,Zero-copy path implemented,Phase 4 complete,Verified,AHardwareBuffer pipeline working
+JNI-002-001,JNI-002,Handle Leaks,Info,HandleManager used for Camera handles,Keep,Verified,serenegiant_usb_UVCCamera.cpp:129
+JNI-002-002,JNI-002,Handle Leaks,Info,HandleManager used for RingBuffer handles,Keep,Verified,FrameBufferJNI.cpp:126
+JNI-002-003,JNI-002,Handle Leaks,Medium,EGLImage handle uses direct cast,Consider HandleManager,Open,EGLImageHelperJNI.cpp:282
+JNI-002-004,JNI-002,Handle Leaks,Medium,EGLSync handle uses direct cast,Consider HandleManager,Open,EGLImageHelperJNI.cpp:419
+JNI-002-005,JNI-002,Handle Leaks,Low,Internal ring pointer returned,Document lifecycle,Accepted,UVCCamera.cpp:758 - internal use only
+JNI-002-006,JNI-002,Handle Leaks,Info,Generation encoding prevents use-after-free,Exemplary pattern,Verified,HandleManager.h implementation
+JNI-003-001,JNI-003,Frame Delivery,Info,Zero-copy pipeline implemented,Production ready,Verified,AHardwareBuffer + EGL path
+JNI-003-002,JNI-003,Frame Delivery,Info,Broadcaster pattern for capture,Keep pattern,Verified,Capture emits before display routing
+JNI-003-003,JNI-003,Frame Delivery,Low,Legacy ByteBuffer path retained,Deprecate gradually,Deferred,IFrameCallback still in use
+JNI-003-004,JNI-003,Frame Delivery,Info,Triple buffering prevents tearing,Optimal,Verified,3-slot ring buffer design
+JNI-003-005,JNI-003,Frame Delivery,Info,Bidirectional fencing implemented,GPU-safe,Verified,acquireFence + releaseFence
+JNI-003-006,JNI-003,Frame Delivery,Info,OutputMode as Single Source of Truth,Clean architecture,Verified,OutputMode.h enum
+JNI-004-001,JNI-004,Lifecycle,Info,3-state machine well-designed,Keep,Verified,COLD/WARM/HOT states
+JNI-004-002,JNI-004,Lifecycle,Info,WARM state enables instant resume,Document for users,Verified,No re-permission needed
+JNI-004-003,JNI-004,Lifecycle,Info,Graduated cleanup levels,Proper resource management,Verified,4 levels: PREVIEW_ONLY to FULL
+JNI-004-004,JNI-004,Lifecycle,Low,GlobalRef cleanup relies on destructor,Verify no JNI env issues,Accepted,Standard pattern but needs env
+JNI-004-005,JNI-004,Lifecycle,Info,HandleManager protects against destroy-during-call,Robust,Verified,ScopedRef blocks destruction
+JNI-004-006,JNI-004,Lifecycle,Info,Atomic state with proper memory ordering,Thread-safe,Verified,acquire/release semantics
+JNI-005-001,JNI-005,Error Handling,Info,Return codes used consistently,Document error codes,Verified,0=success -100=invalid handle
+JNI-005-002,JNI-005,Error Handling,Info,ExceptionClear after callbacks,Prevents cascades,Verified,22 locations
+JNI-005-003,JNI-005,Error Handling,Info,Handle validation 100%,Robust,Verified,All 154+ methods validate
+JNI-005-004,JNI-005,Error Handling,Low,No JNI exceptions thrown,Consider for critical errors,Deferred,Return codes sufficient
+JNI-005-005,JNI-005,Error Handling,Info,LOGE for all failures,Good observability,Verified,Consistent logging
+JNI-006-001,JNI-006,Thread Attachment,Info,All attach/detach properly paired,No leaks,Verified,7 attachment locations
+JNI-006-002,JNI-006,Thread Attachment,Info,GlobalRefs used for cross-thread,Thread-safe,Verified,Callback objects use GlobalRef
+JNI-006-003,JNI-006,Thread Attachment,Low,Threads unnamed,Consider naming for debug,Deferred,JavaVMAttachArgs could set name
+JNI-006-004,JNI-006,Thread Attachment,Info,ExceptionClear after callbacks,Prevents cascade,Verified,Redundant with JNI-005-002
+JNI-006-005,JNI-006,Thread Attachment,Info,getEnv helper available,Consistent pattern,Verified,utilbase.cpp:37
+JNI-007-001,JNI-007,AHardwareBuffer,Info,Zero-copy implemented,Production ready,Verified,CPU_WRITE + GPU_SAMPLED usage
+JNI-007-002,JNI-007,AHardwareBuffer,Info,Triple buffering,Optimal for smooth playback,Verified,FRAME_BUFFER_COUNT=3
+JNI-007-003,JNI-007,AHardwareBuffer,Info,Bidirectional fencing,GPU-safe,Verified,acquireFence + releaseFence sync
+JNI-007-004,JNI-007,AHardwareBuffer,Low,API 29+ recommended,Document in requirements,Accepted,API 26+ works with fallback
+JNI-007-005,JNI-007,AHardwareBuffer,Info,SIMD decode integration,Maximizes throughput,Verified,libjpeg-turbo ARM NEON
+JNI-008-001,JNI-008,Handle Registry,Info,Generation-encoded handles,MTE-safe,Verified,64-bit handle format
+JNI-008-002,JNI-008,Handle Registry,Info,ScopedRef blocks destruction,Thread-safe,Verified,activeRefs atomic counting
+JNI-008-003,JNI-008,Handle Registry,Info,Spin-wait with timeout,Prevents deadlock,Verified,5000 spin limit
+JNI-008-004,JNI-008,Handle Registry,Low,64-slot limit,Sufficient for typical use,Accepted,MAX_SLOTS=64 per manager
+JNI-008-005,JNI-008,Handle Registry,Info,Separate managers per type,Clean isolation,Verified,Camera and RingBuffer managers
+JNI-009-001,JNI-009,Interface Spec,Info,Three-layer design,Clean separation,Verified,Core/Frame/Control layers
+JNI-009-002,JNI-009,Interface Spec,Info,Zero JNI calls per frame,Optimal performance,Verified,Async polling model
+JNI-009-003,JNI-009,Interface Spec,Info,Async frame path,No blocking,Verified,AcquireBuffer returns immediately
+JNI-009-004,JNI-009,Interface Spec,Low,81 control methods,Consider codegen,Deferred,Duplicate of JNI-001-004
+JNI-009-005,JNI-009,Interface Spec,Info,Return code pattern,Consistent,Verified,All methods return int
+JNI-010-001,JNI-010,Migration Bridge,Info,Parallel operation works,No breaking changes,Verified,Legacy + modern coexist
+JNI-010-002,JNI-010,Migration Bridge,Info,OutputMode bridges both,Clean abstraction,Verified,Single source of truth
+JNI-010-003,JNI-010,Migration Bridge,Low,Legacy IFrameCallback retained,Deprecate eventually,Deferred,Phase 2/3 future work
+JNI-010-004,JNI-010,Migration Bridge,Info,Feature flags available,Safe rollback,Verified,BuildConfig pattern
+JNI-010-005,JNI-010,Migration Bridge,Info,Same HandleManager for both,No handle migration,Verified,Drop-in compatible

@@ -1,0 +1,81 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:46:		ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:84:// transfer specific frame data to the Surface(ANativeWindow)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:85:static int copyToSurface(uvc_frame_t *frame, ANativeWindow **window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:89:		ANativeWindow_Buffer buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:90:		if (LIKELY(ANativeWindow_lock(*window, &buffer, NULL) == 0)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:95:			// destination = Surface(ANativeWindow)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:105:			ANativeWindow_unlockAndPost(*window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:118:int PreviewPipeline::setCaptureDisplay(ANativeWindow *capture_window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:135:			LOGD("ANativeWindow_release");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:136:			ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:162:						ANativeWindow *window = mCaptureWindow;	// local cache
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:167:								LOGD("ANativeWindow_setBuffersGeometry:(%dx%d)", frameWidth, frameHeight);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:168:								ANativeWindow_setBuffersGeometry(window,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:172:								// ANativeWindow_lock / ANativeWindow_unlockAndPost
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:175:								int32_t window_format = ANativeWindow_getFormat(window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:178:									ANativeWindow_release(window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:205:			ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:295:		ANativeWindow *capture_window = jSurface ? ANativeWindow_fromSurface(env, jSurface) : NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.h:15:	ANativeWindow *mCaptureWindow;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.h:21:	int setCaptureDisplay(ANativeWindow *capture_window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:423:	ANativeWindow *preview_window = jSurface ? ANativeWindow_fromSurface(env, jSurface) : NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:449:	ANativeWindow *capture_window = jSurface ? ANativeWindow_fromSurface(env, jSurface) : NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:492: * Call before surface destruction to prevent ANativeWindow hangs.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:522:	ANativeWindow *window = jSurface ? ANativeWindow_fromSurface(env, jSurface) : NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:537: * When enabled, frames are written to the ring buffer instead of ANativeWindow.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:544:int UVCCamera::setPreviewDisplay(ANativeWindow *preview_window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:601:int UVCCamera::setCaptureDisplay(ANativeWindow *capture_window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:644: * Call this before surface destruction to prevent ANativeWindow hangs.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:657: * @param window The new ANativeWindow to render to
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:659:void UVCCamera::attachSurface(ANativeWindow *window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:673: * When enabled, frames are written to the ring buffer instead of ANativeWindow.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.h:221:	int setPreviewDisplay(ANativeWindow *preview_window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.h:225:	int setCaptureDisplay(ANativeWindow *capture_window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.h:234:	void attachSurface(ANativeWindow *window);  // WARM → HOT transition
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:114:	ANativeWindow *mPreviewWindow;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:153:	ANativeWindow *mCaptureWindow;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:180:	uvc_frame_t *draw_preview_one(uvc_frame_t *frame, ANativeWindow **window, convFunc_t func, int pixelBytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:313:	int setPreviewDisplay(ANativeWindow *preview_window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:320:	int setCaptureDisplay(ANativeWindow *capture_window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:394:	void attachSurface(ANativeWindow *window);  // Transition WARM → HOT
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/OutputMode.h:58:     * - Zero-copy write directly to ANativeWindow
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:120:		ANativeWindow_release(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:123:		ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:233:int UVCPreview::setPreviewDisplay(ANativeWindow *preview_window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:246:				ANativeWindow_release(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:249:				ANativeWindow_setBuffersGeometry(mPreviewWindow,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:347:	ANativeWindow_Buffer buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:351:			if (LIKELY(ANativeWindow_lock(mCaptureWindow, &buffer, NULL) == 0)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:359:				ANativeWindow_unlockAndPost(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:367:			if (LIKELY(ANativeWindow_lock(mPreviewWindow, &buffer, NULL) == 0)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:375:				ANativeWindow_unlockAndPost(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:425:		LOGI("HANDLE_DIAG: startPreview in legacy ANativeWindow mode (no ring buffer)");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:510:		ANativeWindow_release(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:516:		ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:712:	// LEGACY PATH: Direct queue for ANativeWindow rendering
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:839:				ANativeWindow_setBuffersGeometry(mPreviewWindow,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:995:								// Legacy path: draw directly to ANativeWindow
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1068:							// Legacy path: draw directly to ANativeWindow
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1130:// transfer specific frame data to the Surface(ANativeWindow)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1131:int copyToSurface(uvc_frame_t *frame, ANativeWindow **window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1135:		ANativeWindow_Buffer buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1136:		if (LIKELY(ANativeWindow_lock(*window, &buffer, NULL) == 0)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1141:			// destination = Surface(ANativeWindow)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1151:			ANativeWindow_unlockAndPost(*window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1163:uvc_frame_t *UVCPreview::draw_preview_one(uvc_frame_t *frame, ANativeWindow **window, convFunc_t convert_func, int pixcelBytes) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1211:int UVCPreview::setCaptureDisplay(ANativeWindow *capture_window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1225:				ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1229:			// ANativeWindow_lock / ANativeWindow_unlockAndPost
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1233:				ANativeWindow_setBuffersGeometry(mCaptureWindow,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1235:				int32_t window_format = ANativeWindow_getFormat(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1239:					ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1384:		ANativeWindow_release(mCaptureWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1433: * When enabled, frames are written to the ring buffer instead of ANativeWindow.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1949: * This replaces the ANativeWindow path when ring buffer mode is enabled.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2106:	// This prevents ANativeWindow_release from hanging on a locked buffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2118:		ANativeWindow_release(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2152:void UVCPreview::attachSurface(ANativeWindow *window) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2175:		ANativeWindow_release(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2180:	int32_t err = ANativeWindow_setBuffersGeometry(mPreviewWindow,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2185:		ANativeWindow_release(mPreviewWindow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2938:					// In future this would write directly to ANativeWindow

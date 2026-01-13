@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.19.0"/>
+    <errors>
+        <error id="noCopyConstructor" severity="warning" msg="Struct &apos;PendingFrame&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource management." verbose="Struct &apos;PendingFrame&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource management." cwe="398" file0="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferRing.h" line="78" column="18"/>
+            <symbol>PendingFrame</symbol>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Struct &apos;PendingFrame&apos; does not have a operator= which is recommended since it has dynamic memory/resource management." verbose="Struct &apos;PendingFrame&apos; does not have a operator= which is recommended since it has dynamic memory/resource management." cwe="398" file0="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferRing.h" line="78" column="18"/>
+            <symbol>PendingFrame</symbol>
+        </error>
+        <error id="deallocuse" severity="error" msg="Dereferencing &apos;ring&apos; after it is deallocated / released" verbose="Dereferencing &apos;ring&apos; after it is deallocated / released" cwe="416" file0="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp" line="129" column="9"/>
+            <symbol>ring</symbol>
+        </error>
+        <error id="doubleFree" severity="error" msg="Memory pointed to by &apos;ring&apos; is freed twice." verbose="Memory pointed to by &apos;ring&apos; is freed twice." cwe="415" file0="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp" line="130" column="16"/>
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp" line="121" column="16"/>
+            <symbol>ring</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;FrameBufferRing::mMetadata&apos; is not initialized in the constructor." verbose="Member variable &apos;FrameBufferRing::mMetadata&apos; is not initialized in the constructor. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398" file0="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp" line="109" column="18"/>
+            <symbol>FrameBufferRing::mMetadata</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;FrameBufferRing::mTelemetry&apos; is not initialized in the constructor." verbose="Member variable &apos;FrameBufferRing::mTelemetry&apos; is not initialized in the constructor. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398" file0="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp" line="109" column="18"/>
+            <symbol>FrameBufferRing::mTelemetry</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;FrameBufferRing::_paddingWrite&apos; is not initialized in the constructor." verbose="Member variable &apos;FrameBufferRing::_paddingWrite&apos; is not initialized in the constructor. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398" file0="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp" line="109" column="18"/>
+            <symbol>FrameBufferRing::_paddingWrite</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;FrameBufferRing::_paddingRead&apos; is not initialized in the constructor." verbose="Member variable &apos;FrameBufferRing::_paddingRead&apos; is not initialized in the constructor. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398" file0="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp">
+            <location file="lib/src/main/jni/UVCCamera/FrameBufferRing.cpp" line="109" column="18"/>
+            <symbol>FrameBufferRing::_paddingRead</symbol>
+        </error>
+        <error id="syntaxError" severity="error" msg="syntax error" verbose="syntax error" file0="lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp">
+            <location file="lib/src/main/jni/UVCCamera/objectarray.h" line="67" column="3"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Code &apos;std::atomic&apos; is invalid C code." verbose="Code &apos;std::atomic&apos; is invalid C code.: Use --std, -x or --language to enforce C++. Or --cpp-header-probe to identify C++ headers via the Emacs marker." file0="lib/src/main/jni/UVCCamera/FrameBufferRing.h">
+            <location file="lib/src/main/jni/UVCCamera/StreamTelemetry.h" line="186" column="5"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Code &apos;std::atomic&apos; is invalid C code." verbose="Code &apos;std::atomic&apos; is invalid C code.: Use --std, -x or --language to enforce C++. Or --cpp-header-probe to identify C++ headers via the Emacs marker." file0="lib/src/main/jni/UVCCamera/HandleManager.h">
+            <location file="lib/src/main/jni/UVCCamera/HandleManager.h" line="82" column="5"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Code &apos;namespaceLayoutContract{&apos; is invalid C code." verbose="Code &apos;namespaceLayoutContract{&apos; is invalid C code.: Use --std, -x or --language to enforce C++. Or --cpp-header-probe to identify C++ headers via the Emacs marker." file0="lib/src/main/jni/UVCCamera/LayoutContract.h">
+            <location file="lib/src/main/jni/UVCCamera/LayoutContract.h" line="42" column="1"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Code &apos;namespacescopecam{&apos; is invalid C code." verbose="Code &apos;namespacescopecam{&apos; is invalid C code.: Use --std, -x or --language to enforce C++. Or --cpp-header-probe to identify C++ headers via the Emacs marker." file0="lib/src/main/jni/UVCCamera/OutputMode.h">
+            <location file="lib/src/main/jni/UVCCamera/OutputMode.h" line="24" column="1"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Code &apos;classUVCDiags{&apos; is invalid C code." verbose="Code &apos;classUVCDiags{&apos; is invalid C code.: Use --std, -x or --language to enforce C++. Or --cpp-header-probe to identify C++ headers via the Emacs marker." file0="lib/src/main/jni/UVCCamera/Parameters.h">
+            <location file="lib/src/main/jni/UVCCamera/Parameters.h" line="31" column="1"/>
+        </error>
+        <error id="syntaxError" severity="error" msg="Code &apos;classUVCReadinessCallback{&apos; is invalid C code." verbose="Code &apos;classUVCReadinessCallback{&apos; is invalid C code.: Use --std, -x or --language to enforce C++. Or --cpp-header-probe to identify C++ headers via the Emacs marker." file0="lib/src/main/jni/UVCCamera/UVCReadinessCallback.h">
+            <location file="lib/src/main/jni/UVCCamera/UVCReadinessCallback.h" line="38" column="1"/>
+        </error>
+    </errors>
+</results>

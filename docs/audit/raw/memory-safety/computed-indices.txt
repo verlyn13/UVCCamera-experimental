@@ -1,0 +1,580 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:127:    float g = -0.34414f * ((pyuv)[1]-128) - 0.71414f * ((pyuv)[3]-128); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:138:    int g = (-5636 * ((pyuv)[1] - 128) - 11698 * ((pyuv)[3] - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:188:    int g = (-5636 * ((pyuv)[1] - 128) - 11698 * ((pyuv)[3] - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:238:    int g = (-5636 * ((pyuv)[0] - 128) - 11698 * ((pyuv)[2] - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:287:    int g = (-5636 * ((pyuv)[0] - 128) - 11698 * ((pyuv)[2] - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:812:  uvc_version = (block[4] >> 4) * 1000 + (block[4] & 0x0f) * 100
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:813:    + (block[3] >> 4) * 10 + (block[3] & 0x0f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:986:	 uvc_version = (block[4] >> 4) * 1000 + (block[4] & 0x0f) * 100
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:987:	 + (block[3] >> 4) * 10 + (block[3] & 0x0f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1262:				bma = &block[12 + pp * n];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:373:    float g = -0.34414f * ((pyuv)[1]-128) - 0.71414f * ((pyuv)[3]-128); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:388:		const int g = (-5636 * (d1/*(pyuv)[ax+1]*/ - 128) - 11698 * (d3/*(pyuv)[ax+3]*/ - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:547:		const int g = (-5636 * (d1/*(pyuv)[ax+1]*/ - 128) - 11698 * (d3/*(pyuv)[ax+3]*/ - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:638:	    const int g = (-5636 * (d1/*(pyuv)[1]*/ - 128) - 11698 * (d3/*(pyuv)[3]*/ - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:728:	    const int g = (-5636 * (d0/*(pyuv)[ax+0]*/ - 128) - 11698 * (d2/*(pyuv)[ax+2]*/ - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:886:	    const int g = (-5636 * (d0/*(pyuv)[ax+0]*/ - 128) - 11698 * (d2/*(pyuv)[ax+2]*/ - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:977:	    const int g = (-5636 * (d0/*(pyuv)[ax+0]*/ - 128) - 11698 * (d2/*(pyuv)[ax+2]*/ - 128)) >> 14; \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2476:			yPlane[y * width + x] = static_cast<uint8_t>(yVal < 16 ? 16 : (yVal > 235 ? 235 : yVal));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2545:			yPlane[y * width + x] = static_cast<uint8_t>(yVal < 16 ? 16 : (yVal > 235 ? 235 : yVal));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodingstest.cpp:279:    *state = utf8d[256 + *state + type];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodingstest.cpp:362:                UTF16<>::Ch buffer[3], *p = &buffer[0];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:69:    *state = utf8d[256 + *state + type];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:838:        int64_t x = randval[j] * randval[j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:851:        int64_t x = randval[j] * randval[j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:873:            writer.WriteInt64(randval[j] * randval[j]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:892:            writer.WriteInt64(randval[j] * randval[j]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_writer.cpp:421:      int lineLength = 4 + (size-1)*2; // '[ ' + ', '*n + ' ]'
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_writer.cpp:697:      int lineLength = 4 + (size-1)*2; // '[ ' + ', '*n + ' ]'
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:179:			*(of++) = g_hexChars[ (unsigned char) (((*io) & 0xf0) >> 4)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:180:			*(of++) = g_hexChars[ (unsigned char) ((*io) & 0x0f)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:210:		JSUINT8 utflen = g_asciiOutputTable[(unsigned char) *io];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:330:				*(of++) = g_hexChars[ (unsigned char) (((*io) & 0xf0) >> 4)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:331:				*(of++) = g_hexChars[ (unsigned char) ((*io) & 0x0f)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:429:		switch (g_decoderLookup[(JSUINT8)(*inputOffset)])
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_lex.c:99:     ((txt)[(*(off))++]))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_lex.c:259:    while (skip < len && !(charLookupTable[*buf] & mask))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdppm.c:194:    *ptr++ = rescale[UCH(*bufferptr++)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdppm.c:215:    *ptr++ = rescale[UCH(*bufferptr++)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdppm.c:216:    *ptr++ = rescale[UCH(*bufferptr++)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdppm.c:217:    *ptr++ = rescale[UCH(*bufferptr++)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jddctmgr.c:260:         * coefficients scaled by scalefactor[row]*scalefactor[col], where
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jddctmgr.c:294:         * coefficients scaled by scalefactor[row]*scalefactor[col], where
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jddctmgr.c:310:               aanscalefactor[row] * aanscalefactor[col]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:203:    if (inptr[DCTSIZE*1] == 0 && inptr[DCTSIZE*2] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:204:        inptr[DCTSIZE*3] == 0 && inptr[DCTSIZE*4] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:205:        inptr[DCTSIZE*5] == 0 && inptr[DCTSIZE*6] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:206:        inptr[DCTSIZE*7] == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:208:      int dcval = (int) DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:210:      wsptr[DCTSIZE*0] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:211:      wsptr[DCTSIZE*1] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:212:      wsptr[DCTSIZE*2] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:213:      wsptr[DCTSIZE*3] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:214:      wsptr[DCTSIZE*4] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:215:      wsptr[DCTSIZE*5] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:216:      wsptr[DCTSIZE*6] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:217:      wsptr[DCTSIZE*7] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:227:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:228:    tmp1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:229:    tmp2 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:230:    tmp3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:245:    tmp4 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:246:    tmp5 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:247:    tmp6 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:248:    tmp7 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:266:    wsptr[DCTSIZE*0] = (int) (tmp0 + tmp7);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:267:    wsptr[DCTSIZE*7] = (int) (tmp0 - tmp7);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:268:    wsptr[DCTSIZE*1] = (int) (tmp1 + tmp6);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:269:    wsptr[DCTSIZE*6] = (int) (tmp1 - tmp6);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:270:    wsptr[DCTSIZE*2] = (int) (tmp2 + tmp5);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:271:    wsptr[DCTSIZE*5] = (int) (tmp2 - tmp5);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:272:    wsptr[DCTSIZE*4] = (int) (tmp3 + tmp4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctfst.c:273:    wsptr[DCTSIZE*3] = (int) (tmp3 - tmp4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:178:	memcpy ((void *)&context->buffer[idx], (const void *)&input[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrrle.c:128:        dest->colormap[ci * CMAPLENGTH + i] =
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:791:			row_pointer[i]=(JSAMPROW)&srcBuf[(height-i-1)*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:792:		else row_pointer[i]=(JSAMPROW)&srcBuf[i*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:839:	JSAMPLE *_tmpbuf[MAX_COMPONENTS], *_tmpbuf2[MAX_COMPONENTS];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:840:	JSAMPROW *tmpbuf[MAX_COMPONENTS], *tmpbuf2[MAX_COMPONENTS];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:918:			row_pointer[i]=(JSAMPROW)&srcBuf[(height-i-1)*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:919:		else row_pointer[i]=(JSAMPROW)&srcBuf[i*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:955:		outbuf[i]=(JSAMPROW *)malloc(sizeof(JSAMPROW)*ph[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1112:		tmpbufsize+=iw[i]*th[i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1113:		if((inbuf[i]=(JSAMPROW *)malloc(sizeof(JSAMPROW)*ph[i]))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1129:			if((tmpbuf[i]=(JSAMPROW *)malloc(sizeof(JSAMPROW)*th[i]))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1419:			row_pointer[i]=&dstBuf[(dinfo->output_height-i-1)*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1420:		else row_pointer[i]=&dstBuf[i*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1515:	JSAMPROW *tmpbuf[MAX_COMPONENTS], *inbuf[MAX_COMPONENTS];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1605:		if(flags&TJFLAG_BOTTOMUP) row_pointer[i]=&dstBuf[(height-i-1)*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1606:		else row_pointer[i]=&dstBuf[i*pitch];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1628:		inbuf[i]=(JSAMPROW *)malloc(sizeof(JSAMPROW)*ph[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1791:		tmpbufsize+=iw[i]*th[i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1792:		if((outbuf[i]=(JSAMPROW *)malloc(sizeof(JSAMPROW)*ph[i]))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1808:			if((tmpbuf[i]=(JSAMPROW *)malloc(sizeof(JSAMPROW)*th[i]))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:262:					dstbuf[pitch*row+col]
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:263:						=abs(dstbuf[pitch*row+col]-srcbuf[pitch*row+col]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:328:			memcpy(&tmpbuf[pitch*i], &srcbuf[w*ps*i], w*ps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmarker.c:642:        ((JLONG)GETJOCTET(data[12]) * (JLONG)GETJOCTET(data[13]) * (JLONG) 3))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmerge.c:282:    work_ptrs[0] = output_buf[*out_row_ctr];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmerge.c:284:      work_ptrs[1] = output_buf[*out_row_ctr + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:377:                dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:446:                  dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:449:                  dst_ptr[j*DCTSIZE+i] = -src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:457:                  dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:517:                  dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:519:                  dst_ptr[j*DCTSIZE+i] = -src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:528:                  dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:709:                    dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:711:                    dst_ptr[j*DCTSIZE+i] = -src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:715:                    dst_ptr[j*DCTSIZE+i] = -src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:717:                    dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:726:                    dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:728:                    dst_ptr[j*DCTSIZE+i] = -src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:739:                    dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:742:                    dst_ptr[j*DCTSIZE+i] = -src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:750:                    dst_ptr[j*DCTSIZE+i] = src_ptr[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:1165:          qtemp = qtblptr->quantval[i*DCTSIZE+j];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:1166:          qtblptr->quantval[i*DCTSIZE+j] = qtblptr->quantval[j*DCTSIZE+i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:1167:          qtblptr->quantval[j*DCTSIZE+i] = qtemp;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:122:    tmp0 = dataptr[DCTSIZE*0] + dataptr[DCTSIZE*7];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:123:    tmp7 = dataptr[DCTSIZE*0] - dataptr[DCTSIZE*7];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:124:    tmp1 = dataptr[DCTSIZE*1] + dataptr[DCTSIZE*6];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:125:    tmp6 = dataptr[DCTSIZE*1] - dataptr[DCTSIZE*6];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:126:    tmp2 = dataptr[DCTSIZE*2] + dataptr[DCTSIZE*5];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:127:    tmp5 = dataptr[DCTSIZE*2] - dataptr[DCTSIZE*5];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:128:    tmp3 = dataptr[DCTSIZE*3] + dataptr[DCTSIZE*4];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:129:    tmp4 = dataptr[DCTSIZE*3] - dataptr[DCTSIZE*4];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:138:    dataptr[DCTSIZE*0] = tmp10 + tmp11; /* phase 3 */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:139:    dataptr[DCTSIZE*4] = tmp10 - tmp11;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:142:    dataptr[DCTSIZE*2] = tmp13 + z1; /* phase 5 */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:143:    dataptr[DCTSIZE*6] = tmp13 - z1;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:160:    dataptr[DCTSIZE*5] = z13 + z2; /* phase 6 */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:161:    dataptr[DCTSIZE*3] = z13 - z2;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:162:    dataptr[DCTSIZE*1] = z11 + z4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctflt.c:163:    dataptr[DCTSIZE*7] = z11 - z4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdcolext-altivec.c:35:  unsigned char __attribute__((aligned(16))) tmpbuf[RGB_PIXELSIZE * 16];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jccolext-altivec.c:36:  unsigned char __attribute__((aligned(16))) tmpbuf[RGB_PIXELSIZE * 16];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:963:    int workspace[DCTSIZE*4];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jcgryext-altivec.c:36:  unsigned char __attribute__((aligned(16))) tmpbuf[RGB_PIXELSIZE * 16];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdmrgext-altivec.c:36:  unsigned char __attribute__((aligned(16))) tmpbuf[RGB_PIXELSIZE * 16];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdmrgext-altivec.c:312:  input_buf[0][in_row_group_ctr] = input_buf[0][in_row_group_ctr * 2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdmrgext-altivec.c:316:  input_buf[0][in_row_group_ctr] = input_buf[0][in_row_group_ctr * 2 + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:223:    tmp0 = dataptr[DCTSIZE*0] + dataptr[DCTSIZE*7];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:224:    tmp7 = dataptr[DCTSIZE*0] - dataptr[DCTSIZE*7];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:225:    tmp1 = dataptr[DCTSIZE*1] + dataptr[DCTSIZE*6];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:226:    tmp6 = dataptr[DCTSIZE*1] - dataptr[DCTSIZE*6];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:227:    tmp2 = dataptr[DCTSIZE*2] + dataptr[DCTSIZE*5];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:228:    tmp5 = dataptr[DCTSIZE*2] - dataptr[DCTSIZE*5];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:229:    tmp3 = dataptr[DCTSIZE*3] + dataptr[DCTSIZE*4];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:230:    tmp4 = dataptr[DCTSIZE*3] - dataptr[DCTSIZE*4];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:241:    dataptr[DCTSIZE*0] = (DCTELEM) DESCALE(tmp10 + tmp11, PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:242:    dataptr[DCTSIZE*4] = (DCTELEM) DESCALE(tmp10 - tmp11, PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:245:    dataptr[DCTSIZE*2] = (DCTELEM) DESCALE(z1 + MULTIPLY(tmp13, FIX_0_765366865),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:247:    dataptr[DCTSIZE*6] = (DCTELEM) DESCALE(z1 + MULTIPLY(tmp12, - FIX_1_847759065),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:273:    dataptr[DCTSIZE*7] = (DCTELEM) DESCALE(tmp4 + z1 + z3,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:275:    dataptr[DCTSIZE*5] = (DCTELEM) DESCALE(tmp5 + z2 + z4,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:277:    dataptr[DCTSIZE*3] = (DCTELEM) DESCALE(tmp6 + z2 + z3,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctint.c:279:    dataptr[DCTSIZE*1] = (DCTELEM) DESCALE(tmp7 + z1 + z4,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jchuff.c:890:  UINT8 bits[MAX_CLEN+1];       /* bits[k] = # of symbols with code length k */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jchuff.c:891:  int codesize[257];            /* codesize[k] = code length of symbol k */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcarith.c:721:      entropy->last_dc_val[ci] = (*block)[0];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcprepct.c:302:      fake_buffer[i] = true_buffer[2 * rgroup_height + i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcprepct.c:303:      fake_buffer[4 * rgroup_height + i] = true_buffer[i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdrle.c:300:            (colormap[GETJSAMPLE(rle_row[channel][col]) + 256 * channel] >> 8);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmrg565.c:184:  inptr00 = input_buf[0][in_row_group_ctr * 2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmrg565.c:185:  inptr01 = input_buf[0][in_row_group_ctr * 2 + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmrg565.c:282:  inptr00 = input_buf[0][in_row_group_ctr*2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmrg565.c:283:  inptr01 = input_buf[0][in_row_group_ctr*2 + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:92:  JSAMPROW row_pointer[1];      /* pointer to JSAMPLE row[s] */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:161:    row_pointer[0] = & image_buffer[cinfo.next_scanline * row_stride];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:481:        pixcode += GETJSAMPLE(colorindex[ci][GETJSAMPLE(*ptrin++)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:508:      pixcode  = GETJSAMPLE(colorindex0[GETJSAMPLE(*ptrin++)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:509:      pixcode += GETJSAMPLE(colorindex1[GETJSAMPLE(*ptrin++)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:510:      pixcode += GETJSAMPLE(colorindex2[GETJSAMPLE(*ptrin++)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:553:        *output_ptr += colorindex_ci[GETJSAMPLE(*input_ptr)+dither[col_index]];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:185:    dtbl[DCTSIZE2 * 0] = (DCTELEM) 1;                       /* reciprocal */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:186:    dtbl[DCTSIZE2 * 1] = (DCTELEM) 0;                       /* correction */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:187:    dtbl[DCTSIZE2 * 2] = (DCTELEM) 1;                       /* scale */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:188:    dtbl[DCTSIZE2 * 3] = -(DCTELEM) (sizeof(DCTELEM) * 8);  /* shift */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:210:  dtbl[DCTSIZE2 * 0] = (DCTELEM) fq;      /* reciprocal */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:211:  dtbl[DCTSIZE2 * 1] = (DCTELEM) c;       /* correction + roundfactor */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:213:  dtbl[DCTSIZE2 * 2] = (DCTELEM) (1 << (sizeof(DCTELEM)*8*2 - r));  /* scale */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:215:  dtbl[DCTSIZE2 * 2] = 1;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:217:  dtbl[DCTSIZE2 * 3] = (DCTELEM) r - sizeof(DCTELEM)*8; /* shift */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:281:         * coefficients scaled by scalefactor[row]*scalefactor[col], where
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:328:         * coefficients scaled by scalefactor[row]*scalefactor[col], where
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:353:                       aanscalefactor[row] * aanscalefactor[col] * 8.0)));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:422:    recip = divisors[i + DCTSIZE2 * 0];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:423:    corr =  divisors[i + DCTSIZE2 * 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:424:    shift = divisors[i + DCTSIZE2 * 3];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcdctmgr.c:566:    temp = workspace[i] * divisors[i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrppm.c:150:    PUTPPMSAMPLE(bufferptr, GETJSAMPLE(color_map[GETJSAMPLE(*ptr++)]));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:121:					if(row>=halfway) buf[index*ps+3]=0;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:125:					buf[index*ps+2]=0;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:126:					if(row<halfway) buf[index*ps+1]=0;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:144:						buf[index*ps+roffset]=255;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:145:						buf[index*ps+goffset]=255;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:146:						buf[index*ps+boffset]=255;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:151:					buf[index*ps+roffset]=255;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:152:					if(row>=halfway) buf[index*ps+goffset]=255;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:201:				c=buf[index*ps];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:202:				m=buf[index*ps+1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:203:				y=buf[index*ps+2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:204:				k=buf[index*ps+3];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:229:			r=buf[index*ps+roffset];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:230:			g=buf[index*ps+goffset];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:231:			b=buf[index*ps+boffset];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:232:			a=aoffset>=0? buf[index*ps+aoffset]:0xFF;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:281:					printf("%.3d/%.3d/%.3d/%.3d ", buf[(row*w+col)*ps],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:282:						buf[(row*w+col)*ps+1], buf[(row*w+col)*ps+2],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:283:						buf[(row*w+col)*ps+3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:285:					printf("%.3d/%.3d/%.3d ", buf[(row*w+col)*ps+roffset],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:286:						buf[(row*w+col)*ps+goffset], buf[(row*w+col)*ps+boffset]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:313:			unsigned char y=buf[ypitch*row+col];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:331:				unsigned char u=buf[ypitch*ph + (uvpitch*row+col)],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:332:					v=buf[ypitch*ph + uvpitch*ch + (uvpitch*row+col)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:358:				printf("%.3d ", buf[ypitch*row+col]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:365:				printf("%.3d ", buf[ypitch*ph + (uvpitch*row+col)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:372:				printf("%.3d ", buf[ypitch*ph + uvpitch*ch + (uvpitch*row+col)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:180:    tmp0 = dataptr[DCTSIZE*0] + dataptr[DCTSIZE*7];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:181:    tmp7 = dataptr[DCTSIZE*0] - dataptr[DCTSIZE*7];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:182:    tmp1 = dataptr[DCTSIZE*1] + dataptr[DCTSIZE*6];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:183:    tmp6 = dataptr[DCTSIZE*1] - dataptr[DCTSIZE*6];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:184:    tmp2 = dataptr[DCTSIZE*2] + dataptr[DCTSIZE*5];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:185:    tmp5 = dataptr[DCTSIZE*2] - dataptr[DCTSIZE*5];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:186:    tmp3 = dataptr[DCTSIZE*3] + dataptr[DCTSIZE*4];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:187:    tmp4 = dataptr[DCTSIZE*3] - dataptr[DCTSIZE*4];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:196:    dataptr[DCTSIZE*0] = tmp10 + tmp11; /* phase 3 */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:197:    dataptr[DCTSIZE*4] = tmp10 - tmp11;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:200:    dataptr[DCTSIZE*2] = tmp13 + z1; /* phase 5 */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:201:    dataptr[DCTSIZE*6] = tmp13 - z1;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:218:    dataptr[DCTSIZE*5] = z13 + z2; /* phase 6 */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:219:    dataptr[DCTSIZE*3] = z13 - z2;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:220:    dataptr[DCTSIZE*1] = z11 + z4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jfdctfst.c:221:    dataptr[DCTSIZE*7] = z11 - z4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:218:	if(tjCompress2(handle, &srcBuf[y*actualPitch + x*tjPixelSize[pf]], width,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:336:		bailif0(srcPlanes[i]=(*env)->GetPrimitiveArrayCritical(env, jSrcPlanes[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:415:		bailif0(dstPlanes[i]=(*env)->GetPrimitiveArrayCritical(env, jDstPlanes[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:421:	if(tjEncodeYUVPlanes(handle, &srcBuf[y*actualPitch + x*tjPixelSize[pf]],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:657:		&dstBuf[y*actualPitch + x*tjPixelSize[pf]], width, pitch, height, pf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:784:		bailif0(dstPlanes[i]=(*env)->GetPrimitiveArrayCritical(env, jDstPlanes[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:898:		bailif0(srcPlanes[i]=(*env)->GetPrimitiveArrayCritical(env, jSrcPlanes[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:905:		&dstBuf[y*actualPitch + x*tjPixelSize[pf]], width, pitch, height, pf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:1109:			t[i].data=(void *)&params[i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:1125:		bailif0(dstBufs[i]=(*env)->GetPrimitiveArrayCritical(env, jdstBufs[i], 0));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:86:	if(srcbottomup) srcrowptr=&srcbuf[w*srcps*(h-1)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:87:	if(dstbottomup) dstrowptr=&dstbuf[w*dstps*(h-1)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:226:			if(bottomup) outbuf=&(*buf)[((*h)-row-1)*(*w)*dstps];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:227:			else outbuf=&(*buf)[row*(*w)*dstps];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:314:			if(bottomup) inbuf=&buf[(h-row-1)*w*srcps];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:315:			else inbuf=&buf[row*w*srcps];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrtarga.c:150:    *outptr++ = (char) GETJSAMPLE(color_map0[GETJSAMPLE(*inptr++)]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant2.c:774:  JLONG bestdist[BOX_C0_ELEMS * BOX_C1_ELEMS * BOX_C2_ELEMS];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant2.c:850:  JSAMPLE bestcolor[BOX_C0_ELEMS * BOX_C1_ELEMS * BOX_C2_ELEMS];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:206:    if (inptr[DCTSIZE*1] == 0 && inptr[DCTSIZE*2] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:207:        inptr[DCTSIZE*3] == 0 && inptr[DCTSIZE*4] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:208:        inptr[DCTSIZE*5] == 0 && inptr[DCTSIZE*6] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:209:        inptr[DCTSIZE*7] == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:211:      int dcval = LEFT_SHIFT(DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:214:      wsptr[DCTSIZE*0] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:215:      wsptr[DCTSIZE*1] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:216:      wsptr[DCTSIZE*2] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:217:      wsptr[DCTSIZE*3] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:218:      wsptr[DCTSIZE*4] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:219:      wsptr[DCTSIZE*5] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:220:      wsptr[DCTSIZE*6] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:221:      wsptr[DCTSIZE*7] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:232:    z2 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:233:    z3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:239:    z2 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:240:    z3 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:254:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:255:    tmp1 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:256:    tmp2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:257:    tmp3 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:284:    wsptr[DCTSIZE*0] = (int) DESCALE(tmp10 + tmp3, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:285:    wsptr[DCTSIZE*7] = (int) DESCALE(tmp10 - tmp3, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:286:    wsptr[DCTSIZE*1] = (int) DESCALE(tmp11 + tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:287:    wsptr[DCTSIZE*6] = (int) DESCALE(tmp11 - tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:288:    wsptr[DCTSIZE*2] = (int) DESCALE(tmp12 + tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:289:    wsptr[DCTSIZE*5] = (int) DESCALE(tmp12 - tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:290:    wsptr[DCTSIZE*3] = (int) DESCALE(tmp13 + tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:291:    wsptr[DCTSIZE*4] = (int) DESCALE(tmp13 - tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:439:  int workspace[7*7];   /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:450:    tmp13 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:455:    z1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:456:    z2 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:457:    z3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:471:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:472:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:473:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:487:    wsptr[7*0] = (int) RIGHT_SHIFT(tmp10 + tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:488:    wsptr[7*6] = (int) RIGHT_SHIFT(tmp10 - tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:489:    wsptr[7*1] = (int) RIGHT_SHIFT(tmp11 + tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:490:    wsptr[7*5] = (int) RIGHT_SHIFT(tmp11 - tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:491:    wsptr[7*2] = (int) RIGHT_SHIFT(tmp12 + tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:492:    wsptr[7*4] = (int) RIGHT_SHIFT(tmp12 - tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:493:    wsptr[7*3] = (int) RIGHT_SHIFT(tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:588:  int workspace[6*6];   /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:599:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:603:    tmp2 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:607:    tmp10 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:614:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:615:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:616:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:624:    wsptr[6*0] = (int) RIGHT_SHIFT(tmp10 + tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:625:    wsptr[6*5] = (int) RIGHT_SHIFT(tmp10 - tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:626:    wsptr[6*1] = (int) (tmp11 + tmp1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:627:    wsptr[6*4] = (int) (tmp11 - tmp1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:628:    wsptr[6*2] = (int) RIGHT_SHIFT(tmp12 + tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:629:    wsptr[6*3] = (int) RIGHT_SHIFT(tmp12 - tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:709:  int workspace[5*5];   /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:720:    tmp12 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:724:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:725:    tmp1 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:735:    z2 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:736:    z3 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:744:    wsptr[5*0] = (int) RIGHT_SHIFT(tmp10 + tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:745:    wsptr[5*4] = (int) RIGHT_SHIFT(tmp10 - tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:746:    wsptr[5*1] = (int) RIGHT_SHIFT(tmp11 + tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:747:    wsptr[5*3] = (int) RIGHT_SHIFT(tmp11 - tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:748:    wsptr[5*2] = (int) RIGHT_SHIFT(tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:823:  int workspace[3*3];   /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:834:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:838:    tmp2 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:845:    tmp12 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:850:    wsptr[3*0] = (int) RIGHT_SHIFT(tmp10 + tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:851:    wsptr[3*2] = (int) RIGHT_SHIFT(tmp10 - tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:852:    wsptr[3*1] = (int) RIGHT_SHIFT(tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:914:  int workspace[8*9];   /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:925:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:930:    z1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:931:    z2 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:932:    z3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:952:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:953:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:954:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:955:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:969:    wsptr[8*0] = (int) RIGHT_SHIFT(tmp10 + tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:970:    wsptr[8*8] = (int) RIGHT_SHIFT(tmp10 - tmp0, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:971:    wsptr[8*1] = (int) RIGHT_SHIFT(tmp11 + tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:972:    wsptr[8*7] = (int) RIGHT_SHIFT(tmp11 - tmp1, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:973:    wsptr[8*2] = (int) RIGHT_SHIFT(tmp12 + tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:974:    wsptr[8*6] = (int) RIGHT_SHIFT(tmp12 - tmp2, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:975:    wsptr[8*3] = (int) RIGHT_SHIFT(tmp13 + tmp3, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:976:    wsptr[8*5] = (int) RIGHT_SHIFT(tmp13 - tmp3, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:977:    wsptr[8*4] = (int) RIGHT_SHIFT(tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1086:  int workspace[8*10];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1097:    z3 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1101:    z4 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1110:    z2 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1111:    z3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1124:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1125:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1126:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1127:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1151:    wsptr[8*0] = (int) RIGHT_SHIFT(tmp20 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1152:    wsptr[8*9] = (int) RIGHT_SHIFT(tmp20 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1153:    wsptr[8*1] = (int) RIGHT_SHIFT(tmp21 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1154:    wsptr[8*8] = (int) RIGHT_SHIFT(tmp21 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1155:    wsptr[8*2] = (int) (tmp22 + tmp12);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1156:    wsptr[8*7] = (int) (tmp22 - tmp12);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1157:    wsptr[8*3] = (int) RIGHT_SHIFT(tmp23 + tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1158:    wsptr[8*6] = (int) RIGHT_SHIFT(tmp23 - tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1159:    wsptr[8*4] = (int) RIGHT_SHIFT(tmp24 + tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1160:    wsptr[8*5] = (int) RIGHT_SHIFT(tmp24 - tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1281:  int workspace[8*11];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1292:    tmp10 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1297:    z1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1298:    z2 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1299:    z3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1319:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1320:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1321:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1322:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1343:    wsptr[8*0]  = (int) RIGHT_SHIFT(tmp20 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1344:    wsptr[8*10] = (int) RIGHT_SHIFT(tmp20 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1345:    wsptr[8*1]  = (int) RIGHT_SHIFT(tmp21 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1346:    wsptr[8*9]  = (int) RIGHT_SHIFT(tmp21 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1347:    wsptr[8*2]  = (int) RIGHT_SHIFT(tmp22 + tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1348:    wsptr[8*8]  = (int) RIGHT_SHIFT(tmp22 - tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1349:    wsptr[8*3]  = (int) RIGHT_SHIFT(tmp23 + tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1350:    wsptr[8*7]  = (int) RIGHT_SHIFT(tmp23 - tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1351:    wsptr[8*4]  = (int) RIGHT_SHIFT(tmp24 + tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1352:    wsptr[8*6]  = (int) RIGHT_SHIFT(tmp24 - tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1353:    wsptr[8*5]  = (int) RIGHT_SHIFT(tmp25, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1475:  int workspace[8*12];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1486:    z3 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1491:    z4 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1497:    z1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1500:    z2 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1520:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1521:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1522:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1523:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1546:    wsptr[8*0]  = (int) RIGHT_SHIFT(tmp20 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1547:    wsptr[8*11] = (int) RIGHT_SHIFT(tmp20 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1548:    wsptr[8*1]  = (int) RIGHT_SHIFT(tmp21 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1549:    wsptr[8*10] = (int) RIGHT_SHIFT(tmp21 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1550:    wsptr[8*2]  = (int) RIGHT_SHIFT(tmp22 + tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1551:    wsptr[8*9]  = (int) RIGHT_SHIFT(tmp22 - tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1552:    wsptr[8*3]  = (int) RIGHT_SHIFT(tmp23 + tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1553:    wsptr[8*8]  = (int) RIGHT_SHIFT(tmp23 - tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1554:    wsptr[8*4]  = (int) RIGHT_SHIFT(tmp24 + tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1555:    wsptr[8*7]  = (int) RIGHT_SHIFT(tmp24 - tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1556:    wsptr[8*5]  = (int) RIGHT_SHIFT(tmp25 + tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1557:    wsptr[8*6]  = (int) RIGHT_SHIFT(tmp25 - tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1691:  int workspace[8*13];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1702:    z1 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1707:    z2 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1708:    z3 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1709:    z4 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1736:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1737:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1738:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1739:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1766:    wsptr[8*0]  = (int) RIGHT_SHIFT(tmp20 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1767:    wsptr[8*12] = (int) RIGHT_SHIFT(tmp20 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1768:    wsptr[8*1]  = (int) RIGHT_SHIFT(tmp21 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1769:    wsptr[8*11] = (int) RIGHT_SHIFT(tmp21 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1770:    wsptr[8*2]  = (int) RIGHT_SHIFT(tmp22 + tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1771:    wsptr[8*10] = (int) RIGHT_SHIFT(tmp22 - tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1772:    wsptr[8*3]  = (int) RIGHT_SHIFT(tmp23 + tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1773:    wsptr[8*9]  = (int) RIGHT_SHIFT(tmp23 - tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1774:    wsptr[8*4]  = (int) RIGHT_SHIFT(tmp24 + tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1775:    wsptr[8*8]  = (int) RIGHT_SHIFT(tmp24 - tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1776:    wsptr[8*5]  = (int) RIGHT_SHIFT(tmp25 + tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1777:    wsptr[8*7]  = (int) RIGHT_SHIFT(tmp25 - tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1778:    wsptr[8*6]  = (int) RIGHT_SHIFT(tmp26, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1919:  int workspace[8*14];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1930:    z1 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1934:    z4 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1946:    z1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1947:    z2 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1965:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1966:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1967:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1968:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1992:    wsptr[8*0]  = (int) RIGHT_SHIFT(tmp20 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1993:    wsptr[8*13] = (int) RIGHT_SHIFT(tmp20 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1994:    wsptr[8*1]  = (int) RIGHT_SHIFT(tmp21 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1995:    wsptr[8*12] = (int) RIGHT_SHIFT(tmp21 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1996:    wsptr[8*2]  = (int) RIGHT_SHIFT(tmp22 + tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1997:    wsptr[8*11] = (int) RIGHT_SHIFT(tmp22 - tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1998:    wsptr[8*3]  = (int) (tmp23 + tmp13);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:1999:    wsptr[8*10] = (int) (tmp23 - tmp13);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2000:    wsptr[8*4]  = (int) RIGHT_SHIFT(tmp24 + tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2001:    wsptr[8*9]  = (int) RIGHT_SHIFT(tmp24 - tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2002:    wsptr[8*5]  = (int) RIGHT_SHIFT(tmp25 + tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2003:    wsptr[8*8]  = (int) RIGHT_SHIFT(tmp25 - tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2004:    wsptr[8*6]  = (int) RIGHT_SHIFT(tmp26 + tmp16, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2005:    wsptr[8*7]  = (int) RIGHT_SHIFT(tmp26 - tmp16, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2145:  int workspace[8*15];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2156:    z1 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2161:    z2 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2162:    z3 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2163:    z4 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2198:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2199:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2200:    z4 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2202:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2223:    wsptr[8*0]  = (int) RIGHT_SHIFT(tmp20 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2224:    wsptr[8*14] = (int) RIGHT_SHIFT(tmp20 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2225:    wsptr[8*1]  = (int) RIGHT_SHIFT(tmp21 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2226:    wsptr[8*13] = (int) RIGHT_SHIFT(tmp21 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2227:    wsptr[8*2]  = (int) RIGHT_SHIFT(tmp22 + tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2228:    wsptr[8*12] = (int) RIGHT_SHIFT(tmp22 - tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2229:    wsptr[8*3]  = (int) RIGHT_SHIFT(tmp23 + tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2230:    wsptr[8*11] = (int) RIGHT_SHIFT(tmp23 - tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2231:    wsptr[8*4]  = (int) RIGHT_SHIFT(tmp24 + tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2232:    wsptr[8*10] = (int) RIGHT_SHIFT(tmp24 - tmp14, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2233:    wsptr[8*5]  = (int) RIGHT_SHIFT(tmp25 + tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2234:    wsptr[8*9]  = (int) RIGHT_SHIFT(tmp25 - tmp15, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2235:    wsptr[8*6]  = (int) RIGHT_SHIFT(tmp26 + tmp16, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2236:    wsptr[8*8]  = (int) RIGHT_SHIFT(tmp26 - tmp16, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2237:    wsptr[8*7]  = (int) RIGHT_SHIFT(tmp27, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2387:  int workspace[8*16];  /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2398:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2403:    z1 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2412:    z1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2413:    z2 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2434:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2435:    z2 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2436:    z3 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2437:    z4 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2473:    wsptr[8*0]  = (int) RIGHT_SHIFT(tmp20 + tmp0,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2474:    wsptr[8*15] = (int) RIGHT_SHIFT(tmp20 - tmp0,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2475:    wsptr[8*1]  = (int) RIGHT_SHIFT(tmp21 + tmp1,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2476:    wsptr[8*14] = (int) RIGHT_SHIFT(tmp21 - tmp1,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2477:    wsptr[8*2]  = (int) RIGHT_SHIFT(tmp22 + tmp2,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2478:    wsptr[8*13] = (int) RIGHT_SHIFT(tmp22 - tmp2,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2479:    wsptr[8*3]  = (int) RIGHT_SHIFT(tmp23 + tmp3,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2480:    wsptr[8*12] = (int) RIGHT_SHIFT(tmp23 - tmp3,  CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2481:    wsptr[8*4]  = (int) RIGHT_SHIFT(tmp24 + tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2482:    wsptr[8*11] = (int) RIGHT_SHIFT(tmp24 - tmp10, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2483:    wsptr[8*5]  = (int) RIGHT_SHIFT(tmp25 + tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2484:    wsptr[8*10] = (int) RIGHT_SHIFT(tmp25 - tmp11, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2485:    wsptr[8*6]  = (int) RIGHT_SHIFT(tmp26 + tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2486:    wsptr[8*9]  = (int) RIGHT_SHIFT(tmp26 - tmp12, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2487:    wsptr[8*7]  = (int) RIGHT_SHIFT(tmp27 + tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctint.c:2488:    wsptr[8*8]  = (int) RIGHT_SHIFT(tmp27 - tmp13, CONST_BITS-PASS1_BITS);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmrgext.c:116:  inptr00 = input_buf[0][in_row_group_ctr*2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmrgext.c:117:  inptr01 = input_buf[0][in_row_group_ctr*2 + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:103:    if (inptr[DCTSIZE*1] == 0 && inptr[DCTSIZE*2] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:104:        inptr[DCTSIZE*3] == 0 && inptr[DCTSIZE*4] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:105:        inptr[DCTSIZE*5] == 0 && inptr[DCTSIZE*6] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:106:        inptr[DCTSIZE*7] == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:108:      FAST_FLOAT dcval = DEQUANTIZE(inptr[DCTSIZE*0],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:109:                                    quantptr[DCTSIZE*0] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:111:      wsptr[DCTSIZE*0] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:112:      wsptr[DCTSIZE*1] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:113:      wsptr[DCTSIZE*2] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:114:      wsptr[DCTSIZE*3] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:115:      wsptr[DCTSIZE*4] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:116:      wsptr[DCTSIZE*5] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:117:      wsptr[DCTSIZE*6] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:118:      wsptr[DCTSIZE*7] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:128:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:129:    tmp1 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:130:    tmp2 = DEQUANTIZE(inptr[DCTSIZE*4], quantptr[DCTSIZE*4] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:131:    tmp3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:146:    tmp4 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:147:    tmp5 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:148:    tmp6 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:149:    tmp7 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7] * _0_125);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:167:    wsptr[DCTSIZE*0] = tmp0 + tmp7;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:168:    wsptr[DCTSIZE*7] = tmp0 - tmp7;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:169:    wsptr[DCTSIZE*1] = tmp1 + tmp6;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:170:    wsptr[DCTSIZE*6] = tmp1 - tmp6;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:171:    wsptr[DCTSIZE*2] = tmp2 + tmp5;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:172:    wsptr[DCTSIZE*5] = tmp2 - tmp5;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:173:    wsptr[DCTSIZE*3] = tmp3 + tmp4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctflt.c:174:    wsptr[DCTSIZE*4] = tmp3 - tmp4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmainct.c:194:      xbuf1[rgroup*(M-2) + i] = buf[rgroup*M + i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmainct.c:195:      xbuf1[rgroup*M + i] = buf[rgroup*(M-2) + i];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdsample.c:78:        input_buf[ci] + (*in_row_group_ctr * upsample->rowgroup_height[ci]),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:262:      r = range_limit[DITHER_565_R(GETJSAMPLE(*inptr0++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:263:      g = range_limit[DITHER_565_G(GETJSAMPLE(*inptr1++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:264:      b = range_limit[DITHER_565_B(GETJSAMPLE(*inptr2++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:271:      r = range_limit[DITHER_565_R(GETJSAMPLE(*inptr0++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:272:      g = range_limit[DITHER_565_G(GETJSAMPLE(*inptr1++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:273:      b = range_limit[DITHER_565_B(GETJSAMPLE(*inptr2++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:277:      r = range_limit[DITHER_565_R(GETJSAMPLE(*inptr0++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:278:      g = range_limit[DITHER_565_G(GETJSAMPLE(*inptr1++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:279:      b = range_limit[DITHER_565_B(GETJSAMPLE(*inptr2++), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:287:      r = range_limit[DITHER_565_R(GETJSAMPLE(*inptr0), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:288:      g = range_limit[DITHER_565_G(GETJSAMPLE(*inptr1), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcol565.c:289:      b = range_limit[DITHER_565_B(GETJSAMPLE(*inptr2), d0)];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:133:  int workspace[DCTSIZE*4];     /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:145:    if (inptr[DCTSIZE*1] == 0 && inptr[DCTSIZE*2] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:146:        inptr[DCTSIZE*3] == 0 && inptr[DCTSIZE*5] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:147:        inptr[DCTSIZE*6] == 0 && inptr[DCTSIZE*7] == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:149:      int dcval = LEFT_SHIFT(DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:152:      wsptr[DCTSIZE*0] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:153:      wsptr[DCTSIZE*1] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:154:      wsptr[DCTSIZE*2] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:155:      wsptr[DCTSIZE*3] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:162:    tmp0 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:165:    z2 = DEQUANTIZE(inptr[DCTSIZE*2], quantptr[DCTSIZE*2]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:166:    z3 = DEQUANTIZE(inptr[DCTSIZE*6], quantptr[DCTSIZE*6]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:175:    z1 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:176:    z2 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:177:    z3 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:178:    z4 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:192:    wsptr[DCTSIZE*0] = (int) DESCALE(tmp10 + tmp2, CONST_BITS-PASS1_BITS+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:193:    wsptr[DCTSIZE*3] = (int) DESCALE(tmp10 - tmp2, CONST_BITS-PASS1_BITS+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:194:    wsptr[DCTSIZE*1] = (int) DESCALE(tmp12 + tmp0, CONST_BITS-PASS1_BITS+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:195:    wsptr[DCTSIZE*2] = (int) DESCALE(tmp12 - tmp0, CONST_BITS-PASS1_BITS+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:286:  int workspace[DCTSIZE*2];     /* buffers data between passes */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:298:    if (inptr[DCTSIZE*1] == 0 && inptr[DCTSIZE*3] == 0 &&
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:299:        inptr[DCTSIZE*5] == 0 && inptr[DCTSIZE*7] == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:301:      int dcval = LEFT_SHIFT(DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:304:      wsptr[DCTSIZE*0] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:305:      wsptr[DCTSIZE*1] = dcval;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:312:    z1 = DEQUANTIZE(inptr[DCTSIZE*0], quantptr[DCTSIZE*0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:317:    z1 = DEQUANTIZE(inptr[DCTSIZE*7], quantptr[DCTSIZE*7]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:319:    z1 = DEQUANTIZE(inptr[DCTSIZE*5], quantptr[DCTSIZE*5]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:321:    z1 = DEQUANTIZE(inptr[DCTSIZE*3], quantptr[DCTSIZE*3]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:323:    z1 = DEQUANTIZE(inptr[DCTSIZE*1], quantptr[DCTSIZE*1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:328:    wsptr[DCTSIZE*0] = (int) DESCALE(tmp10 + tmp0, CONST_BITS-PASS1_BITS+2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jidctred.c:329:    wsptr[DCTSIZE*1] = (int) DESCALE(tmp10 - tmp0, CONST_BITS-PASS1_BITS+2);

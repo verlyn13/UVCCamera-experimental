@@ -1,0 +1,84 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:23: * This file provides mock versions of Android-specific APIs (AHardwareBuffer)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:40:// === AHardwareBuffer Mock ===
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:42:struct AHardwareBuffer_Desc {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:53:struct AHardwareBuffer {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:54:    AHardwareBuffer_Desc desc;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:61:// AHardwareBuffer API
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:62:int AHardwareBuffer_allocate(const AHardwareBuffer_Desc* desc, AHardwareBuffer** outBuffer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:63:void AHardwareBuffer_release(AHardwareBuffer* buffer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:64:void AHardwareBuffer_acquire(AHardwareBuffer* buffer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:65:void AHardwareBuffer_describe(const AHardwareBuffer* buffer, AHardwareBuffer_Desc* outDesc);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:66:int AHardwareBuffer_lock(AHardwareBuffer* buffer, uint64_t usage, int32_t fence,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:68:int AHardwareBuffer_unlock(AHardwareBuffer* buffer, int32_t* outFence);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:69:int AHardwareBuffer_lockAndGetInfo(AHardwareBuffer* buffer, uint64_t usage,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:125:    // AHardwareBuffer controls
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:29:    // AHardwareBuffer state
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:51:// === AHardwareBuffer Implementation ===
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:53:int AHardwareBuffer_allocate(const AHardwareBuffer_Desc* desc, AHardwareBuffer** outBuffer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:59:    auto* buffer = new AHardwareBuffer();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:68:void AHardwareBuffer_acquire(AHardwareBuffer* buffer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:72:void AHardwareBuffer_release(AHardwareBuffer* buffer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:83:void AHardwareBuffer_describe(const AHardwareBuffer* buffer, AHardwareBuffer_Desc* outDesc) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:87:int AHardwareBuffer_lock(AHardwareBuffer* buffer, uint64_t usage, int32_t fence,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:96:int AHardwareBuffer_unlock(AHardwareBuffer* buffer, int32_t* outFence) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:104:int AHardwareBuffer_lockAndGetInfo(AHardwareBuffer* buffer, uint64_t usage,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:109:    int result = AHardwareBuffer_lock(buffer, usage, fence, rect, outVirtualAddress);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/tests/FrameBufferRingTest.cpp:101:    AHardwareBuffer* buffer = ring.acquireReadBuffer(&meta);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/tests/FrameBufferRingTest.cpp:113:    AHardwareBuffer* buffer = ring.acquireReadBuffer(&meta);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/tests/FrameBufferRingTest.cpp:129:    AHardwareBuffer* buffer = ring.acquireReadBuffer(&meta);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/tests/FrameBufferRingTest.cpp:261:    AHardwareBuffer* buffer = ring.acquireReadBuffer(nullptr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/tests/FrameBufferRingTest.cpp:310:    // acquire should call AHardwareBuffer_acquire (not allocate)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:73: * Provides Java/Kotlin access to the native AHardwareBuffer-based
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:98: * @param format AHardwareBuffer format (default: AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:141: * Destroy the FrameBufferRing and release all AHardwareBuffers.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:215:    AHardwareBuffer *buffer = ring->acquireReadBuffer(&metadata);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:221:    // Convert AHardwareBuffer to Java HardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:223:    jobject hwBuffer = AHardwareBuffer_toHardwareBuffer(env, buffer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:225:        LOGE("AHardwareBuffer_toHardwareBuffer failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:237: * Decrements the AHardwareBuffer reference count.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/EGLImageHelperJNI.cpp:4: * Zero-copy bridge between AHardwareBuffer and OpenGL ES via EGLImage.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/EGLImageHelperJNI.cpp:233:    // Step 3: Get native AHardwareBuffer from Java HardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/EGLImageHelperJNI.cpp:239:    AHardwareBuffer* buffer = AHardwareBuffer_fromHardwareBuffer(env, hardwareBuffer);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/EGLImageHelperJNI.cpp:241:        LOGE("createEGLImage: Failed to get AHardwareBuffer from HardwareBuffer");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/EGLImageHelperJNI.cpp:245:    // Step 4: Get EGLClientBuffer from AHardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/OutputMode.h:67:     * - Zero-copy write to AHardwareBuffer ring
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:991:								// Ring buffer path: write to AHardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1064:							// Ring buffer path: write to AHardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2672: * performs MJPEG/YUYV to RGBX conversion, and writes to AHardwareBuffer.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2804:		// Lock destination AHardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:133:    AHardwareBuffer_Desc desc = {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:146:        int result = AHardwareBuffer_allocate(&desc, &mBuffers[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:148:            LOGE("Failed to allocate AHardwareBuffer %d, error: %d", i, result);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:218:            AHardwareBuffer_release(mBuffers[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:291:    res = AHardwareBuffer_lockAndGetInfo(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:306:    AHardwareBuffer_Desc desc;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:307:    AHardwareBuffer_describe(mBuffers[idx], &desc);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:308:    res = AHardwareBuffer_lock(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:324:        LOGE("Failed to lock AHardwareBuffer for write: %d", res);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:340:    AHardwareBuffer_unlock(mBuffers[idx], &fenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:361:    AHardwareBuffer_unlock(mBuffers[idx], &fenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:399:AHardwareBuffer* FrameBufferRing::acquireReadBuffer(FrameSlotMetadata* outMetadata) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:447:    AHardwareBuffer_acquire(mBuffers[latest]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:468:        AHardwareBuffer_release(mBuffers[idx]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:492:    AHardwareBuffer* buffer = acquireReadBuffer(&metadata);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:499:    AHardwareBuffer_Desc desc;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:500:    AHardwareBuffer_describe(buffer, &desc);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:508:    int lockResult = AHardwareBuffer_lock(buffer,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:538:        AHardwareBuffer_unlock(buffer, nullptr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:547:        AHardwareBuffer_unlock(buffer, nullptr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:557:    // Note: AHardwareBuffer stride is in pixels, multiply by bytesPerPixel for bytes
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:573:    AHardwareBuffer_unlock(buffer, nullptr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameSlotMetadata.h:29: * Per-slot metadata for AHardwareBuffer ring buffer.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameSlotMetadata.h:34: *   Producer → Consumer: acquireFenceFd (from AHardwareBuffer_unlock)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:26:// Platform-specific: AHardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:106: * AHardwareBuffer-based triple-buffered ring buffer for UVC frame streaming.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:122: * - Minimum: API 26 (Android 8.0) for AHardwareBuffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:123: * - Recommended: API 29+ for AHardwareBuffer_lockAndGetInfo (accurate stride)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:143:     * Allocate triple-buffered AHardwareBuffer ring.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:146:     * @param format AHardwareBuffer format (e.g., AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:152:     * Release all AHardwareBuffers and reset state.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:179:     * Increments AHardwareBuffer reference count for safety.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:181:     * @return AHardwareBuffer pointer (caller must call releaseReadBuffer), or nullptr
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:183:    AHardwareBuffer* acquireReadBuffer(FrameSlotMetadata* outMetadata);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:187:     * Decrements AHardwareBuffer reference count.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:370:    AHardwareBuffer*   mBuffers[FRAME_BUFFER_COUNT];

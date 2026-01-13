@@ -1,0 +1,85 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag.c:499:	sprintf(pre, "%s\t\t", prefix);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:138:		sprintf(work,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:275:				sprintf(work, "UVC Camera (%x:%x)", desc->idVendor, desc->idProduct);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:51:        sprintf(buffer, "encodings/%s", filename);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:54:            sprintf(buffer, "../../bin/encodings/%s", filename);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/readertest.cpp:180:        sprintf(buffer, "%s", str); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:54:        sprintf(filename, "jsonchecker/fail%d.json", i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:58:            sprintf(filename, "../../bin/jsonchecker/fail%d.json", i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:79:        sprintf(filename, "jsonchecker/pass%d.json", i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:83:            sprintf(filename, "../../bin/jsonchecker/pass%d.json", i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/valuetest.cpp:1104:        sprintf(name1, "%d", i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/valuetest.cpp:1112:            sprintf(name2, "%d", j);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/valuetest.cpp:1125:        sprintf(name1, "%d", i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/valuetest.cpp:1129:            sprintf(name2, "%d", j);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/documenttest.cpp:85:    sprintf(buffer, "encodings/%s", filename);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/documenttest.cpp:88:        sprintf(buffer, "../../bin/encodings/%s", filename);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:109:                len = sprintf(num, "%I64d", YAJL_GET_INTEGER(v));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:111:                len = sprintf(num, "%lld", YAJL_GET_INTEGER(v));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:115:                len = sprintf(num, "%g", YAJL_GET_DOUBLE(v));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:773:        sprintf(buffer, "%d", randval[j]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:785:        sprintf(buffer, "%d", randval[j]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:839:        sprintf(buffer, "%" PRIi64, x);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/misctest.cpp:852:        sprintf(buffer, "%" PRIi64, x);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/tutorial/tutorial.cpp:131:        int len = sprintf(buffer, "%s %s", "Milo", "Yip");  // synthetic example of dynamically created string.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/test_lib_json/jsontest.cpp:259:   sprintf( buffer, "%d", value );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/test_lib_json/jsontest.cpp:268:   sprintf( buffer, "%u", value );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/test_lib_json/jsontest.cpp:277:   sprintf( buffer, "%16g", value );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:59:            sprintf( buffer, "[%d]", index );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_writer.cpp:70:   sprintf_s(buffer, sizeof(buffer), "%#.16g", value); 
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_writer.cpp:72:   sprintf(buffer, "%#.16g", value); 
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_reader.cpp:852:   sprintf( buffer, "Line %d, Column %d", line, column );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:485:	/* for very large numbers switch back to native sprintf for exponentials.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:493:		enc->offset += sprintf(str, "%e", neg ? -value : value);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:92:        strcat((char *) str, errorType);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:93:        strcat((char *) str, " error");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:95:            strcat((char *) str, ": ");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:96:            strcat((char *) str, errorText);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:98:        strcat((char *) str, "\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:133:                strcat((char *) newStr, (char *) str);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:134:                strcat((char *) newStr, text);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_parser.c:135:                strcat((char *) newStr, arrow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:204:    sprintf(i, "%lld", number);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:224:    sprintf(i, "%.20g", number);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:29:#define snprintf sprintf_s
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:270:		cp = fgets(buf, sizeof(buf), image);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:173:	sprintf(uuid_string, "{%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:438: * packet descriptors in hope that all the data gets transferred. For incoming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:473: * the function returns it's stack gets destroyed. This is true for both
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2599:	strcpy(buf + header_len + text_len, USBI_LOG_LINE_END);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:437: * packet descriptors in hope that all the data gets transferred. For incoming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:472: * the function returns it's stack gets destroyed. This is true for both
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:2180:	strcpy(buf + header_len + text_len, USBI_LOG_LINE_END);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:89:		strcpy(err_string, "Unable to convert error string");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1128:		strcpy(priv->sysfs_dir, sysfs_dir);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1259:		ret = asprintf(&parent_sysfs_dir, "usb%s", tmp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2021:	strcpy(dc.driver, "usbfs");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:136:	sprintf(guid_string, "{%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X}",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:159:	safe_sprintf(err_string, ERR_BUFFER_SIZE, "[%u] ", error_code);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:181:			safe_sprintf(err_string, ERR_BUFFER_SIZE,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:184:			safe_sprintf(err_string, ERR_BUFFER_SIZE, "Unknown error code %u", error_code);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:222:	safe_strcpy(&ret_path[add_root], size-add_root, path);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:446:					safe_sprintf(filter_path, sizeof("\\\\.\\libusb0-0000"), "\\\\.\\libusb0-%04d", libusb0_symboliclink_index);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:821:	sprintf(sem_name, "libusb_init%08X", (unsigned int)GetCurrentProcessId()&0xFFFFFFFF);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1631:						safe_strcpy(priv->usb_interface[0].path, safe_strlen(priv->path)+1, priv->path);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1707:	sprintf(sem_name, "libusb_init%08X", (unsigned int)GetCurrentProcessId()&0xFFFFFFFF);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:881:		strcpy(priv->sysfs_dir, sysfs_dir);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1015:		ret = asprintf (&parent_sysfs_dir, "usb%s", tmp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1594:	strcpy(dc.driver, "usbfs");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrrle.c:205:    sprintf(cmapcomment, "color_map_length=%d", cinfo->actual_number_of_colors);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcapimin.c:91:  cinfo->input_gamma = 1.0;     /* in case application forgets */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm.c:76:    while (fgets(buffer, bufsize, fd)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:43:    while (fgets(cpuinfo_line, sizeof(cpuinfo_line), f) != NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm64.c:81:    while (fgets(buffer, bufsize, fd)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:330:    default:                    /* Anything else just gets copied */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:455:        strcpy(comment_arg, argv[argn]+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:470:          strcat(comment_arg, " ");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:471:          strcat(comment_arg, argv[argn]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:41: * as error recovery (the JPEG code will just exit() if it gets an error).
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jerror.c:192:    sprintf(buffer, msgtext, err->msg_parm.s);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jerror.c:194:    sprintf(buffer, msgtext,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdmaster.c:278:   * This saves time if the upsampler gets to use 1:1 scaling.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jcomapi.c:63: * Everything gets deallocated except the master jpeg_compress_struct itself
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:320:      if (slop < MIN_SLOP)      /* give up when it gets real small */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcoefct.c:119:         * We skip dummy blocks at the right and bottom edges (but blkn gets
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdjpgcom.c:390:    default:                    /* Anything else just gets skipped */

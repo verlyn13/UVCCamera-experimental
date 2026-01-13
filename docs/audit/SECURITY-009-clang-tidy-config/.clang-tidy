@@ -1,0 +1,132 @@
+# .clang-tidy - JNI Memory Safety Enforcement for Android 16
+# Generated: 2026-01-11
+# Project: ScopeCam - UVCCamera Library
+#
+# This configuration enforces Android 16 security requirements:
+# 1. No jlong to pointer casts (MTE compatibility)
+# 2. No direct USB device access (Privacy Sandbox compliance)
+# 3. No raw storage path access (Scoped Storage compliance)
+#
+# Requirements: Clang-Tidy 20+ (NDK r28+) for CustomChecks support
+---
+
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  cppcoreguidelines-*,
+  modernize-*,
+  performance-*,
+  -modernize-use-trailing-return-type,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -bugprone-easily-swappable-parameters
+
+WarningsAsErrors: >
+  jni-no-raw-pointer-cast,
+  jni-no-direct-device-access,
+  jni-no-raw-storage-path
+
+HeaderFilterRegex: 'UVCCamera/.*'
+
+# Clang-Tidy 20 Query-Based Custom Checks
+CustomChecks:
+  # Check 1: Prohibit jlong to pointer casts in JNI functions
+  # This pattern causes MTE violations on ARMv9 and truncation on ILP32
+  - Name: 'jni-no-raw-pointer-cast'
+    Query: >
+      match
+      explicitCastExpr(
+        hasSourceExpression(ignoringParenImpCasts(hasType(asString("jlong")))),
+        anyOf(
+          hasDestinationType(pointerType()),
+          hasDestinationType(asString("intptr_t")),
+          hasDestinationType(asString("uintptr_t"))
+        ),
+        hasAncestor(
+          functionDecl(
+            anyOf(
+              matchesName("^::Java_"),
+              hasParameter(0, hasType(pointsTo(typedefNameDecl(hasName("JNIEnv")))))
+            )
+          )
+        )
+      ).bind("jni_raw_pointer_cast")
+    Diagnostic:
+      - BindName: 'jni_raw_pointer_cast'
+        Message: >
+          CRITICAL SECURITY VIOLATION: Direct cast from 'jlong' to pointer/intptr_t
+          detected in JNI function. This pattern causes: (1) 32-bit truncation overflow
+          on ILP32/ARMv7, (2) MTE violations on ARMv9/Tensor G5/G6, (3) Pointer
+          provenance loss causing UB. Implement Handle/Map registry pattern:
+          HandleManager::acquire(handle) instead of reinterpret_cast.
+          See: SECURITY-003-jni-safety.md
+        Level: Error
+
+  # Check 2: Prohibit direct libusb device access (Privacy Sandbox violation)
+  # Native code must receive FDs from managed layer, not open devices directly
+  - Name: 'jni-no-direct-device-access'
+    Query: >
+      match
+      callExpr(
+        callee(
+          functionDecl(
+            anyOf(
+              hasName("libusb_open"),
+              hasName("libusb_get_device_list"),
+              hasName("libusb_open_device_with_vid_pid"),
+              hasName("uvc_find_device"),
+              hasName("uvc_get_device_list"),
+              hasName("uvc_open")
+            )
+          )
+        )
+      ).bind("direct_device_access")
+    Diagnostic:
+      - BindName: 'direct_device_access'
+        Message: >
+          PROHIBITED: Direct USB device access violates Android 16 Privacy Sandbox.
+          This triggers "Hidden Hardware Access" flag and potential app store rejection.
+          Use FD injection: receive FileDescriptor from UsbDeviceConnection in managed
+          code, then call libusb_wrap_sys_device() in native code.
+          See: SECURITY-001-usb-access.md, SECURITY-002-fd-injection.md
+        Level: Error
+
+  # Check 3: Prohibit raw /sdcard/ path access (Scoped Storage violation)
+  # Native code must receive FDs from SAF/MediaStore, not use raw paths
+  - Name: 'jni-no-raw-storage-path'
+    Query: >
+      match
+      callExpr(
+        callee(functionDecl(hasName("fopen"))),
+        hasArgument(0,
+          stringLiteral(
+            anyOf(
+              hasSubstring("/sdcard"),
+              hasSubstring("/storage/emulated"),
+              hasSubstring("/mnt/sdcard")
+            )
+          )
+        )
+      ).bind("raw_storage_access")
+    Diagnostic:
+      - BindName: 'raw_storage_access'
+        Message: >
+          PROHIBITED: Raw external storage path access blocked by Scoped Storage.
+          fopen("/sdcard/...") returns NULL with EACCES on Android 11+.
+          Use FD injection: receive FileDescriptor from SAF/MediaStore in Kotlin,
+          pass to native via JNI, use write(fd, ...) instead of fopen().
+          See: SECURITY-004-scoped-storage.md
+        Level: Error
+
+# Standard check options
+CheckOptions:
+  - key: bugprone-assert-side-effect.AssertMacros
+    value: assert,ALOGD_ASSERT
+  - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value: true
+  - key: modernize-use-nullptr.NullMacros
+    value: 'NULL'
+  - key: performance-unnecessary-value-param.AllowedTypes
+    value: 'JNIEnv\*'
+
+...

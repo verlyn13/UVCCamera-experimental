@@ -1,0 +1,44 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:59:    auto* buffer = new AHardwareBuffer();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:95: * Allocate a new FrameBufferRing with the specified dimensions.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:106:    FrameBufferRing *ring = new FrameBufferRing();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/DistributePipeline.cpp:91:	DistributePipeline *pipeline = new DistributePipeline();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:136: * if pool is empty, create new frame
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:155:			LOGW("allocate new frame:%d", total_frame_num);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/AbstractBufferedPipeline.cpp:213:				LOGW("failed to allocate new frame:%d", total_frame_num);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:126:	ConvertPipeline *pipeline = new ConvertPipeline(DEFAULT_FRAME_SZ, pixel_format);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:175:	CallbackPipeline *pipeline = new CallbackPipeline();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:219:	PreviewPipeline *pipeline = new PreviewPipeline();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SimpleBufferedPipeline.cpp:51:	SimpleBufferedPipeline *pipeline = new SimpleBufferedPipeline();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:128:	context = new zmq::context_t();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:129:	publisher = new zmq::socket_t(*context, ZMQ_PAIR/*ZMQ_PUB*/);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:236:	PublisherPipeline *pipeline = new PublisherPipeline(DEFAULT_FRAME_SZ, c_addr, c_sub_id);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:43:	db = new sqlite3pp::database(database_name);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:63:	sql_insert_one = new sqlite3pp::command(*db, "INSERT INTO " TABLE_NAME
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:65:	sql_query_oldest_10 = new sqlite3pp::query(*db, "SELECT " ALL_FIELDS " FROM " TABLE_NAME " ORDER BY dtime LIMIT 10;");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:66:	sql_delete_one = new sqlite3pp::command(*db, "DELETE FROM " TABLE_NAME " WHERE (id=?);");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:67:	sql_delete_older = new sqlite3pp::command(*db, "DELETE FROM " TABLE_NAME " WHERE (dtime<?);");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:68:	sql_count = new sqlite3pp::query(*db, "SELECT count(id) FROM " TABLE_NAME ";");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:373:		pipeline = new SQLiteBufferedPipeline(c_database_path, clear_table);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:126:	UVCCamera *camera = new UVCCamera();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:274:				mStatusCallback = new UVCStatusCallback(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:275:				mButtonCallback = new UVCButtonCallback(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:276:				mReadinessCallback = new UVCReadinessCallback();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:277:				mPreview = new UVCPreview(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:655: * Transition from WARM to HOT state by attaching a new surface.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:657: * @param window The new ANativeWindow to render to
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:147: * if pool is empty, create new frame
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:161:		LOGW("allocate new frame");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1564:	FrameBufferRing* newRing = new FrameBufferRing();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1627: * 1. SIGNAL: Setting flags to stop new callbacks from using the ring buffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1907:		LOGW("INJECT_DIAG: Destroying self-allocated ring %p before new injection", previous);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2149: * Attach a new preview surface, transitioning from WARM to HOT state.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2150: * Call this when a new surface is available (e.g., onSurfaceCreated).
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:961:        LOGI("ENQUEUE_DIAG[%d]: Frame enqueued, new writeIdx=%d", callNum, nextIdx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/serialize/serialize.cpp:61:    Dependent(const Dependent& rhs) : Person(rhs), education_(0) { education_ = (rhs.education_ == 0) ? 0 : new Education(*rhs.education_); }
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/serialize/serialize.cpp:68:        education_ = (rhs.education_ == 0) ? 0 : new Education(*rhs.education_);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/serialize/serialize.cpp:135:    employees.back().AddDependent(Dependent("Lua YIP", 3, new Education("Happy Kindergarten", 3.5)));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:19:   char *buffer = new char[size+1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:293:      value_.map_ = new ObjectValues();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:446:      value_.map_ = new ObjectValues( *other.value_.map_ );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:461:      comments_ = new CommentInfo[numberOfCommentPlacement];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:1331:      comments_ = new CommentInfo[numberOfCommentPlacement];

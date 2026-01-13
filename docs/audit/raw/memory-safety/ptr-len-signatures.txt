@@ -1,0 +1,86 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:682:uvc_error_t uvc_get_pantilt_rel(uvc_device_handle_t *devh, int8_t* pan_rel, uint8_t* pan_speed, int8_t* tilt_rel, uint8_t* tilt_speed, enum uvc_req_code req_code);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:671:static void _uvc_process_payload(uvc_stream_handle_t *strmh, const uint8_t *payload, size_t const payload_len) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:57:static void copyFrame(const uint8_t *src, uint8_t *dest, const int width, int height, const int stride_src, const int stride_dest) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:300:	void emitCaptureFrame(const uint8_t* rgbxData, int width, int height, int64_t timestampNs);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:301:	void convertRgbxToNv21(const uint8_t* __restrict rgbx, uint8_t* __restrict nv21, int width, int height);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:302:	void convertRgbxToYuyv(const uint8_t* __restrict rgbx, uint8_t* __restrict yuyv, int width, int height);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.h:303:	void convertRgbxToI420(const uint8_t* __restrict rgbx, uint8_t* __restrict i420, int width, int height);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1103:static void copyFrame(const uint8_t *src, uint8_t *dest, const int width, int height, const int stride_src, const int stride_dest) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2567:void UVCPreview::emitCaptureFrame(const uint8_t* rgbxData, int width, int height, int64_t timestampNs) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:311:	uint8_t *cdb, uint8_t direction, int data_length, uint32_t *ret_tag)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:548:static int get_hid_record_size(uint8_t *hid_report_descriptor, int size, int type)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1359:int LIBUSB_CALL libusb_get_port_numbers(libusb_device *dev, uint8_t* port_numbers, int port_numbers_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:866:		uint8_t* port_numbers, int port_numbers_len) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1422:int LIBUSB_CALL libusb_get_port_numbers(libusb_device *dev, uint8_t* port_numbers, int port_numbers_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:775:	uint8_t* port_numbers, int port_numbers_len)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/include/rapidjson/allocators.h:122:    MemoryPoolAllocator(void *buffer, size_t size, size_t chunkSize = kDefaultChunkCapacity, BaseAllocator* baseAllocator = 0) :
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/include/rapidjson/allocators.h:176:        void *buffer = reinterpret_cast<char *>(chunkHead_ + 1) + chunkHead_->size;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/include/rapidjson/allocators.h:239:    void *userBuffer_;          //!< User supplied buffer.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:45:    void * ctx; /* yajl_buf */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_buf.c:59:    memset((void *) b, 0, sizeof(struct yajl_buf_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1434:	return (struct libusb_control_setup *)(void *) transfer->buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1464:	struct libusb_control_setup *setup = (struct libusb_control_setup *)(void *) buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1510:	struct libusb_control_setup *setup = (struct libusb_control_setup *)(void *) buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1505:	return (struct libusb_control_setup *)(void *) transfer->buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1535:	struct libusb_control_setup *setup = (struct libusb_control_setup *)(void *) buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1585:	struct libusb_control_setup *setup = (struct libusb_control_setup *)(void *) buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.h:93:	void *buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.h:116:	void *data;		/* param buffer (in, or out) */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:587:static int darwin_request_descriptor (usb_device_t **device, UInt8 desc, UInt8 desc_index, void *buffer, size_t buffer_size) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.h:93:	void *buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.h:113:	void *data;	/* param buffer (in, or out) */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:651:ssize_t usbi_write(int fd, const void *buf, size_t count)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:687:ssize_t usbi_read(int fd, void *buf, size_t count)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:89:ssize_t usbi_write(int fd, const void *buf, size_t count);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:90:ssize_t usbi_read(int fd, void *buf, size_t count);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:165:		memcpy((void *)&context->buffer[idx], (const void *)input,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:178:	memcpy ((void *)&context->buffer[idx], (const void *)&input[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5hl.c:107:MD5Data (const void *data, unsigned int len, char *buf)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jsimd_none.c:399:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_powerpc.c:736:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm.c:721:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:1125:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm64.c:792:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:762:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:765:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:770:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:773:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:777:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:780:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:784:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:787:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:790:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:799:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:804:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:808:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:812:        (void *dct_table, JCOEFPTR coef_block, int *output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:816:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:821:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:826:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:830:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:841:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:846:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:851:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:856:        (void *dct_table, JCOEFPTR coef_block, JSAMPARRAY output_buf,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:862:        (void *state, JOCTET *buffer, JCOEFPTR block, int last_dc_val,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:866:        (void *state, JOCTET *buffer, JCOEFPTR block, int last_dc_val,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd.h:870:        (void *state, JOCTET *buffer, JCOEFPTR block, int last_dc_val,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_i386.c:1085:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_x86_64.c:881:jsimd_huff_encode_one_block (void *state, JOCTET *buffer, JCOEFPTR block,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jccoefct.c:183:              jzero_far((void *) coef->MCU_buffer[blkn + blockcnt],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jccoefct.c:191:            jzero_far((void *) coef->MCU_buffer[blkn],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemsys.h:125:                              void *buffer_address, long file_offset,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemsys.h:128:                               void *buffer_address, long file_offset,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:536:    jzero_far((void *) output_buf[row], (size_t) (width * sizeof(JSAMPLE)));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jquant1.c:640:    jzero_far((void *) output_buf[row], (size_t) (width * sizeof(JSAMPLE)));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jsimd.h:92:        (void *state, JOCTET *buffer, JCOEFPTR block, int last_dc_val,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jinclude.h:82:  ((size_t) fread((void *) (buf), (size_t) 1, (size_t) (sizeofbuf), (file)))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jinclude.h:84:  ((size_t) fwrite((const void *) (buf), (size_t) 1, (size_t) (sizeofbuf), (file)))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:764:                                            (void *) ptr->mem_buffer[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:768:                                           (void *) ptr->mem_buffer[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:797:                                            (void *) ptr->mem_buffer[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:801:                                           (void *) ptr->mem_buffer[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:877:        jzero_far((void *) ptr->mem_buffer[undef_row], bytesperrow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jmemmgr.c:962:        jzero_far((void *) ptr->mem_buffer[undef_row], bytesperrow);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jctrans.c:398:  jzero_far((void *) buffer, C_MAX_BLOCKS_IN_MCU * sizeof(JBLOCK));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdcoefct.c:104:      jzero_far((void *) coef->MCU_buffer[0],

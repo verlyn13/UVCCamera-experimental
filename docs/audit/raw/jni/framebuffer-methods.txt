@@ -1,0 +1,62 @@
+# JNI Method Extraction from FrameBufferJNI.cpp
+# Lines 812-859
+# Class: com/scopecam/camera/buffer/FrameBufferManager
+# Total methods: 33
+
+# Lifecycle (2)
+nativeFrameBufferAllocate,(III)J,jlong
+nativeFrameBufferDestroy,(J)V,void
+
+# Consumer API (2)
+nativeFrameBufferAcquireBuffer,(J)Landroid/hardware/HardwareBuffer;,jobject
+nativeFrameBufferReleaseBuffer,(J)V,void
+
+# Bidirectional Fence API - Phase 4 (3)
+nativeFrameBufferGetAcquireFence,(J)I,jint
+nativeFrameBufferGetFrameNumber,(J)J,jlong
+nativeFrameBufferReleaseWithFence,(JJI)V,void
+
+# State Queries (3)
+nativeFrameBufferIsAllocated,(J)Z,jboolean
+nativeFrameBufferGetWidth,(J)I,jint
+nativeFrameBufferGetHeight,(J)I,jint
+
+# Telemetry - Basic Counters (4)
+nativeFrameBufferGetFramesReceived,(J)J,jlong
+nativeFrameBufferGetFramesRendered,(J)J,jlong
+nativeFrameBufferGetFramesDropped,(J)J,jlong
+nativeFrameBufferGetFramesCorrupted,(J)J,jlong
+
+# Telemetry - Ring Buffer State (3)
+nativeFrameBufferGetProducerStalls,(J)J,jlong
+nativeFrameBufferGetConsumerStarves,(J)J,jlong
+nativeFrameBufferGetSlotStates,(J)[I,jintArray
+
+# Telemetry - Timing (3)
+nativeFrameBufferGetAvgDecodeTimeUs,(J)J,jlong
+nativeFrameBufferGetFenceWaitTimeNs,(J)J,jlong
+nativeFrameBufferGetTotalFenceWaits,(J)J,jlong
+
+# Telemetry - Error Recording (2)
+nativeFrameBufferRecordError,(JILjava/lang/String;)V,void
+nativeFrameBufferGetErrorCount,(J)I,jint
+
+# Telemetry - Stream Negotiation (4)
+nativeFrameBufferSetUsbProtocol,(JIIZI)V,void
+nativeFrameBufferSetNegotiatedParams,(JIII)V,void
+nativeFrameBufferGetFallbackLevel,(J)I,jint
+nativeFrameBufferSetFallbackLevel,(JILjava/lang/String;)V,void
+
+# Telemetry - USB Layer (6)
+nativeFrameBufferOnUsbPacket,(J)V,void
+nativeFrameBufferOnUsbOverflow,(J)V,void
+nativeFrameBufferOnUsbTimeout,(J)V,void
+nativeFrameBufferGetUsbPacketsReceived,(J)J,jlong
+nativeFrameBufferGetUsbOverflowErrors,(J)J,jlong
+nativeFrameBufferGetUsbTimeoutErrors,(J)J,jlong
+
+# ByteBuffer Telemetry (1)
+nativeGetTelemetryBuffer,(J)Ljava/nio/ByteBuffer;,jobject
+
+# Snapshot API - Phase 4 (1)
+nativeFrameBufferCaptureToFd,(JII)I,jint

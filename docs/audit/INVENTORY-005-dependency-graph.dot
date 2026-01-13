@@ -1,0 +1,193 @@
+// INVENTORY-005: UVCCamera Dependency Graph
+// Generated: 2026-01-11
+// Render with: dot -Tpng INVENTORY-005-dependency-graph.dot -o dependency-graph.png
+
+digraph UVCCamera_Dependencies {
+    // Graph settings
+    rankdir=TB;
+    compound=true;
+    node [shape=box, style=filled, fontname="Helvetica"];
+    edge [fontname="Helvetica", fontsize=10];
+
+    // Color scheme
+    // Green: UVCCamera core
+    // Blue: libuvc
+    // Purple: libusb
+    // Orange: libjpeg-turbo
+    // Gray: System/Platform
+    // Yellow: Headers only
+
+    // =====================
+    // Subgraph: UVCCamera
+    // =====================
+    subgraph cluster_uvccamera {
+        label="libUVCCamera.so";
+        style=filled;
+        color=lightgreen;
+
+        // Source files
+        uvc_onload [label="_onload.cpp", fillcolor="#90EE90"];
+        uvc_camera [label="UVCCamera.cpp\n(2894 lines)", fillcolor="#90EE90"];
+        uvc_preview [label="UVCPreview.cpp\n(3006 lines)", fillcolor="#90EE90"];
+        uvc_handle [label="HandleManager.cpp", fillcolor="#90EE90"];
+        uvc_ring [label="FrameBufferRing.cpp", fillcolor="#90EE90"];
+        uvc_params [label="Parameters.cpp", fillcolor="#90EE90"];
+        uvc_layout [label="LayoutContract.cpp", fillcolor="#90EE90"];
+        uvc_jni [label="serenegiant_usb_UVCCamera.cpp", fillcolor="#90EE90"];
+
+        // Headers
+        uvc_camera_h [label="UVCCamera.h", fillcolor="#98FB98"];
+        uvc_preview_h [label="UVCPreview.h", fillcolor="#98FB98"];
+        uvc_handle_h [label="HandleManager.h", fillcolor="#98FB98"];
+        uvc_ring_h [label="FrameBufferRing.h", fillcolor="#98FB98"];
+        uvc_output_h [label="OutputMode.h", fillcolor="#98FB98"];
+        uvc_telem_h [label="StreamTelemetry.h", fillcolor="#98FB98"];
+        uvc_util_h [label="utilbase.h", fillcolor="#98FB98"];
+        uvc_lib_h [label="libUVCCamera.h", fillcolor="#98FB98"];
+    }
+
+    // =====================
+    // Subgraph: libuvc
+    // =====================
+    subgraph cluster_libuvc {
+        label="libuvc.so";
+        style=filled;
+        color=lightblue;
+
+        // Source files
+        libuvc_ctrl [label="ctrl.c", fillcolor="#ADD8E6"];
+        libuvc_device [label="device.c", fillcolor="#ADD8E6"];
+        libuvc_frame [label="frame.c", fillcolor="#ADD8E6"];
+        libuvc_mjpeg [label="frame-mjpeg.c", fillcolor="#ADD8E6"];
+        libuvc_init [label="init.c", fillcolor="#ADD8E6"];
+        libuvc_stream [label="stream.c", fillcolor="#ADD8E6"];
+
+        // Headers
+        libuvc_h [label="libuvc.h", fillcolor="#87CEEB"];
+        libuvc_int_h [label="libuvc_internal.h", fillcolor="#87CEEB"];
+    }
+
+    // =====================
+    // Subgraph: libusb
+    // =====================
+    subgraph cluster_libusb {
+        label="libusb100.so";
+        style=filled;
+        color=plum;
+
+        // Source files
+        libusb_core [label="core.c", fillcolor="#DDA0DD"];
+        libusb_desc [label="descriptor.c", fillcolor="#DDA0DD"];
+        libusb_io [label="io.c", fillcolor="#DDA0DD"];
+        libusb_sync [label="sync.c", fillcolor="#DDA0DD"];
+        libusb_usbfs [label="android_usbfs.c", fillcolor="#DDA0DD"];
+        libusb_netlink [label="android_netlink.c", fillcolor="#DDA0DD"];
+
+        // Headers
+        libusb_h [label="libusb.h", fillcolor="#E6E6FA"];
+        libusbi_h [label="libusbi.h", fillcolor="#E6E6FA"];
+    }
+
+    // =====================
+    // Subgraph: libjpeg-turbo
+    // =====================
+    subgraph cluster_libjpeg {
+        label="libjpeg-turbo1500";
+        style=filled;
+        color=lightyellow;
+
+        // Key source files (subset)
+        jpeg_compress [label="jcapimin.c\n(compress)", fillcolor="#FFFFE0"];
+        jpeg_decompress [label="jdapimin.c\n(decompress)", fillcolor="#FFFFE0"];
+        jpeg_turbo [label="turbojpeg.c", fillcolor="#FFFFE0"];
+        jpeg_simd [label="simd/jsimd_*.c", fillcolor="#FFFFE0"];
+
+        // Headers
+        jpeglib_h [label="jpeglib.h", fillcolor="#FFFACD"];
+        turbojpeg_h [label="turbojpeg.h", fillcolor="#FFFACD"];
+    }
+
+    // =====================
+    // System/Platform
+    // =====================
+    subgraph cluster_system {
+        label="System Libraries";
+        style=filled;
+        color=lightgray;
+
+        jni_h [label="jni.h", fillcolor="#D3D3D3"];
+        android_log [label="android/log.h", fillcolor="#D3D3D3"];
+        android_hwbuf [label="android/hardware_buffer.h", fillcolor="#D3D3D3"];
+        android_nwin [label="android/native_window.h", fillcolor="#D3D3D3"];
+        pthread_h [label="pthread.h", fillcolor="#D3D3D3"];
+        stdlib_h [label="stdlib.h", fillcolor="#D3D3D3"];
+    }
+
+    // =====================
+    // Dependencies: UVCCamera
+    // =====================
+    // Source to header (internal)
+    uvc_camera -> uvc_camera_h;
+    uvc_camera -> uvc_preview_h;
+    uvc_camera -> uvc_handle_h;
+    uvc_camera -> uvc_output_h;
+    uvc_preview -> uvc_preview_h;
+    uvc_preview -> uvc_ring_h;
+    uvc_preview -> uvc_telem_h;
+    uvc_handle -> uvc_handle_h;
+    uvc_ring -> uvc_ring_h;
+    uvc_ring -> uvc_telem_h;
+    uvc_onload -> uvc_lib_h;
+
+    // UVCCamera to external
+    uvc_camera -> libuvc_h [color=blue, label="UVC API"];
+    uvc_preview -> libuvc_h [color=blue];
+    uvc_ring -> turbojpeg_h [color=orange, label="JPEG encode"];
+    uvc_ring -> android_hwbuf [color=gray, label="AHardwareBuffer"];
+    uvc_onload -> jni_h [color=gray];
+
+    // =====================
+    // Dependencies: libuvc
+    // =====================
+    libuvc_ctrl -> libuvc_int_h;
+    libuvc_device -> libuvc_int_h;
+    libuvc_frame -> libuvc_int_h;
+    libuvc_mjpeg -> libuvc_int_h;
+    libuvc_mjpeg -> jpeglib_h [color=orange, label="MJPEG decode"];
+    libuvc_init -> libuvc_int_h;
+    libuvc_stream -> libuvc_int_h;
+
+    libuvc_int_h -> libuvc_h;
+    libuvc_int_h -> libusb_h [color=purple, label="USB transport"];
+
+    // =====================
+    // Dependencies: libusb
+    // =====================
+    libusb_core -> libusbi_h;
+    libusb_desc -> libusbi_h;
+    libusb_io -> libusbi_h;
+    libusb_sync -> libusbi_h;
+    libusb_usbfs -> libusbi_h;
+    libusb_netlink -> libusbi_h;
+
+    libusbi_h -> libusb_h;
+    libusbi_h -> pthread_h [color=gray];
+
+    // =====================
+    // Dependencies: libjpeg
+    // =====================
+    jpeg_turbo -> jpeglib_h;
+    jpeg_compress -> jpeglib_h;
+    jpeg_decompress -> jpeglib_h;
+    jpeg_simd -> jpeglib_h;
+    turbojpeg_h -> jpeglib_h;
+
+    // =====================
+    // Cross-component summary edges
+    // =====================
+    // Invisible edges for layout
+    {rank=same; uvc_camera; uvc_preview; uvc_ring}
+    {rank=same; libuvc_stream; libuvc_mjpeg}
+    {rank=same; libusb_core; libusb_io}
+    {rank=same; jpeg_compress; jpeg_decompress}
+}

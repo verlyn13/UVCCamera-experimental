@@ -1,0 +1,113 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:88:    int   fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.h:102:int uvccamera_close(int fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:134:int uvccamera_close(int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:542:		int pid, const char *sn, int fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/include/libuvc/libuvc.h:545:		int vid, int pid, const char *serial, int fd, int busnum, int devaddr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:194:		int pid, const char *sn, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:224:		int vid, int pid, const char *serial, int fd, int busnum, int devaddr) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:148:int UVCCamera::connectSimple(int fd, const char *usbfs) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:211:int UVCCamera::connect(int vid, int pid, int fd, int busnum, int devaddr, const char *usbfs) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:245:		int original_fd = fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.h:197:	int connect(int vid, int pid, int fd, int busnum, int devaddr, const char *usbfs);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.h:208:	int connectSimple(int fd, const char *usbfs);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:477:int FrameBufferRing::captureToFd(int fd, int quality) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.h:221:    int captureToFd(int fd, int quality = 90);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/unittest.h:82:    int fd = mkstemp(filename);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:122:        int fd = _open(filename_, _O_BINARY | _O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:132:        int fd = open(filename_, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:161:        int fd = open(filename_, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/libusb_testlib.h:59:	int null_fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi_original.h:474:int usbi_add_pollfd(struct libusb_context *ctx, int fd, short events);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi_original.h:475:void usbi_remove_pollfd(struct libusb_context *ctx, int fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2005:			int fd = pollfd->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2492:int usbi_add_pollfd(struct libusb_context *ctx, int fd, short events) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2513:void usbi_remove_pollfd(struct libusb_context *ctx, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1788:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1807:typedef void (LIBUSB_CALL *libusb_pollfd_added_cb)(int fd, short events,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb_original.h:1819:typedef void (LIBUSB_CALL *libusb_pollfd_removed_cb)(int fd, void *user_data);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:471:int usbi_add_pollfd(struct libusb_context *ctx, int fd, short events);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:472:void usbi_remove_pollfd(struct libusb_context *ctx, int fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusbi.h:628:	int (*set_device_fd)(struct libusb_device *device, int fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:98:	int vid, int pid, const char *serial, int fd, int busnum, int devaddr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:765:		const int pid, const char* sn, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1244:int API_EXPORTED libusb_set_device_fd(libusb_device *dev, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1250:	int vid, int pid, const char *serial, int fd, int busnum, int devaddr) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1378:	const int vid, const int pid, const char *sn, int fd);	// XXX add for mainly non-rooted Android
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1433:int LIBUSB_CALL libusb_set_device_fd(libusb_device *dev, int fd);	// XXX add for mainly non-rooted Android
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1435:	int vid, int pid, const char *serial, int fd, int busnum, int devaddr);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1891:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1910:typedef void (LIBUSB_CALL *libusb_pollfd_added_cb)(int fd, short events,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/libusb.h:1922:typedef void (LIBUSB_CALL *libusb_pollfd_removed_cb)(int fd, void *user_data);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1949:		int fd = pollfd->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:2433:int usbi_add_pollfd(struct libusb_context *ctx, int fd, short events)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:2452:void usbi_remove_pollfd(struct libusb_context *ctx, int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:36:	int fd;					/* device file descriptor */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:153:	int fd, addr, i, j;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:325:	int fd, err;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:431:	int fd, err;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:636:	int fd, len, err;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:718:		int fd, err;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:750:	int fd, endpt;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:782:	int fd, nr = 1;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_udev.c:48:static int udev_monitor_fd = -1;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:174:static int _fd_to_index_and_lock(int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:424:struct winfd fd_to_winfd(int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:629:int usbi_close(int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:651:ssize_t usbi_write(int fd, const void *buf, size_t count)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:687:ssize_t usbi_read(int fd, void *buf, size_t count)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:36:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:143:	int fd, err, i;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:285:	int fd, err;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:582:_cache_active_config_descriptor(struct libusb_device *dev, int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:670:	int fd, endpt;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:702:	int fd, nr = 1;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:162:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:166:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:202:static void dump_urb(int ix, int fd, struct usbfs_urb *urb) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:221:static int __get_usbfs_fd(struct libusb_device *dev, mode_t mode, int silent) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:225:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:267:static int _get_usbfs_fd(struct libusb_device *device, mode_t mode, int silent) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:698:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:777:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1084:static int usbfs_get_active_config(struct libusb_device *dev, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1118:	int fd, speed;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1296:	uint8_t busnum, uint8_t devaddr, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1378:	int vid, int pid, const char *serial, int fd, int busnum, int devaddr) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1646:static int op_set_device_fd(struct libusb_device *device, int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1689:	int fd = _device_handle_priv(dev_handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1721:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1745:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1768:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1787:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1810:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1828:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1881:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1930:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1951:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1983:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2016:	const int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:79:static int set_fd_cloexec_nb (int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:147:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:182:static int _get_usbfs_fd(struct libusb_device *dev, mode_t mode, int silent)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:186:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:516:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:582:	int fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:836:static int usbfs_get_active_config(struct libusb_device *dev, int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:871:	int fd, speed;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1317:	int fd = _device_handle_priv(dev_handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1347:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1369:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1388:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1404:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1428:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1447:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1501:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1524:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1558:	int fd = _device_handle_priv(handle)->fd;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:66:static int set_fd_cloexec_nb (int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:62:    int fd;           /* file descriptor */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:78:	int fd;							// what's exposed to libusb core
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:89:ssize_t usbi_write(int fd, const void *buf, size_t count);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:90:ssize_t usbi_read(int fd, void *buf, size_t count);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:91:int usbi_close(int fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.h:98:struct winfd fd_to_winfd(int fd);

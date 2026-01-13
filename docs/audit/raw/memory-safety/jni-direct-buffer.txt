@@ -1,0 +1,7 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:759:    jobject buffer = env->NewDirectByteBuffer(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:765:        LOGE("nativeGetTelemetryBuffer: NewDirectByteBuffer failed");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:154:					jobject buf = env->NewDirectByteBuffer(callback_frame->data, callbackPixelBytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCStatusCallback.cpp:66:			jobject buf = env->NewDirectByteBuffer(data, data_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1415:			jobject buf = env->NewDirectByteBuffer(callback_frame->data, callbackPixelBytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2635:	jobject buffer = env->NewDirectByteBuffer(mCaptureBuffer, bufferSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:988:	bailif0(bufobj=(*env)->NewDirectByteBuffer(env, coeffs,

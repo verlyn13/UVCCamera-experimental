@@ -1,0 +1,123 @@
+# CMakeLists.txt - Clang-Tidy Integration for Android NDK
+# Generated: 2026-01-11
+# Project: ScopeCam - UVCCamera Library
+#
+# This example shows how to integrate Clang-Tidy enforcement into
+# an Android NDK CMake build.
+
+cmake_minimum_required(VERSION 3.22)
+project(UVCCamera VERSION 1.0.0 LANGUAGES CXX)
+
+# Require C++20 for modern features
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# ============================================================================
+# Clang-Tidy Configuration
+# ============================================================================
+
+# Find clang-tidy (from NDK or system)
+find_program(CLANG_TIDY_EXE
+    NAMES clang-tidy clang-tidy-20 clang-tidy-19
+    HINTS
+        ${ANDROID_NDK}/toolchains/llvm/prebuilt/*/bin
+        /usr/bin
+        /usr/local/bin
+)
+
+if(CLANG_TIDY_EXE)
+    message(STATUS "Found clang-tidy: ${CLANG_TIDY_EXE}")
+
+    # Configure clang-tidy for all targets
+    set(CMAKE_CXX_CLANG_TIDY
+        "${CLANG_TIDY_EXE}"
+        "-config-file=${CMAKE_SOURCE_DIR}/.clang-tidy"
+        "-warnings-as-errors=jni-no-raw-pointer-cast,jni-no-direct-device-access,jni-no-raw-storage-path"
+        "-header-filter=${CMAKE_SOURCE_DIR}/jni/UVCCamera/.*"
+    )
+
+    # Export compile commands for IDE integration
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+else()
+    message(WARNING "clang-tidy not found - static analysis disabled")
+endif()
+
+# ============================================================================
+# Compiler Flags for MTE and Security
+# ============================================================================
+
+# Warning flags
+add_compile_options(
+    -Wall
+    -Wextra
+    -Werror=int-to-pointer-cast
+    -Werror=pointer-to-int-cast
+    -Wno-unused-parameter
+)
+
+# Security hardening
+add_compile_options(
+    -fstack-protector-strong
+    -D_FORTIFY_SOURCE=2
+)
+
+# MTE support (ARMv9)
+if(ANDROID_ABI STREQUAL "arm64-v8a")
+    add_compile_options(
+        -march=armv8.5-a+memtag  # Enable MTE instructions
+        -fsanitize=memtag        # Enable MTE sanitizer (optional)
+    )
+    add_link_options(
+        -fsanitize=memtag
+    )
+endif()
+
+# ============================================================================
+# Library Target
+# ============================================================================
+
+add_library(UVCCamera SHARED
+    jni/UVCCamera/UVCCamera.cpp
+    jni/UVCCamera/UVCPreview.cpp
+    jni/UVCCamera/HandleManager.cpp
+    jni/UVCCamera/FrameBufferRing.cpp
+    jni/UVCCamera/FrameBufferJNI.cpp
+    jni/UVCCamera/serenegiant_usb_UVCCamera.cpp
+    # ... other sources
+)
+
+target_include_directories(UVCCamera PRIVATE
+    ${CMAKE_SOURCE_DIR}/jni/UVCCamera
+    ${CMAKE_SOURCE_DIR}/jni/libuvc/include
+    ${CMAKE_SOURCE_DIR}/jni/libusb/libusb
+)
+
+target_link_libraries(UVCCamera
+    android
+    log
+    nativewindow
+    EGL
+    GLESv3
+)
+
+# ============================================================================
+# Custom Target: Run Clang-Tidy Manually
+# ============================================================================
+
+add_custom_target(clang-tidy-check
+    COMMAND ${CLANG_TIDY_EXE}
+        -p ${CMAKE_BINARY_DIR}
+        -config-file=${CMAKE_SOURCE_DIR}/.clang-tidy
+        ${CMAKE_SOURCE_DIR}/jni/UVCCamera/*.cpp
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Running clang-tidy security checks..."
+    VERBATIM
+)
+
+# ============================================================================
+# Installation
+# ============================================================================
+
+install(TARGETS UVCCamera
+    LIBRARY DESTINATION lib/${ANDROID_ABI}
+)

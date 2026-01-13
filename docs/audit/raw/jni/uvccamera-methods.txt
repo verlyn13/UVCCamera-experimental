@@ -1,0 +1,198 @@
+# JNI Method Extraction from serenegiant_usb_UVCCamera.cpp
+# Lines 2695-2915
+# Class: com/serenegiant/usb/UVCCamera
+# Total methods: 121
+
+# Core Lifecycle (2)
+nativeCreate,()J,jlong
+nativeDestroy,(J)V,void
+
+# Connection (2)
+nativeConnect,(JIIIIILjava/lang/String;)I,jint
+nativeConnectSimple,(JILjava/lang/String;)I,jint
+
+# Release (1)
+nativeRelease,(J)I,jint
+
+# Callbacks (4)
+nativeSetStatusCallback,(JLcom/serenegiant/usb/IStatusCallback;)I,jint
+nativeSetButtonCallback,(JLcom/serenegiant/usb/IButtonCallback;)I,jint
+nativeSetReadinessCallback,(JLcom/serenegiant/usb/IReadinessCallback;)I,jint
+nativeIsReady,(J)Z,jboolean
+
+# Cleanup (3)
+nativeCleanup,(JI)I,jint
+nativeReleaseInterface,(J)I,jint
+nativeHardReset,(J)I,jint
+
+# Preview Setup (5)
+nativeGetSupportedSize,(J)Ljava/lang/String;,jobject
+nativeSetPreviewSize,(JIIIIIF)I,jint
+nativeStartPreview,(J)I,jint
+nativeStopPreview,(J)I,jint
+nativeSetPreviewDisplay,(JLandroid/view/Surface;)I,jint
+
+# Frame/Capture (2)
+nativeSetFrameCallback,(JLcom/serenegiant/usb/IFrameCallback;I)I,jint
+nativeSetCaptureDisplay,(JLandroid/view/Surface;)I,jint
+
+# State Machine - Phase 2 WARM state (4)
+nativeGetPreviewState,(J)I,jint
+nativeGetInternalDiagnosticState,(J)I,jint
+nativeDetachSurface,(J)V,void
+nativeAttachSurface,(JLandroid/view/Surface;)V,void
+
+# Ring Buffer - Phase 4 (7)
+nativeSetUseRingBuffer,(JZ)I,jint
+nativeAllocateRingBuffer,(JII)I,jint
+nativeDestroyRingBuffer,(J)V,void
+nativeGetRingBufferHandle,(J)J,jlong
+nativeSetFrameBufferRing,(JJ)I,jint
+nativeInvalidateRingBufferHandle,(J)V,void
+nativeIsRingBufferValid,(J)Z,jboolean
+
+# OutputMode (2)
+nativeSetOutputMode,(JI)I,jint
+nativeGetOutputMode,(J)I,jint
+
+# Telemetry (5)
+nativeGetDroppedNoSurface,(J)J,jlong
+nativeGetDroppedQueueFull,(J)J,jlong
+nativeGetTotalFramesProcessed,(J)J,jlong
+nativeIsSurfaceReady,(J)Z,jboolean
+nativeIsUsbFdValid,(J)Z,jboolean
+
+# Capture Callback API - Dual-Emit (8)
+nativeSetCaptureCallback,(JLcom/serenegiant/usb/ICaptureFrameCallback;)I,jint
+nativeSetCaptureFormat,(JI)I,jint
+nativeSetCaptureFrameRate,(JI)I,jint
+nativeEnableCaptureCallback,(JZ)I,jint
+nativeGetCaptureFramesEmitted,(J)J,jlong
+nativeGetCaptureFramesDropped,(J)J,jlong
+nativeGetCaptureCallbackBusy,(J)J,jlong
+nativeGetPreviewFps,(J)I,jint
+
+# Control Supports (2)
+nativeGetCtrlSupports,(J)J,jlong
+nativeGetProcSupports,(J)J,jlong
+
+# Camera Controls - Update/Set/Get pattern (81 methods, 27 controls x 3)
+# Each control has: nativeUpdate[X]Limit, nativeSet[X], nativeGet[X]
+
+# Terminal Controls (CT)
+nativeUpdateScanningModeLimit,(J)I,jint
+nativeSetScanningMode,(JI)I,jint
+nativeGetScanningMode,(J)I,jint
+nativeUpdateExposureModeLimit,(J)I,jint
+nativeSetExposureMode,(JI)I,jint
+nativeGetExposureMode,(J)I,jint
+nativeUpdateExposurePriorityLimit,(J)I,jint
+nativeSetExposurePriority,(JI)I,jint
+nativeGetExposurePriority,(J)I,jint
+nativeUpdateExposureLimit,(J)I,jint
+nativeSetExposure,(JI)I,jint
+nativeGetExposure,(J)I,jint
+nativeUpdateExposureRelLimit,(J)I,jint
+nativeSetExposureRel,(JI)I,jint
+nativeGetExposureRel,(J)I,jint
+nativeUpdateAutoFocusLimit,(J)I,jint
+nativeSetAutoFocus,(JZ)I,jint
+nativeGetAutoFocus,(J)I,jint
+nativeUpdateFocusLimit,(J)I,jint
+nativeSetFocus,(JI)I,jint
+nativeGetFocus,(J)I,jint
+nativeUpdateFocusRelLimit,(J)I,jint
+nativeSetFocusRel,(JI)I,jint
+nativeGetFocusRel,(J)I,jint
+nativeUpdateIrisLimit,(J)I,jint
+nativeSetIris,(JI)I,jint
+nativeGetIris,(J)I,jint
+nativeUpdateIrisRelLimit,(J)I,jint
+nativeSetIrisRel,(JI)I,jint
+nativeGetIrisRel,(J)I,jint
+nativeUpdatePanLimit,(J)I,jint
+nativeSetPan,(JI)I,jint
+nativeGetPan,(J)I,jint
+nativeUpdateTiltLimit,(J)I,jint
+nativeSetTilt,(JI)I,jint
+nativeGetTilt,(J)I,jint
+nativeUpdateRollLimit,(J)I,jint
+nativeSetRoll,(JI)I,jint
+nativeGetRoll,(J)I,jint
+nativeUpdatePanRelLimit,(J)I,jint
+nativeSetPanRel,(JI)I,jint
+nativeGetPanRel,(J)I,jint
+nativeUpdateTiltRelLimit,(J)I,jint
+nativeSetTiltRel,(JI)I,jint
+nativeGetTiltRel,(J)I,jint
+nativeUpdateRollRelLimit,(J)I,jint
+nativeSetRollRel,(JI)I,jint
+nativeGetRollRel,(J)I,jint
+
+# Processing Unit Controls (PU)
+nativeUpdateAutoWhiteBlanceLimit,(J)I,jint
+nativeSetAutoWhiteBlance,(JZ)I,jint
+nativeGetAutoWhiteBlance,(J)I,jint
+nativeUpdateAutoWhiteBlanceCompoLimit,(J)I,jint
+nativeSetAutoWhiteBlanceCompo,(JZ)I,jint
+nativeGetAutoWhiteBlanceCompo,(J)I,jint
+nativeUpdateWhiteBlanceLimit,(J)I,jint
+nativeSetWhiteBlance,(JI)I,jint
+nativeGetWhiteBlance,(J)I,jint
+nativeUpdateWhiteBlanceCompoLimit,(J)I,jint
+nativeSetWhiteBlanceCompo,(JI)I,jint
+nativeGetWhiteBlanceCompo,(J)I,jint
+nativeUpdateBacklightCompLimit,(J)I,jint
+nativeSetBacklightComp,(JI)I,jint
+nativeGetBacklightComp,(J)I,jint
+nativeUpdateBrightnessLimit,(J)I,jint
+nativeSetBrightness,(JI)I,jint
+nativeGetBrightness,(J)I,jint
+nativeUpdateContrastLimit,(J)I,jint
+nativeSetContrast,(JI)I,jint
+nativeGetContrast,(J)I,jint
+nativeUpdateAutoContrastLimit,(J)I,jint
+nativeSetAutoContrast,(JZ)I,jint
+nativeGetAutoContrast,(J)I,jint
+nativeUpdateSharpnessLimit,(J)I,jint
+nativeSetSharpness,(JI)I,jint
+nativeGetSharpness,(J)I,jint
+nativeUpdateGainLimit,(J)I,jint
+nativeSetGain,(JI)I,jint
+nativeGetGain,(J)I,jint
+nativeUpdateGammaLimit,(J)I,jint
+nativeSetGamma,(JI)I,jint
+nativeGetGamma,(J)I,jint
+nativeUpdateSaturationLimit,(J)I,jint
+nativeSetSaturation,(JI)I,jint
+nativeGetSaturation,(J)I,jint
+nativeUpdateHueLimit,(J)I,jint
+nativeSetHue,(JI)I,jint
+nativeGetHue,(J)I,jint
+nativeUpdateAutoHueLimit,(J)I,jint
+nativeSetAutoHue,(JZ)I,jint
+nativeGetAutoHue,(J)I,jint
+nativeUpdatePowerlineFrequencyLimit,(J)I,jint
+nativeSetPowerlineFrequency,(JI)I,jint
+nativeGetPowerlineFrequency,(J)I,jint
+nativeUpdateZoomLimit,(J)I,jint
+nativeSetZoom,(JI)I,jint
+nativeGetZoom,(J)I,jint
+nativeUpdateZoomRelLimit,(J)I,jint
+nativeSetZoomRel,(JI)I,jint
+nativeGetZoomRel,(J)I,jint
+nativeUpdateDigitalMultiplierLimit,(J)I,jint
+nativeSetDigitalMultiplier,(JI)I,jint
+nativeGetDigitalMultiplier,(J)I,jint
+nativeUpdateDigitalMultiplierLimitLimit,(J)I,jint
+nativeSetDigitalMultiplierLimit,(JI)I,jint
+nativeGetDigitalMultiplierLimit,(J)I,jint
+nativeUpdateAnalogVideoStandardLimit,(J)I,jint
+nativeSetAnalogVideoStandard,(JI)I,jint
+nativeGetAnalogVideoStandard,(J)I,jint
+nativeUpdateAnalogVideoLockStateLimit,(J)I,jint
+nativeSetAnalogVideoLoackState,(JI)I,jint
+nativeGetAnalogVideoLoackState,(J)I,jint
+nativeUpdatePrivacyLimit,(J)I,jint
+nativeSetPrivacy,(JZ)I,jint
+nativeGetPrivacy,(J)I,jint

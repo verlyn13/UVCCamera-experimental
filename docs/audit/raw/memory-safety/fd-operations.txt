@@ -1,0 +1,494 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:43:    // close() state
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:132:// === close() Implementation ===
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:134:int uvccamera_close(int fd) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init_original.c:141:    uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init_original.c:156: * are already open (and being handled).
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init.c:192:		uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init.c:207: * are already open (and being handled).
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:569:    uvc_stream_close(strmh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:1034:    uvc_stream_close(strmh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:1098:void uvc_stream_close(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/example.c:88:    res = uvc_open(dev, &devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/example.c:133:      uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:41:int uvc_already_open(uvc_context_t *ctx, struct libusb_device *usb_dev);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:97:int uvc_already_open(uvc_context_t *ctx, struct libusb_device *usb_dev) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:190:uvc_error_t uvc_open(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:200:  ret = libusb_open(dev->usb_dev, &usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:201:  UVC_DEBUG("libusb_open() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:269:  libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:412:  if (libusb_open(dev->usb_dev, &usb_devh) == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:423:    libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1211:void uvc_close(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1226:    libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1229:    libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:66:int uvc_already_open(uvc_context_t *ctx, struct libusb_device *usb_dev);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:116:int uvc_already_open(uvc_context_t *ctx, struct libusb_device *usb_dev) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:269:uvc_error_t uvc_open(uvc_device_t *dev, uvc_device_handle_t **devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:277:	ret = libusb_open(dev->usb_dev, &usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:278:	UVC_DEBUG("libusb_open() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:352:	libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:509:	if (libusb_open(dev->usb_dev, &usb_devh) == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:532:		libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1555:void uvc_close(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1576:		libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1579:		libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/test.c:100:    res = uvc_open(dev, &devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/test.c:141:      uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1273:		uvc_stream_close(strmh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1839:		uvc_stream_close(strmh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1915:void uvc_stream_close(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:326:        if (gpuReleaseFenceFd >= 0) close(gpuReleaseFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:336:        if (gpuReleaseFenceFd >= 0) close(gpuReleaseFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:147:		publisher->close();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:152:		context->close();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:265:			result = uvc_open(mDevice, &mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:300:				close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:309:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:332:		uvc_close(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:349:		close(mFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:397:			uvc_close(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:411:			close(mFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:459:		uvc_close(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:466:		if (libusb_open(mDevice->usb_dev, &usb_devh) == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:469:			libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:481:		close(mFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:210:            close(mMetadata[i].acquireFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:213:            close(mMetadata[i].gpuReleaseFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:265:        close(slot.gpuReleaseFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:344:        close(fenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:365:        close(mMetadata[idx].acquireFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:770:        if (fenceFd >= 0) close(fenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:778:        close(slot.gpuReleaseFenceFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:813:        close(mEventFd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:52:        FILE *fp = fopen(buffer, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:55:            fp = fopen(buffer, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:61:        FILE *fp = appendPath ? Open(filename) : fopen(filename, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:74:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:96:            fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:134:            fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:171:            fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/encodedstreamtest.cpp:205:            fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:34:        FILE *fp = fopen(filename_ = "data/sample.json", "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:36:            fp = fopen(filename_ = "../../bin/data/sample.json", "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:45:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:65://  FILE *fp = fopen(filename_, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:78://  fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:82:    FILE *fp = fopen(filename_, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:96:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:108:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:111:    fp = fopen(filename, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/filestreamtest.cpp:118:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:28:    FILE *fp = fopen(filename, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:30:        fp = fopen(filename, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/jsoncheckertest.cpp:40:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/documenttest.cpp:86:    FILE *fp = fopen(buffer, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/documenttest.cpp:89:        fp = fopen(buffer, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/documenttest.cpp:105:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/documenttest.cpp:145:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:299://      FILE *fp = fopen(filename_, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:303://      fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:309:        FILE *fp = fopen(filename_, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:314:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:320:        FILE *fp = fopen(filename_, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:326:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:112:        FILE *fp = fopen(filename_, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:115:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:122:        int fd = _open(filename_, _O_BINARY | _O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:126:        _close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:132:        int fd = open(filename_, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:136:        close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:161:        int fd = open(filename_, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:167:        close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:124:        status = yajl_gen_map_open(g);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:136:        return yajl_gen_map_close(g);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:139:        status = yajl_gen_array_open(g);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/yajltest.cpp:149:        return yajl_gen_array_close(g);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:12:   FILE *file = fopen( path, "rb" );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:23:   fclose( file );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:105:      FILE *factual = fopen( actual.c_str(), "wt" );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:112:      fclose( factual );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:127:   FILE *fout = fopen( rewritePath.c_str(), "wt" );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/jsontestrunner/main.cpp:134:   fclose( fout );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:285:yajl_gen_map_open(yajl_gen g)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:298:yajl_gen_map_close(yajl_gen g)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:312:yajl_gen_array_open(yajl_gen g)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:324:yajl_gen_array_close(yajl_gen g)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/testlib.c:93:			close(ctx->null_fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/testlib.c:97:			fclose(ctx->output_file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/testlib.c:128:		ctx->null_fd = open(NULL_PATH, O_WRONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/testlib.c:140:		ctx->output_file = fdopen(ctx->old_stdout, "w");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/sam3u_benchmark.c:190:		libusb_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:230:		status = libusb_open(dev, &device);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:232:			logerror("libusb_open() failed: %s\n", libusb_error_name(status));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:239:			logerror("libusb_open() failed\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:281:	libusb_close(device);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:572:	image = fopen(path, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:697:	fclose(image);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:728:	image = fopen(path, "rb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:825:	fclose(image);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:259:	fd = fopen(filename, "w");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:265:	fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:541:	libusb_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:535:		if ((binary_dump) && ((fd = fopen(binary_name, "w")) != NULL)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:539:			fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:617:	if ((binary_dump) && ((fd = fopen(binary_name, "w")) != NULL)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:621:		fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:961:	libusb_close(handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:230:	fd = fopen(filename, "w");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:236:	fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:503:	libusb_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/hotplugtest.c:41:	libusb_open (dev, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/hotplugtest.c:52:	libusb_close (handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:552: * thread until after their first call to libusb_open(), and should stop the
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:560:    libusb_close(handle); // This wakes up libusb_handle_events()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1021: * -# libusb_open() will add another file descriptor to the poll set,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1024: * -# libusb_close() will remove a file descriptor from the poll set. There
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1030: * it works, focusing on the libusb_close() situation first:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1034: * -# During libusb_close(), libusb writes some dummy data on this control pipe.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1048: *    libusb_close() operation a "free ride" to acquire the events lock. All
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1050: * -# With the events lock held inside libusb_close(), libusb can safely remove
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1063: * libusb_open() is similar, and is actually a more simplistic case. Upon a
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1064: * call to libusb_open():
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1070: *    libusb_close() takes effect, causing all event handling threads to become
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1072: * -# The libusb_open() implementation takes its free ride to the events lock.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1073: * -# Happy that it has successfully paused the events handler, libusb_open()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1151:			close(ctx->timerfd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1163:	usbi_close(ctx->hotplug_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1164:	usbi_close(ctx->hotplug_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1166:	usbi_close(ctx->ctrl_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1167:	usbi_close(ctx->ctrl_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1181:	usbi_close(ctx->ctrl_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1182:	usbi_close(ctx->ctrl_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1184:	usbi_close(ctx->hotplug_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1185:	usbi_close(ctx->hotplug_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1189:		close(ctx->timerfd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:395: err = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:430: * libusb to open the device using the libusb_open() function. Assuming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:454: * -# Choose the device that you want to operate, and call libusb_open().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:465: * As an implementation detail, libusb_open() actually adds a reference to
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:468: * libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1177: * during libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1190:int API_EXPORTED libusb_open(libusb_device *dev, libusb_device_handle **handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1196:	usbi_dbg("open (bus/addr)=(%d.%d)", dev->bus_number, dev->device_address);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1217:	r = usbi_backend->open(_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1307:		r = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1317:static void do_close(struct libusb_context *ctx,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1379:	usbi_backend->close(dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1390: * libusb_open() on the given device.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1396:void API_EXPORTED libusb_close(libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1408:	/* Similarly to libusb_open(), we want to interrupt all event handlers
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1425:		do_close(ctx, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1444:		do_close(ctx, dev_handle);	// XXX this function internally call libusb_lock_events/libusb_unlock_events
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:2348:		 * open (which implies a buggy app) to avoid packet completion
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:551: * thread until after their first call to libusb_open(), and should stop the
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:559:    libusb_close(handle); // This wakes up libusb_handle_events()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1020: * -# libusb_open() will add another file descriptor to the poll set,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1023: * -# libusb_close() will remove a file descriptor from the poll set. There
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1029: * it works, focusing on the libusb_close() situation first:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1033: * -# During libusb_close(), libusb writes some dummy data on this control pipe.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1047: *    libusb_close() operation a "free ride" to acquire the events lock. All
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1049: * -# With the events lock held inside libusb_close(), libusb can safely remove
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1062: * libusb_open() is similar, and is actually a more simplistic case. Upon a
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1063: * call to libusb_open():
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1069: *    libusb_close() takes effect, causing all event handling threads to become
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1071: * -# The libusb_open() implementation takes its free ride to the events lock.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1072: * -# Happy that it has successfully paused the events handler, libusb_open()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1150:			close(ctx->timerfd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1162:	usbi_close(ctx->hotplug_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1163:	usbi_close(ctx->hotplug_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1165:	usbi_close(ctx->ctrl_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1166:	usbi_close(ctx->ctrl_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1180:	usbi_close(ctx->ctrl_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1181:	usbi_close(ctx->ctrl_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1183:	usbi_close(ctx->hotplug_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1184:	usbi_close(ctx->hotplug_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1188:		close(ctx->timerfd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:368:	err = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:403: * libusb to open the device using the libusb_open() function. Assuming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:427: * -# Choose the device that you want to operate, and call libusb_open().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:438: * As an implementation detail, libusb_open() actually adds a reference to
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:441: * libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1065: * during libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1078:int API_EXPORTED libusb_open(libusb_device *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1106:	r = usbi_backend->open(_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1173:		r = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1183:static void do_close(struct libusb_context *ctx,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1235:	usbi_backend->close(dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1246: * libusb_open() on the given device.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1252:void API_EXPORTED libusb_close(libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1264:	/* Similarly to libusb_open(), we want to interrupt all event handlers
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1279:		do_close(ctx, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1295:	do_close(ctx, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1942:		 * open (which implies a buggy app) to avoid packet completion
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_posix_original.c:48:	usbi_close(pipefd[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_posix_original.c:49:	usbi_close(pipefd[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_posix.c:48:	usbi_close(pipefd[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_posix.c:49:	usbi_close(pipefd[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:915:static int darwin_open (struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:972:static void darwin_close (struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1013:  close (priv->fds[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1014:  close (priv->fds[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:52:static int obsd_open(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:53:static void obsd_close(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:90:static int _bus_open(int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:160:		if ((fd = open(busnode, O_RDWR)) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:172:			if (ioctl(fd, USB_DEVICEINFO, &di) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:192:					close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:207:				if (ioctl(fd, USB_DEVICE_GET_DDESC, &dd) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:226:				close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:235:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:242:obsd_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:255:		dpriv->fd = open(devnode, O_RDWR);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:269:obsd_close(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:277:		close(dpriv->fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:283:	close(hpriv->pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:284:	close(hpriv->pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:327:	if ((fd = _bus_open(dev->bus_number)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:338:	if (ioctl(fd, USB_DEVICE_GET_FDESC, &udf) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:340:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:343:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:373:	if (ioctl(dpriv->fd, USB_SET_CONFIG, &config) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:399:			close(hpriv->endpoints[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:421:	if (ioctl(dpriv->fd, USB_SET_ALTINTERFACE, &intf) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:433:	if ((fd = _bus_open(handle->dev->bus_number)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:445:	if (ioctl(fd, USB_REQUEST, &req) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:447:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:450:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:638:	if ((fd = _bus_open(dev->bus_number)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:646:	if (ioctl(fd, USB_DEVICE_GET_CDESC, &udc) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:648:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:667:	if (ioctl(fd, USB_DEVICE_GET_FDESC, &udf) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:669:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:673:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:720:		if ((fd = _bus_open(transfer->dev_handle->dev->bus_number)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:723:		if ((ioctl(fd, USB_REQUEST, &req)) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:725:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:728:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:730:		if ((ioctl(dpriv->fd, USB_SET_TIMEOUT, &transfer->timeout)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:733:		if ((ioctl(dpriv->fd, USB_DO_REQUEST, &req)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:767:		if (((fd = open(devnode, O_RDWR)) < 0) && (errno == ENXIO))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:768:			if ((fd = open(devnode, mode)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:797:	if ((ioctl(fd, USB_SET_TIMEOUT, &transfer->timeout)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:802:			if ((ioctl(fd, USB_SET_SHORT_XFER, &nr)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:819:_bus_open(int number)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:825:	return open(busnode, O_RDWR);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_udev.c:114:	close(udev_control_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_udev.c:115:	close(udev_control_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_udev.c:153:	close(udev_control_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_udev.c:154:	close(udev_control_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:629:int usbi_close(int fd)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:52:static int netbsd_open(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:53:static void netbsd_close(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:152:		if ((fd = open(devnode, O_RDONLY)) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:158:		if (ioctl(fd, USB_GET_DEVICEINFO, &di) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:177:			if (ioctl(fd, USB_GET_DEVICE_DESC, &dpriv->ddesc) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:191:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:202:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:208:netbsd_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:213:	dpriv->fd = open(dpriv->devnode, O_RDWR);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:215:		dpriv->fd = open(dpriv->devnode, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:229:netbsd_close(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:236:	close(dpriv->fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:241:	close(hpriv->pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:242:	close(hpriv->pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:293:		fd = open(dpriv->devnode, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:302:	if ((ioctl(fd, USB_GET_FULL_DESC, &ufd)) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:305:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:310:		close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:324:	if (ioctl(dpriv->fd, USB_GET_CONFIG, config) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:339:	if (ioctl(dpriv->fd, USB_SET_CONFIG, &config) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:365:			close(hpriv->endpoints[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:384:	if (ioctl(dpriv->fd, USB_SET_ALTINTERFACE, &intf) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:404:	if (ioctl(dpriv->fd, USB_DO_REQUEST, &req) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:594:	if ((ioctl(fd, USB_GET_CONFIG_DESC, &ucd)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:610:	if ((ioctl(fd, USB_GET_FULL_DESC, &ufd)) < 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:651:	if ((ioctl(dpriv->fd, USB_SET_TIMEOUT, &transfer->timeout)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:654:	if ((ioctl(dpriv->fd, USB_DO_REQUEST, &req)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:688:		if (((fd = open(devnode, O_RDWR)) < 0) && (errno == ENXIO))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:689:			if ((fd = open(devnode, mode)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:713:	if ((ioctl(fd, USB_SET_TIMEOUT, &transfer->timeout)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:718:			if ((ioctl(fd, USB_SET_SHORT_XFER, &nr)) < 0)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:413:static int wince_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:420:static void wince_close(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:235:	fd = open(path, mode);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:246:		fd = open(path, mode);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:702:	fd = open(filename, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:720:	f = fopen(filename, "r");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:732:	fclose(f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:785:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1098:	r = ioctl(fd, IOCTL_USBFS_CONTROL, &ctrl);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1158:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1170:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1176:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1227:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1652:static int op_open(struct libusb_device_handle *handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1672:	r = ioctl(hpriv->fd, IOCTL_USBFS_GET_CAPABILITIES, &hpriv->caps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1688:static void op_close(struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1694:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1722:	int r = ioctl(fd, IOCTL_USBFS_SETCONFIG, &config);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1748:	int r = ioctl(fd, IOCTL_USBFS_CLAIMINTF, &iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1771:	int r = ioctl(fd, IOCTL_USBFS_RELEASEINTF, &iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1793:	r = ioctl(fd, IOCTL_USBFS_SETINTF, &setintf);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1812:	int r = ioctl(fd, IOCTL_USBFS_CLEAR_HALT, &_endpoint);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1843:	r = ioctl(fd, IOCTL_USBFS_RESET, NULL);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1879:static int do_streams_ioctl(struct libusb_device_handle *handle, long req,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1896:	r = ioctl(fd, req, streams);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1918:	return do_streams_ioctl(handle, IOCTL_USBFS_ALLOC_STREAMS,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1925:	return do_streams_ioctl(handle, IOCTL_USBFS_FREE_STREAMS, 0,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1935:	r = ioctl(fd, IOCTL_USBFS_GETDRIVER, &getdrv);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1961:	r = ioctl(fd, IOCTL_USBFS_GETDRIVER, &getdrv);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1965:	r = ioctl(fd, IOCTL_USBFS_IOCTL, &command);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1991:	r = ioctl(fd, IOCTL_USBFS_IOCTL, &command);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2023:	r = ioctl(fd, IOCTL_USBFS_DISCONNECT_CLAIM, &dc);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2098:		if (0 == ioctl(dpriv->fd, IOCTL_USBFS_DISCARDURB, urb))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2252:		r = ioctl(dpriv->fd, IOCTL_USBFS_SUBMITURB, urb);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2413:		int r = ioctl(dpriv->fd, IOCTL_USBFS_SUBMITURB, urbs[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2488:	r = ioctl(dpriv->fd, IOCTL_USBFS_SUBMITURB, urb);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2916:	r = ioctl(hpriv->fd, IOCTL_USBFS_REAPURBNDELAY, &urb);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:133:		close (android_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:140:		close(android_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:151:	        close(android_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:157:		close(netlink_control_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:158:        close(netlink_control_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:159:        close(android_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:184:	close(android_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:188:	close(netlink_control_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:189:	close(netlink_control_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:55:static int winusbx_open(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:56:static void winusbx_close(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:71:static int hid_open(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:72:static void hid_close(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:85:static int composite_open(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:86:static void composite_close(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1803:static int windows_open(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1813:	return priv->apib->open(SUB_API_NOTSET, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1816:static void windows_close(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1820:	priv->apib->close(SUB_API_NOTSET, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2352:static int unsupported_open(int sub_api, struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2355:static void unsupported_close(int sub_api, struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2598:// composite_open(), with interfaces belonging to different APIs
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2599:static int winusbx_open(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2634:static void winusbx_close(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3659:// composite_open(), with interfaces belonging to different APIs
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3660:static int hid_open(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3813:static void hid_close(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4217:static int composite_open(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4241:			r = usb_api_backend[USB_API_WINUSBX].open(i, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4248:		r = hid_open(SUB_API_NOTSET, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4253:static void composite_close(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4272:			usb_api_backend[USB_API_WINUSBX].close(i, dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:196:	fd = open(path, mode);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:207:		fd = open(path, mode);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:520:	fd = open(filename, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:540:	f = fopen(filename, "r");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:552:	fclose(f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:590:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:851:	r = ioctl(fd, IOCTL_USBFS_CONTROL, &ctrl);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:911:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:924:			close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:930:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:983:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1278:static int op_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1299:	r = ioctl(hpriv->fd, IOCTL_USBFS_GET_CAPABILITIES, &hpriv->caps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1315:static void op_close(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1319:	close(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1348:	int r = ioctl(fd, IOCTL_USBFS_SETCONFIG, &config);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1370:	int r = ioctl(fd, IOCTL_USBFS_CLAIMINTF, &iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1389:	int r = ioctl(fd, IOCTL_USBFS_RELEASEINTF, &iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1410:	r = ioctl(fd, IOCTL_USBFS_SETINTF, &setintf);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1430:	int r = ioctl(fd, IOCTL_USBFS_CLEAR_HALT, &_endpoint);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1462:	r = ioctl(fd, IOCTL_USBFS_RESET, NULL);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1506:	r = ioctl(fd, IOCTL_USBFS_GETDRIVER, &getdrv);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1534:	r = ioctl(fd, IOCTL_USBFS_GETDRIVER, &getdrv);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1538:	r = ioctl(fd, IOCTL_USBFS_IOCTL, &command);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1566:	r = ioctl(fd, IOCTL_USBFS_IOCTL, &command);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1596:	r = ioctl(fd, IOCTL_USBFS_DISCONNECT_CLAIM, &dc);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1672:		if (0 == ioctl(dpriv->fd, IOCTL_USBFS_DISCARDURB, urb))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1815:		r = ioctl(dpriv->fd, IOCTL_USBFS_SUBMITURB, urb);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1978:		int r = ioctl(dpriv->fd, IOCTL_USBFS_SUBMITURB, urbs[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:2054:	r = ioctl(dpriv->fd, IOCTL_USBFS_SUBMITURB, urb);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:2473:	r = ioctl(hpriv->fd, IOCTL_USBFS_REAPURBNDELAY, &urb);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:118:		close (linux_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:125:	        close(linux_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:135:	        close(linux_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:141:        	close(netlink_control_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:142:        	close(netlink_control_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:143:	        close(linux_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:168:	close(linux_netlink_socket);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:172:	close(netlink_control_pipe[0]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:173:	close(netlink_control_pipe[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:77: * a libusb_device_handles for the device it is up to you to call libusb_close()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:104:    rc = libusb_open(dev, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:110:      libusb_close(handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:77: * a libusb_device_handles for the device it is up to you to call libusb_close()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:104:    rc = libusb_open(dev, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:110:      libusb_close(handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5hl.c:72:	f = _open(filename, O_RDONLY|O_BINARY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5hl.c:74:	f = open(filename, O_RDONLY);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5hl.c:99:	close(f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cdjpeg.c:120:  if ((input_file = fdopen(fileno(stdin), READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cdjpeg.c:138:  if ((output_file = fdopen(fileno(stdout), WRITE_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:271:	if(file) fclose(file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:432:			if((file=fopen(tempstr, "wb"))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:436:			fclose(file);  file=NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:463:	if(file) {fclose(file);  file=NULL;}
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:493:	if((file=fopen(filename, "rb"))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:503:	fclose(file);  file=NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:690:	if(file) {fclose(file);  file=NULL;}
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm.c:74:  fd = fopen("/proc/cpuinfo", "r");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm.c:79:        fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm.c:86:    fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:42:  if ((f = fopen(file_name, "r")) != NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:45:        fclose(f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_mips.c:50:    fclose(f);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm64.c:79:  fd = fopen("/proc/cpuinfo", "r");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm64.c:84:        fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jsimd_arm64.c:100:    fclose(fd);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:40:#ifdef DONT_USE_B_MODE          /* define mode parameters for fopen() */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:436:      if ((comment_file = fopen(argv[argn], "r")) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:494:    if ((infile = fopen(argv[argn], READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:504:    if ((infile = fdopen(fileno(stdin), READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:521:  if ((outfile = fopen(argv[argn+1], WRITE_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:536:  if ((outfile = fdopen(fileno(stdout), WRITE_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/wrjpgcom.c:564:      fclose(comment_file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:111:   * VERY IMPORTANT: use "b" option to fopen() if you are on a machine that
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:114:  if ((outfile = fopen(filename, "wb")) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:169:  fclose(outfile);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:302:   * VERY IMPORTANT: use "b" option to fopen() if you are on a machine that
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:306:  if ((infile = fopen(filename, "rb")) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:322:    fclose(infile);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/example.c:399:  fclose(infile);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:98:  if ((fp = fopen(filename, "r")) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:107:      fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:114:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:131:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:135:  fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:196:  if ((fp = fopen(filename, "r")) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:206:      fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:215:        fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:247:      fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:255:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdswitch.c:272:  fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jpegtran.c:443:    if ((fp = fopen(argv[file_index], READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jpegtran.c:502:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jpegtran.c:506:    if ((fp = fopen(outfilename, WRITE_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jpegtran.c:542:    fclose(fp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:383:	FILE *file=fopen(filename, "wb");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:391:	if(file) fclose(file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cjpeg.c:566:    if ((input_file = fopen(argv[file_index], READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cjpeg.c:577:    if ((output_file = fopen(outfilename, WRITE_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cjpeg.c:627:    fclose(input_file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/cjpeg.c:629:    fclose(output_file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:175:	if((file=fopen(filename, "rb"))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:238:	if(file) fclose(file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:259:	if((file=fopen(filename, "wb"))==NULL)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:327:	if(file) fclose(file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:314:        if ((mapfile = fopen(argv[argn], READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:319:        fclose(mapfile);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:569:    if ((input_file = fopen(argv[file_index], READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:580:    if ((output_file = fopen(outfilename, WRITE_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:767:    fclose(input_file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:769:    fclose(output_file);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdjpgcom.c:41:#ifdef DONT_USE_B_MODE          /* define mode parameters for fopen() */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdjpgcom.c:485:    if ((infile = fopen(argv[argn], READ_BINARY)) == NULL) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/rdjpgcom.c:495:    if ((infile = fdopen(fileno(stdin), READ_BINARY)) == NULL) {

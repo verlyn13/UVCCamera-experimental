@@ -1,0 +1,238 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:145:		memcpy(dinfo->tbl->bits, name##_len, sizeof(name##_len)); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:146:		memset(dinfo->tbl->huffval, 0, sizeof(dinfo->tbl->huffval)); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg.c:147:		memcpy(dinfo->tbl->huffval, name##_val, sizeof(name##_val)); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg_original.c:113:  memcpy(dinfo->tbl->bits, name##_len, sizeof(name##_len)); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg_original.c:114:  memset(dinfo->tbl->huffval, 0, sizeof(dinfo->tbl->huffval)); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame-mjpeg_original.c:115:  memcpy(dinfo->tbl->huffval, name##_val, sizeof(name##_val)); \
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:502:        memcpy(strmh->outbuf + strmh->got_bytes, pktbuf + header_len, pkt->actual_length - header_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:952:  memcpy(frame->data, strmh->holdbuf, frame->data_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:120:  memcpy(out->data, in->data, in->data_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:915:  memcpy(unit->guidExtensionCode, &block[4], 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1050:  memcpy(format->guidFormat, &block[5], 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1078:  memcpy(format->fourccFormat, "MJPG", 4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1123:	memcpy(unit->guidExtensionCode, &block[4], 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1290:	memcpy(format->guidFormat, &block[5], 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1318:	memcpy(format->guidFormat, &block[5], 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1346:	memcpy(format->fourccFormat, "MJPG", 4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:87:	memset(frame, 0, sizeof(*frame));	// bzero(frame, sizeof(*frame)); // bzero is deprecated
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:151:			memcpy(op, ip, rowbytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:153:			memcpy(op, ip, rowbytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:155:			memcpy(op, ip, rowbytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:157:			memcpy(op, ip, rowbytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:162:		memcpy(out->data, in->data, in->actual_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:165:	memcpy(out->data, in->data, in->actual_bytes); // XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/misc.c:51:  memcpy(d, s, n);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:171:	memset(buf, 0, sizeof(buf));	// bzero(buf, sizeof(buf));	// bzero is deprecated
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:545:	memset(ctrl, 0, sizeof(*ctrl));	// XXX add
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:770:			memcpy(strmh->outbuf + strmh->got_bytes, payload + header_len, data_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:935:				memcpy(strmh->outbuf + strmh->got_bytes, pktbuf + header_len, odd_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1191:					memcpy(strmh->outbuf + strmh->got_bytes, pktbuf + header_len, odd_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1756:	memcpy(frame->data, strmh->holdbuf, strmh->hold_bytes/*frame->data_bytes*/);	// XXX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:60:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:64:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:66:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:68:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:70:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:72:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:74:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:76:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:78:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:174:	memcpy(payload.data(), &header, sizeof(publish_header_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:176:	memcpy(((uint8_t *)payload.data()) + sizeof(publish_header_t), frame->data, frame->actual_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:313:							memcpy(frame->data, data, actual_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:83:	memset(&preview_thread, 0, sizeof(preview_thread));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:84:	memset(&capture_thread, 0, sizeof(capture_thread));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:85:	memset(&mConversionThread, 0, sizeof(mConversionThread));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:356:					memset(dest, 0, bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:372:					memset(dest, 0, bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:493:			memset(&capture_thread, 0, sizeof(capture_thread));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:501:			memset(&preview_thread, 0, sizeof(preview_thread));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:686:		// Enqueue raw frame data to SPSC queue (single memcpy)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1106:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1110:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1112:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1114:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1116:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1118:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1120:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1122:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1124:		memcpy(dest, src, width);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1991:			memcpy(destPtr, frame->data, copyBytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2621:			memcpy(mCaptureBuffer, rgbxData, bufferSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2724:		memset(&mConversionThread, 0, sizeof(mConversionThread));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2770:	memset(&temp_yuyv, 0, sizeof(temp_yuyv));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2818:		memset(&src_frame, 0, sizeof(src_frame));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2828:		memset(&dest_frame, 0, sizeof(dest_frame));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:671:            memcpy(headerAscii, &mMagicHeader, 8);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:672:            memcpy(footerAscii, &mMagicFooter, 8);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:937:        LOGI("ENQUEUE_DIAG[%d]: About to memcpy(%p, %p, %zu)",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:942:    memcpy(slot.data, data, bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:945:        LOGI("ENQUEUE_DIAG[%d]: memcpy completed successfully", callNum);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/unittest/readertest.cpp:223:            memcpy(const_cast<typename Encoding::Ch*>(str_), str, (length + 1) * sizeof(typename Encoding::Ch));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:72:        memcpy(temp_, json_, length_ + 1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:82:        memcpy(temp_, json_, length_ + 1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:110:        memcpy(temp_, json_, length_ + 1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:129:        memcpy(temp_, json_, length_ + 1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:138:        memcpy(temp_, json_, length_ + 1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/rapidjsontest.cpp:163:        memcpy(temp_, json_, length_ + 1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:50:        memcpy(temp_, json_, length_);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/tutorial/tutorial.cpp:28:        memcpy(buffer, json, sizeof(json));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/tutorial/tutorial.cpp:140:        memset(buffer, 0, sizeof(buffer)); // For demonstration purpose.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_reader.cpp:629:      memcpy( buffer, token.start_, length );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:36://      memcpy( newString, czstring, length );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:48://      memcpy( newString, str.c_str(), length );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:86:      memcpy( newString, value, length );
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:265: * memset( this, 0, sizeof(Value) )
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:114:		memcpy (enc->start, oldStart, offset);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:416:			memcpy (ds->escStart, oldStart, escLen * sizeof(wchar_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_lex.c:108:    memset((void *) lxr, 0, sizeof(struct yajl_lexer_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:116:    memset((void *) g, 0, sizeof(struct yajl_gen_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_gen.c:118:    memcpy((void *) &(g->alloc), (void *) afs, sizeof(yajl_alloc_funcs));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:65:    memset (v, 0, sizeof (*v));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:120:    memset (stack, 0, sizeof (*stack));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:286:    memcpy(v->u.string, string, string_length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:307:    memcpy(v->u.number.r, string, string_length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:430:        memset (error_buffer, 0, error_buffer_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_buf.c:59:    memset((void *) b, 0, sizeof(struct yajl_buf_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_buf.c:76:        memcpy(buf->data + buf->used, data, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl.c:67:    memcpy((void *) &(hand->alloc), (void *) afs, sizeof(yajl_alloc_funcs));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/tests/stress.c:80:	memset(device_lists, 0, sizeof(device_lists));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/getopt/getopt.c:330:	  memset (__mempcpy (new_str, __getopt_nonoption_flags,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/getopt/getopt.c:441:		memset (__mempcpy (__getopt_nonoption_flags, orig_str, len),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:300:	memset(output_report, 0, sizeof(output_report));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:334:	memset(&cbw, 0, sizeof(cbw));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:346:	memcpy(cbw.CBWCB, cdb, cdb_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:423:	memset(sense, 0, sizeof(sense));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:424:	memset(cdb, 0, sizeof(cdb));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:476:	memset(buffer, 0, sizeof(buffer));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:477:	memset(cdb, 0, sizeof(cdb));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:500:	memset(buffer, 0, sizeof(buffer));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:501:	memset(cdb, 0, sizeof(cdb));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:523:	memset(cdb, 0, sizeof(cdb));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync_original.c:111:		memcpy(buffer + LIBUSB_CONTROL_SETUP_SIZE, data, wLength);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync_original.c:125:		memcpy(data, libusb_control_transfer_get_data(transfer),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:566:	memset(&message, 0, sizeof(message));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:595:	memset(&message, 0, sizeof(message));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:884:		memmove(port_numbers, &port_numbers[i], port_numbers_len - i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1215:	memset(&_handle->os_priv, 0, priv_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync.c:110:		memcpy(buffer + LIBUSB_CONTROL_SETUP_SIZE, data, wLength);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync.c:124:		memcpy(data, libusb_control_transfer_get_data(transfer),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:539:	memset(&message, 0, sizeof(message));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:565:	memset(&message, 0, sizeof(message));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:793:	memmove(port_numbers, &port_numbers[i], port_numbers_len - i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1104:	memset(&_handle->os_priv, 0, priv_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:458:  memmove (buffer, &(priv->dev_descriptor), DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:516:    memmove (buffer, desc, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:590:  memset (buffer, 0, buffer_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:295:	memcpy(buf, &dpriv->ddesc, DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:313:	memcpy(buf, dpriv->cdesc, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:416:	memset(&intf, 0, sizeof(intf));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:376:			memcpy(&poll_fd[i], &wfd, sizeof(struct winfd));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:442:			memcpy(&wfd, &poll_fd[i], sizeof(struct winfd));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:468:			memcpy(&wfd, &poll_fd[i], sizeof(struct winfd));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/poll_windows.c:494:			memcpy(&wfd, &poll_fd[i], sizeof(struct winfd));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:253:	memcpy(buf, &dpriv->ddesc, DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:272:	memcpy(buf, dpriv->cdesc, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:379:	memset(&intf, 0, sizeof(intf));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:432:	memcpy(buffer, &priv->desc, DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:754:		memcpy(buffer, priv->descriptors, priv->descriptors_len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:767:	memcpy(buffer, priv->descriptors, DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1036:	memcpy(buffer, config_desc, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1079:	memcpy(buffer, descriptors, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1163:			memset(priv->descriptors + priv->descriptors_len, 0,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1313:	memset(desc, 0, sizeof(desc));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1325:			memcpy(priv->descriptors, desc, length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1894:	memcpy(streams->eps, endpoints, num_endpoints);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2619:				memmove(target, urb->buffer, urb->actual_length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_netlink.c:318:	memset(buffer, 0, sizeof(buffer));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:624:	memcpy(htab_table[idx].str, str, safe_strlen(str)+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:715:	memcpy(tmp_str, driver, len+1);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:840:		memset(&os_version, 0, sizeof(OSVERSIONINFO));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1020:		memset(&cd_buf_short, 0, size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1047:		memset(cd_buf_actual, 0, size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1082:		memcpy(priv->config_descriptor[i], cd_data, cd_data->wTotalLength);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1141:	memset(&conn_info, 0, sizeof(conn_info));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1163:		memcpy(&priv->dev_descriptor, &(conn_info.DeviceDescriptor), sizeof(USB_DEVICE_DESCRIPTOR));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1761:	memcpy(buffer, &(priv->dev_descriptor), DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1783:	memcpy(buffer, priv->config_descriptor[config_index], size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3203:	memcpy(data, &d, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3278:	memcpy(data, tmp, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3325:	memcpy((uint8_t*)data+2, tmp, *size-2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3347:	memcpy(data, &d, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3413:	memcpy(data, d, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3524:			memcpy(data, buf+1, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3526:			memcpy(data, buf, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3573:		memcpy(buf + 1, data, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3577:		memcpy(buf, data, *size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4063:			memcpy(transfer_priv->hid_buffer+1, transfer->buffer, transfer->length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4065:			// We could actually do without the calloc and memcpy in this case
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4066:			memcpy(transfer_priv->hid_buffer, transfer->buffer, transfer->length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4189:					memcpy(transfer_priv->hid_dest, transfer_priv->hid_buffer+1, corrected_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4191:					memcpy(transfer_priv->hid_dest, transfer_priv->hid_buffer, corrected_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:571:	memcpy(buffer, priv->descriptors, DEVICE_DESC_LENGTH);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:801:	memcpy(buffer, config_desc, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:831:	memcpy(buffer, descriptors, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:916:			memset(priv->descriptors + priv->descriptors_len,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:2186:				memmove(target, urb->buffer, urb->actual_length);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_netlink.c:300:	memset(buffer, 0, sizeof(buffer));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:75:					memcpy(dp, sp, 2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:87:					memcpy(dp, sp, 4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:97:				memcpy(dp, sp, 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:198:	memcpy(extra, begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:333:			memcpy((unsigned char *)(ifp->extra + ifp->extra_length), begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:347:			memset(endpoint, 0, tmp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:491:	memcpy((unsigned char *)config->extra + config->extra_length, begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:574:	memset(usb_interface, 0, tmp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:624:			memcpy((unsigned char *)(config->extra + config->extra_length), begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:868:	memcpy((unsigned char *) desc, (unsigned char *) &dev->device_descriptor,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:1194:		memcpy(_bos->dev_capability[i], buffer, dev_cap.bLength);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:309:	memset(&message, 0, sizeof(message));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:309:	memset(&message, 0, sizeof(message));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:61:					memcpy(dp, sp, 2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:73:					memcpy(dp, sp, 4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:83:				memcpy(dp, sp, 16);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:183:	memcpy(extra, begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:318:			memcpy((unsigned char *) ifp->extra, begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:332:			memset(endpoint, 0, tmp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:418:	memset(usb_interface, 0, tmp);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:473:				memcpy((unsigned char *) config->extra, begin, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:555:	memcpy((unsigned char *) desc, (unsigned char *) &dev->device_descriptor,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:881:		memcpy(_bos->dev_capability[i], buffer, dev_cap.bLength);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:37:#define Encode memcpy
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:38:#define Decode memcpy
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:165:		memcpy((void *)&context->buffer[idx], (const void *)input,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:178:	memcpy ((void *)&context->buffer[idx], (const void *)&input[i],
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:222:	memset ((void *)context, 0, sizeof (*context));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/md5/md5.c:330:	memset ((void *)x, 0, sizeof (x));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1153:					memcpy(tmpbuf[i][j], inbuf[i][crow[i]+j], pw[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1159:					memcpy(tmpbuf[i][j], tmpbuf[i][ph[i]-crow[i]-1], iw[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg.c:1862:					memcpy(outbuf[i][crow[i]+j], tmpbuf[i][j], pw[i]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:136:	memset(dstbuf, 127, pitch*scaledh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:145:		memset(yuvbuf, 127, yuvsize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:309:		memset(jpegbuf, 0, sizeof(unsigned char *)*ntilesw*ntilesh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:313:		memset(jpegsize, 0, sizeof(unsigned long)*ntilesw*ntilesh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:328:			memcpy(&tmpbuf[pitch*i], &srcbuf[w*ps*i], w*ps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:337:			memset(yuvbuf, 127, yuvsize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:541:		memset(jpegbuf, 0, sizeof(unsigned char *)*ntilesw*ntilesh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:545:		memset(jpegsize, 0, sizeof(unsigned long)*ntilesw*ntilesh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjbench.c:666:			memcpy(jpegbuf[0], srcbuf, srcsize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/transupp.c:181:           * depends on memcpy(), whose behavior is unspecified for overlapping
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdcolext-altivec.c:217:          memcpy(outptr, tmpbuf, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdcolext-altivec.c:256:          memcpy(outptr, tmpbuf, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jccolext-altivec.c:91:          memcpy(tmpbuf, inptr, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jccolext-altivec.c:123:          memcpy(tmpbuf, inptr, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jcgryext-altivec.c:86:          memcpy(tmpbuf, inptr, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jcgryext-altivec.c:117:          memcpy(tmpbuf, inptr, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdmrgext-altivec.c:242:          memcpy(outptr, tmpbuf, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/simd/jdmrgext-altivec.c:281:          memcpy(outptr, tmpbuf, min(num_cols, RGB_PIXELSIZE * 16));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:98:		memset(buf, 0, w*h*ps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:112:		memset(buf, 255, w*h*ps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:133:		memset(buf, 0, w*h*ps);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:408:	if(*dstBuf && *dstSize>0) memset(*dstBuf, 0, *dstSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:421:		memset(yuvBuf, 0, yuvSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:472:	memset(dstBuf, 0, dstSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/tjunittest.c:483:		memset(yuvBuf, 0, yuvSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:1077:		memset(&t[i], 0, sizeof(tjtransform));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/turbojpeg-jni.c:1078:		memset(&params[i], 0, sizeof(JNICustomFilterParams));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:170:	memset(&cinfo, 0, sizeof(struct jpeg_compress_struct));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/bmp.c:254:	memset(&dinfo, 0, sizeof(struct jpeg_decompress_struct));

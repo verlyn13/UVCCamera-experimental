@@ -1,0 +1,22 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/test/mocks/AndroidApiMocks.cpp:78:            delete buffer;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:121:        delete ring;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:130:        delete ring;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:165:            delete ring;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:201: * delete record(s) older than specific dtime.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:202: * if you want to delete all record(s), use clear instead
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/SQLiteBufferedPipeline.cpp:218:		LOGW("failed to delete older:%lld", dtime);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/serenegiant_usb_UVCCamera.cpp:132:		delete camera;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1561:		delete currentRing;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1579:		delete newRing;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1615:			delete currentRing;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1666:			delete oldRing;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1729:		delete oldRing;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1732:		LOGI("LIFECYCLE: No ring buffer to delete (was already nullptr)");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1909:		delete previous;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/serialize/serialize.cpp:67:        delete education_;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/example/serialize/serialize.cpp:93:    delete education_; 
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/test_lib_json/jsontest.cpp:349:   delete test;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/test_lib_json/jsontest.cpp:374:   delete test;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:489:      delete value_.map_;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:553:      delete value_.array_;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/jsoncpp/src/lib_json/json_value.cpp:556:      delete value_.map_;

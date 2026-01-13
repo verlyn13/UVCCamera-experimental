@@ -1,0 +1,404 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag.c:535:	libusb_device_handle *usb_devh = uvc_get_libusb_handle(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:194:  struct libusb_device_handle *usb_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:200:  ret = libusb_open(dev->usb_dev, &usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:201:  UVC_DEBUG("libusb_open() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:269:  libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:396:  struct libusb_device_handle *usb_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:412:  if (libusb_open(dev->usb_dev, &usb_devh) == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:423:    libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:482:  struct libusb_device_handle *usb_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:612:libusb_device_handle *uvc_get_libusb_handle(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:715:  ret = libusb_claim_interface(devh->usb_devh, idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:733:  /* libusb_release_interface *should* reset the alternate setting to the first available,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:737:  ret = libusb_release_interface(devh->usb_devh, idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1221:   * then we need to cancel the handler thread. When we call libusb_close,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1226:    libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1229:    libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:271:	struct libusb_device_handle *usb_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:277:	ret = libusb_open(dev->usb_dev, &usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:278:	UVC_DEBUG("libusb_open() = %d", ret);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:352:	libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:493:	struct libusb_device_handle *usb_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:509:	if (libusb_open(dev->usb_dev, &usb_devh) == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:532:		libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:588:	struct libusb_device_handle *usb_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:729:libusb_device_handle *uvc_get_libusb_handle(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:837:	ret = libusb_claim_interface(devh->usb_devh, idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:845:		ret = libusb_claim_interface(devh->usb_devh, idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:867:	/* libusb_release_interface *should* reset the alternate setting to the first available,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:876:	ret = libusb_release_interface(devh->usb_devh, idx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1571:	 * then we need to cancel the handler thread. When we call libusb_close,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1576:		libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1579:		libusb_close(devh->usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:383:			libusb_release_interface(mDeviceHandle->usb_devh, 0);  // Control interface
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:384:			libusb_release_interface(mDeviceHandle->usb_devh, 1);  // Streaming interface
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:427:		int r1 = libusb_release_interface(mDeviceHandle->usb_devh, 0);  // Control
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:428:		int r2 = libusb_release_interface(mDeviceHandle->usb_devh, 1);  // Streaming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:430:			LOGW("libusb_release_interface returned %d, %d", r1, r2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:465:		libusb_device_handle *usb_devh = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:466:		if (libusb_open(mDevice->usb_dev, &usb_devh) == 0) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:469:			libusb_close(usb_devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/sam3u_benchmark.c:38:static struct libusb_device_handle *devh = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/sam3u_benchmark.c:165:	devh = libusb_open_device_with_vid_pid(NULL, 0x16c0, 0x0763);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/sam3u_benchmark.c:171:	rc = libusb_claim_interface(devh, 2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/sam3u_benchmark.c:187:	libusb_release_interface(devh, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/sam3u_benchmark.c:190:		libusb_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:95:	libusb_device_handle *device = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:230:		status = libusb_open(dev, &device);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:232:			logerror("libusb_open() failed: %s\n", libusb_error_name(status));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:237:		device = libusb_open_device_with_vid_pid(NULL, (uint16_t)vid, (uint16_t)pid);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:239:			logerror("libusb_open() failed\n");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:246:	status = libusb_claim_interface(device, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:248:		logerror("libusb_claim_interface failed: %s\n", libusb_error_name(status));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:280:	libusb_release_interface(device, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/fxload.c:281:	libusb_close(device);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:125:static int ezusb_write(libusb_device_handle *device, const char *label,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:148:static int ezusb_read(libusb_device_handle *device, const char *label,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:172:static bool ezusb_cpucs(libusb_device_handle *device, uint32_t addr, bool doRun)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:201:static bool ezusb_fx3_jump(libusb_device_handle *device, uint32_t addr)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:496:	libusb_device_handle *device;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:564:static int fx3_load_ram(libusb_device_handle *device, const char *path)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/ezusb.c:715:int ezusb_load_ram(libusb_device_handle *device, const char *path, int fx_type, int img_type, int stage)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:61:static struct libusb_device_handle *devh = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:99:	devh = libusb_open_device_with_vid_pid(NULL, 0x05ba, 0x000a);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:461:	r = libusb_claim_interface(devh, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:539:	libusb_release_interface(devh, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp_threaded.c:541:	libusb_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:181:static int display_ps3_status(libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:272:static int display_xbox_status(libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:293:static int set_xbox_actuators(libusb_device_handle *handle, uint8_t left, uint8_t right)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:310:static int send_mass_storage_command(libusb_device_handle *handle, uint8_t endpoint, uint8_t lun,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:366:static int get_mass_storage_status(libusb_device_handle *handle, uint8_t endpoint, uint32_t expected_tag)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:413:static void get_sense(libusb_device_handle *handle, uint8_t endpoint_in, uint8_t endpoint_out)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:449:static int test_mass_storage(libusb_device_handle *handle, uint8_t endpoint_in, uint8_t endpoint_out)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:602:static int test_hid(libusb_device_handle *handle, uint8_t endpoint_in)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:699:static void read_ms_winsub_feature_descriptors(libusb_device_handle *handle, uint8_t bRequest, int iface_number)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:792:	libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:808:	handle = libusb_open_device_with_vid_pid(NULL, vid, pid);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:911:		r = libusb_claim_interface(handle, iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:957:		libusb_release_interface(handle, iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/xusb.c:961:	libusb_close(handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:60:static struct libusb_device_handle *devh = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:70:	devh = libusb_open_device_with_vid_pid(NULL, 0x05ba, 0x000a);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:434:	r = libusb_claim_interface(devh, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:501:	libusb_release_interface(devh, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/dpfp.c:503:	libusb_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/hotplugtest.c:27:libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/hotplugtest.c:41:	libusb_open (dev, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/examples/hotplugtest.c:52:	libusb_close (handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:552: * thread until after their first call to libusb_open(), and should stop the
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:555:void my_close_handle(libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:560:    libusb_close(handle); // This wakes up libusb_handle_events()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1021: * -# libusb_open() will add another file descriptor to the poll set,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1024: * -# libusb_close() will remove a file descriptor from the poll set. There
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1030: * it works, focusing on the libusb_close() situation first:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1034: * -# During libusb_close(), libusb writes some dummy data on this control pipe.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1048: *    libusb_close() operation a "free ride" to acquire the events lock. All
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1050: * -# With the events lock held inside libusb_close(), libusb can safely remove
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1063: * libusb_open() is similar, and is actually a more simplistic case. Upon a
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1064: * call to libusb_open():
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1070: *    libusb_close() takes effect, causing all event handling threads to become
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1072: * -# The libusb_open() implementation takes its free ride to the events lock.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1073: * -# Happy that it has successfully paused the events handler, libusb_open()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:1567:	struct libusb_device_handle *handle = transfer->dev_handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2594:void usbi_handle_disconnect(struct libusb_device_handle *handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io.c:2616:	 * libusb_close, both of which hold the events_lock while doing so,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync_original.c:90:int API_EXPORTED libusb_control_transfer(libusb_device_handle *dev_handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync_original.c:158:static int do_sync_bulk_transfer(struct libusb_device_handle *dev_handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync_original.c:252:int API_EXPORTED libusb_bulk_transfer(struct libusb_device_handle *dev_handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync_original.c:302:	struct libusb_device_handle *dev_handle, unsigned char endpoint,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:230: * - Releasing of interfaces (libusb_release_interface())
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:393: libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:395: err = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:430: * libusb to open the device using the libusb_open() function. Assuming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:432: * (a \ref libusb_device_handle pointer). All "real" I/O operations then
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:454: * -# Choose the device that you want to operate, and call libusb_open().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:465: * As an implementation detail, libusb_open() actually adds a reference to
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:468: * libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1177: * during libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1190:int API_EXPORTED libusb_open(libusb_device *dev, libusb_device_handle **handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1193:	struct libusb_device_handle *_handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1282:libusb_device_handle * LIBUSB_CALL libusb_open_device_with_vid_pid(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1288:	struct libusb_device_handle *handle = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1307:		r = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1318:	struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1390: * libusb_open() on the given device.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1396:void API_EXPORTED libusb_close(libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1408:	/* Similarly to libusb_open(), we want to interrupt all event handlers
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1466:libusb_device * LIBUSB_CALL libusb_get_device(libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1491:int API_EXPORTED libusb_get_configuration(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1539: * Alternatively you can call libusb_release_interface() first. Note if you
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1567:int API_EXPORTED libusb_set_configuration(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1602:int API_EXPORTED libusb_claim_interface(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1645: * Release an interface previously claimed with libusb_claim_interface(). You
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1663:int API_EXPORTED libusb_release_interface(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1695: * been previously claimed with libusb_claim_interface().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1714:int API_EXPORTED libusb_set_interface_alt_setting(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1755:int API_EXPORTED libusb_clear_halt(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1784:int API_EXPORTED libusb_reset_device(libusb_device_handle *dev) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1814:int API_EXPORTED libusb_alloc_streams(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1841:int API_EXPORTED libusb_free_streams(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1877:int API_EXPORTED libusb_kernel_driver_active(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1917:int API_EXPORTED libusb_detach_kernel_driver(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1951:int API_EXPORTED libusb_attach_kernel_driver(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1988: * \see libusb_claim_interface()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1989: * \see libusb_release_interface()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core.c:1992:int API_EXPORTED libusb_set_auto_detach_kernel_driver(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync.c:90:int API_EXPORTED libusb_control_transfer(libusb_device_handle *dev_handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync.c:157:static int do_sync_bulk_transfer(struct libusb_device_handle *dev_handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync.c:251:int API_EXPORTED libusb_bulk_transfer(struct libusb_device_handle *dev_handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/sync.c:301:	struct libusb_device_handle *dev_handle, unsigned char endpoint,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:551: * thread until after their first call to libusb_open(), and should stop the
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:554:void my_close_handle(libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:559:    libusb_close(handle); // This wakes up libusb_handle_events()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1020: * -# libusb_open() will add another file descriptor to the poll set,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1023: * -# libusb_close() will remove a file descriptor from the poll set. There
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1029: * it works, focusing on the libusb_close() situation first:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1033: * -# During libusb_close(), libusb writes some dummy data on this control pipe.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1047: *    libusb_close() operation a "free ride" to acquire the events lock. All
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1049: * -# With the events lock held inside libusb_close(), libusb can safely remove
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1062: * libusb_open() is similar, and is actually a more simplistic case. Upon a
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1063: * call to libusb_open():
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1069: *    libusb_close() takes effect, causing all event handling threads to become
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1071: * -# The libusb_open() implementation takes its free ride to the events lock.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1072: * -# Happy that it has successfully paused the events handler, libusb_open()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:1527:	struct libusb_device_handle *handle = transfer->dev_handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:2530:void usbi_handle_disconnect(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/io_original.c:2552:	 * libusb_close, both of which hold the events_lock while doing so,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:203: * - Releasing of interfaces (libusb_release_interface())
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:366:	libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:368:	err = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:403: * libusb to open the device using the libusb_open() function. Assuming
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:405: * (a \ref libusb_device_handle pointer). All "real" I/O operations then
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:427: * -# Choose the device that you want to operate, and call libusb_open().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:438: * As an implementation detail, libusb_open() actually adds a reference to
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:441: * libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1065: * during libusb_close().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1078:int API_EXPORTED libusb_open(libusb_device *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1079:	libusb_device_handle **handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1082:	struct libusb_device_handle *_handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1148:libusb_device_handle * LIBUSB_CALL libusb_open_device_with_vid_pid(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1154:	struct libusb_device_handle *handle = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1173:		r = libusb_open(found, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1184:	struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1246: * libusb_open() on the given device.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1252:void API_EXPORTED libusb_close(libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1264:	/* Similarly to libusb_open(), we want to interrupt all event handlers
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1314:libusb_device * LIBUSB_CALL libusb_get_device(libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1339:int API_EXPORTED libusb_get_configuration(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1388: * Alternatively you can call libusb_release_interface() first. Note if you
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1416:int API_EXPORTED libusb_set_configuration(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1451:int API_EXPORTED libusb_claim_interface(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1477: * Release an interface previously claimed with libusb_claim_interface(). You
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1495:int API_EXPORTED libusb_release_interface(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1521: * been previously claimed with libusb_claim_interface().
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1540:int API_EXPORTED libusb_set_interface_alt_setting(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1580:int API_EXPORTED libusb_clear_halt(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1609:int API_EXPORTED libusb_reset_device(libusb_device_handle *dev)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1635:int API_EXPORTED libusb_kernel_driver_active(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1670:int API_EXPORTED libusb_detach_kernel_driver(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1704:int API_EXPORTED libusb_attach_kernel_driver(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1736: * \see libusb_claim_interface()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1737: * \see libusb_release_interface()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/core_original.c:1741:	libusb_device_handle *dev, int enable)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:64:static int darwin_claim_interface(struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:65:static int darwin_release_interface(struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:66:static int darwin_reset_device(struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:154:static int ep_to_pipeRef(struct libusb_device_handle *dev_handle, uint8_t ep, uint8_t *pipep, uint8_t *ifcp) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:915:static int darwin_open (struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:972:static void darwin_close (struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:989:      libusb_release_interface (dev_handle, i);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1019:static int darwin_get_configuration(struct libusb_device_handle *dev_handle, int *config) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1027:static int darwin_set_configuration(struct libusb_device_handle *dev_handle, int config) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1089:static int get_endpoints (struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1132:static int darwin_claim_interface(struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1236:static int darwin_release_interface(struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1269:static int darwin_set_interface_altsetting(struct libusb_device_handle *dev_handle, int iface, int altsetting) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1295:static int darwin_clear_halt(struct libusb_device_handle *dev_handle, unsigned char endpoint) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1320:static int darwin_reset_device(struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1372:static int darwin_kernel_driver_active(struct libusb_device_handle *dev_handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1399:static int darwin_attach_kernel_driver (struct libusb_device_handle *dev_handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/darwin_usb.c:1405:static int darwin_detach_kernel_driver (struct libusb_device_handle *dev_handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:52:static int obsd_open(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:53:static void obsd_close(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:62:static int obsd_get_configuration(struct libusb_device_handle *, int *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:63:static int obsd_set_configuration(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:65:static int obsd_claim_interface(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:66:static int obsd_release_interface(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:68:static int obsd_set_interface_altsetting(struct libusb_device_handle *, int,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:70:static int obsd_clear_halt(struct libusb_device_handle *, unsigned char);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:71:static int obsd_reset_device(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:242:obsd_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:269:obsd_close(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:351:obsd_get_configuration(struct libusb_device_handle *handle, int *config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:364:obsd_set_configuration(struct libusb_device_handle *handle, int config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:380:obsd_claim_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:392:obsd_release_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:405:obsd_set_interface_altsetting(struct libusb_device_handle *handle, int iface,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:428:obsd_clear_halt(struct libusb_device_handle *handle, unsigned char endpoint)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:456:obsd_reset_device(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:538:	struct libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/openbsd_usb.c:556:		    struct libusb_device_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:52:static int netbsd_open(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:53:static void netbsd_close(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:62:static int netbsd_get_configuration(struct libusb_device_handle *, int *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:63:static int netbsd_set_configuration(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:65:static int netbsd_claim_interface(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:66:static int netbsd_release_interface(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:68:static int netbsd_set_interface_altsetting(struct libusb_device_handle *, int,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:70:static int netbsd_clear_halt(struct libusb_device_handle *, unsigned char);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:71:static int netbsd_reset_device(struct libusb_device_handle *);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:208:netbsd_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:229:netbsd_close(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:318:netbsd_get_configuration(struct libusb_device_handle *handle, int *config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:333:netbsd_set_configuration(struct libusb_device_handle *handle, int config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:346:netbsd_claim_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:358:netbsd_release_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:371:netbsd_set_interface_altsetting(struct libusb_device_handle *handle, int iface,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:391:netbsd_clear_halt(struct libusb_device_handle *handle, unsigned char endpoint)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:411:netbsd_reset_device(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:492:	struct libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/netbsd_usb.c:510:		    struct libusb_device_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:413:static int wince_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:420:static void wince_close(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:464:   struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:477:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:492:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:503:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:517:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:528:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:542:	struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:552:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:564:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/wince_usb.c:575:	struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:151:static int detach_kernel_driver_and_claim(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:293:		struct libusb_device_handle *handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1652:static int op_open(struct libusb_device_handle *handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1688:static void op_close(struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1698:static int op_get_configuration(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1719:static int op_set_configuration(struct libusb_device_handle *handle, int config) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1741:static int claim_interface(struct libusb_device_handle *handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1764:static int release_interface(struct libusb_device_handle *handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1783:static int op_set_interface(struct libusb_device_handle *handle, int iface, int altsetting) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1808:static int op_clear_halt(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1827:static int op_reset_device(struct libusb_device_handle *handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1879:static int do_streams_ioctl(struct libusb_device_handle *handle, long req,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1915:static int op_alloc_streams(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1922:static int op_free_streams(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1929:static int op_kernel_driver_active(struct libusb_device_handle *handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1950:static int op_detach_kernel_driver(struct libusb_device_handle *handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:1982:static int op_attach_kernel_driver(struct libusb_device_handle *handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2012:static int detach_kernel_driver_and_claim(struct libusb_device_handle *handle, int interface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2053:static int op_claim_interface(struct libusb_device_handle *handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2060:static int op_release_interface(struct libusb_device_handle *handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2579:static int handle_bulk_completion(struct libusb_device_handle *handle,	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2717:static int handle_iso_completion(struct libusb_device_handle *handle,	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2841:static int handle_control_completion(struct libusb_device_handle *handle,	// XXX added saki
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2909:static int reap_for_handle(struct libusb_device_handle *handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2963:		struct libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/android_usbfs.c:2970:		list_for_each_entry(handle, &ctx->open_devs, list, struct libusb_device_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:50:static int common_configure_endpoints(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:55:static int winusbx_open(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:56:static void winusbx_close(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:57:static int winusbx_configure_endpoints(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:58:static int winusbx_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:59:static int winusbx_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:61:static int winusbx_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:63:static int winusbx_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:66:static int winusbx_reset_device(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:71:static int hid_open(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:72:static void hid_close(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:73:static int hid_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:74:static int hid_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:75:static int hid_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:78:static int hid_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:80:static int hid_reset_device(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:85:static int composite_open(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:86:static void composite_close(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:87:static int composite_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:88:static int composite_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:89:static int composite_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:93:static int composite_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:96:static int composite_reset_device(int sub_api, struct libusb_device_handle *dev_handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:666:static int windows_assign_endpoints(struct libusb_device_handle *dev_handle, int iface, int altsetting)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:756:			  && (libusb_claim_interface(transfer->dev_handle, current_interface) == LIBUSB_SUCCESS) ) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:787:	libusb_device_handle *dev_handle = transfer->dev_handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:795:			r = libusb_release_interface(dev_handle, transfer_priv->interface_number);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1803:static int windows_open(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1816:static void windows_close(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1823:static int windows_get_configuration(struct libusb_device_handle *dev_handle, int *config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1841:static int windows_set_configuration(struct libusb_device_handle *dev_handle, int config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1860:static int windows_claim_interface(struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1880:static int windows_set_interface_altsetting(struct libusb_device_handle *dev_handle, int iface, int altsetting)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1897:static int windows_release_interface(struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1904:static int windows_clear_halt(struct libusb_device_handle *dev_handle, unsigned char endpoint)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1910:static int windows_reset_device(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1917:static int windows_kernel_driver_active(struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1922:static int windows_attach_kernel_driver(struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:1927:static int windows_detach_kernel_driver(struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2352:static int unsupported_open(int sub_api, struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2355:static void unsupported_close(int sub_api, struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2358:static int unsupported_configure_endpoints(int sub_api, struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2361:static int unsupported_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2364:static int unsupported_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2367:static int unsupported_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2370:static int unsupported_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2373:static int unsupported_reset_device(int sub_api, struct libusb_device_handle *dev_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2394:static int common_configure_endpoints(int sub_api, struct libusb_device_handle *dev_handle, int iface) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2599:static int winusbx_open(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2634:static void winusbx_close(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2656:static int winusbx_configure_endpoints(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2704:static int winusbx_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2810:static int winusbx_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2832:static int get_valid_interface(struct libusb_device_handle *dev_handle, int api_id)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:2946:static int winusbx_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3029:static int winusbx_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3106:static int winusbx_reset_device(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3660:static int hid_open(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3813:static void hid_close(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3833:static int hid_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3858:static int hid_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:3878:static int hid_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4119:static int hid_reset_device(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4137:static int hid_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4217:static int composite_open(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4253:static void composite_close(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4277:static int composite_claim_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4284:static int composite_set_interface_altsetting(int sub_api, struct libusb_device_handle *dev_handle, int iface, int altsetting)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4291:static int composite_release_interface(int sub_api, struct libusb_device_handle *dev_handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4356:static int composite_clear_halt(int sub_api, struct libusb_device_handle *dev_handle, unsigned char endpoint)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/windows_usb.c:4390:static int composite_reset_device(int sub_api, struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:133:static int detach_kernel_driver_and_claim(struct libusb_device_handle *, int);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:233:	struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1278:static int op_open(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1315:static void op_close(struct libusb_device_handle *dev_handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1322:static int op_get_configuration(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1344:static int op_set_configuration(struct libusb_device_handle *handle, int config)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1367:static int claim_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1386:static int release_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1401:static int op_set_interface(struct libusb_device_handle *handle, int iface,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1425:static int op_clear_halt(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1445:static int op_reset_device(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1498:static int op_kernel_driver_active(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1521:static int op_detach_kernel_driver(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1555:static int op_attach_kernel_driver(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1587:static int detach_kernel_driver_and_claim(struct libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1623:static int op_claim_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:1631:static int op_release_interface(struct libusb_device_handle *handle, int iface)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:2465:static int reap_for_handle(struct libusb_device_handle *handle)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:2515:		struct libusb_device_handle *handle;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/os/linux_usbfs.c:2522:		list_for_each_entry(handle, &ctx->open_devs, list, struct libusb_device_handle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:1215:int API_EXPORTED libusb_get_bos_descriptor(libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:1461:int API_EXPORTED libusb_get_string_descriptor_ascii(libusb_device_handle *dev,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:77: * a libusb_device_handles for the device it is up to you to call libusb_close()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:79: * Once a device has left any libusb_device_handle associated with the device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:97:  static libusb_device_handle *handle = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:104:    rc = libusb_open(dev, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug.c:110:      libusb_close(handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:77: * a libusb_device_handles for the device it is up to you to call libusb_close()
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:79: * Once a device has left any libusb_device_handle associated with the device
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:97:  static libusb_device_handle *handle = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:104:    rc = libusb_open(dev, &handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/hotplug_original.c:110:      libusb_close(handle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:902:int API_EXPORTED libusb_get_bos_descriptor(libusb_device_handle *handle,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor_original.c:1148:int API_EXPORTED libusb_get_string_descriptor_ascii(libusb_device_handle *dev,

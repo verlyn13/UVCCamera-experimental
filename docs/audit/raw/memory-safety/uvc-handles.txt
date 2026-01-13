@@ -1,0 +1,256 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init_original.c:138:  uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init_original.c:141:    uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init_original.c:155: * This should be called at the end of a successful uvc_open if no devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:66:int uvc_get_ctrl_len(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:93:int uvc_get_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:113:int uvc_set_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:123:uvc_error_t uvc_vc_get_error_code(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:142:uvc_error_t uvc_vs_get_error_code(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:164:uvc_error_t uvc_get_power_mode(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:182:uvc_error_t uvc_set_power_mode(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:199:uvc_error_t uvc_get_ae_mode(uvc_device_handle_t *devh, uint8_t *mode,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:218:uvc_error_t uvc_set_ae_mode(uvc_device_handle_t *devh, uint8_t mode) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:237:uvc_error_t uvc_get_ae_priority(uvc_device_handle_t *devh, uint8_t *priority,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:256:uvc_error_t uvc_set_ae_priority(uvc_device_handle_t *devh, uint8_t priority) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:275:uvc_error_t uvc_get_exposure_abs(uvc_device_handle_t *devh, int *time,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:294:uvc_error_t uvc_set_exposure_abs(uvc_device_handle_t *devh, int time) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:312:uvc_error_t uvc_get_exposure_rel(uvc_device_handle_t *devh, int *step,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:331:uvc_error_t uvc_set_exposure_rel(uvc_device_handle_t *devh, int step) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:350:uvc_error_t uvc_get_scanning_mode(uvc_device_handle_t *devh, uint8_t *mode,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:369:uvc_error_t uvc_set_scanning_mode(uvc_device_handle_t *devh, uint8_t mode) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:388:uvc_error_t uvc_get_focus_auto(uvc_device_handle_t *devh, uint8_t *autofocus,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:407:uvc_error_t uvc_set_focus_auto(uvc_device_handle_t *devh, uint8_t autofocus) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:426:uvc_error_t uvc_get_focus_abs(uvc_device_handle_t *devh, short *focus,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:445:uvc_error_t uvc_set_focus_abs(uvc_device_handle_t *devh, short focus) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:463:uvc_error_t uvc_get_focus_rel(uvc_device_handle_t *devh, int8_t *focus, uint8_t *speed,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:483:uvc_error_t uvc_set_focus_rel(uvc_device_handle_t *devh, int8_t focus, uint8_t speed) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:503:uvc_error_t uvc_get_iris_abs(uvc_device_handle_t *devh, uint16_t *iris,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:522:uvc_error_t uvc_set_iris_abs(uvc_device_handle_t *devh, uint16_t iris) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:540:uvc_error_t uvc_get_iris_rel(uvc_device_handle_t *devh, uint8_t *iris,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:559:uvc_error_t uvc_set_iris_rel(uvc_device_handle_t *devh, uint8_t iris) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:578:uvc_error_t uvc_get_zoom_abs(uvc_device_handle_t *devh, uint16_t *zoom,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:596:uvc_error_t uvc_set_zoom_abs(uvc_device_handle_t *devh, uint16_t zoom) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:613:uvc_error_t uvc_get_zoom_rel(uvc_device_handle_t *devh, int8_t *zoom, uint8_t *isdigital, uint8_t *speed,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:633:uvc_error_t uvc_set_zoom_rel(uvc_device_handle_t *devh, int8_t zoom, uint8_t isdigital, uint8_t speed) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:653:uvc_error_t uvc_get_pantilt_abs(uvc_device_handle_t *devh, int32_t *pan, int32_t *tilt,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:673:uvc_error_t uvc_set_pantilt_abs(uvc_device_handle_t *devh, int32_t pan, int32_t tilt) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:691:uvc_error_t uvc_get_pantilt_rel(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:715:uvc_error_t uvc_set_pantilt_rel(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:738:uvc_error_t uvc_get_roll_abs(uvc_device_handle_t *devh, int16_t *roll,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:757:uvc_error_t uvc_set_roll_abs(uvc_device_handle_t *devh, int16_t roll) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:782:uvc_error_t uvc_get_roll_rel(uvc_device_handle_t *devh, int8_t *roll_rel, uint8_t *speed,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:809:uvc_error_t uvc_set_roll_rel(uvc_device_handle_t *devh, int8_t roll_rel, uint8_t speed) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:834:uvc_error_t uvc_get_privacy(uvc_device_handle_t *devh, uint8_t *privacy,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:859:uvc_error_t uvc_set_privacy(uvc_device_handle_t *devh, uint8_t privacy) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:888:uvc_error_t uvc_get_digital_window(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:926:uvc_error_t uvc_set_digital_window(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:962:uvc_error_t uvc_get_digital_roi(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:997:uvc_error_t uvc_set_digital_roi(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1026:uvc_error_t uvc_get_backlight_compensation(uvc_device_handle_t *devh, short *comp,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1045:uvc_error_t uvc_set_backlight_compensation(uvc_device_handle_t *devh, short comp) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1062:uvc_error_t uvc_get_brightness(uvc_device_handle_t *devh, short *brightness,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1081:uvc_error_t uvc_set_brightness(uvc_device_handle_t *devh, short brightness) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1098:uvc_error_t uvc_get_contrast(uvc_device_handle_t *devh, uint16_t *contrast,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1117:uvc_error_t uvc_set_contrast(uvc_device_handle_t *devh, uint16_t contrast) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1134:uvc_error_t uvc_get_contrast_auto(uvc_device_handle_t *devh, uint8_t *autoContrast,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1153:uvc_error_t uvc_set_contrast_auto(uvc_device_handle_t *devh, uint8_t autoContrast) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1170:uvc_error_t uvc_get_gain(uvc_device_handle_t *devh, uint16_t *gain,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1189:uvc_error_t uvc_set_gain(uvc_device_handle_t *devh, uint16_t gain) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1206:uvc_error_t uvc_get_powerline_freqency(uvc_device_handle_t *devh, uint8_t *freq,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1225:uvc_error_t uvc_set_powerline_freqency(uvc_device_handle_t *devh, uint8_t freq) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1253:uvc_error_t uvc_get_hue(uvc_device_handle_t *devh, short *hue,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1272:uvc_error_t uvc_set_hue(uvc_device_handle_t *devh, short hue) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1289:uvc_error_t uvc_get_hue_auto(uvc_device_handle_t *devh, uint8_t *autoHue,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1308:uvc_error_t uvc_set_hue_auto(uvc_device_handle_t *devh, uint8_t autoHue) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1325:uvc_error_t uvc_get_saturation(uvc_device_handle_t *devh, uint16_t *saturation,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1344:uvc_error_t uvc_set_saturation(uvc_device_handle_t *devh, uint16_t saturation) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1361:uvc_error_t uvc_get_sharpness(uvc_device_handle_t *devh, uint16_t *sharpness,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1380:uvc_error_t uvc_set_sharpness(uvc_device_handle_t *devh, uint16_t sharpness) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1397:uvc_error_t uvc_get_gamma(uvc_device_handle_t *devh, uint16_t *gamma,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1416:uvc_error_t uvc_set_gamma(uvc_device_handle_t *devh, uint16_t gamma) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1433:uvc_error_t uvc_get_white_balance_temperature(uvc_device_handle_t *devh, uint16_t *wb_temperature,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1452:uvc_error_t uvc_set_white_balance_temperature(uvc_device_handle_t *devh, uint16_t wb_temperature) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1469:uvc_error_t uvc_get_white_balance_temperature_auto(uvc_device_handle_t *devh, uint8_t *autoWbTemp,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1488:uvc_error_t uvc_set_white_balance_temperature_auto(uvc_device_handle_t *devh, uint8_t autoWbTemp) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1505:uvc_error_t uvc_get_white_balance_component(uvc_device_handle_t *devh, uint32_t *wb_compo,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1524:uvc_error_t uvc_set_white_balance_component(uvc_device_handle_t *devh, uint32_t wb_compo) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1541:uvc_error_t uvc_get_white_balance_component_auto(uvc_device_handle_t *devh, uint8_t *autoWbCompo,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1560:uvc_error_t uvc_set_white_balance_component_auto(uvc_device_handle_t *devh, uint8_t autoWbCompo) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1577:uvc_error_t uvc_get_digital_multiplier(uvc_device_handle_t *devh, uint16_t *multiplier,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1596:uvc_error_t uvc_set_digital_multiplier(uvc_device_handle_t *devh, uint16_t multiplier) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1613:uvc_error_t uvc_get_digital_multiplier_limit(uvc_device_handle_t *devh, uint16_t *limit,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1632:uvc_error_t uvc_set_digital_multiplier_limit(uvc_device_handle_t *devh, uint16_t limit) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1649:uvc_error_t uvc_get_analog_video_standard(uvc_device_handle_t *devh, uint8_t *standard,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1668:uvc_error_t uvc_set_analog_video_standard(uvc_device_handle_t *devh, uint8_t standard) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1685:uvc_error_t uvc_get_analog_video_lockstate(uvc_device_handle_t *devh, uint8_t *lock_state,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl.c:1704:uvc_error_t uvc_set_analog_video_lockstate(uvc_device_handle_t *devh, uint8_t lock_state) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag.c:295:void uvc_print_diag(uvc_device_handle_t *devh, FILE *stream) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag.c:421:void uvc_print_device_desc(uvc_device_handle_t *devh, FILE *stream) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag.c:528:void uvc_print_configuration_desc(uvc_device_handle_t *devh, FILE *stream) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init.c:188:	uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init.c:192:		uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/init.c:206: * This should be called at the end of a successful uvc_open if no devices
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:41:uvc_frame_desc_t *uvc_find_frame_desc_stream(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:43:uvc_frame_desc_t *uvc_find_frame_desc(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:46:void _uvc_populate_frame(uvc_stream_handle_t *strmh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:139:    uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:229:uvc_error_t uvc_stream_ctrl(uvc_stream_handle_t *strmh, uvc_stream_ctrl_t *ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:271:uvc_frame_desc_t *uvc_find_frame_desc_stream(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:282:uvc_frame_desc_t *uvc_find_frame_desc(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:308:    uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:383:    uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:409:  uvc_stream_handle_t *strmh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:554:    uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:561:  uvc_stream_handle_t *strmh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:585:    uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:593:static uvc_stream_handle_t *_uvc_get_stream_by_interface(uvc_device_handle_t *devh, int interface_idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:594:  uvc_stream_handle_t *strmh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:604:static uvc_streaming_interface_t *_uvc_get_stream_if(uvc_device_handle_t *devh, int interface_idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:622:uvc_error_t uvc_stream_open_ctrl(uvc_device_handle_t *devh, uvc_stream_handle_t **strmhp, uvc_stream_ctrl_t *ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:624:  uvc_stream_handle_t *strmh = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:688:    uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:873:    uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:886:  uvc_stream_handle_t *strmh = (uvc_stream_handle_t *) arg;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:917:void _uvc_populate_frame(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:964:uvc_error_t uvc_stream_get_frame(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:1030:void uvc_stop_streaming(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:1031:  uvc_stream_handle_t *strmh, *strmh_tmp;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:1045:uvc_error_t uvc_stream_stop(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:1098:void uvc_stream_close(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/example.c:61:  uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/example.c:88:    res = uvc_open(dev, &devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/example.c:91:      uvc_perror(res, "uvc_open"); /* unable to open device */
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/example.c:133:      uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:42:void uvc_free_devh(uvc_device_handle_t *devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:98:  uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:190:uvc_error_t uvc_open(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:192:    uvc_device_handle_t **devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:195:  uvc_device_handle_t *internal_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:595:uvc_device_t *uvc_get_device(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:608: * it will be invalidated upon calling uvc_close.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:612:libusb_device_handle *uvc_get_libusb_handle(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:625:const uvc_input_terminal_t *uvc_get_input_terminals(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:638:const uvc_output_terminal_t *uvc_get_output_terminals(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:651:const uvc_processing_unit_t *uvc_get_processing_units(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:664:const uvc_extension_unit_t *uvc_get_extension_units(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:709:uvc_error_t uvc_claim_if(uvc_device_handle_t *devh, int idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:728:uvc_error_t uvc_release_if(uvc_device_handle_t *devh, int idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1189:void uvc_free_devh(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1211:void uvc_close(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1247:  uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1259:void uvc_process_status_xfer(uvc_device_handle_t *devh, struct libusb_transfer *transfer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1366:  uvc_device_handle_t *devh = (uvc_device_handle_t *) transfer->user_data;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:1395:void uvc_set_status_callback(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:67:void uvc_free_devh(uvc_device_handle_t *devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:117:	uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:269:uvc_error_t uvc_open(uvc_device_t *dev, uvc_device_handle_t **devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:272:	uvc_device_handle_t *internal_devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:712:uvc_device_t *uvc_get_device(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:725: * it will be invalidated upon calling uvc_close.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:729:libusb_device_handle *uvc_get_libusb_handle(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:742:const uvc_input_terminal_t *uvc_get_input_terminals(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:755:const uvc_output_terminal_t *uvc_get_output_terminals(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:768:const uvc_processing_unit_t *uvc_get_processing_units(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:781:const uvc_extension_unit_t *uvc_get_extension_units(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:830:uvc_error_t uvc_claim_if(uvc_device_handle_t *devh, int idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:862:uvc_error_t uvc_release_if(uvc_device_handle_t *devh, int idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1532:void uvc_free_devh(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1555:void uvc_close(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1591:uvc_error_t uvc_set_reset_altsetting(uvc_device_handle_t *devh, uint8_t reset_on_release_if) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1604:	uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1617:void uvc_process_control_status(uvc_device_handle_t *devh, unsigned char *data, int len) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1702:void uvc_process_streaming_status(uvc_device_handle_t *devh, unsigned char *data, int len) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1737:void uvc_process_status_xfer(uvc_device_handle_t *devh, struct libusb_transfer *transfer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1763:	uvc_device_handle_t *devh = (uvc_device_handle_t *) transfer->user_data;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1792:void uvc_set_status_callback(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1810:void uvc_set_button_callback(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:1831:const uvc_format_desc_t *uvc_get_format_descs(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/test.c:79:  uvc_device_handle_t *devh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/test.c:100:    res = uvc_open(dev, &devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/test.c:103:      uvc_perror(res, "uvc_open");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/test.c:141:      uvc_close(devh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/diag_original.c:140:void uvc_print_diag(uvc_device_handle_t *devh, FILE *stream) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:44:uvc_error_t uvc_get_power_mode(uvc_device_handle_t *devh, enum uvc_device_power_mode *mode, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:65:uvc_error_t uvc_set_power_mode(uvc_device_handle_t *devh, enum uvc_device_power_mode mode) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:86:uvc_error_t uvc_get_ae_mode(uvc_device_handle_t *devh, int *mode, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:107:uvc_error_t uvc_set_ae_mode(uvc_device_handle_t *devh, int mode) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:128:uvc_error_t uvc_get_ae_priority(uvc_device_handle_t *devh, uint8_t *priority, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:149:uvc_error_t uvc_set_ae_priority(uvc_device_handle_t *devh, uint8_t priority) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:170:uvc_error_t uvc_get_exposure_abs(uvc_device_handle_t *devh, int *time, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:191:uvc_error_t uvc_set_exposure_abs(uvc_device_handle_t *devh, int time) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:212:uvc_error_t uvc_get_exposure_rel(uvc_device_handle_t *devh, int *step, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:233:uvc_error_t uvc_set_exposure_rel(uvc_device_handle_t *devh, int step) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:254:uvc_error_t uvc_get_scanning_mode(uvc_device_handle_t *devh, int *step, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:275:uvc_error_t uvc_set_scanning_mode(uvc_device_handle_t *devh, int mode) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:296:uvc_error_t uvc_get_focus_abs(uvc_device_handle_t *devh, short *focus, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:317:uvc_error_t uvc_set_focus_abs(uvc_device_handle_t *devh, short focus) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:342:uvc_error_t uvc_get_pantilt_abs(uvc_device_handle_t *devh, int *pan, int *tilt, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:364:uvc_error_t uvc_set_pantilt_abs(uvc_device_handle_t *devh, int pan, int tilt) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:408:int uvc_get_ctrl_len(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:438:int uvc_get_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl, void *data, int len, enum uvc_req_code req_code) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/ctrl_original.c:460:int uvc_set_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl, void *data, int len) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:65:uvc_frame_desc_t *uvc_find_frame_desc_stream(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:67:uvc_frame_desc_t *uvc_find_frame_desc(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:70:static void _uvc_populate_frame(uvc_stream_handle_t *strmh);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:165:uvc_error_t uvc_query_stream_ctrl(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:292:uvc_error_t uvc_stream_ctrl(uvc_stream_handle_t *strmh, uvc_stream_ctrl_t *ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:337:uvc_error_t uvc_get_frame_desc(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:344:uvc_frame_desc_t *uvc_find_frame_desc_stream(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:355:uvc_frame_desc_t *uvc_find_frame_desc(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:380:static uvc_error_t _prepare_stream_ctrl(uvc_device_handle_t *devh, uvc_stream_ctrl_t *ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:407:static uvc_error_t _uvc_get_stream_ctrl_format(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:519:uvc_error_t uvc_get_stream_ctrl_format_size(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:536:uvc_error_t uvc_get_stream_ctrl_format_size_fps(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:574:uvc_error_t uvc_probe_stream_ctrl(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:602:static void _uvc_swap_buffers(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:632:	uvc_stream_handle_t *strmh = transfer->user_data;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:671:static void _uvc_process_payload(uvc_stream_handle_t *strmh, const uint8_t *payload, size_t const payload_len) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:784:static inline void _uvc_process_payload_iso(uvc_stream_handle_t *strmh, struct libusb_transfer *transfer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:805:static inline void _uvc_process_payload_iso(uvc_stream_handle_t *strmh, struct libusb_transfer *transfer) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:964:	uvc_stream_handle_t *strmh = transfer->user_data;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1055:	uvc_stream_handle_t *strmh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1243:uvc_error_t uvc_start_streaming(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1260:uvc_error_t uvc_start_streaming_bandwidth(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1265:	uvc_stream_handle_t *strmh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1293:uvc_error_t uvc_start_iso_streaming(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1298:static uvc_stream_handle_t *_uvc_get_stream_by_interface(
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1299:		uvc_device_handle_t *devh, int interface_idx) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1300:	uvc_stream_handle_t *strmh;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1311:static uvc_streaming_interface_t *_uvc_get_stream_if(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1331:uvc_error_t uvc_stream_open_ctrl(uvc_device_handle_t *devh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1332:		uvc_stream_handle_t **strmhp, uvc_stream_ctrl_t *ctrl) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1334:	uvc_stream_handle_t *strmh = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1400:uvc_error_t uvc_stream_start(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1414:uvc_error_t uvc_stream_start_bandwidth(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1675:uvc_error_t uvc_stream_start_iso(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1686:	uvc_stream_handle_t *strmh = (uvc_stream_handle_t *) arg;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1719:void _uvc_populate_frame(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1768:uvc_error_t uvc_stream_get_frame(uvc_stream_handle_t *strmh,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1833:void uvc_stop_streaming(uvc_device_handle_t *devh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1834:	uvc_stream_handle_t *strmh, *strmh_tmp;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1851:uvc_error_t uvc_stream_stop(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1915:void uvc_stream_close(uvc_stream_handle_t *strmh) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:254:char *UVCDiags::getDescriptions(const uvc_device_handle_t *deviceHandle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:342:char *UVCDiags::getSupportedSize(const uvc_device_handle_t *deviceHandle) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:198:	//   - uvc_init2 / uvc_get_device_with_fd / uvc_open
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:264:			LOGI("FORENSIC-010: Calling uvc_open - device=%p", mDevice);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:265:			result = uvc_open(mDevice, &mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:266:			LOGI("FORENSIC-010: uvc_open returned %d (%s), handle=%p",
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:291:				// Emit ERROR state with uvc_open error code
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:294:					LOGD("connect: emit ERROR (uvc_open failed, code=%d)", result);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:332:		uvc_close(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:397:			uvc_close(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:459:		uvc_close(mDeviceHandle);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:963:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:993:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1023:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1053:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1083:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1113:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1144:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1176:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1206:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCCamera.cpp:1236:static uvc_error_t update_ctrl_values(uvc_device_handle_t *devh, control_value_t &values1, control_value_t &values2,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCStatusCallback.cpp:10:UVCStatusCallback::UVCStatusCallback(uvc_device_handle_t *devh)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCButtonCallback.cpp:10:UVCButtonCallback::UVCButtonCallback(uvc_device_handle_t *devh)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:53:UVCPreview::UVCPreview(uvc_device_handle_t *devh)

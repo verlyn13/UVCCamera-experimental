@@ -1,0 +1,12 @@
+# JNI Method Extraction from EGLImageHelperJNI.cpp
+# Lines 542-561
+# Class: com/scopecam/camera/egl/EGLImageHelper (assumed)
+# Total methods: 6
+
+# Zero-Copy EGL Pipeline
+nativeCreateEGLImageFromHardwareBuffer,(Landroid/opengl/EGLDisplay;Landroid/hardware/HardwareBuffer;)J,jlong
+nativeDestroyEGLImage,(Landroid/opengl/EGLDisplay;J)V,void
+nativeGlEGLImageTargetTexture2DOES,(IJ)V,void
+nativeImportNativeFence,(Landroid/opengl/EGLDisplay;I)J,jlong
+nativeDestroySync,(Landroid/opengl/EGLDisplay;J)V,void
+nativeCreateReleaseFence,(Landroid/opengl/EGLDisplay;)I,jint

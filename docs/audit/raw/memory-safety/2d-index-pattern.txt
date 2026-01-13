@@ -1,0 +1,9 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2469:			int srcIdx = (y * width + x) * 4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2476:			yPlane[y * width + x] = static_cast<uint8_t>(yVal < 16 ? 16 : (yVal > 235 ? 235 : yVal));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2482:				int vuIdx = (y / 2) * width + x;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2499:			int srcIdx0 = (y * width + x) * 4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2500:			int srcIdx1 = (y * width + x + 1) * 4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2516:			int dstIdx = (y * width + x) * 2;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2538:			int srcIdx = (y * width + x) * 4;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2545:			yPlane[y * width + x] = static_cast<uint8_t>(yVal < 16 ? 16 : (yVal > 235 ? 235 : yVal));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/jdapistd.c:204:  *width = *width + input_xoffset - *xoffset;

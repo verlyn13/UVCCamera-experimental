@@ -1,0 +1,173 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:68:	case UVC_VS_FORMAT_MJPEG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:69:		return "MJPEGFormat";
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:239:			case UVC_VS_FORMAT_MJPEG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/Parameters.cpp:367:						case UVC_VS_FORMAT_MJPEG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferJNI.cpp:112:    // Use RGBA8888 if format not specified
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:57:		case PIXEL_FORMAT_YUV:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:58:			LOGI("PIXEL_FORMAT_YUV:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:59:			mFrameConvFunc = uvc_any2yuyv;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:61:		case PIXEL_FORMAT_RGB565:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:62:			LOGI("PIXEL_FORMAT_RGB565:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:63:			mFrameConvFunc = uvc_any2rgb565;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:65:		case PIXEL_FORMAT_RGBX:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:66:			LOGI("PIXEL_FORMAT_RGBX:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:67:			mFrameConvFunc = uvc_any2rgbx;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:69:		case PIXEL_FORMAT_YUV20SP:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:70:			LOGI("PIXEL_FORMAT_YUV20SP:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:71:			mFrameConvFunc = uvc_any2yuv420SP;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:73:		case PIXEL_FORMAT_NV21:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:74:			LOGI("PIXEL_FORMAT_NV21:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/ConvertPipeline.cpp:75:			mFrameConvFunc = uvc_any2iyuv420SP;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:94:	  case PIXEL_FORMAT_YUV:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:95:		LOGI("PIXEL_FORMAT_YUV:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:96:		mFrameCallbackFunc = uvc_any2yuyv;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:99:	  case PIXEL_FORMAT_RGB565:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:100:		LOGI("PIXEL_FORMAT_RGB565:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:101:		mFrameCallbackFunc = uvc_any2rgb565;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:104:	  case PIXEL_FORMAT_RGBX:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:105:		LOGI("PIXEL_FORMAT_RGBX:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:106:		mFrameCallbackFunc = uvc_any2rgbx;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:109:	  case PIXEL_FORMAT_YUV20SP:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:110:		LOGI("PIXEL_FORMAT_YUV20SP:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:111:		mFrameCallbackFunc = uvc_any2yuv420SP;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:114:	  case PIXEL_FORMAT_NV21:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:115:		LOGI("PIXEL_FORMAT_NV21:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/CallbackPipeline.cpp:116:		mFrameCallbackFunc = uvc_any2iyuv420SP;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:29:#define CAPTURE_PIXEL_BYTES 2	// RGB565
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:152:	uvc_frame_t *rgb565 = get_frame(default_frame_size);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:154:	if (LIKELY(rgb565)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:169:									frameWidth, frameHeight, WINDOW_FORMAT_RGB_565);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:173:								// to write frame data to the Surface...you should use RGBX8888 instead
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:176:								if (window_format != WINDOW_FORMAT_RGB_565) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:184:								int b = uvc_any2rgb565(frame, rgb565);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:186:									copyToSurface(rgb565, &window);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:199:	if (rgb565) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PreviewPipeline.cpp:200:		recycle_frame(rgb565);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:102:	case UVC_FRAME_FORMAT_YUYV:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:103:		header.format_le = htole32(VIDEO_FRAME_FORMAT_YUYV);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:105:	case UVC_FRAME_FORMAT_MJPEG:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/pipeline/PublisherPipeline.cpp:106:		header.format_le = htole32(VIDEO_FRAME_FORMAT_MJPEG);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/EGLImageHelperJNI.cpp:330: * This allows the GPU's fixed-function YUV→RGB conversion hardware to work.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:47:#define PREVIEW_PIXEL_BYTES 4	// RGBA/RGBX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:65:	frameBytes(DEFAULT_PREVIEW_WIDTH * DEFAULT_PREVIEW_HEIGHT * 2),	// YUYV
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:68:	previewFormat(WINDOW_FORMAT_RGBA_8888),
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:226:			!requestMode ? UVC_FRAME_FORMAT_YUYV : UVC_FRAME_FORMAT_MJPEG,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:317:	  case PIXEL_FORMAT_YUV:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:318:		LOGI("PIXEL_FORMAT_YUV:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:321:	  case PIXEL_FORMAT_RGB565:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:322:		LOGI("PIXEL_FORMAT_RGB565:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:323:		mFrameCallbackFunc = uvc_any2rgb565;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:326:	  case PIXEL_FORMAT_RGBX:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:327:		LOGI("PIXEL_FORMAT_RGBX:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:328:		mFrameCallbackFunc = uvc_any2rgbx;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:331:	  case PIXEL_FORMAT_YUV20SP:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:332:		LOGI("PIXEL_FORMAT_YUV20SP:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:333:		mFrameCallbackFunc = uvc_yuyv2iyuv420SP;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:336:	  case PIXEL_FORMAT_NV21:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:337:		LOGI("PIXEL_FORMAT_NV21:");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:338:		mFrameCallbackFunc = uvc_yuyv2yuv420SP;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:575:		((frame->frame_format != UVC_FRAME_FORMAT_MJPEG) && (frame->actual_bytes < preview->frameBytes))
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:824:		!requestMode ? UVC_FRAME_FORMAT_YUYV : UVC_FRAME_FORMAT_MJPEG,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:836:			LOGI("frameSize=(%d,%d)@%s", frameWidth, frameHeight, (!requestMode ? "YUYV" : "MJPEG"));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:867:	uvc_frame_t *frame_mjpeg = NULL;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:920:			// MJPEG mode
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:939:				frame_mjpeg = waitPreviewFrame();
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:940:				if (LIKELY(frame_mjpeg)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:950:							frame = get_frame(frame_mjpeg->width * frame_mjpeg->height * 2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:951:							result = uvc_mjpeg2yuyv(frame_mjpeg, frame);   // MJPEG => yuyv
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:952:							recycle_frame(frame_mjpeg);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:955:								write_frame_to_ring_buffer(frame, uvc_any2rgbx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:969:							mLastWarmFrame = frame_mjpeg;  // Stash for instant resume
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:986:						frame = get_frame(frame_mjpeg->width * frame_mjpeg->height * 2);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:987:						result = uvc_mjpeg2yuyv(frame_mjpeg, frame);   // MJPEG => yuyv
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:988:						recycle_frame(frame_mjpeg);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:992:								write_frame_to_ring_buffer(frame, uvc_any2rgbx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:996:								frame = draw_preview_one(frame, &mPreviewWindow, uvc_any2rgbx, 4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1006:			// yuyv mode
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1036:							write_frame_to_ring_buffer(frame, uvc_any2rgbx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1065:							write_frame_to_ring_buffer(frame, uvc_any2rgbx);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1069:							frame = draw_preview_one(frame, &mPreviewWindow, uvc_any2rgbx, 4);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1236:				if ((window_format != WINDOW_FORMAT_RGB_565)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1237:					&& (previewFormat == WINDOW_FORMAT_RGB_565)) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1363:			// frame data is always YUYV format.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1369:					int b = uvc_any2rgbx(frame, converted);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1948: * Write a frame to the ring buffer after converting to RGBA.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1950: * @param frame Source frame (YUYV or other format)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1951: * @param convert_func Conversion function (e.g., uvc_any2rgbx)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1968:	// Convert frame to RGBA and write directly to ring buffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:1976:		dest_frame.frame_format = UVC_FRAME_FORMAT_RGBX;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2286:	if (format < CAPTURE_FORMAT_RGBX || format > CAPTURE_FORMAT_I420) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2390:		case CAPTURE_FORMAT_RGBX:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2392:		case CAPTURE_FORMAT_NV21:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2395:		case CAPTURE_FORMAT_YUYV:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2458: * Convert RGBX to NV21 (YVU420SP) format.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2459: * NV21 layout: Y plane (width*height), then interleaved VU plane (width*height/2)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2461:void UVCPreview::convertRgbxToNv21(const uint8_t* __restrict rgbx,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2462:                                    uint8_t* __restrict nv21,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2464:	uint8_t* yPlane = nv21;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2465:	uint8_t* vuPlane = nv21 + width * height;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2470:			uint8_t r = rgbx[srcIdx];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2471:			uint8_t g = rgbx[srcIdx + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2472:			uint8_t b = rgbx[srcIdx + 2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2474:			// BT.601 RGB to YUV conversion (limited range)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2491: * Convert RGBX to YUYV (YUV422) format.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2492: * YUYV layout: Y0 U0 Y1 V0 (4 bytes per 2 pixels)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2494:void UVCPreview::convertRgbxToYuyv(const uint8_t* __restrict rgbx,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2495:                                    uint8_t* __restrict yuyv,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2502:			uint8_t r0 = rgbx[srcIdx0], g0 = rgbx[srcIdx0 + 1], b0 = rgbx[srcIdx0 + 2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2503:			uint8_t r1 = rgbx[srcIdx1], g1 = rgbx[srcIdx1 + 1], b1 = rgbx[srcIdx1 + 2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2517:			yuyv[dstIdx] = static_cast<uint8_t>(y0 < 16 ? 16 : (y0 > 235 ? 235 : y0));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2518:			yuyv[dstIdx + 1] = static_cast<uint8_t>(u < 16 ? 16 : (u > 240 ? 240 : u));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2519:			yuyv[dstIdx + 2] = static_cast<uint8_t>(y1 < 16 ? 16 : (y1 > 235 ? 235 : y1));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2520:			yuyv[dstIdx + 3] = static_cast<uint8_t>(v < 16 ? 16 : (v > 240 ? 240 : v));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2526: * Convert RGBX to I420 (YUV420P) format.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2529:void UVCPreview::convertRgbxToI420(const uint8_t* __restrict rgbx,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2539:			uint8_t r = rgbx[srcIdx];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2540:			uint8_t g = rgbx[srcIdx + 1];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2541:			uint8_t b = rgbx[srcIdx + 2];
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2562: * @param rgbxData Source RGBX data from ring buffer
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2567:void UVCPreview::emitCaptureFrame(const uint8_t* rgbxData, int width, int height, int64_t timestampNs) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2620:		case CAPTURE_FORMAT_RGBX:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2621:			memcpy(mCaptureBuffer, rgbxData, bufferSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2623:		case CAPTURE_FORMAT_NV21:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2624:			convertRgbxToNv21(rgbxData, mCaptureBuffer, width, height);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2626:		case CAPTURE_FORMAT_YUYV:
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2627:			convertRgbxToYuyv(rgbxData, mCaptureBuffer, width, height);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2630:			convertRgbxToI420(rgbxData, mCaptureBuffer, width, height);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2672: * performs MJPEG/YUYV to RGBX conversion, and writes to AHardwareBuffer.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2748: * Dequeues raw frames from SPSC queue, converts to RGBX, writes to ring buffer.
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2769:	uvc_frame_t temp_yuyv;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2770:	memset(&temp_yuyv, 0, sizeof(temp_yuyv));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2771:	temp_yuyv.data = nullptr;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2772:	size_t temp_yuyv_capacity = 0;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2832:		dest_frame.frame_format = UVC_FRAME_FORMAT_RGBX;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2840:		if (pending->frameFormat == UVC_FRAME_FORMAT_MJPEG) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2841:			// MJPEG: First decode to YUYV, then convert to RGBX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2843:			if (temp_yuyv_capacity < needed) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2844:				void* newBuf = realloc(temp_yuyv.data, needed);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2846:					temp_yuyv.data = newBuf;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2847:					temp_yuyv_capacity = needed;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2849:					LOGE("Failed to allocate temp YUYV buffer");
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2855:			temp_yuyv.width = pending->width;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2856:			temp_yuyv.height = pending->height;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2857:			temp_yuyv.data_bytes = needed;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2858:			temp_yuyv.frame_format = UVC_FRAME_FORMAT_YUYV;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2860:			// === DECODE_PRE: Log state before MJPEG decode attempt ===
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2870:			uint8_t* mjpegData = static_cast<uint8_t*>(src_frame.data);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2871:			if (mjpegData && src_frame.data_bytes >= 2) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2872:				bool hasSOI = (mjpegData[0] == 0xFF && mjpegData[1] == 0xD8);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2874:					 hasSOI ? "VALID" : "MISSING", mjpegData[0], mjpegData[1]);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2877:			result = uvc_mjpeg2yuyv(&src_frame, &temp_yuyv);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2879:				result = uvc_any2rgbx(&temp_yuyv, &dest_frame);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2882:			// YUYV or other: direct conversion to RGBX
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2883:			result = uvc_any2rgbx(&src_frame, &dest_frame);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2996:	if (temp_yuyv.data) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2997:		free(temp_yuyv.data);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:315:    // Note: On older APIs, stride is in pixels - multiply by 4 for RGBA_8888
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:317:        int32_t strideBytes = desc.stride * 4;  // Assume RGBA
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:525:        // RGBX format (most common)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:526:        tjPixelFormat = TJPF_RGBX;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:529:        // XRGB format
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:530:        tjPixelFormat = TJPF_XRGB;
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:533:        // RGB format (no alpha)
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:534:        tjPixelFormat = TJPF_RGB;

@@ -1,0 +1,974 @@
+[drwxr-xr-x verlyn13 staff     384 Jan 10 10:34]  /Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/
+├── [drwxr-xr-x verlyn13 staff    5.2K Jan 10 10:30]  libjpeg-turbo-1.5.0/
+│   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  cmakescripts/
+│   │   └── [-rw-r--r-- verlyn13 staff     518 Jan 10 10:30]  testclean.cmake
+│   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  doc/
+│   │   └── [drwxr-xr-x verlyn13 staff    1.5K Jan 10 10:30]  html/
+│   │       ├── [drwxr-xr-x verlyn13 staff    1.9K Jan 10 10:30]  search/
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_63.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     137 Jan 10 10:30]  all_63.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_64.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     232 Jan 10 10:30]  all_64.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_68.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  all_68.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_6e.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     127 Jan 10 10:30]  all_6e.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_6f.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     224 Jan 10 10:30]  all_6f.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_72.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     115 Jan 10 10:30]  all_72.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  all_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_77.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  all_77.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_78.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  all_78.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1014 Jan 10 10:30]  all_79.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  all_79.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1018 Jan 10 10:30]  classes_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     233 Jan 10 10:30]  classes_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     273 Jan 10 10:30]  close.png
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1016 Jan 10 10:30]  enums_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     450 Jan 10 10:30]  enums_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1021 Jan 10 10:30]  enumvalues_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    4.7K Jan 10 10:30]  enumvalues_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  functions_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    3.1K Jan 10 10:30]  functions_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1017 Jan 10 10:30]  groups_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff      90 Jan 10 10:30]  groups_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     563 Jan 10 10:30]  mag_sel.png
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     461 Jan 10 10:30]  nomatches.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     604 Jan 10 10:30]  search_l.png
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     158 Jan 10 10:30]  search_m.png
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     612 Jan 10 10:30]  search_r.png
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    4.4K Jan 10 10:30]  search.css
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     24K Jan 10 10:30]  search.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1019 Jan 10 10:30]  typedefs_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     254 Jan 10 10:30]  typedefs_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_63.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     137 Jan 10 10:30]  variables_63.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_64.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     232 Jan 10 10:30]  variables_64.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_68.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  variables_68.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_6e.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     127 Jan 10 10:30]  variables_6e.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_6f.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     224 Jan 10 10:30]  variables_6f.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_72.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     115 Jan 10 10:30]  variables_72.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_74.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     744 Jan 10 10:30]  variables_74.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_77.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  variables_77.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_78.html
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  variables_78.js
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1020 Jan 10 10:30]  variables_79.html
+│   │       │   └── [-rw-r--r-- verlyn13 staff     109 Jan 10 10:30]  variables_79.js
+│   │       ├── [-rw-r--r-- verlyn13 staff    5.8K Jan 10 10:30]  annotated.html
+│   │       ├── [-rw-r--r-- verlyn13 staff     676 Jan 10 10:30]  bc_s.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     147 Jan 10 10:30]  bdwn.png
+│   │       ├── [-rw-r--r-- verlyn13 staff    5.7K Jan 10 10:30]  classes.html
+│   │       ├── [-rw-r--r-- verlyn13 staff     132 Jan 10 10:30]  closed.png
+│   │       ├── [-rw-r--r-- verlyn13 staff      27 Jan 10 10:30]  doxygen-extra.css
+│   │       ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  doxygen.css
+│   │       ├── [-rw-r--r-- verlyn13 staff    3.7K Jan 10 10:30]  doxygen.png
+│   │       ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  dynsections.js
+│   │       ├── [-rw-r--r-- verlyn13 staff      86 Jan 10 10:30]  ftv2blank.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     453 Jan 10 10:30]  ftv2cl.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     746 Jan 10 10:30]  ftv2doc.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     616 Jan 10 10:30]  ftv2folderclosed.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     597 Jan 10 10:30]  ftv2folderopen.png
+│   │       ├── [-rw-r--r-- verlyn13 staff      86 Jan 10 10:30]  ftv2lastnode.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     746 Jan 10 10:30]  ftv2link.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     246 Jan 10 10:30]  ftv2mlastnode.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     246 Jan 10 10:30]  ftv2mnode.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     403 Jan 10 10:30]  ftv2mo.png
+│   │       ├── [-rw-r--r-- verlyn13 staff      86 Jan 10 10:30]  ftv2node.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     388 Jan 10 10:30]  ftv2ns.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     229 Jan 10 10:30]  ftv2plastnode.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     229 Jan 10 10:30]  ftv2pnode.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     314 Jan 10 10:30]  ftv2splitbar.png
+│   │       ├── [-rw-r--r-- verlyn13 staff      86 Jan 10 10:30]  ftv2vertline.png
+│   │       ├── [-rw-r--r-- verlyn13 staff    6.1K Jan 10 10:30]  functions_vars.html
+│   │       ├── [-rw-r--r-- verlyn13 staff    6.2K Jan 10 10:30]  functions.html
+│   │       ├── [-rw-r--r-- verlyn13 staff    178K Jan 10 10:30]  group___turbo_j_p_e_g.html
+│   │       ├── [-rw-r--r-- verlyn13 staff    4.5K Jan 10 10:30]  index.html
+│   │       ├── [-rw-r--r-- verlyn13 staff     92K Jan 10 10:30]  jquery.js
+│   │       ├── [-rw-r--r-- verlyn13 staff    4.8K Jan 10 10:30]  modules.html
+│   │       ├── [-rw-r--r-- verlyn13 staff     153 Jan 10 10:30]  nav_f.png
+│   │       ├── [-rw-r--r-- verlyn13 staff      95 Jan 10 10:30]  nav_g.png
+│   │       ├── [-rw-r--r-- verlyn13 staff      98 Jan 10 10:30]  nav_h.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     123 Jan 10 10:30]  open.png
+│   │       ├── [-rw-r--r-- verlyn13 staff    9.7K Jan 10 10:30]  structtjregion.html
+│   │       ├── [-rw-r--r-- verlyn13 staff    7.2K Jan 10 10:30]  structtjscalingfactor.html
+│   │       ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  structtjtransform.html
+│   │       ├── [-rw-r--r-- verlyn13 staff     853 Jan 10 10:30]  sync_off.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     845 Jan 10 10:30]  sync_on.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     142 Jan 10 10:30]  tab_a.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     169 Jan 10 10:30]  tab_b.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     177 Jan 10 10:30]  tab_h.png
+│   │       ├── [-rw-r--r-- verlyn13 staff     184 Jan 10 10:30]  tab_s.png
+│   │       └── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  tabs.css
+│   ├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  include/
+│   │   ├── [-rw-r--r-- verlyn13 staff       0 Jan 10 10:30]  config.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  jconfig.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     360 Jan 10 10:30]  jconfigint.h
+│   │   └── [-rw-r--r-- verlyn13 staff    2.8K Jan 10 10:30]  jsimdcfg.inc
+│   ├── [drwxr-xr-x verlyn13 staff     512 Jan 10 10:30]  java/
+│   │   ├── [drwxr-xr-x verlyn13 staff     480 Jan 10 10:30]  doc/
+│   │   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  org/
+│   │   │   │   └── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  libjpegturbo/
+│   │   │   │       └── [drwxr-xr-x verlyn13 staff     448 Jan 10 10:30]  turbojpeg/
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  package-frame.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff    6.8K Jan 10 10:30]  package-summary.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff    5.8K Jan 10 10:30]  package-tree.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff     53K Jan 10 10:30]  TJ.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff     49K Jan 10 10:30]  TJCompressor.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff    9.6K Jan 10 10:30]  TJCustomFilter.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff     63K Jan 10 10:30]  TJDecompressor.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff    9.0K Jan 10 10:30]  TJException.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  TJScalingFactor.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff     30K Jan 10 10:30]  TJTransform.html
+│   │   │   │           ├── [-rw-r--r-- verlyn13 staff     22K Jan 10 10:30]  TJTransformer.html
+│   │   │   │           └── [-rw-r--r-- verlyn13 staff     31K Jan 10 10:30]  YUVImage.html
+│   │   │   ├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  resources/
+│   │   │   │   ├── [-rw-r--r-- verlyn13 staff    2.3K Jan 10 10:30]  background.gif
+│   │   │   │   ├── [-rw-r--r-- verlyn13 staff     291 Jan 10 10:30]  tab.gif
+│   │   │   │   ├── [-rw-r--r-- verlyn13 staff     849 Jan 10 10:30]  titlebar_end.gif
+│   │   │   │   └── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  titlebar.gif
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:30]  allclasses-frame.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  allclasses-noframe.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  constant-values.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  deprecated-list.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    7.4K Jan 10 10:30]  help-doc.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     78K Jan 10 10:30]  index-all.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.6K Jan 10 10:30]  index.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    5.7K Jan 10 10:30]  overview-tree.html
+│   │   │   ├── [-rw-r--r-- verlyn13 staff      27 Jan 10 10:30]  package-list
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    4.7K Jan 10 10:30]  serialized-form.html
+│   │   │   └── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  stylesheet.css
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  org/
+│   │   │   └── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  libjpegturbo/
+│   │   │       └── [drwxr-xr-x verlyn13 staff     416 Jan 10 10:30]  turbojpeg/
+│   │   │           ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  TJ.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  TJCompressor.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  TJCustomFilter.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff     39K Jan 10 10:30]  TJDecompressor.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    2.0K Jan 10 10:30]  TJException.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  TJLoader.java.in
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  TJLoader.java.tmpl
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    3.2K Jan 10 10:30]  TJScalingFactor.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    7.4K Jan 10 10:30]  TJTransform.java
+│   │   │           ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  TJTransformer.java
+│   │   │           └── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  YUVImage.java
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.9K Jan 10 10:30]  CMakeLists.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.6K Jan 10 10:30]  Makefile.am
+│   │   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:30]  Makefile.in
+│   │   ├── [-rw-r--r-- verlyn13 staff      44 Jan 10 10:30]  MANIFEST.MF
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.6K Jan 10 10:30]  org_libjpegturbo_turbojpeg_TJ.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.4K Jan 10 10:30]  org_libjpegturbo_turbojpeg_TJCompressor.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.4K Jan 10 10:30]  org_libjpegturbo_turbojpeg_TJDecompressor.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     838 Jan 10 10:30]  org_libjpegturbo_turbojpeg_TJTransformer.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  README
+│   │   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  TJBench.java
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  TJExample.java
+│   │   └── [-rw-r--r-- verlyn13 staff     34K Jan 10 10:30]  TJUnitTest.java
+│   ├── [drwxr-xr-x verlyn13 staff     288 Jan 10 10:30]  md5/
+│   │   ├── [-rw-r--r-- verlyn13 staff      46 Jan 10 10:30]  CMakeLists.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff     100 Jan 10 10:30]  Makefile.am
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  Makefile.in
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.5K Jan 10 10:30]  md5.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:30]  md5.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.2K Jan 10 10:30]  md5cmp.c
+│   │   └── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  md5hl.c
+│   ├── [drwxr-xr-x verlyn13 staff     480 Jan 10 10:30]  release/
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:30]  deb-control.tmpl
+│   │   ├── [-rw-r--r-- verlyn13 staff     725 Jan 10 10:30]  Distribution.xml
+│   │   ├── [-rwxr-xr-x verlyn13 staff    5.1K Jan 10 10:30]  libjpeg-turbo.nsi.in*
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.7K Jan 10 10:30]  libjpeg-turbo.spec.in
+│   │   ├── [-rw-r--r-- verlyn13 staff     246 Jan 10 10:30]  libjpeg.pc.in
+│   │   ├── [-rw-r--r-- verlyn13 staff     258 Jan 10 10:30]  libturbojpeg.pc.in
+│   │   ├── [-rwxr-xr-x verlyn13 staff    2.1K Jan 10 10:30]  License.rtf*
+│   │   ├── [-rwxr-xr-x verlyn13 staff     813 Jan 10 10:30]  makecygwinpkg.in*
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:30]  makedpkg.in
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  makemacpkg.in
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:30]  ReadMe.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.4K Jan 10 10:30]  uninstall.in
+│   │   └── [-rwxr-xr-x verlyn13 staff     648 Jan 10 10:30]  Welcome.rtf*
+│   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  sharedlib/
+│   │   └── [-rwxr-xr-x verlyn13 staff    2.6K Jan 10 10:30]  CMakeLists.txt*
+│   ├── [drwxr-xr-x verlyn13 staff    3.2K Jan 10 10:30]  simd/
+│   │   ├── [-rwxr-xr-x verlyn13 staff    2.8K Jan 10 10:30]  CMakeLists.txt*
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  jccolext-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jccolext-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  jccolext-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  jccolext-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.8K Jan 10 10:30]  jccolor-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.7K Jan 10 10:30]  jccolor-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  jccolor-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  jccolor-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  jcgray-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.3K Jan 10 10:30]  jcgray-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.3K Jan 10 10:30]  jcgray-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.3K Jan 10 10:30]  jcgray-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.5K Jan 10 10:30]  jcgryext-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  jcgryext-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  jcgryext-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  jcgryext-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jchuff-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  jchuff-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.9K Jan 10 10:30]  jcolsamp.inc
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.4K Jan 10 10:30]  jcsample-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.4K Jan 10 10:30]  jcsample-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.8K Jan 10 10:30]  jcsample-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  jcsample-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     747 Jan 10 10:30]  jcsample.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  jdcolext-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jdcolext-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jdcolext-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  jdcolext-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:30]  jdcolor-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.4K Jan 10 10:30]  jdcolor-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:30]  jdcolor-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:30]  jdcolor-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  jdct.inc
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.4K Jan 10 10:30]  jdmerge-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.0K Jan 10 10:30]  jdmerge-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  jdmerge-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.0K Jan 10 10:30]  jdmerge-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  jdmrgext-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  jdmrgext-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  jdmrgext-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  jdmrgext-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  jdsample-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  jdsample-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  jdsample-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  jdsample-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  jfdctflt-3dn.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  jfdctflt-sse-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jfdctflt-sse.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.4K Jan 10 10:30]  jfdctfst-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jfdctfst-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jfdctfst-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jfdctfst-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.4K Jan 10 10:30]  jfdctint-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  jfdctint-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  jfdctint-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     27K Jan 10 10:30]  jfdctint-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jidctflt-3dn.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  jidctflt-sse.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  jidctflt-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  jidctflt-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.0K Jan 10 10:30]  jidctfst-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  jidctfst-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  jidctfst-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  jidctfst-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  jidctint-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     33K Jan 10 10:30]  jidctint-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  jidctint-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  jidctint-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     27K Jan 10 10:30]  jidctred-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     22K Jan 10 10:30]  jidctred-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  jidctred-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    276K Jan 10 10:30]  jpeg_nbits_table.inc
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.8K Jan 10 10:30]  jquant-3dn.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.1K Jan 10 10:30]  jquant-mmx.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.5K Jan 10 10:30]  jquant-sse.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.2K Jan 10 10:30]  jquantf-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.1K Jan 10 10:30]  jquantf-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.9K Jan 10 10:30]  jquanti-altivec.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.3K Jan 10 10:30]  jquanti-sse2-64.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.1K Jan 10 10:30]  jquanti-sse2.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  jsimd_altivec.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    100K Jan 10 10:30]  jsimd_arm_neon.S
+│   │   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jsimd_arm.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    140K Jan 10 10:30]  jsimd_arm64_neon.S
+│   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jsimd_arm64.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     28K Jan 10 10:30]  jsimd_i386.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.4K Jan 10 10:30]  jsimd_mips_dspr2_asm.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    138K Jan 10 10:30]  jsimd_mips_dspr2.S
+│   │   ├── [-rw-r--r-- verlyn13 staff     27K Jan 10 10:30]  jsimd_mips.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:30]  jsimd_powerpc.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  jsimd_x86_64.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     41K Jan 10 10:30]  jsimd.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.5K Jan 10 10:30]  jsimdcfg.inc.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  jsimdcpu.asm
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  jsimdext.inc
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.3K Jan 10 10:30]  Makefile.am
+│   │   ├── [-rw-r--r-- verlyn13 staff     52K Jan 10 10:30]  Makefile.in
+│   │   └── [-rwxr-xr-x verlyn13 staff    1.6K Jan 10 10:30]  nasm_lt.sh*
+│   ├── [drwxr-xr-x verlyn13 staff     384 Jan 10 10:30]  testimages/
+│   │   ├── [-rw-r--r-- verlyn13 staff     81K Jan 10 10:30]  nightshot_iso_100.bmp
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.1K Jan 10 10:30]  nightshot_iso_100.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.0K Jan 10 10:30]  testimgari.jpg
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.6K Jan 10 10:30]  testimgint.jpg
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.6K Jan 10 10:30]  testorig.jpg
+│   │   ├── [-rw-r--r-- verlyn13 staff     99K Jan 10 10:30]  testorig.ppm
+│   │   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  testorig12.jpg
+│   │   ├── [-rw-r--r-- verlyn13 staff     34K Jan 10 10:30]  vgl_5674_0098.bmp
+│   │   ├── [-rw-r--r-- verlyn13 staff     34K Jan 10 10:30]  vgl_6434_0018a.bmp
+│   │   └── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  vgl_6548_0026a.bmp
+│   ├── [drwxr-xr-x verlyn13 staff     320 Jan 10 10:30]  win/
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  jconfig.h.in
+│   │   ├── [-rw-r--r-- verlyn13 staff     275 Jan 10 10:30]  jconfigint.h.in
+│   │   ├── [-rwxr-xr-x verlyn13 staff    2.9K Jan 10 10:30]  jpeg62-memsrcdst.def*
+│   │   ├── [-rwxr-xr-x verlyn13 staff    2.9K Jan 10 10:30]  jpeg62.def*
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  jpeg7-memsrcdst.def
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  jpeg7.def
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.0K Jan 10 10:30]  jpeg8.def
+│   │   └── [-rwxr-xr-x verlyn13 staff    2.9K Jan 10 10:30]  jsimdcfg.inc*
+│   ├── [-rw-r--r-- verlyn13 staff    5.9K Jan 10 10:30]  acinclude.m4
+│   ├── [-rw-r--r-- verlyn13 staff    371K Jan 10 10:30]  aclocal.m4
+│   ├── [-rw-r--r-- verlyn13 staff    6.3K Jan 10 10:30]  Android.mk
+│   ├── [-rwxr-xr-x verlyn13 staff    5.7K Jan 10 10:30]  ar-lib*
+│   ├── [-rw-r--r-- verlyn13 staff    9.6K Jan 10 10:30]  bmp.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  bmp.h
+│   ├── [-rw-r--r-- verlyn13 staff     30K Jan 10 10:30]  BUILDING.md
+│   ├── [-rw-r--r-- verlyn13 staff    5.3K Jan 10 10:30]  cderror.h
+│   ├── [-rw-r--r-- verlyn13 staff    3.9K Jan 10 10:30]  cdjpeg.c
+│   ├── [-rw-r--r-- verlyn13 staff    5.0K Jan 10 10:30]  cdjpeg.h
+│   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  change.log
+│   ├── [-rw-r--r-- verlyn13 staff     44K Jan 10 10:30]  ChangeLog.md
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  cjpeg.1
+│   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  cjpeg.c
+│   ├── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  CMakeLists.txt
+│   ├── [-rw-r--r-- verlyn13 staff    3.4K Jan 10 10:30]  coderules.txt
+│   ├── [-rwxr-xr-x verlyn13 staff    7.2K Jan 10 10:30]  compile*
+│   ├── [-rwxr-xr-x verlyn13 staff     42K Jan 10 10:30]  config.guess*
+│   ├── [-rw-r--r-- verlyn13 staff    3.7K Jan 10 10:30]  config.h.in
+│   ├── [-rwxr-xr-x verlyn13 staff     35K Jan 10 10:30]  config.sub*
+│   ├── [-rwxr-xr-x verlyn13 staff    515K Jan 10 10:30]  configure*
+│   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  configure.ac
+│   ├── [-rwxr-xr-x verlyn13 staff     23K Jan 10 10:30]  depcomp*
+│   ├── [-rw-r--r-- verlyn13 staff    9.5K Jan 10 10:30]  djpeg.1
+│   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  djpeg.c
+│   ├── [-rw-r--r-- verlyn13 staff      27 Jan 10 10:30]  doxygen-extra.css
+│   ├── [-rw-r--r-- verlyn13 staff     401 Jan 10 10:30]  doxygen.config
+│   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  example.c
+│   ├── [-rwxr-xr-x verlyn13 staff     14K Jan 10 10:30]  install-sh*
+│   ├── [-rw-r--r-- verlyn13 staff    5.0K Jan 10 10:30]  jaricom.c
+│   ├── [-rw-r--r-- verlyn13 staff    9.5K Jan 10 10:30]  jcapimin.c
+│   ├── [-rw-r--r-- verlyn13 staff    5.8K Jan 10 10:30]  jcapistd.c
+│   ├── [-rw-r--r-- verlyn13 staff     29K Jan 10 10:30]  jcarith.c
+│   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jccoefct.c
+│   ├── [-rw-r--r-- verlyn13 staff    4.5K Jan 10 10:30]  jccolext.c
+│   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  jccolor.c
+│   ├── [-rw-r--r-- verlyn13 staff     22K Jan 10 10:30]  jcdctmgr.c
+│   ├── [-rw-r--r-- verlyn13 staff     34K Jan 10 10:30]  jchuff.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  jchuff.h
+│   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  jcinit.c
+│   ├── [-rw-r--r-- verlyn13 staff    5.0K Jan 10 10:30]  jcmainct.c
+│   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  jcmarker.c
+│   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  jcmaster.c
+│   ├── [-rw-r--r-- verlyn13 staff    3.2K Jan 10 10:30]  jcomapi.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.1K Jan 10 10:30]  jconfig.h.in
+│   ├── [-rw-r--r-- verlyn13 staff    4.8K Jan 10 10:30]  jconfig.txt
+│   ├── [-rw-r--r-- verlyn13 staff     289 Jan 10 10:30]  jconfigint.h.in
+│   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  jcparam.c
+│   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  jcphuff.c
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  jcprepct.c
+│   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  jcsample.c
+│   ├── [-rw-r--r-- verlyn13 staff    3.8K Jan 10 10:30]  jcstest.c
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jctrans.c
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  jdapimin.c
+│   ├── [-rw-r--r-- verlyn13 staff     22K Jan 10 10:30]  jdapistd.c
+│   ├── [-rw-r--r-- verlyn13 staff     24K Jan 10 10:30]  jdarith.c
+│   ├── [-rw-r--r-- verlyn13 staff    6.6K Jan 10 10:30]  jdatadst-tj.c
+│   ├── [-rw-r--r-- verlyn13 staff    9.5K Jan 10 10:30]  jdatadst.c
+│   ├── [-rw-r--r-- verlyn13 staff    6.7K Jan 10 10:30]  jdatasrc-tj.c
+│   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  jdatasrc.c
+│   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  jdcoefct.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.6K Jan 10 10:30]  jdcoefct.h
+│   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  jdcol565.c
+│   ├── [-rw-r--r-- verlyn13 staff    4.4K Jan 10 10:30]  jdcolext.c
+│   ├── [-rw-r--r-- verlyn13 staff     28K Jan 10 10:30]  jdcolor.c
+│   ├── [-rw-r--r-- verlyn13 staff    8.8K Jan 10 10:30]  jdct.h
+│   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  jddctmgr.c
+│   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  jdhuff.c
+│   ├── [-rw-r--r-- verlyn13 staff    9.2K Jan 10 10:30]  jdhuff.h
+│   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  jdinput.c
+│   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  jdmainct.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  jdmainct.h
+│   ├── [-rw-r--r-- verlyn13 staff     42K Jan 10 10:30]  jdmarker.c
+│   ├── [-rw-r--r-- verlyn13 staff     27K Jan 10 10:30]  jdmaster.c
+│   ├── [-rw-r--r-- verlyn13 staff     788 Jan 10 10:30]  jdmaster.h
+│   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  jdmerge.c
+│   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  jdmrg565.c
+│   ├── [-rw-r--r-- verlyn13 staff    5.9K Jan 10 10:30]  jdmrgext.c
+│   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  jdphuff.c
+│   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  jdpostct.c
+│   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:30]  jdsample.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  jdsample.h
+│   ├── [-rw-r--r-- verlyn13 staff    5.3K Jan 10 10:30]  jdtrans.c
+│   ├── [-rw-r--r-- verlyn13 staff    7.7K Jan 10 10:30]  jerror.c
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jerror.h
+│   ├── [-rw-r--r-- verlyn13 staff    5.4K Jan 10 10:30]  jfdctflt.c
+│   ├── [-rw-r--r-- verlyn13 staff    7.6K Jan 10 10:30]  jfdctfst.c
+│   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  jfdctint.c
+│   ├── [-rw-r--r-- verlyn13 staff    8.5K Jan 10 10:30]  jidctflt.c
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  jidctfst.c
+│   ├── [-rw-r--r-- verlyn13 staff    103K Jan 10 10:30]  jidctint.c
+│   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  jidctred.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  jinclude.h
+│   ├── [-rw-r--r-- verlyn13 staff     43K Jan 10 10:30]  jmemmgr.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.7K Jan 10 10:30]  jmemnobs.c
+│   ├── [-rw-r--r-- verlyn13 staff    7.6K Jan 10 10:30]  jmemsys.h
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jmorecfg.h
+│   ├── [-rw-r--r-- verlyn13 staff    264K Jan 10 10:30]  jpeg_nbits_table.h
+│   ├── [-rw-r--r-- verlyn13 staff    1.0K Jan 10 10:30]  jpegcomp.h
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  jpegint.h
+│   ├── [-rw-r--r-- verlyn13 staff     49K Jan 10 10:30]  jpeglib.h
+│   ├── [-rw-r--r-- verlyn13 staff    9.4K Jan 10 10:30]  jpegtran.1
+│   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  jpegtran.c
+│   ├── [-rw-r--r-- verlyn13 staff     32K Jan 10 10:30]  jquant1.c
+│   ├── [-rw-r--r-- verlyn13 staff     48K Jan 10 10:30]  jquant2.c
+│   ├── [-rw-r--r-- verlyn13 staff    7.4K Jan 10 10:30]  jsimd_none.c
+│   ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  jsimd.h
+│   ├── [-rw-r--r-- verlyn13 staff    3.2K Jan 10 10:30]  jsimddct.h
+│   ├── [-rw-r--r-- verlyn13 staff    5.2K Jan 10 10:30]  jstdhuff.c
+│   ├── [-rw-r--r-- verlyn13 staff    3.7K Jan 10 10:30]  jutils.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  jversion.h
+│   ├── [-rw-r--r-- verlyn13 staff     164 Jan 10 10:30]  libjpeg.map.in
+│   ├── [-rw-r--r-- verlyn13 staff    164K Jan 10 10:30]  libjpeg.txt
+│   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  LICENSE.md
+│   ├── [-rw-r--r-- verlyn13 staff    316K Jan 10 10:30]  ltmain.sh
+│   ├── [-rw-r--r-- verlyn13 staff     33K Jan 10 10:30]  Makefile.am
+│   ├── [-rw-r--r-- verlyn13 staff    196K Jan 10 10:30]  Makefile.in
+│   ├── [-rwxr-xr-x verlyn13 staff    6.7K Jan 10 10:30]  missing*
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  rdbmp.c
+│   ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  rdcolmap.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.3K Jan 10 10:30]  rdgif.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  rdjpgcom.1
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  rdjpgcom.c
+│   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  rdppm.c
+│   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  rdrle.c
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  rdswitch.c
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  rdtarga.c
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  README.ijg
+│   ├── [-rwxr-xr-x verlyn13 staff     16K Jan 10 10:30]  README.md*
+│   ├── [-rw-r--r-- verlyn13 staff     49K Jan 10 10:30]  structure.txt
+│   ├── [-rw-r--r-- verlyn13 staff     31K Jan 10 10:30]  tjbench.c
+│   ├── [-rwxr-xr-x verlyn13 staff     11K Jan 10 10:30]  tjbenchtest.in*
+│   ├── [-rwxr-xr-x verlyn13 staff    9.6K Jan 10 10:30]  tjbenchtest.java.in*
+│   ├── [-rwxr-xr-x verlyn13 staff    7.7K Jan 10 10:30]  tjexampletest.in*
+│   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  tjunittest.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.1K Jan 10 10:30]  tjutil.c
+│   ├── [-rw-r--r-- verlyn13 staff    1.9K Jan 10 10:30]  tjutil.h
+│   ├── [-rw-r--r-- verlyn13 staff     61K Jan 10 10:30]  transupp.c
+│   ├── [-rw-r--r-- verlyn13 staff    9.4K Jan 10 10:30]  transupp.h
+│   ├── [-rw-r--r-- verlyn13 staff     42K Jan 10 10:30]  turbojpeg-jni.c
+│   ├── [-rwxr-xr-x verlyn13 staff     794 Jan 10 10:30]  turbojpeg-mapfile*
+│   ├── [-rwxr-xr-x verlyn13 staff    2.9K Jan 10 10:30]  turbojpeg-mapfile.jni*
+│   ├── [-rw-r--r-- verlyn13 staff     61K Jan 10 10:30]  turbojpeg.c
+│   ├── [-rw-r--r-- verlyn13 staff     63K Jan 10 10:30]  turbojpeg.h
+│   ├── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  usage.txt
+│   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  wizard.txt
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:30]  wrbmp.c
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  wrgif.c
+│   ├── [-rw-r--r-- verlyn13 staff    2.6K Jan 10 10:30]  wrjpgcom.1
+│   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  wrjpgcom.c
+│   ├── [-rw-r--r-- verlyn13 staff    7.6K Jan 10 10:30]  wrppm.c
+│   ├── [-rw-r--r-- verlyn13 staff     721 Jan 10 10:30]  wrppm.h
+│   ├── [-rw-r--r-- verlyn13 staff    9.2K Jan 10 10:30]  wrrle.c
+│   └── [-rw-r--r-- verlyn13 staff    7.2K Jan 10 10:30]  wrtarga.c
+├── [drwxr-xr-x verlyn13 staff     800 Jan 10 10:30]  libusb/
+│   ├── [drwxr-xr-x verlyn13 staff     320 Jan 10 10:30]  .private/
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  bd.cmd
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.3K Jan 10 10:30]  bm.sh
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.2K Jan 10 10:30]  bwince.cmd
+│   │   ├── [-rw-r--r-- verlyn13 staff     883 Jan 10 10:30]  post-rewrite.sh
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  pre-commit.sh
+│   │   ├── [-rw-r--r-- verlyn13 staff     197 Jan 10 10:30]  README.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  wbs_wince.txt
+│   │   └── [-rw-r--r-- verlyn13 staff    3.0K Jan 10 10:30]  wbs.txt
+│   ├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  android/
+│   │   ├── [drwxr-xr-x verlyn13 staff     288 Jan 10 10:30]  jni/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     973 Jan 10 10:30]  Android_original.mk
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     975 Jan 10 10:30]  Android.mk
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1010 Jan 10 10:30]  Application.mk
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.6K Jan 10 10:30]  examples.mk
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  libusb_original.mk
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  libusb.mk
+│   │   │   └── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  tests.mk
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  config_original.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  config.h
+│   │   └── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:30]  README
+│   ├── [drwxr-xr-x verlyn13 staff     160 Jan 10 10:30]  doc/
+│   │   ├── [-rw-r--r-- verlyn13 staff     53K Jan 10 10:30]  doxygen.cfg.in
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  libusb.png
+│   │   └── [-rw-r--r-- verlyn13 staff     189 Jan 10 10:30]  Makefile.am
+│   ├── [drwxr-xr-x verlyn13 staff     416 Jan 10 10:30]  examples/
+│   │   ├── [drwxr-xr-x verlyn13 staff     160 Jan 10 10:30]  getopt/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     30K Jan 10 10:30]  getopt.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    6.3K Jan 10 10:30]  getopt.h
+│   │   │   └── [-rw-r--r-- verlyn13 staff    4.4K Jan 10 10:30]  getopt1.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  dpfp_threaded.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  dpfp.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  ezusb.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.2K Jan 10 10:30]  ezusb.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.4K Jan 10 10:30]  fxload.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.0K Jan 10 10:30]  hotplugtest.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  listdevs.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     432 Jan 10 10:30]  Makefile.am
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.0K Jan 10 10:30]  sam3u_benchmark.c
+│   │   └── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  xusb.c
+│   ├── [drwxr-xr-x verlyn13 staff     800 Jan 10 10:30]  libusb/
+│   │   ├── [drwxr-xr-x verlyn13 staff     864 Jan 10 10:30]  os/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    9.3K Jan 10 10:30]  android_netlink.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     89K Jan 10 10:30]  android_usbfs.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    6.0K Jan 10 10:30]  android_usbfs.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     68K Jan 10 10:30]  darwin_usb.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    4.4K Jan 10 10:30]  darwin_usb.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    8.5K Jan 10 10:30]  linux_netlink.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    7.7K Jan 10 10:30]  linux_udev.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     72K Jan 10 10:30]  linux_usbfs.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    5.5K Jan 10 10:30]  linux_usbfs.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     17K Jan 10 10:30]  netbsd_usb.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  openbsd_usb.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  poll_posix_original.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  poll_posix.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     218 Jan 10 10:30]  poll_posix.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  poll_windows.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    4.5K Jan 10 10:30]  poll_windows.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.2K Jan 10 10:30]  threads_posix.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  threads_posix.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    6.8K Jan 10 10:30]  threads_windows.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.8K Jan 10 10:30]  threads_windows.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     33K Jan 10 10:30]  wince_usb.c
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    5.4K Jan 10 10:30]  wince_usb.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    5.3K Jan 10 10:30]  windows_common.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    152K Jan 10 10:30]  windows_usb.c
+│   │   │   └── [-rw-r--r-- verlyn13 staff     30K Jan 10 10:30]  windows_usb.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  config.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     75K Jan 10 10:30]  core_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     86K Jan 10 10:30]  core.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  descriptor_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     49K Jan 10 10:30]  descriptor.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  hotplug_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  hotplug.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  hotplug.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     97K Jan 10 10:30]  io_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     99K Jan 10 10:30]  io.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     67K Jan 10 10:30]  libusb_original.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.7K Jan 10 10:30]  libusb-1.0.def
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  libusb-1.0.rc
+│   │   ├── [-rw-r--r-- verlyn13 staff     71K Jan 10 10:30]  libusb.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  libusbi_original.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  libusbi.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.0K Jan 10 10:30]  Makefile.am
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.3K Jan 10 10:30]  strerror.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  sync_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  sync.c
+│   │   ├── [-rw-r--r-- verlyn13 staff      26 Jan 10 10:30]  version_nano.h
+│   │   └── [-rw-r--r-- verlyn13 staff     431 Jan 10 10:30]  version.h
+│   ├── [drwxr-xr-x verlyn13 staff    2.4K Jan 10 10:30]  msvc/
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.3K Jan 10 10:30]  config.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:30]  ddk_build.cmd
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.2K Jan 10 10:30]  errno.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.0K Jan 10 10:30]  fxload_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     863 Jan 10 10:30]  fxload_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.1K Jan 10 10:30]  fxload_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     863 Jan 10 10:30]  fxload_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.1K Jan 10 10:30]  fxload_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     500 Jan 10 10:30]  fxload_sources
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.5K Jan 10 10:30]  getopt_2005.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  getopt_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     943 Jan 10 10:30]  getopt_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.1K Jan 10 10:30]  getopt_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     943 Jan 10 10:30]  getopt_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.1K Jan 10 10:30]  getopt_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     373 Jan 10 10:30]  getopt_sources
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.6K Jan 10 10:30]  hotplugtest_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     509 Jan 10 10:30]  hotplugtest_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  hotplugtest_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     509 Jan 10 10:30]  hotplugtest_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  hotplugtest_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     370 Jan 10 10:30]  hotplugtest_sources
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.6K Jan 10 10:30]  inttypes.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.3K Jan 10 10:30]  libusb_2005.sln
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.2K Jan 10 10:30]  libusb_2010.sln
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.2K Jan 10 10:30]  libusb_2012.sln
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.5K Jan 10 10:30]  libusb_2013.sln
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.6K Jan 10 10:30]  libusb_dll_2005.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.4K Jan 10 10:30]  libusb_dll_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.7K Jan 10 10:30]  libusb_dll_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.6K Jan 10 10:30]  libusb_dll_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.8K Jan 10 10:30]  libusb_dll_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.6K Jan 10 10:30]  libusb_dll_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  libusb_dll_wince.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.6K Jan 10 10:30]  libusb_dll.dsp
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  libusb_sources
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.0K Jan 10 10:30]  libusb_static_2005.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.5K Jan 10 10:30]  libusb_static_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  libusb_static_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  libusb_static_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  libusb_static_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  libusb_static_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     25K Jan 10 10:30]  libusb_static_wince.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.3K Jan 10 10:30]  libusb_static.dsp
+│   │   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  libusb_wince.sln
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:30]  libusb.dsw
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  listdevs_2005.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  listdevs_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     506 Jan 10 10:30]  listdevs_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.9K Jan 10 10:30]  listdevs_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     506 Jan 10 10:30]  listdevs_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.9K Jan 10 10:30]  listdevs_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     352 Jan 10 10:30]  listdevs_sources
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  listdevs_wince.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.2K Jan 10 10:30]  listdevs.dsp
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  missing.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  missing.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  stdint.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.5K Jan 10 10:30]  stress_2005.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  stress_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     865 Jan 10 10:30]  stress_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.8K Jan 10 10:30]  stress_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     865 Jan 10 10:30]  stress_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.8K Jan 10 10:30]  stress_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  stress_wince.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.7K Jan 10 10:30]  xusb_2005.vcproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.6K Jan 10 10:30]  xusb_2010.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     502 Jan 10 10:30]  xusb_2010.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  xusb_2012.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     502 Jan 10 10:30]  xusb_2012.vcxproj.filters
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  xusb_2013.vcxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff     356 Jan 10 10:30]  xusb_sources
+│   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  xusb_wince.vcproj
+│   │   └── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  xusb.dsp
+│   ├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  tests/
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  libusb_testlib.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     149 Jan 10 10:30]  Makefile.am
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.6K Jan 10 10:30]  stress.c
+│   │   └── [-rw-r--r-- verlyn13 staff    7.2K Jan 10 10:30]  testlib.c
+│   ├── [drwxr-xr-x verlyn13 staff     320 Jan 10 10:30]  Xcode/
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  libusb.xcodeproj/
+│   │   │   └── [-rw-r--r-- verlyn13 staff     37K Jan 10 10:30]  project.pbxproj
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  common.xcconfig
+│   │   ├── [-rw-r--r-- verlyn13 staff     615 Jan 10 10:30]  config.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  debug.xcconfig
+│   │   ├── [-rw-r--r-- verlyn13 staff     942 Jan 10 10:30]  libusb_debug.xcconfig
+│   │   ├── [-rw-r--r-- verlyn13 staff     944 Jan 10 10:30]  libusb_release.xcconfig
+│   │   ├── [-rw-r--r-- verlyn13 staff     917 Jan 10 10:30]  libusb.xcconfig
+│   │   └── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:30]  release.xcconfig
+│   ├── [-rw-r--r-- verlyn13 staff    1.5K Jan 10 10:30]  AUTHORS
+│   ├── [-rw-r--r-- verlyn13 staff     165 Jan 10 10:30]  autogen.sh
+│   ├── [-rw-r--r-- verlyn13 staff     481 Jan 10 10:30]  bootstrap.sh
+│   ├── [-rw-r--r-- verlyn13 staff    8.1K Jan 10 10:30]  ChangeLog
+│   ├── [-rw-r--r-- verlyn13 staff    9.4K Jan 10 10:30]  configure.ac
+│   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  COPYING
+│   ├── [-rw-r--r-- verlyn13 staff    9.2K Jan 10 10:30]  INSTALL
+│   ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  INSTALL_WIN.txt
+│   ├── [-rw-r--r-- verlyn13 staff     303 Jan 10 10:30]  libusb-1.0.pc.in
+│   ├── [-rw-r--r-- verlyn13 staff     672 Jan 10 10:30]  Makefile.am
+│   ├── [-rw-r--r-- verlyn13 staff      93 Jan 10 10:30]  NEWS
+│   ├── [-rw-r--r-- verlyn13 staff    3.8K Jan 10 10:30]  PORTING
+│   ├── [-rw-r--r-- verlyn13 staff     884 Jan 10 10:30]  README
+│   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  README.git
+│   └── [-rw-r--r-- verlyn13 staff     122 Jan 10 10:30]  TODO
+├── [drwxr-xr-x verlyn13 staff     384 Jan 10 10:30]  libuvc/
+│   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  android/
+│   │   └── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  jni/
+│   │       └── [-rw-r--r-- verlyn13 staff    3.1K Jan 10 10:30]  Android.mk
+│   ├── [drwxr-xr-x verlyn13 staff     256 Jan 10 10:30]  cameras/
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  isight_imac.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  isight_macbook.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff     30K Jan 10 10:30]  ms_lifecam_show.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff     277 Jan 10 10:30]  quickcampro9000_builtin_ctrls.txt
+│   │   ├── [-rw-r--r-- verlyn13 staff     362 Jan 10 10:30]  quickcampro9000_extra_ctrls.txt
+│   │   └── [-rw-r--r-- verlyn13 staff     63K Jan 10 10:30]  quickcampro9000.txt
+│   ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:30]  include/
+│   │   ├── [drwxr-xr-x verlyn13 staff     256 Jan 10 10:30]  libuvc/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     356 Jan 10 10:30]  libuvc_config.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     472 Jan 10 10:30]  libuvc_config.h.in
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  libuvc_internal_original.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  libuvc_internal.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:30]  libuvc_original.h
+│   │   │   └── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  libuvc.h
+│   │   └── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  utlist.h
+│   ├── [drwxr-xr-x verlyn13 staff     608 Jan 10 10:34]  src/
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  ctrl_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     48K Jan 10 10:30]  ctrl.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     37K Jan 10 10:30]  device_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     50K Jan 10 10:30]  device.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    8.8K Jan 10 10:30]  diag_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  diag.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.9K Jan 10 10:30]  example.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  frame_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.1K Jan 10 10:30]  frame-mjpeg_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:34]  frame-mjpeg.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     42K Jan 10 10:30]  frame.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.0K Jan 10 10:30]  init_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.4K Jan 10 10:30]  init.c
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.0K Jan 10 10:30]  misc.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     32K Jan 10 10:30]  stream_original.c
+│   │   ├── [-rw-r--r-- verlyn13 staff     62K Jan 10 10:34]  stream.c
+│   │   └── [-rw-r--r-- verlyn13 staff    4.2K Jan 10 10:30]  test.c
+│   ├── [-rw-r--r-- verlyn13 staff     103 Jan 10 10:30]  changelog.txt
+│   ├── [-rw-r--r-- verlyn13 staff    3.2K Jan 10 10:30]  CMakeLists.txt
+│   ├── [-rw-r--r-- verlyn13 staff     97K Jan 10 10:30]  doxygen.conf
+│   ├── [-rw-r--r-- verlyn13 staff     124 Jan 10 10:30]  libuvcConfig.cmake.in
+│   ├── [-rw-r--r-- verlyn13 staff     378 Jan 10 10:30]  libuvcConfigVersion.cmake.in
+│   └── [-rw-r--r-- verlyn13 staff     916 Jan 10 10:30]  README.md
+├── [drwxr-xr-x verlyn13 staff     352 Jan 10 10:30]  rapidjson/
+│   ├── [drwxr-xr-x verlyn13 staff     448 Jan 10 10:30]  doc/
+│   │   ├── [drwxr-xr-x verlyn13 staff     608 Jan 10 10:30]  diagram/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.2K Jan 10 10:30]  insituparsing.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     24K Jan 10 10:30]  insituparsing.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.9K Jan 10 10:30]  iterative-parser-states-diagram.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     72K Jan 10 10:30]  iterative-parser-states-diagram.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     176 Jan 10 10:30]  makefile
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     935 Jan 10 10:30]  move1.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    8.0K Jan 10 10:30]  move1.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.5K Jan 10 10:30]  move2.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  move2.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  move3.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     22K Jan 10 10:30]  move3.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  normalparsing.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     22K Jan 10 10:30]  normalparsing.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  simpledom.dot
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  simpledom.png
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  tutorial.dot
+│   │   │   └── [-rw-r--r-- verlyn13 staff     32K Jan 10 10:30]  tutorial.png
+│   │   ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:30]  logo/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    5.1K Jan 10 10:30]  rapidjson.png
+│   │   │   └── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  rapidjson.svg
+│   │   ├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  misc/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    6.2K Jan 10 10:30]  doxygenextra.css
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    5.9K Jan 10 10:30]  DoxygenLayout.xml
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     240 Jan 10 10:30]  footer.html
+│   │   │   └── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  header.html
+│   │   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  dom.md
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.6K Jan 10 10:30]  encoding.md
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  faq.md
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.7K Jan 10 10:30]  features.md
+│   │   ├── [-rw-r--r-- verlyn13 staff    6.3K Jan 10 10:30]  internals.md
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  performance.md
+│   │   ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  sax.md
+│   │   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  stream.md
+│   │   └── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:30]  tutorial.md
+│   ├── [drwxr-xr-x verlyn13 staff     384 Jan 10 10:30]  example/
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  capitalize/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  capitalize.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  condense/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    1002 Jan 10 10:30]  condense.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  messagereader/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    2.6K Jan 10 10:30]  messagereader.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  pretty/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    1006 Jan 10 10:30]  pretty.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  prettyauto/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    2.2K Jan 10 10:30]  prettyauto.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  serialize/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    3.9K Jan 10 10:30]  serialize.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  simpledom/
+│   │   │   └── [-rw-r--r-- verlyn13 staff     685 Jan 10 10:30]  simpledom.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  simplereader/
+│   │   │   └── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:30]  simplereader.cpp
+│   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  simplewriter/
+│   │   │   └── [-rw-r--r-- verlyn13 staff     738 Jan 10 10:30]  simplewriter.cpp
+│   │   └── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  tutorial/
+│   │       └── [-rw-r--r-- verlyn13 staff    6.5K Jan 10 10:30]  tutorial.cpp
+│   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  include/
+│   │   └── [drwxr-xr-x verlyn13 staff     608 Jan 10 10:30]  rapidjson/
+│   │       ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:30]  error/
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    4.0K Jan 10 10:30]  en.h
+│   │       │   └── [-rw-r--r-- verlyn13 staff    5.9K Jan 10 10:30]  error.h
+│   │       ├── [drwxr-xr-x verlyn13 staff     256 Jan 10 10:30]  internal/
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:30]  dtoa.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  itoa.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    6.8K Jan 10 10:30]  meta.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    3.9K Jan 10 10:30]  pow10.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    4.7K Jan 10 10:30]  stack.h
+│   │       │   └── [-rw-r--r-- verlyn13 staff    1.7K Jan 10 10:30]  strfunc.h
+│   │       ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:30]  msinttypes/
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    7.9K Jan 10 10:30]  inttypes.h
+│   │       │   └── [-rw-r--r-- verlyn13 staff    8.9K Jan 10 10:30]  stdint.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    9.7K Jan 10 10:30]  allocators.h
+│   │       ├── [-rw-r--r-- verlyn13 staff     77K Jan 10 10:30]  document.h
+│   │       ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  encodedstream.h
+│   │       ├── [-rw-r--r-- verlyn13 staff     23K Jan 10 10:30]  encodings.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    3.1K Jan 10 10:30]  filereadstream.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  filestream.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    3.1K Jan 10 10:30]  filewritestream.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    2.9K Jan 10 10:30]  memorybuffer.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    2.8K Jan 10 10:30]  memorystream.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    7.7K Jan 10 10:30]  prettywriter.h
+│   │       ├── [-rw-r--r-- verlyn13 staff     19K Jan 10 10:30]  rapidjson.h
+│   │       ├── [-rw-r--r-- verlyn13 staff     54K Jan 10 10:30]  reader.h
+│   │       ├── [-rw-r--r-- verlyn13 staff    2.8K Jan 10 10:30]  stringbuffer.h
+│   │       └── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:30]  writer.h
+│   ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:30]  test/
+│   │   ├── [drwxr-xr-x verlyn13 staff     352 Jan 10 10:30]  perftest/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    2.3K Jan 10 10:30]  jsoncpptest.cpp
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  misctest.cpp
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  perftest.cpp
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    4.0K Jan 10 10:30]  perftest.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    4.8K Jan 10 10:30]  platformtest.cpp
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    9.1K Jan 10 10:30]  rapidjsontest.cpp
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    3.0K Jan 10 10:30]  ultrajsontest.cpp
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     461 Jan 10 10:30]  yajl_all.c
+│   │   │   └── [-rw-r--r-- verlyn13 staff    6.6K Jan 10 10:30]  yajltest.cpp
+│   │   └── [drwxr-xr-x verlyn13 staff     384 Jan 10 10:30]  unittest/
+│   │       ├── [-rw-r--r-- verlyn13 staff    7.3K Jan 10 10:30]  documenttest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:30]  encodedstreamtest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  encodingstest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  filestreamtest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:30]  jsoncheckertest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:30]  readertest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  unittest.cpp
+│   │       ├── [-rw-r--r-- verlyn13 staff    3.1K Jan 10 10:30]  unittest.h
+│   │       ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:30]  valuetest.cpp
+│   │       └── [-rw-r--r-- verlyn13 staff    8.5K Jan 10 10:30]  writertest.cpp
+│   ├── [drwxr-xr-x verlyn13 staff     160 Jan 10 10:30]  thirdparty/
+│   │   ├── [drwxr-xr-x verlyn13 staff     256 Jan 10 10:30]  jsoncpp/
+│   │   │   ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  include/
+│   │   │   │   └── [drwxr-xr-x verlyn13 staff     320 Jan 10 10:30]  json/
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff     438 Jan 10 10:30]  autolink.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff    1.5K Jan 10 10:30]  config.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff    1.3K Jan 10 10:30]  features.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff     735 Jan 10 10:30]  forwards.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff     200 Jan 10 10:30]  json.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff    6.3K Jan 10 10:30]  reader.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff     33K Jan 10 10:30]  value.h
+│   │   │   │       └── [-rw-r--r-- verlyn13 staff    6.0K Jan 10 10:30]  writer.h
+│   │   │   ├── [drwxr-xr-x verlyn13 staff     160 Jan 10 10:30]  src/
+│   │   │   │   ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:30]  jsontestrunner/
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff    6.0K Jan 10 10:30]  main.cpp
+│   │   │   │   │   └── [-rw-r--r-- verlyn13 staff     227 Jan 10 10:30]  sconscript
+│   │   │   │   ├── [drwxr-xr-x verlyn13 staff     320 Jan 10 10:30]  lib_json/
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff    3.8K Jan 10 10:30]  json_batchallocator.h
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff     12K Jan 10 10:30]  json_internalarray.inl
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:30]  json_internalmap.inl
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  json_reader.cpp
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff     38K Jan 10 10:30]  json_value.cpp
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff    7.2K Jan 10 10:30]  json_valueiterator.inl
+│   │   │   │   │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  json_writer.cpp
+│   │   │   │   │   └── [-rw-r--r-- verlyn13 staff     146 Jan 10 10:30]  sconscript
+│   │   │   │   └── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  test_lib_json/
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  jsontest.cpp
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff    9.1K Jan 10 10:30]  jsontest.h
+│   │   │   │       ├── [-rw-r--r-- verlyn13 staff    6.7K Jan 10 10:30]  main.cpp
+│   │   │   │       └── [-rw-r--r-- verlyn13 staff     242 Jan 10 10:30]  sconscript
+│   │   │   ├── [-rw-r--r-- verlyn13 staff      48 Jan 10 10:30]  AUTHORS
+│   │   │   ├── [-rw-r--r-- verlyn13 staff      66 Jan 10 10:30]  LICENSE
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    4.0K Jan 10 10:30]  README.txt
+│   │   │   └── [-rw-r--r-- verlyn13 staff       5 Jan 10 10:30]  version
+│   │   ├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:30]  ultrajson/
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    6.5K Jan 10 10:30]  README
+│   │   │   ├── [-rw-r--r-- verlyn13 staff    8.7K Jan 10 10:30]  ultrajson.h
+│   │   │   ├── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  ultrajsondec.c
+│   │   │   └── [-rw-r--r-- verlyn13 staff     18K Jan 10 10:30]  ultrajsonenc.c
+│   │   └── [drwxr-xr-x verlyn13 staff     256 Jan 10 10:30]  yajl/
+│   │       ├── [drwxr-xr-x verlyn13 staff      96 Jan 10 10:30]  include/
+│   │       │   └── [drwxr-xr-x verlyn13 staff     224 Jan 10 10:30]  yajl/
+│   │       │       ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  yajl_common.h
+│   │       │       ├── [-rw-r--r-- verlyn13 staff    6.5K Jan 10 10:30]  yajl_gen.h
+│   │       │       ├── [-rw-r--r-- verlyn13 staff    9.6K Jan 10 10:30]  yajl_parse.h
+│   │       │       ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  yajl_tree.h
+│   │       │       └── [-rw-r--r-- verlyn13 staff     363 Jan 10 10:30]  yajl_version.h
+│   │       ├── [drwxr-xr-x verlyn13 staff     672 Jan 10 10:30]  src/
+│   │       │   ├── [drwxr-xr-x verlyn13 staff     224 Jan 10 10:30]  api/
+│   │       │   │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  yajl_common.h
+│   │       │   │   ├── [-rw-r--r-- verlyn13 staff    6.5K Jan 10 10:30]  yajl_gen.h
+│   │       │   │   ├── [-rw-r--r-- verlyn13 staff    9.6K Jan 10 10:30]  yajl_parse.h
+│   │       │   │   ├── [-rw-r--r-- verlyn13 staff    6.9K Jan 10 10:30]  yajl_tree.h
+│   │       │   │   └── [-rw-r--r-- verlyn13 staff     399 Jan 10 10:30]  yajl_version.h.cmake
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    3.1K Jan 10 10:30]  CMakeLists.txt
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1.0K Jan 10 10:30]  yajl
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  yajl_alloc.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:30]  yajl_alloc.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  yajl_buf.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  yajl_buf.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    2.3K Jan 10 10:30]  yajl_bytestack.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    7.1K Jan 10 10:30]  yajl_encode.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    1.3K Jan 10 10:30]  yajl_encode.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     10K Jan 10 10:30]  yajl_gen.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     26K Jan 10 10:30]  yajl_lex.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  yajl_lex.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     20K Jan 10 10:30]  yajl_parser.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  yajl_parser.h
+│   │       │   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  yajl_tree.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff      82 Jan 10 10:30]  yajl_version.c
+│   │       │   ├── [-rw-r--r-- verlyn13 staff    4.8K Jan 10 10:30]  yajl.c
+│   │       │   └── [-rw-r--r-- verlyn13 staff     51K Jan 10 10:30]  YAJL.dxy
+│   │       ├── [-rw-r--r-- verlyn13 staff    6.1K Jan 10 10:30]  ChangeLog
+│   │       ├── [-rw-r--r-- verlyn13 staff     756 Jan 10 10:30]  COPYING
+│   │       ├── [-rw-r--r-- verlyn13 staff    2.7K Jan 10 10:30]  README
+│   │       └── [-rw-r--r-- verlyn13 staff     332 Jan 10 10:30]  TODO
+│   ├── [-rw-r--r-- verlyn13 staff     121 Jan 10 10:30]  .gitmodules
+│   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  .travis.yml
+│   ├── [-rw-r--r-- verlyn13 staff    1.0K Jan 10 10:30]  license.txt
+│   └── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  readme.md
+├── [drwxr-xr-x verlyn13 staff     192 Jan 10 10:34]  test/
+│   ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:34]  include/
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:34]  ContractVerification.h
+│   │   └── [-rw-r--r-- verlyn13 staff    3.3K Jan 10 10:34]  TelemetryContract.h
+│   ├── [drwxr-xr-x verlyn13 staff     128 Jan 10 10:34]  mocks/
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.7K Jan 10 10:34]  AndroidApiMocks.cpp
+│   │   └── [-rw-r--r-- verlyn13 staff    4.6K Jan 10 10:34]  AndroidApiMocks.h
+│   ├── [drwxr-xr-x verlyn13 staff     160 Jan 10 10:34]  tests/
+│   │   ├── [-rw-r--r-- verlyn13 staff    2.3K Jan 10 10:34]  ContractTest.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     11K Jan 10 10:34]  FrameBufferRingTest.cpp
+│   │   └── [-rw-r--r-- verlyn13 staff    7.4K Jan 10 10:34]  StreamTelemetryTest.cpp
+│   └── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:34]  CMakeLists.txt
+├── [drwxr-xr-x verlyn13 staff    1.0K Jan 10 10:43]  UVCCamera/
+│   ├── [drwxr-xr-x verlyn13 staff     768 Jan 10 10:30]  pipeline/
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.8K Jan 10 10:30]  AbstractBufferedPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  AbstractBufferedPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    7.4K Jan 10 10:30]  CallbackPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     762 Jan 10 10:30]  CallbackPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.1K Jan 10 10:30]  CaptureBasePipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:30]  CaptureBasePipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    4.9K Jan 10 10:30]  ConvertPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     626 Jan 10 10:30]  ConvertPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    5.1K Jan 10 10:30]  DistributePipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     819 Jan 10 10:30]  DistributePipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.5K Jan 10 10:30]  IPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.8K Jan 10 10:30]  IPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:30]  pipeline_helper.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     272 Jan 10 10:30]  pipeline_helper.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.0K Jan 10 10:30]  PreviewPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     564 Jan 10 10:30]  PreviewPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    9.7K Jan 10 10:30]  PublisherPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     989 Jan 10 10:30]  PublisherPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff    3.6K Jan 10 10:30]  SimpleBufferedPipeline.cpp
+│   │   ├── [-rw-r--r-- verlyn13 staff     684 Jan 10 10:30]  SimpleBufferedPipeline.h
+│   │   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  SQLiteBufferedPipeline.cpp
+│   │   └── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:30]  SQLiteBufferedPipeline.h
+│   ├── [-rw-r--r-- verlyn13 staff    2.0K Jan 10 10:34]  _onload.cpp
+│   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  _onload.h
+│   ├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:34]  Android.mk
+│   ├── [-rw-r--r-- verlyn13 staff     21K Jan 10 10:34]  EGLImageHelperJNI.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     35K Jan 10 10:34]  FrameBufferJNI.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     36K Jan 10 10:34]  FrameBufferRing.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     14K Jan 10 10:34]  FrameBufferRing.h
+│   ├── [-rw-r--r-- verlyn13 staff    2.3K Jan 10 10:34]  FrameSlotMetadata.h
+│   ├── [-rw-r--r-- verlyn13 staff    1.4K Jan 10 10:34]  HandleManager.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:34]  HandleManager.h
+│   ├── [-rw-r--r-- verlyn13 staff    6.0K Jan 10 10:34]  LayoutContract.cpp
+│   ├── [-rw-r--r-- verlyn13 staff    3.5K Jan 10 10:34]  LayoutContract.h
+│   ├── [-rw-r--r-- verlyn13 staff    1.1K Jan 10 10:30]  libUVCCamera.h
+│   ├── [-rw-r--r-- verlyn13 staff    3.3K Jan 10 10:30]  objectarray.h
+│   ├── [-rw-r--r-- verlyn13 staff    3.7K Jan 10 10:38]  OutputMode.h
+│   ├── [-rw-r--r-- verlyn13 staff     13K Jan 10 10:30]  Parameters.cpp
+│   ├── [-rw-r--r-- verlyn13 staff    1.3K Jan 10 10:30]  Parameters.h
+│   ├── [-rw-r--r-- verlyn13 staff     90K Jan 10 10:42]  serenegiant_usb_UVCCamera.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     28K Jan 10 10:34]  StreamTelemetry.h
+│   ├── [-rw-r--r-- verlyn13 staff    1.2K Jan 10 10:30]  utilbase.cpp
+│   ├── [-rw-r--r-- verlyn13 staff    2.1K Jan 10 10:30]  UVCButtonCallback.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     781 Jan 10 10:30]  UVCButtonCallback.h
+│   ├── [-rw-r--r-- verlyn13 staff     82K Jan 10 10:43]  UVCCamera.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     16K Jan 10 10:42]  UVCCamera.h
+│   ├── [-rw-r--r-- verlyn13 staff     99K Jan 10 10:43]  UVCPreview.cpp
+│   ├── [-rw-r--r-- verlyn13 staff     15K Jan 10 10:39]  UVCPreview.h
+│   ├── [-rw-r--r-- verlyn13 staff    3.2K Jan 10 10:34]  UVCReadinessCallback.cpp
+│   ├── [-rw-r--r-- verlyn13 staff    1.5K Jan 10 10:34]  UVCReadinessCallback.h
+│   ├── [-rw-r--r-- verlyn13 staff    2.5K Jan 10 10:30]  UVCStatusCallback.cpp
+│   └── [-rw-r--r-- verlyn13 staff     983 Jan 10 10:30]  UVCStatusCallback.h
+├── [-rw-r--r-- verlyn13 staff     283 Jan 10 10:30]  Android.mk
+├── [-rw-r--r-- verlyn13 staff    1.6K Jan 10 10:34]  Application.mk
+├── [-rw-r--r-- verlyn13 staff    2.4K Jan 10 10:30]  localdefines.h
+└── [-rw-r--r-- verlyn13 staff    8.0K Jan 10 10:30]  utilbase.h
+
+86 directories, 886 files

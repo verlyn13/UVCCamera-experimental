@@ -1,0 +1,3 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:159:TEST_F(Platform, mmap) {
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:163:        void *p = mmap(NULL, length_, PROT_READ, MAP_PRIVATE, fd, 0);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/test/perftest/platformtest.cpp:166:        munmap(p, length_);

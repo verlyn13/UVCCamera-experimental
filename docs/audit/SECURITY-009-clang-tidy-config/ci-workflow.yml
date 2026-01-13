@@ -1,0 +1,212 @@
+# ci-workflow.yml - GitHub Actions CI/CD Pipeline for JNI Security Enforcement
+# Generated: 2026-01-11
+# Project: ScopeCam - UVCCamera Library
+#
+# This workflow enforces security checks on every push and PR:
+# 1. Clang-Tidy static analysis with custom JNI checks
+# 2. MTE simulation testing (when available)
+# 3. Build validation
+
+name: JNI Security Enforcement
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'lib/src/main/jni/**'
+      - '.clang-tidy'
+      - '.github/workflows/ci-workflow.yml'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'lib/src/main/jni/**'
+      - '.clang-tidy'
+
+env:
+  NDK_VERSION: r28
+  CLANG_TIDY_VERSION: 20
+
+jobs:
+  # ============================================================================
+  # Job 1: Clang-Tidy Static Analysis
+  # ============================================================================
+  clang-tidy-check:
+    name: Clang-Tidy Security Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install LLVM/Clang-Tidy 20
+        run: |
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh ${{ env.CLANG_TIDY_VERSION }}
+          sudo apt-get install -y clang-tidy-${{ env.CLANG_TIDY_VERSION }}
+
+      - name: Setup Android NDK
+        uses: android-actions/setup-android@v3
+        with:
+          ndk-version: ${{ env.NDK_VERSION }}
+
+      - name: Configure CMake with compile_commands.json
+        run: |
+          cmake -B build \
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+            -DANDROID_ABI=arm64-v8a \
+            -DANDROID_PLATFORM=android-34 \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Run Clang-Tidy (JNI Security Checks)
+        id: clang-tidy
+        run: |
+          # Run clang-tidy with our custom configuration
+          run-clang-tidy-${{ env.CLANG_TIDY_VERSION }} \
+            -p build/ \
+            -config-file=.clang-tidy \
+            -j$(nproc) \
+            'lib/src/main/jni/UVCCamera/.*' \
+            2>&1 | tee clang-tidy-output.txt
+
+          # Check for security violations
+          if grep -E "jni-no-raw-pointer-cast|jni-no-direct-device-access|jni-no-raw-storage-path" clang-tidy-output.txt; then
+            echo "::error::Security violations detected! See clang-tidy output."
+            exit 1
+          fi
+
+      - name: Upload Clang-Tidy Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clang-tidy-report
+          path: clang-tidy-output.txt
+
+      - name: Comment on PR (if violations found)
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('clang-tidy-output.txt', 'utf8');
+
+            // Extract violations
+            const violations = output.split('\n')
+              .filter(line => line.includes('jni-no-'))
+              .slice(0, 10)  // Limit to 10
+              .join('\n');
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## :x: JNI Security Violations Detected
+
+            The following security checks failed:
+
+            \`\`\`
+            ${violations}
+            \`\`\`
+
+            Please review:
+            - [SECURITY-003: JNI Safety](docs/audit/SECURITY-003-jni-safety.md)
+            - [SECURITY-001: USB Access](docs/audit/SECURITY-001-usb-access.md)
+            - [SECURITY-004: Scoped Storage](docs/audit/SECURITY-004-scoped-storage.md)
+            `
+            });
+
+  # ============================================================================
+  # Job 2: Build Validation
+  # ============================================================================
+  build:
+    name: Build Native Library
+    runs-on: ubuntu-latest
+    needs: clang-tidy-check
+
+    strategy:
+      matrix:
+        abi: [arm64-v8a, armeabi-v7a]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Android NDK
+        uses: android-actions/setup-android@v3
+        with:
+          ndk-version: ${{ env.NDK_VERSION }}
+
+      - name: Build for ${{ matrix.abi }}
+        run: |
+          cmake -B build-${{ matrix.abi }} \
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+            -DANDROID_ABI=${{ matrix.abi }} \
+            -DANDROID_PLATFORM=android-34 \
+            -DCMAKE_BUILD_TYPE=Release
+
+          cmake --build build-${{ matrix.abi }} -j$(nproc)
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: libUVCCamera-${{ matrix.abi }}
+          path: build-${{ matrix.abi }}/lib*.so
+
+  # ============================================================================
+  # Job 3: MTE Testing (Optional - requires ARM64 runner)
+  # ============================================================================
+  mte-test:
+    name: MTE Compatibility Test
+    runs-on: ubuntu-latest  # Would need ARM64 runner for actual MTE
+    needs: build
+    if: false  # Disabled until ARM64 runners available
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download ARM64 build
+        uses: actions/download-artifact@v4
+        with:
+          name: libUVCCamera-arm64-v8a
+
+      - name: Run MTE simulation
+        run: |
+          # This would run on an actual ARM64 device/emulator
+          # with MTE enabled
+          echo "MTE testing requires ARM64 hardware"
+          echo "Enable on Pixel 8+ or Tensor G5/G6 devices"
+
+  # ============================================================================
+  # Job 4: Security Summary
+  # ============================================================================
+  security-summary:
+    name: Security Summary
+    runs-on: ubuntu-latest
+    needs: [clang-tidy-check, build]
+    if: always()
+
+    steps:
+      - name: Generate Summary
+        run: |
+          echo "## Security Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ needs.clang-tidy-check.result }}" == "success" ]; then
+            echo ":white_check_mark: **Clang-Tidy**: All JNI security checks passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo ":x: **Clang-Tidy**: Security violations detected" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "${{ needs.build.result }}" == "success" ]; then
+            echo ":white_check_mark: **Build**: Native library compiled successfully" >> $GITHUB_STEP_SUMMARY
+          else
+            echo ":x: **Build**: Compilation failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Enforced Security Rules" >> $GITHUB_STEP_SUMMARY
+          echo "- \`jni-no-raw-pointer-cast\`: Block jlong to pointer casts (MTE)" >> $GITHUB_STEP_SUMMARY
+          echo "- \`jni-no-direct-device-access\`: Block direct USB access (Privacy Sandbox)" >> $GITHUB_STEP_SUMMARY
+          echo "- \`jni-no-raw-storage-path\`: Block /sdcard/ access (Scoped Storage)" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,18 @@
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream_original.c:949:    frame->data = realloc(frame->data, strmh->hold_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame_original.c:45:      frame->data = realloc(frame->data, frame->data_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device_original.c:543:      list_internal = realloc(list_internal, (num_uvc_devices + 1) * sizeof(*list_internal));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/device.c:659:			list_internal = realloc(list_internal,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/frame.c:60:			frame->data = realloc(frame->data, frame->data_bytes);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libuvc/src/stream.c:1753:		frame->data = realloc(frame->data, strmh->hold_bytes);	// TODO add error handling when failed realloc
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/UVCPreview.cpp:2844:				void* newBuf = realloc(temp_yuyv.data, needed);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:74:        LOGI("CAPACITY_DIAG[%d]: Calling realloc(%p, %zu) for newCapacity", callNum, data, newCapacity);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/UVCCamera/FrameBufferRing.cpp:77:    void* newBuf = realloc(data, newCapacity);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsonenc.c:107:		enc->start = (char *) enc->realloc (enc->start, newSize);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/ultrajson/ultrajsondec.c:409:			ds->escStart = (wchar_t *) ds->dec->realloc (ds->escStart, newSize * sizeof(wchar_t));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_alloc.c:31:static void * yajl_internal_realloc(void *ctx, void * previous,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_alloc.c:34:    return realloc(previous, sz);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:167:    tmpk = realloc((void *) obj->u.object.keys, sizeof(*(obj->u.object.keys)) * (obj->u.object.len + 1));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:172:    tmpv = realloc(obj->u.object.values, sizeof (*obj->u.object.values) * (obj->u.object.len + 1));
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/rapidjson/thirdparty/yajl/src/yajl_tree.c:198:    tmp = realloc(array->u.array.values,
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libusb/libusb/descriptor.c:840:		unsigned char *temp = realloc(*buffer, len);
+/Users/verlyn13/Development/personal/UVCCamera-experimental/lib/src/main/jni/libjpeg-turbo-1.5.0/djpeg.c:598:      inbuffer = (unsigned char *)realloc(inbuffer, insize + INPUT_BUF_SIZE);
