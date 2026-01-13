@@ -342,6 +342,7 @@ mise run sync
 ```
 
 **What gets synced:**
+- `libUVCCamera.so` - Main JNI bridge (includes build ID symbols)
 - `libuvc.so` - Core UVC library
 - `libusb100.so` - USB support
 - `libjpeg-turbo1500.so` - JPEG encoding
