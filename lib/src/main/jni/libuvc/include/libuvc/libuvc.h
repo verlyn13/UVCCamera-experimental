@@ -233,6 +233,28 @@ enum uvc_req_code {
 	UVC_GET_DEF = 0x87			// ↑
 };
 
+/** Control capability bits from GET_INFO response (Phase 1, DECISION-011)
+ * @ingroup ctrl
+ */
+typedef struct uvc_ctrl_caps {
+	uint8_t supports_get : 1;      // D0: Supports GET_CUR
+	uint8_t supports_set : 1;      // D1: Supports SET_CUR
+	uint8_t disabled : 1;          // D2: Disabled due to automatic mode
+	uint8_t autoupdate : 1;        // D3: Autoupdate control
+	uint8_t asynchronous : 1;      // D4: Asynchronous control
+	uint8_t reserved : 3;          // D5-D7: Reserved
+} uvc_ctrl_caps_t;
+
+/** Source of control capability information (Phase 1, DECISION-011)
+ * @ingroup ctrl
+ */
+typedef enum uvc_ctrl_cap_source {
+	UVC_CAP_SOURCE_UNKNOWN = 0,    // Not yet queried
+	UVC_CAP_SOURCE_GET_INFO = 1,   // From GET_INFO request
+	UVC_CAP_SOURCE_EMPIRICAL = 2,  // Inferred from GET/SET attempts
+	UVC_CAP_SOURCE_FALLBACK = 3    // Device timeout/stall, assumed defaults
+} uvc_ctrl_cap_source_t;
+
 enum uvc_device_power_mode {
 	UVC_VC_VIDEO_POWER_MODE_FULL = 0x000b,
 	UVC_VC_VIDEO_POWER_MODE_DEVICE_DEPENDENT = 0x001b,
@@ -472,6 +494,18 @@ typedef struct uvc_frame {
 	uint32_t sequence;
 	/** Estimate of system time when the device started capturing the image */
 	struct timeval capture_time;
+	/** Presentation Time Stamp from UVC payload header (USB Video Class 1.5 spec)
+	 * Valid only when capture_time_pts_valid is non-zero.
+	 * Units: 90kHz clock ticks (same as MPEG-2 PTS) */
+	uint32_t capture_time_pts;
+	/** Source Clock Reference from UVC payload header (USB Video Class 1.5 spec)
+	 * Valid only when capture_time_scr_valid is non-zero.
+	 * Units: device-specific clock (typically USB SOF-based) */
+	uint32_t capture_time_scr;
+	/** Non-zero if capture_time_pts contains valid data from the device */
+	uint8_t capture_time_pts_valid;
+	/** Non-zero if capture_time_scr contains valid data from the device */
+	uint8_t capture_time_scr_valid;
 	/** Handle on the device that produced the image.
 	 * @warning You must not call any uvc_* functions during a callback. */
 	uvc_device_handle_t *source;
@@ -614,6 +648,10 @@ int uvc_get_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 		void *data, int len, enum uvc_req_code req_code);
 int uvc_set_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 		void *data, int len);
+
+// Phase 1: GET_INFO compliance (DECISION-011)
+uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
+		uvc_ctrl_caps_t *caps, uvc_ctrl_cap_source_t *source);
 
 // Camera Controls
 uvc_error_t uvc_vc_get_error_code(uvc_device_handle_t *devh,

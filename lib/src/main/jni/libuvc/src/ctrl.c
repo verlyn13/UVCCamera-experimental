@@ -55,7 +55,7 @@ static const int REQ_TYPE_GET = 0xa1;
 /***** GENERIC CONTROLS *****/
 /**
  * @brief Get the length of a control on a terminal or unit.
- * 
+ *
  * @param devh UVC device handle
  * @param unit Unit or Terminal ID; obtain this from the uvc_extension_unit_t describing the extension unit
  * @param ctrl Vendor-specific control number to query
@@ -79,7 +79,7 @@ int uvc_get_ctrl_len(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl) {
 
 /**
  * @brief Perform a GET_* request from an extension unit.
- * 
+ *
  * @param devh UVC device handle
  * @param unit Unit ID; obtain this from the uvc_extension_unit_t describing the extension unit
  * @param ctrl Control number to query
@@ -99,8 +99,90 @@ int uvc_get_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 }
 
 /**
+ * @brief Query control capabilities using GET_INFO (Phase 1, DECISION-011)
+ *
+ * Queries the device for control capabilities per UVC 1.5 spec section 4.1.2.
+ * Returns capability bits indicating GET/SET support, disabled state, etc.
+ *
+ * @param devh UVC device handle
+ * @param unit Unit or Terminal ID
+ * @param ctrl Control selector
+ * @param caps Output: control capability structure
+ * @param source Output: source of capability information
+ * @return UVC_SUCCESS on success, error code on failure
+ * @ingroup ctrl
+ */
+uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
+		uvc_ctrl_caps_t *caps, uvc_ctrl_cap_source_t *source) {
+	unsigned char info_byte = 0;
+	int ret;
+
+	if (!devh || !caps || !source) {
+		return UVC_ERROR_INVALID_PARAM;
+	}
+
+	// Initialize output
+	memset(caps, 0, sizeof(*caps));
+	*source = UVC_CAP_SOURCE_UNKNOWN;
+
+	// Attempt GET_INFO request
+	ret = libusb_control_transfer(
+		devh->usb_devh,
+		REQ_TYPE_GET,
+		UVC_GET_INFO,
+		ctrl << 8,
+		unit << 8,
+		&info_byte,
+		1,
+		CTRL_TIMEOUT_MILLIS
+	);
+
+	// Log the request for debugging
+	LOGD("GET_INFO: unit=%u ctrl=%u ret=%d info=0x%02x", unit, ctrl, ret, info_byte);
+
+	if (ret < 0) {
+		// Device doesn't support GET_INFO or control doesn't exist
+		if (ret == LIBUSB_ERROR_PIPE || ret == LIBUSB_ERROR_TIMEOUT) {
+			LOGW("GET_INFO failed (unit=%u ctrl=%u): %s - using fallback",
+				unit, ctrl, libusb_error_name(ret));
+			*source = UVC_CAP_SOURCE_FALLBACK;
+			// Assume basic GET/SET support as fallback
+			caps->supports_get = 1;
+			caps->supports_set = 1;
+			caps->disabled = 0;
+			caps->autoupdate = 0;
+			caps->asynchronous = 0;
+			return UVC_SUCCESS;  // Soft failure - return success with fallback
+		}
+		return ret;  // Hard failure
+	}
+
+	if (ret != 1) {
+		LOGW("GET_INFO returned unexpected length: %d (expected 1)", ret);
+		*source = UVC_CAP_SOURCE_FALLBACK;
+		caps->supports_get = 1;
+		caps->supports_set = 1;
+		return UVC_SUCCESS;
+	}
+
+	// Parse capability bits per UVC 1.5 spec Table 4-3
+	caps->supports_get = (info_byte & 0x01) ? 1 : 0;  // D0
+	caps->supports_set = (info_byte & 0x02) ? 1 : 0;  // D1
+	caps->disabled = (info_byte & 0x04) ? 1 : 0;      // D2
+	caps->autoupdate = (info_byte & 0x08) ? 1 : 0;    // D3
+	caps->asynchronous = (info_byte & 0x10) ? 1 : 0;  // D4
+	*source = UVC_CAP_SOURCE_GET_INFO;
+
+	LOGI("GET_INFO success: unit=%u ctrl=%u get=%d set=%d disabled=%d auto=%d async=%d",
+		unit, ctrl, caps->supports_get, caps->supports_set, caps->disabled,
+		caps->autoupdate, caps->asynchronous);
+
+	return UVC_SUCCESS;
+}
+
+/**
  * @brief Perform a SET_CUR request to a terminal or unit.
- * 
+ *
  * @param devh UVC device handle
  * @param unit Unit or Terminal ID
  * @param ctrl Control number to set

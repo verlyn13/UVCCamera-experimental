@@ -1,70 +1,57 @@
-# UVCCamera-Experimental Project Instructions
+# uvccamera-experimental Project Instructions
 
-## Project Overview
+## Project Role
 
-**Purpose:** Modernize the UVCCamera Android library for ScopeCam scientific imaging application.
+> **This is a SANDBOX repository, not a production supplier.**
 
-**Architecture:** Two-repo split:
-- **This repo (uvccamera-experimental):** libuvc source, ndk-build, JNI bridge
-- **scopecam-engine:** Kotlin + C++20, consumes prebuilt .so files
+**Purpose:** Testing ground for UVC library improvements before they are promoted to scopecam-engine via patches.
 
-**Authoritative Documents:**
-- `adr-proposal.md` — ARCH-DECISIONS-001-R2 (binding decisions)
-- `imp-plan.md` — Concrete implementation plan
-- `docs/status/IMPLEMENTATION-STATUS.md` — Current progress tracker
+**Outputs:**
+- Validated patches (source-to-source)
+- Documentation of changes
+- Test results and validation reports
 
----
-
-## Critical Rules
-
-### Before Any Code Change
-
-1. **Check status:** Read `docs/status/IMPLEMENTATION-STATUS.md`
-2. **Verify phase:** Ensure you're working on the current active phase
-3. **Reference ADR:** All changes must align with a specific DECISION-XXX
-4. **Check blockers:** Phase 0-Pre must complete before Phase 0
-
-### Code Standards
-
-- **C++ Standard:** C++17 (enforced via `APP_CPPFLAGS += -std=c++17`)
-- **ABI Boundary:** C ABI only between libuvc.so and scopecam-engine (no STL types)
-- **Error Handling:** Use `uvc::expected` pattern (after Phase 0-Pre)
-- **Telemetry:** Every new feature must expose metrics
-
-### Testing Requirements
-
-- **Unit tests:** Required for all new functions
-- **Integration:** Verify with `tools/sync_to_engine.sh` after changes
-- **Build verification:** Both ABIs (arm64-v8a, armeabi-v7a) must build
-- **Runtime:** Log `uvc_build_id()` to verify correct binary loaded
+**NOT Outputs:**
+- Production binaries
+- .so files for other projects
+- Anything that bypasses scopecam-engine's build
 
 ---
 
-## Key File Locations
+## Critical Understanding
 
-### This Repo (uvccamera-experimental)
+### What This Project Does
 
-| Purpose | Path |
-|---------|------|
-| libuvc source | `lib/src/main/jni/libuvc/src/` |
-| libuvc headers | `lib/src/main/jni/libuvc/include/libuvc/` |
-| JNI bridge | `lib/src/main/jni/UVCCamera/` |
-| Build config | `lib/src/main/jni/Android.mk`, `Application.mk` |
-| Sync script | `tools/sync_to_engine.sh` |
-| Status tracking | `docs/status/` |
+| Activity | Description |
+|----------|-------------|
+| Test libuvc changes | PTS/SCR timestamps, GET_INFO, protocol compliance |
+| Validate in isolation | Prove changes work before promotion |
+| Generate patches | `git format-patch` or `git diff` |
+| Document changes | What, why, how to use, test results |
 
-### Scopecam-Engine (for reference)
+### What This Project Does NOT Do
 
-| Purpose | Path |
-|---------|------|
-| Prebuilt libs | `nativecode/src/main/libs/{ABI}/` |
-| Engine native | `nativecode/src/main/cpp/` |
-| Kotlin API | `camera-platform/src/main/kotlin/` |
-| Telemetry | `nativecode/src/main/cpp/core/StreamTelemetry.h` |
+| Anti-Pattern | Why It's Wrong |
+|--------------|----------------|
+| Sync .so files to scopecam-engine | Binary dependency hell |
+| Produce production binaries | scopecam-engine builds from source |
+| Modify scopecam-engine directly | Changes must go through patch review |
+| Skip isolated testing | Untested changes break production |
 
 ---
 
-## Implementation Workflow
+## Authoritative Documents
+
+| Document | Purpose |
+|----------|---------|
+| `adr-proposal.md` | ARCH-DECISIONS-001-R2 (binding decisions) |
+| `imp-plan.md` | Concrete implementation plan |
+| `docs/status/IMPLEMENTATION-STATUS.md` | Current progress tracker |
+| `docs/PROMOTION_WORKFLOW.md` | Patch promotion process |
+
+---
+
+## Development Workflow
 
 ### Starting a Task
 
@@ -76,63 +63,96 @@ cat docs/status/IMPLEMENTATION-STATUS.md
 # Edit the task line: [ ] → [~]
 
 # 3. Reference the relevant decision
-# grep "DECISION-XXX" adr-proposal.md
+grep "DECISION-XXX" adr-proposal.md
 ```
 
-### Completing a Task
+### Testing Your Changes
 
 ```bash
-# 1. Build and verify
-./tools/sync_to_engine.sh
+# Build the test harness
+./gradlew :lib:assembleDebug
 
-# 2. Update status
-# Edit the task line: [~] → [x]
-
-# 3. Add completion notes to status file
-
-# 4. Commit with decision reference
-git commit -m "feat(phase-X): implement DECISION-XXX - description"
+# Install and test on device
+./gradlew :app:installDebug
+adb logcat | grep -E "(UVC|PTS|SCR)"
 ```
 
-### Handling Unexpected Changes
+### Creating a Patch for Promotion
 
-If implementation reveals issues not covered by ADR:
+When changes are validated and ready for scopecam-engine:
 
-1. Document in `docs/status/DEVIATIONS.md`
-2. Add `[!]` marker to affected task in status
-3. Propose ADR amendment if architectural
-4. Continue with best judgment for tactical issues
+```bash
+# Option A: Single commit patch (preferred)
+cd lib/src/main/jni/libuvc
+git add -A
+git commit -m "feat: Add PTS/SCR timestamp extraction"
+git format-patch -1 HEAD --stdout > ~/patches/libuvc-pts-scr.patch
+
+# Option B: Diff against baseline
+git diff origin/main > ~/patches/libuvc-pts-scr.patch
+```
+
+### Documenting the Patch
+
+Create a companion markdown file:
+
+```markdown
+# PTS/SCR Timestamp Extraction
+
+## Summary
+What the patch does...
+
+## Files Changed
+- src/stream.c: Parse PTS/SCR in _uvc_process_payload()
+- include/libuvc/libuvc.h: Add fields to uvc_frame_t
+
+## Testing
+- Device: Realtek 0BDA:5880
+- Procedure: Streamed 1080p30 for 10 minutes
+- Results: PTS present 98.7%, monotonic
+
+## ADR Reference
+Implements DECISION-006
+```
+
+See `docs/PROMOTION_WORKFLOW.md` for the complete process.
 
 ---
 
-## Phase Dependencies
+## Code Standards
 
-```
-Phase 0-Pre (BLOCKER - must complete first)
-    ↓
-Phase 0 (Week 1)
-    ↓
-Phase 1 (Weeks 2-3)
-    ↓
-Phase 2 (Weeks 4-5)
-    ↓
-Phase 3 (Weeks 6-9)
-    ↓
-Phase 4 (Weeks 10-12)
-```
+### C++ Standard
+- **C++17** (enforced via `APP_CPPFLAGS += -std=c++17`)
 
-**Never start a phase before completing the previous phase's blocking items.**
+### Error Handling
+- Use `uvc::expected` pattern for new code
+
+### Testing Requirements
+- Unit tests required for all new functions
+- Build verification for both ABIs (arm64-v8a, armeabi-v7a)
+- Runtime testing with actual hardware
+
+---
+
+## Key File Locations
+
+| Purpose | Path |
+|---------|------|
+| libuvc source | `lib/src/main/jni/libuvc/src/` |
+| libuvc headers | `lib/src/main/jni/libuvc/include/libuvc/` |
+| JNI bridge (test harness) | `lib/src/main/jni/UVCCamera/` |
+| Build config | `lib/src/main/jni/Android.mk`, `Application.mk` |
+| Status tracking | `docs/status/` |
+| Promotion workflow | `docs/PROMOTION_WORKFLOW.md` |
 
 ---
 
 ## Development Environment
 
-This project uses **mise** for tool version management and **direnv** for environment loading.
-
 ### Setup
 
 ```bash
-# Install prerequisites (if not already present)
+# Install prerequisites
 brew install mise direnv
 
 # Allow direnv in this directory
@@ -149,19 +169,13 @@ mise install
 | `mise run build` | Build release AAR |
 | `mise run build-native` | Build native libraries with ndk-build |
 | `mise run clean` | Clean all build artifacts |
-| `mise run sync` | Sync prebuilt .so files to scopecam-engine |
 | `mise run lint` | Run ktlint and detekt |
 | `mise run test` | Run unit tests |
 | `mise run test-native` | Run native C++ tests (GTest) |
 | `mise run format` | Format C++ code with clang-format |
 | `mise run hooks-install` | Install git hooks via lefthook |
 
-### Pinned Tool Versions
-
-- **Java:** temurin-17 (required for Android Gradle Plugin)
-- **lefthook:** latest (git hooks)
-- **shellcheck:** latest (shell script linting)
-- **yamllint:** latest (CI config linting)
+**DEPRECATED:** `mise run sync` - No longer used. See patch promotion workflow.
 
 ### Git Hooks (Lefthook)
 
@@ -174,47 +188,27 @@ Pre-push hooks:
 
 ---
 
-## Common Operations
+## Phase Dependencies
 
-### Build libuvc (via mise)
-
-```bash
-mise run build-native
+```
+Phase 0-Pre (Infrastructure) ✅ COMPLETE
+    ↓
+Phase 0 (PTS/SCR Timestamps) ✅ COMPLETE & SYNCED
+    ↓
+Phase 1 (GET_INFO Compliance) ← CURRENT FOCUS (Task 1.1 complete)
+    ↓
+Phase 2 (Clock Synchronizer)
+    ↓
+Phase 3-4 (Advanced Features)
 ```
 
-### Build libuvc (manual)
+### Deliverables per Phase
 
-```bash
-cd lib/src/main
-$ANDROID_NDK_HOME/ndk-build -j$(sysctl -n hw.ncpu) \
-    NDK_PROJECT_PATH="$(pwd)" \
-    NDK_APPLICATION_MK="$(pwd)/jni/Application.mk"
-```
-
-### Sync to scopecam-engine
-
-```bash
-mise run sync
-# or
-./tools/sync_to_engine.sh
-```
-
-### Verify Build ID
-
-After running app, check logcat for:
-```
-libuvc build: uvccamera-experimental:<git-sha>@<timestamp>
-```
-
-### Search for Decision Context
-
-```bash
-# Find all references to a decision
-grep -rn "DECISION-006" . --include="*.md"
-
-# Find implementation locations
-grep -rn "pts_raw\|PTS" lib/src/main/jni/ --include="*.c" --include="*.h"
-```
+For each completed phase, produce:
+1. **Tested code** that passes all verification
+2. **Patch file(s)** for promotion
+3. **Documentation** of changes
+4. **Test evidence** (logs, results)
 
 ---
 
@@ -230,76 +224,18 @@ Phase: <phase-number>
 ```
 
 **Types:** feat, fix, refactor, docs, test, chore
-**Scopes:** phase-0-pre, phase-0, phase-1, phase-2, phase-3, phase-4, libuvc, jni, build
+**Scopes:** phase-0, phase-1, phase-2, libuvc, jni, build
 
-**Examples:**
+**Example:**
 ```
-feat(phase-0-pre): add build ID export to JNI bridge
+feat(phase-0): add PTS/SCR timestamp extraction
 
-Implements DECISION-017
-Phase: 0-Pre
+Implements DECISION-006
+Phase: 0
 
-- Add uvc_build_id.c with git SHA and timestamp
-- Inject defines via Android.mk
-- Log at camera open in scopecam-engine
-```
-
----
-
-## Quality Gates
-
-### Phase Completion Criteria
-
-Each phase must pass before proceeding:
-
-1. **All tasks marked [x]** in status file
-2. **Build succeeds** for both ABIs
-3. **Sync completes** without errors
-4. **Runtime verification** (build ID logged)
-5. **No [!] deviations** unresolved
-
-### Pre-Merge Checklist
-
-- [ ] Status file updated
-- [ ] ADR reference in commit message
-- [ ] Both ABIs build
-- [ ] Sync script passes
-- [ ] No compiler warnings introduced
-- [ ] Telemetry added for new features
-
----
-
-## Emergency Procedures
-
-### Build Failure After Sync
-
-```bash
-# Revert to known-good prebuilts
-cd ~/Development/personal/scopecam-engine
-git checkout -- nativecode/src/main/libs/
-
-# Check what changed
-git diff HEAD~1 -- lib/src/main/jni/
-```
-
-### ABI Mismatch Detected
-
-```bash
-# Verify NDK version matches
-echo $ANDROID_NDK_HOME
-# Should be: .../ndk/27.0.12077973
-
-# Check STL setting
-grep APP_STL lib/src/main/jni/Application.mk
-# Should be: c++_shared
-```
-
-### Status File Conflicts
-
-```bash
-# Status file is source of truth
-# If conflicts, prefer the more conservative (incomplete) state
-# Re-verify completed tasks before marking done
+- Parse PTS/SCR in _uvc_process_payload()
+- Add fields to uvc_frame_t struct
+- Tested with Realtek 0BDA:5880
 ```
 
 ---
@@ -308,75 +244,80 @@ grep APP_STL lib/src/main/jni/Application.mk
 
 When working autonomously on this project:
 
-1. **Always start** by reading `docs/status/IMPLEMENTATION-STATUS.md`
-2. **Work on one task at a time** from the current phase
-3. **Update status immediately** when starting/completing tasks
-4. **Reference decisions** in all changes
-5. **Build and verify** after each significant change
-6. **Document deviations** in `docs/status/DEVIATIONS.md`
-7. **Never skip phases** or work ahead without explicit approval
+### Core Principles
+
+1. **This is a sandbox** - Test changes in isolation
+2. **No production binaries** - Only produce patches and documentation
+3. **scopecam-engine builds its own code** - Never bypass their build
+
+### Workflow
+
+1. **Read status** first: `docs/status/IMPLEMENTATION-STATUS.md`
+2. **Work on current phase** only
+3. **Test thoroughly** before considering promotion
+4. **Create patches** when ready (not binaries)
+5. **Document everything** - What, why, test results
+
+### Quality Gates
+
+Before considering a change ready for promotion:
+- [ ] Build succeeds for both ABIs
+- [ ] Tests pass with actual hardware
+- [ ] No regressions in existing functionality
+- [ ] Documentation complete
+- [ ] Patch applies cleanly
+
+### What NOT to Do
+
+- ❌ Run the deprecated sync script
+- ❌ Produce binaries for scopecam-engine
+- ❌ Modify scopecam-engine's code directly
+- ❌ Skip isolated testing
+- ❌ Push untested patches
 
 ---
 
-## Cross-Repo Collaboration
+## Relationship with scopecam-engine
 
-### Two-Repo Architecture
+### Architecture
 
-This project works in tandem with **scopecam-engine** (located at `../scopecam-engine`):
-
-| Repository | Purpose | Primary Language |
-|------------|---------|------------------|
-| **uvccamera-experimental** | libuvc source, ndk-build, JNI bridge | C/C++ |
-| **scopecam-engine** | Kotlin app, native C++20, consumes prebuilt .so | Kotlin/C++ |
-
-### Sync Workflow
-
-After making changes in uvccamera-experimental:
-
-```bash
-# Build and sync to scopecam-engine
-mise run sync
-
-# Or manually:
-./tools/sync_to_engine.sh
+```
+uvccamera-experimental              scopecam-engine
+├── libuvc (test changes here)     ├── third_party/ (vendors source)
+├── libusb                         ├── patches/ (applies our patches)
+├── libjpeg-turbo                  └── libscopecam-engine.so (builds)
+└── Test harness app
 ```
 
-**What gets synced (dependency libraries only):**
-- `libuvc.so` - Core UVC library (refactored here)
-- `libusb100.so` - USB support
-- `libjpeg-turbo1500.so` - JPEG encoding
+### Communication Channel
 
-**NOT synced:** `libUVCCamera.so` - scopecam-engine builds its own via CMake/C++20
+**Patches flow from here → scopecam-engine**
 
-**Destination:** `../scopecam-engine/nativecode/src/main/libs/{ABI}/`
+1. We create and test patches
+2. We document changes
+3. scopecam-engine reviews and applies
+4. They build from source
 
-### Build Manifest
+### Key Understanding
 
-The sync script generates `lib/src/main/jni/include/uvc_build_manifest.h`:
-- Git SHA and timestamp
-- SHA256 hashes of all prebuilt libraries
-- NDK version for reproducibility
+- scopecam-engine **vendors source** in `third_party/`
+- scopecam-engine **builds everything** with CMake
+- scopecam-engine **owns its build ID** and provenance
+- We **prove changes work** before they adopt them
 
-### Cross-Repo Agent Instructions
+---
 
-When working on features that span both repos:
+## Test Build Identification
 
-1. **Make changes here first** (uvccamera-experimental)
-2. **Run sync** to update scopecam-engine prebuilts
-3. **Switch context** to scopecam-engine for Kotlin/C++20 integration
-4. **Reference**: scopecam-engine has its own CLAUDE.md with project context
+Builds from this repository are clearly marked as test builds:
 
-### Verification
-
-After sync, in scopecam-engine:
-```bash
-# Build the app
-./gradlew assembleDebug
-
-# Check logcat for build ID
-adb logcat | grep 'libuvc build'
-# Expected: libuvc build: uvccamera-experimental:<sha>@<timestamp>
 ```
+=== uvccamera-experimental TEST BUILD ===
+Build: uvccamera-experimental-<date>-<time>
+WARNING: This is a test build, not for production use
+```
+
+This distinguishes test builds from scopecam-engine's production builds.
 
 ---
 
