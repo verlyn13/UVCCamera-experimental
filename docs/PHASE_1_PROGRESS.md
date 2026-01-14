@@ -243,19 +243,166 @@ D/libuvc: Control cache cleared
 
 ---
 
+## Task 1.3: Empirical Inference (2026-01-13)
+
+**Status:** ✅ **COMPLETE**
+
+### Implementation Summary
+
+Implemented professional-grade empirical control discovery with thread safety, temporal guards, and blacklisting for non-compliant devices.
+
+### Phase 0: Safety Foundation
+
+**Replaced dangerous zero timeout:**
+```c
+// Before: #define CTRL_TIMEOUT_MILLIS 0
+#define CTRL_TIMEOUT_MILLIS 1000      // Standard operations
+#define PROBE_TIMEOUT_MILLIS 500      // Empirical probes
+#define PROBE_COOLDOWN_MS 50          // Temporal guard
+```
+
+### Phase 1: Header Enhancements
+
+**1A: Added BLACKLIST state:**
+```c
+typedef enum uvc_ctrl_cap_source {
+    UVC_CAP_SOURCE_UNKNOWN = 0,
+    UVC_CAP_SOURCE_GET_INFO = 1,
+    UVC_CAP_SOURCE_EMPIRICAL = 2,
+    UVC_CAP_SOURCE_FALLBACK = 3,
+    UVC_CAP_SOURCE_BLACKLIST = 4   // NEW: Never touch again
+} uvc_ctrl_cap_source_t;
+```
+
+**1B: Extended cache entry with metadata:**
+```c
+typedef struct uvc_ctrl_cache_entry {
+    uint8_t unit;
+    uint8_t ctrl;
+    uvc_ctrl_caps_t caps;
+    uvc_ctrl_cap_source_t source;
+    uint64_t last_probe_time_ms;   // NEW: Temporal guard
+    struct uvc_ctrl_cache_entry *next;
+} uvc_ctrl_cache_entry_t;
+```
+
+**1C: Added control mutex:**
+```c
+struct uvc_device_handle {
+    // ...
+    pthread_mutex_t ctrl_mutex;    // NEW: Thread-safe probing
+    // ...
+};
+```
+
+### Phase 2: Core Implementation
+
+**2A: Monotonic timestamp helper:**
+```c
+static uint64_t get_monotonic_time_ms(void);
+```
+
+**2B: Updated cache store with timestamp**
+
+**2C: Empirical probe function:**
+```c
+static uvc_error_t uvc_probe_control_empirical(
+    uvc_device_handle_t *devh,
+    uint8_t unit,
+    uint8_t ctrl,
+    uvc_ctrl_cache_entry_t *entry);
+```
+
+**Protocol:**
+1. Acquire `ctrl_mutex` for thread safety
+2. Enforce 50ms cooldown between probes
+3. GET_CUR to test read capability
+4. SET_CUR(same value) for No-Op write test
+5. Blacklist on STALL/TIMEOUT
+
+### Phase 3: Integration
+
+**Smart GET_INFO fallback chain:**
+```
+1. Check cache → return if BLACKLIST/VERIFIED/EMPIRICAL
+2. Attempt GET_INFO (UVC 1.5 compliant)
+3. On failure → Try empirical probe
+4. On probe failure → Use safe fallback
+5. Blacklisted controls return UVC_ERROR_NOT_SUPPORTED
+```
+
+### Phase 4: Device Lifecycle
+
+- Initialize `ctrl_mutex` in `uvc_open()`
+- Destroy `ctrl_mutex` in `uvc_free_devh()`
+
+### Build Verification
+
+```bash
+mise run build-native
+```
+
+**Result:** ✅ Success
+- arm64-v8a: Compiled successfully
+- armeabi-v7a: Compiled successfully
+- No compiler warnings or errors
+
+### Files Modified
+
+1. **`lib/src/main/jni/libuvc/include/libuvc/libuvc.h`**
+   - Added `UVC_CAP_SOURCE_BLACKLIST` state
+
+2. **`lib/src/main/jni/libuvc/include/libuvc/libuvc_internal.h`**
+   - Extended cache entry with `last_probe_time_ms`
+   - Added `ctrl_mutex` to device handle
+
+3. **`lib/src/main/jni/libuvc/src/ctrl.c`**
+   - Replaced `CTRL_TIMEOUT_MILLIS 0` with `1000`
+   - Added `PROBE_TIMEOUT_MILLIS 500`
+   - Added `PROBE_COOLDOWN_MS 50`
+   - Implemented `get_monotonic_time_ms()`
+   - Implemented `uvc_probe_control_empirical()`
+   - Integrated empirical fallback into `uvc_get_info()`
+
+4. **`lib/src/main/jni/libuvc/src/device.c`**
+   - Initialize `ctrl_mutex` in `uvc_open()`
+   - Destroy `ctrl_mutex` in `uvc_free_devh()`
+
+### Key Features
+
+**Thread Safety:**
+- All control transfers during probing are serialized by `ctrl_mutex`
+- Prevents race conditions in multi-threaded environments
+
+**Temporal Guard:**
+- 50ms cooldown prevents rapid-fire probing
+- Protects devices from hang-inducing probe storms
+
+**Blacklisting:**
+- STALL/TIMEOUT during probe → permanent blacklist
+- Blacklisted controls return `UVC_ERROR_NOT_SUPPORTED`
+- Never touch blacklisted controls again
+
+**No-Op Protocol:**
+- GET_CUR reads current value
+- SET_CUR writes back same value
+- Tests writability without side effects
+
+### State Machine
+
+| State | Meaning | Next Action |
+|-------|---------|-------------|
+| UNKNOWN | Not yet probed | Will probe |
+| GET_INFO | UVC-compliant | Trusted |
+| EMPIRICAL | No-Op probe succeeded | Trusted |
+| FALLBACK | Both failed | Risky but usable |
+| BLACKLIST | Caused hang/crash | **Never touch** |
+
+---
+
 ## What's Next
 
 ### Remaining Phase 1 Tasks
-
-#### 1.3: GET_INFO Fallback Enhancement
-- [ ] Implement empirical inference from GET_CUR/SET_CUR attempts
-- [ ] Track which controls have been empirically tested
-- [ ] Update cache with empirical results
-
-#### 1.3: GET_INFO Fallback Enhancement
-- [ ] Implement empirical inference from GET_CUR/SET_CUR attempts
-- [ ] Track which controls have been empirically tested
-- [ ] Update cache with empirical results
 
 #### 1.4: Verification Testing
 - [ ] Test exposure control on Linux (uvcvideo comparison)

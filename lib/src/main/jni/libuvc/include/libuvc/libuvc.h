@@ -246,13 +246,15 @@ typedef struct uvc_ctrl_caps {
 } uvc_ctrl_caps_t;
 
 /** Source of control capability information (Phase 1, DECISION-011)
+ * Extended to support empirical inference and blacklisting (Task 1.3)
  * @ingroup ctrl
  */
 typedef enum uvc_ctrl_cap_source {
 	UVC_CAP_SOURCE_UNKNOWN = 0,    // Not yet queried
 	UVC_CAP_SOURCE_GET_INFO = 1,   // From GET_INFO request
 	UVC_CAP_SOURCE_EMPIRICAL = 2,  // Inferred from GET/SET attempts
-	UVC_CAP_SOURCE_FALLBACK = 3    // Device timeout/stall, assumed defaults
+	UVC_CAP_SOURCE_FALLBACK = 3,   // Device timeout/stall, assumed defaults
+	UVC_CAP_SOURCE_BLACKLIST = 4   // Caused hang/crash; never touch again
 } uvc_ctrl_cap_source_t;
 
 enum uvc_device_power_mode {

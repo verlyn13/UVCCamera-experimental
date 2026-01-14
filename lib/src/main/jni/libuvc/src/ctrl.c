@@ -46,11 +46,34 @@
 
 #include "libuvc/libuvc.h"
 #include "libuvc/libuvc_internal.h"
+#include <time.h>
 
 static const int REQ_TYPE_SET = 0x21;
 static const int REQ_TYPE_GET = 0xa1;
 
-#define CTRL_TIMEOUT_MILLIS 0
+/** Default timeout for standard control transfers (Phase 1 Task 1.3, Phase 0)
+ * Non-zero timeout ensures libusb_control_transfer eventually returns.
+ * 1000ms is sufficient for compliant devices. */
+#define CTRL_TIMEOUT_MILLIS 1000
+
+/** Timeout for empirical probe operations (Phase 1 Task 1.3, Phase 0)
+ * More conservative timeout to prevent UI hangs during discovery.
+ * 500ms allows quick failure detection for non-compliant controls. */
+#define PROBE_TIMEOUT_MILLIS 500
+
+/** Cooldown period between probes on same control (Phase 1 Task 1.3, Phase 2A)
+ * Prevents rapid-fire probing that could hang the device. */
+#define PROBE_COOLDOWN_MS 50
+
+/**
+ * @brief Get monotonic timestamp in milliseconds (Phase 1 Task 1.3, Phase 2A)
+ * @internal
+ */
+static uint64_t get_monotonic_time_ms(void) {
+	struct timespec ts;
+	clock_gettime(CLOCK_MONOTONIC, &ts);
+	return (uint64_t)ts.tv_sec * 1000 + (uint64_t)ts.tv_nsec / 1000000;
+}
 
 /***** GENERIC CONTROLS *****/
 /**
@@ -116,6 +139,7 @@ static uvc_ctrl_cache_entry_t* uvc_find_ctrl_cache(
 
 /**
  * @brief Store control capabilities in cache (Phase 1 Task 1.2)
+ * Updated to include timestamp (Phase 1 Task 1.3, Phase 2B)
  * @internal
  */
 static void uvc_store_ctrl_cache(uvc_device_handle_t *devh, uint8_t unit,
@@ -130,10 +154,12 @@ static void uvc_store_ctrl_cache(uvc_device_handle_t *devh, uint8_t unit,
 	entry->ctrl = ctrl;
 	entry->caps = *caps;
 	entry->source = source;
+	entry->last_probe_time_ms = get_monotonic_time_ms();
 	entry->next = devh->ctrl_cache;
 	devh->ctrl_cache = entry;
 
-	LOGD("Cached capabilities: unit=%u ctrl=%u source=%d", unit, ctrl, source);
+	LOGD("Cached capabilities: unit=%u ctrl=%u source=%d time=%llu",
+		unit, ctrl, source, (unsigned long long)entry->last_probe_time_ms);
 }
 
 /**
@@ -150,6 +176,111 @@ void uvc_clear_ctrl_cache(uvc_device_handle_t *devh) {
 	}
 	devh->ctrl_cache = NULL;
 	LOGD("Control cache cleared");
+}
+
+/**
+ * @brief Empirically probe control capabilities (Phase 1 Task 1.3, Phase 2C)
+ *
+ * Performs No-Op probe protocol:
+ * 1. GET_CUR to test read capability
+ * 2. SET_CUR(same value) to test write capability without side effects
+ *
+ * @param devh Device handle
+ * @param unit Terminal or Unit ID
+ * @param ctrl Control selector
+ * @param entry Cache entry to populate (must exist)
+ * @return UVC_SUCCESS if probe succeeded, error code otherwise
+ * @internal
+ */
+static uvc_error_t uvc_probe_control_empirical(
+		uvc_device_handle_t *devh,
+		uint8_t unit,
+		uint8_t ctrl,
+		uvc_ctrl_cache_entry_t *entry) {
+
+	if (!devh || !entry) {
+		return UVC_ERROR_INVALID_PARAM;
+	}
+
+	uvc_error_t ret;
+	uint8_t data[64];  // Max control value size
+	int len;
+	uint64_t now = get_monotonic_time_ms();
+
+	// Thread safety: Acquire control lock
+	pthread_mutex_lock(&devh->ctrl_mutex);
+
+	// Temporal guard: Enforce cooldown
+	if (entry->last_probe_time_ms > 0 &&
+			(now - entry->last_probe_time_ms) < PROBE_COOLDOWN_MS) {
+		LOGD("Probe cooldown active for unit=%u ctrl=%u", unit, ctrl);
+		pthread_mutex_unlock(&devh->ctrl_mutex);
+		return UVC_ERROR_BUSY;
+	}
+
+	// Initialize entry state
+	entry->caps.supports_get = 0;
+	entry->caps.supports_set = 0;
+	entry->caps.disabled = 0;
+	entry->caps.autoupdate = 0;
+	entry->caps.asynchronous = 0;
+	entry->source = UVC_CAP_SOURCE_EMPIRICAL;
+	entry->last_probe_time_ms = now;
+
+	// Phase A: Empirical GET discovery
+	len = libusb_control_transfer(
+		devh->usb_devh,
+		REQ_TYPE_GET, UVC_GET_CUR,
+		ctrl << 8,
+		unit << 8,
+		data, sizeof(data),
+		PROBE_TIMEOUT_MILLIS
+	);
+
+	if (len < 0) {
+		ret = (uvc_error_t)len;
+
+		if (ret == LIBUSB_ERROR_PIPE) {
+			// STALL: Hardware explicitly rejects this control
+			LOGW("Empirical GET_CUR STALL: unit=%u ctrl=%u → Blacklisting", unit, ctrl);
+			entry->source = UVC_CAP_SOURCE_BLACKLIST;
+		} else if (ret == LIBUSB_ERROR_TIMEOUT) {
+			// TIMEOUT: Non-responsive; blacklist to prevent future hangs
+			LOGE("Empirical GET_CUR TIMEOUT: unit=%u ctrl=%u → Blacklisting", unit, ctrl);
+			entry->source = UVC_CAP_SOURCE_BLACKLIST;
+		} else {
+			LOGW("Empirical GET_CUR failed: unit=%u ctrl=%u error=%d", unit, ctrl, ret);
+		}
+		pthread_mutex_unlock(&devh->ctrl_mutex);
+		return ret;
+	}
+
+	// GET succeeded
+	entry->caps.supports_get = 1;
+	ret = UVC_SUCCESS;
+
+	// Phase B: Empirical SET discovery (No-Op write)
+	// Write back exactly what we read → tests writability without state change
+	int set_ret = libusb_control_transfer(
+		devh->usb_devh,
+		REQ_TYPE_SET, UVC_SET_CUR,
+		ctrl << 8,
+		unit << 8,
+		data, len,  // Use exact length from GET_CUR
+		PROBE_TIMEOUT_MILLIS
+	);
+
+	if (set_ret >= 0) {
+		entry->caps.supports_set = 1;
+		LOGI("Empirical probe SUCCESS: unit=%u ctrl=%u is R/W", unit, ctrl);
+	} else {
+		entry->caps.supports_set = 0;
+		LOGW("Empirical probe: unit=%u ctrl=%u is READ-ONLY (SET failed: %d)",
+			unit, ctrl, set_ret);
+	}
+
+	pthread_mutex_unlock(&devh->ctrl_mutex);
+	return ret;
 }
 
 /**
@@ -170,19 +301,38 @@ uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 		uvc_ctrl_caps_t *caps, uvc_ctrl_cap_source_t *source) {
 	unsigned char info_byte = 0;
 	int ret;
-	uvc_ctrl_cache_entry_t *cached;
+	uvc_ctrl_cache_entry_t *entry;
 
 	if (!devh || !caps || !source) {
 		return UVC_ERROR_INVALID_PARAM;
 	}
 
-	// Check cache first (Phase 1 Task 1.2)
-	cached = uvc_find_ctrl_cache(devh, unit, ctrl);
-	if (cached) {
-		*caps = cached->caps;
-		*source = cached->source;
+	// STEP 1: Cache lookup (Phase 1 Task 1.2)
+	entry = uvc_find_ctrl_cache(devh, unit, ctrl);
+	if (entry && entry->source != UVC_CAP_SOURCE_UNKNOWN) {
+		// Check for blacklisted controls (Phase 1 Task 1.3, Phase 3)
+		if (entry->source == UVC_CAP_SOURCE_BLACKLIST) {
+			LOGD("GET_INFO: unit=%u ctrl=%u is BLACKLISTED", unit, ctrl);
+			return UVC_ERROR_NOT_SUPPORTED;
+		}
+		*caps = entry->caps;
+		*source = entry->source;
 		LOGD("GET_INFO cache hit: unit=%u ctrl=%u source=%d", unit, ctrl, *source);
 		return UVC_SUCCESS;
+	}
+
+	// STEP 2: Create cache entry if needed
+	if (!entry) {
+		entry = (uvc_ctrl_cache_entry_t*)malloc(sizeof(uvc_ctrl_cache_entry_t));
+		if (!entry) {
+			return UVC_ERROR_NO_MEM;
+		}
+		entry->unit = unit;
+		entry->ctrl = ctrl;
+		entry->source = UVC_CAP_SOURCE_UNKNOWN;
+		entry->last_probe_time_ms = 0;
+		entry->next = devh->ctrl_cache;
+		devh->ctrl_cache = entry;
 	}
 
 	// Initialize output
@@ -205,20 +355,36 @@ uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 	LOGD("GET_INFO: unit=%u ctrl=%u ret=%d info=0x%02x", unit, ctrl, ret, info_byte);
 
 	if (ret < 0) {
-		// Device doesn't support GET_INFO or control doesn't exist
+		// STEP 4: GET_INFO failed - try empirical probe (Phase 1 Task 1.3, Phase 3)
 		if (ret == LIBUSB_ERROR_PIPE || ret == LIBUSB_ERROR_TIMEOUT) {
-			LOGW("GET_INFO failed (unit=%u ctrl=%u): %s - using fallback",
+			LOGW("GET_INFO failed (unit=%u ctrl=%u): %s - trying empirical probe",
 				unit, ctrl, libusb_error_name(ret));
-			*source = UVC_CAP_SOURCE_FALLBACK;
-			// Assume basic GET/SET support as fallback
-			caps->supports_get = 1;
-			caps->supports_set = 1;
-			caps->disabled = 0;
-			caps->autoupdate = 0;
-			caps->asynchronous = 0;
-			// Store fallback in cache (Phase 1 Task 1.2)
-			uvc_store_ctrl_cache(devh, unit, ctrl, caps, *source);
-			return UVC_SUCCESS;  // Soft failure - return success with fallback
+
+			// Attempt empirical discovery
+			uvc_error_t probe_ret = uvc_probe_control_empirical(devh, unit, ctrl, entry);
+
+			if (probe_ret == UVC_SUCCESS) {
+				// Empirical probe succeeded
+				*caps = entry->caps;
+				*source = entry->source;
+				LOGI("GET_INFO empirical fallback SUCCESS: unit=%u ctrl=%u", unit, ctrl);
+				return UVC_SUCCESS;
+			} else if (entry->source == UVC_CAP_SOURCE_BLACKLIST) {
+				// Control is blacklisted - never touch again
+				LOGW("GET_INFO: unit=%u ctrl=%u blacklisted after empirical probe", unit, ctrl);
+				return UVC_ERROR_NOT_SUPPORTED;
+			} else {
+				// Empirical probe also failed - use safe fallback
+				LOGW("GET_INFO: unit=%u ctrl=%u empirical probe failed - using safe fallback", unit, ctrl);
+				*source = UVC_CAP_SOURCE_FALLBACK;
+				caps->supports_get = 1;
+				caps->supports_set = 1;
+				caps->disabled = 0;
+				caps->autoupdate = 0;
+				caps->asynchronous = 0;
+				uvc_store_ctrl_cache(devh, unit, ctrl, caps, *source);
+				return UVC_SUCCESS;
+			}
 		}
 		return ret;  // Hard failure
 	}

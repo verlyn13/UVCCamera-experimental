@@ -265,13 +265,20 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 **Decision:** DECISION-011
 **Status:** Complete - cache eliminates repeated USB requests
 
-#### 1.3: GET_INFO Fallback
-- [ ] Handle timeout/stall gracefully
-- [ ] Implement empirical inference from GET_CUR/SET_CUR
-- [ ] Add `ctrl_cap_source_t` tracking
+#### 1.3: GET_INFO Fallback (Empirical Inference)
+- [x] Replace dangerous CTRL_TIMEOUT_MILLIS=0 with safe timeouts
+- [x] Add BLACKLIST state to uvc_ctrl_cap_source_t
+- [x] Extend cache entry with timestamp metadata
+- [x] Add ctrl_mutex for thread-safe probing
+- [x] Implement get_monotonic_time_ms() helper
+- [x] Implement uvc_probe_control_empirical() with No-Op protocol
+- [x] Integrate empirical fallback into uvc_get_info()
+- [x] Add device lifecycle (mutex init/destroy)
+- [x] Build verification (both ABIs)
 
-**Files:** `libuvc/src/ctrl.c`
+**Files:** `libuvc/src/ctrl.c`, `libuvc/src/device.c`, `libuvc/include/libuvc/libuvc.h`, `libuvc/include/libuvc/libuvc_internal.h`
 **Decision:** DECISION-011
+**Status:** Complete - professional-grade empirical discovery with thread safety and blacklisting
 
 #### 1.4: GET_INFO Verification
 - [ ] Test exposure control on Linux

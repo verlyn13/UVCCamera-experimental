@@ -287,12 +287,14 @@ struct uvc_stream_handle {
 
 /** Control capability cache entry (Phase 1, DECISION-011)
  * Caches GET_INFO results to avoid repeated USB control transfers
+ * Extended with metadata for empirical inference (Task 1.3, Phase 1B)
  */
 typedef struct uvc_ctrl_cache_entry {
   uint8_t unit;                    // Unit or Terminal ID
   uint8_t ctrl;                    // Control selector
   uvc_ctrl_caps_t caps;            // Cached capabilities
   uvc_ctrl_cap_source_t source;    // Source of capability info
+  uint64_t last_probe_time_ms;     // Timestamp of last probe attempt (monotonic)
   struct uvc_ctrl_cache_entry *next;  // Linked list
 } uvc_ctrl_cache_entry_t;
 
@@ -309,6 +311,8 @@ struct uvc_device_handle {
   struct libusb_transfer *status_xfer;
   /** Control capability cache (Phase 1, DECISION-011) */
   uvc_ctrl_cache_entry_t *ctrl_cache;
+  /** Mutex for thread-safe control probing (Phase 1 Task 1.3, Phase 1C) */
+  pthread_mutex_t ctrl_mutex;
   pthread_mutex_t status_mutex;	// XXX saki
   uint8_t status_buf[32];
   /** Function to call when we receive status updates from the camera */

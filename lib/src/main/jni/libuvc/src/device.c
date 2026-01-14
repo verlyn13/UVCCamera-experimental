@@ -289,6 +289,7 @@ uvc_error_t uvc_open(uvc_device_t *dev, uvc_device_handle_t **devh) {
 	internal_devh->usb_devh = usb_devh;
 	internal_devh->reset_on_release_if = 0;	// XXX
 	internal_devh->ctrl_cache = NULL;	// Phase 1 Task 1.2: Initialize cache
+	pthread_mutex_init(&internal_devh->ctrl_mutex, NULL);	// Phase 1 Task 1.3: Initialize control mutex
 	ret = uvc_get_device_info(dev, &(internal_devh->info));
 	pthread_mutex_init(&internal_devh->status_mutex, NULL);	// XXX saki
 
@@ -1531,18 +1532,17 @@ uvc_error_t uvc_parse_vs(uvc_device_t *dev, uvc_device_info_t *info,
  * @pre Streaming must be stopped, and threads must have died
  */
 void uvc_free_devh(uvc_device_handle_t *devh) {
-	UVC_ENTER();
-
-	pthread_mutex_destroy(&devh->status_mutex);	// XXX saki
-	if (devh->info)
+	if (LIKELY(devh->info)) {
 		uvc_free_device_info(devh->info);
+	}
 
-	if (devh->status_xfer)
+	pthread_mutex_destroy(&devh->ctrl_mutex);	// Phase 1 Task 1.3: Destroy control mutex
+	pthread_mutex_destroy(&devh->status_mutex);	// XXX saki
+
+	if (LIKELY(devh->status_xfer))
 		libusb_free_transfer(devh->status_xfer);
 
 	free(devh);
-
-	UVC_EXIT_VOID();
 }
 
 /** @brief Close a device
