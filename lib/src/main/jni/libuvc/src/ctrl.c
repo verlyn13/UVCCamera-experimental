@@ -99,6 +99,60 @@ int uvc_get_ctrl(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 }
 
 /**
+ * @brief Look up cached control capabilities (Phase 1 Task 1.2)
+ * @internal
+ */
+static uvc_ctrl_cache_entry_t* uvc_find_ctrl_cache(
+		uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl) {
+	uvc_ctrl_cache_entry_t *entry = devh->ctrl_cache;
+	while (entry) {
+		if (entry->unit == unit && entry->ctrl == ctrl) {
+			return entry;
+		}
+		entry = entry->next;
+	}
+	return NULL;
+}
+
+/**
+ * @brief Store control capabilities in cache (Phase 1 Task 1.2)
+ * @internal
+ */
+static void uvc_store_ctrl_cache(uvc_device_handle_t *devh, uint8_t unit,
+		uint8_t ctrl, const uvc_ctrl_caps_t *caps, uvc_ctrl_cap_source_t source) {
+	uvc_ctrl_cache_entry_t *entry = (uvc_ctrl_cache_entry_t*)malloc(sizeof(uvc_ctrl_cache_entry_t));
+	if (!entry) {
+		LOGW("Failed to allocate cache entry for unit=%u ctrl=%u", unit, ctrl);
+		return;
+	}
+
+	entry->unit = unit;
+	entry->ctrl = ctrl;
+	entry->caps = *caps;
+	entry->source = source;
+	entry->next = devh->ctrl_cache;
+	devh->ctrl_cache = entry;
+
+	LOGD("Cached capabilities: unit=%u ctrl=%u source=%d", unit, ctrl, source);
+}
+
+/**
+ * @brief Clear all cached control capabilities (Phase 1 Task 1.2)
+ * Called when device is closed
+ * @internal
+ */
+void uvc_clear_ctrl_cache(uvc_device_handle_t *devh) {
+	uvc_ctrl_cache_entry_t *entry = devh->ctrl_cache;
+	while (entry) {
+		uvc_ctrl_cache_entry_t *next = entry->next;
+		free(entry);
+		entry = next;
+	}
+	devh->ctrl_cache = NULL;
+	LOGD("Control cache cleared");
+}
+
+/**
  * @brief Query control capabilities using GET_INFO (Phase 1, DECISION-011)
  *
  * Queries the device for control capabilities per UVC 1.5 spec section 4.1.2.
@@ -116,9 +170,19 @@ uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 		uvc_ctrl_caps_t *caps, uvc_ctrl_cap_source_t *source) {
 	unsigned char info_byte = 0;
 	int ret;
+	uvc_ctrl_cache_entry_t *cached;
 
 	if (!devh || !caps || !source) {
 		return UVC_ERROR_INVALID_PARAM;
+	}
+
+	// Check cache first (Phase 1 Task 1.2)
+	cached = uvc_find_ctrl_cache(devh, unit, ctrl);
+	if (cached) {
+		*caps = cached->caps;
+		*source = cached->source;
+		LOGD("GET_INFO cache hit: unit=%u ctrl=%u source=%d", unit, ctrl, *source);
+		return UVC_SUCCESS;
 	}
 
 	// Initialize output
@@ -152,6 +216,8 @@ uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 			caps->disabled = 0;
 			caps->autoupdate = 0;
 			caps->asynchronous = 0;
+			// Store fallback in cache (Phase 1 Task 1.2)
+			uvc_store_ctrl_cache(devh, unit, ctrl, caps, *source);
 			return UVC_SUCCESS;  // Soft failure - return success with fallback
 		}
 		return ret;  // Hard failure
@@ -162,6 +228,8 @@ uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 		*source = UVC_CAP_SOURCE_FALLBACK;
 		caps->supports_get = 1;
 		caps->supports_set = 1;
+		// Store fallback in cache (Phase 1 Task 1.2)
+		uvc_store_ctrl_cache(devh, unit, ctrl, caps, *source);
 		return UVC_SUCCESS;
 	}
 
@@ -176,6 +244,9 @@ uvc_error_t uvc_get_info(uvc_device_handle_t *devh, uint8_t unit, uint8_t ctrl,
 	LOGI("GET_INFO success: unit=%u ctrl=%u get=%d set=%d disabled=%d auto=%d async=%d",
 		unit, ctrl, caps->supports_get, caps->supports_set, caps->disabled,
 		caps->autoupdate, caps->asynchronous);
+
+	// Store in cache (Phase 1 Task 1.2)
+	uvc_store_ctrl_cache(devh, unit, ctrl, caps, *source);
 
 	return UVC_SUCCESS;
 }

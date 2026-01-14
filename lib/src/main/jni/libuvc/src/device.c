@@ -288,6 +288,7 @@ uvc_error_t uvc_open(uvc_device_t *dev, uvc_device_handle_t **devh) {
 	internal_devh->dev = dev;
 	internal_devh->usb_devh = usb_devh;
 	internal_devh->reset_on_release_if = 0;	// XXX
+	internal_devh->ctrl_cache = NULL;	// Phase 1 Task 1.2: Initialize cache
 	ret = uvc_get_device_info(dev, &(internal_devh->info));
 	pthread_mutex_init(&internal_devh->status_mutex, NULL);	// XXX saki
 
@@ -839,7 +840,7 @@ uvc_error_t uvc_claim_if(uvc_device_handle_t *devh, int idx) {
 	/* Tell libusb to detach any active kernel drivers. libusb will keep track of whether
 	 * it found a kernel driver for this interface. */
 	ret = libusb_detach_kernel_driver(devh->usb_devh, idx);
-	
+
 	if LIKELY(!ret || ret == LIBUSB_ERROR_NOT_FOUND || ret == LIBUSB_ERROR_NOT_SUPPORTED) {
 		UVC_DEBUG("claiming interface %d", idx);
 		ret = libusb_claim_interface(devh->usb_devh, idx);
@@ -1458,18 +1459,18 @@ uvc_error_t uvc_parse_vs_frame_uncompressed(
 			p += 4;
 		}
 		frame->intervals[n] = 0;
-		
+
 		frame->dwDefaultFrameInterval
 			= MIN(frame->intervals[n-1],
 				MAX(frame->intervals[0], frame->dwDefaultFrameInterval));
 	}
-	
+
 	if (frame_type == UVC_VS_FRAME_UNCOMPRESSED) {
 		frame->dwMaxVideoFrameBufferSize
 			= format->bBitsPerPixel * frame->wWidth * frame->wHeight / 8;
 	}
-	
-	
+
+
 	DL_APPEND(format->frame_descs, frame);
 
 	UVC_EXIT(UVC_SUCCESS);
@@ -1560,6 +1561,9 @@ void uvc_close(uvc_device_handle_t *devh) {
 
 	if (devh->streams)
 		uvc_stop_streaming(devh);
+
+	// Phase 1 Task 1.2: Clear control cache
+	uvc_clear_ctrl_cache(devh);
 
 	uvc_release_if(devh, devh->info->ctrl_if.bInterfaceNumber);
 

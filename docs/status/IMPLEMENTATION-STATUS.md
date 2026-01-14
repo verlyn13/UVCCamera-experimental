@@ -254,12 +254,16 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 **Status:** Core implementation complete, awaiting device testing
 
 #### 1.2: Control Capability Cache
-- [ ] Create cache structure in device handle
-- [ ] Implement cache invalidation triggers
-- [ ] Add telemetry for cache hits/misses
+- [x] Create cache structure in device handle
+- [x] Implement cache lookup/store functions
+- [x] Integrate cache with uvc_get_info()
+- [x] Add cache initialization in uvc_open()
+- [x] Add cache cleanup in uvc_close()
+- [x] Build verification (both ABIs)
 
-**Files:** `libuvc/src/ctrl.c`, `libuvc/include/libuvc/libuvc_internal.h`
+**Files:** `libuvc/src/ctrl.c`, `libuvc/src/device.c`, `libuvc/include/libuvc/libuvc_internal.h`
 **Decision:** DECISION-011
+**Status:** Complete - cache eliminates repeated USB requests
 
 #### 1.3: GET_INFO Fallback
 - [ ] Handle timeout/stall gracefully

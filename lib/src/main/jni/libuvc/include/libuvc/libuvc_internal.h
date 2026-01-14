@@ -261,13 +261,15 @@ struct uvc_stream_handle {
   /** Current control block */
   struct uvc_stream_ctrl cur_ctrl;
 
-  /* listeners may only access hold*, and only when holding a 
+  /* listeners may only access hold*, and only when holding a
    * lock on cb_mutex (probably signaled with cb_cond) */
   uint8_t bfh_err, hold_bfh_err;	// XXX added to keep UVC_STREAM_ERR
   uint8_t fid;
   uint32_t seq, hold_seq;
   uint32_t pts, hold_pts;
   uint32_t last_scr, hold_last_scr;
+  uint8_t pts_valid, hold_pts_valid;
+  uint8_t scr_valid, hold_scr_valid;
   size_t got_bytes, hold_bytes;
   size_t size_buf;	// XXX add for boundary check
   uint8_t *outbuf, *holdbuf;
@@ -283,6 +285,17 @@ struct uvc_stream_handle {
   enum uvc_frame_format frame_format;
 };
 
+/** Control capability cache entry (Phase 1, DECISION-011)
+ * Caches GET_INFO results to avoid repeated USB control transfers
+ */
+typedef struct uvc_ctrl_cache_entry {
+  uint8_t unit;                    // Unit or Terminal ID
+  uint8_t ctrl;                    // Control selector
+  uvc_ctrl_caps_t caps;            // Cached capabilities
+  uvc_ctrl_cap_source_t source;    // Source of capability info
+  struct uvc_ctrl_cache_entry *next;  // Linked list
+} uvc_ctrl_cache_entry_t;
+
 /** Handle on an open UVC device
  *
  * @todo move most of this into a uvc_device struct?
@@ -294,6 +307,8 @@ struct uvc_device_handle {
   libusb_device_handle *usb_devh;
   struct uvc_device_info *info;
   struct libusb_transfer *status_xfer;
+  /** Control capability cache (Phase 1, DECISION-011) */
+  uvc_ctrl_cache_entry_t *ctrl_cache;
   pthread_mutex_t status_mutex;	// XXX saki
   uint8_t status_buf[32];
   /** Function to call when we receive status updates from the camera */
@@ -330,6 +345,9 @@ uvc_error_t uvc_query_stream_ctrl(
 void uvc_start_handler_thread(uvc_context_t *ctx);
 uvc_error_t uvc_claim_if(uvc_device_handle_t *devh, int idx);
 uvc_error_t uvc_release_if(uvc_device_handle_t *devh, int idx);
+
+// Phase 1 Task 1.2: Control cache management
+void uvc_clear_ctrl_cache(uvc_device_handle_t *devh);
 
 #endif // !def(LIBUVC_INTERNAL_H)
 /** @endcond */
