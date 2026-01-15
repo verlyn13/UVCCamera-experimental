@@ -87,7 +87,7 @@ typedef struct {
 	jmethodID onFrame;
 } Fields_iframecallback;
 
-// Capture callback function type
+// Capture callback function type (v1 - legacy)
 // Parameters: data, dataSize, width, height, format, timestampNs
 typedef void (*captureCallbackFunc_t)(
     void* userData,
@@ -97,6 +97,21 @@ typedef void (*captureCallbackFunc_t)(
     int height,
     int format,
     int64_t timestampNs
+);
+
+// Capture callback function type v2 (Phase 0, DECISION-018)
+// Adds PTS/SCR timestamp fields from UVC payload header
+typedef void (*captureCallbackFunc_v2_t)(
+    void* userData,
+    const uint8_t* data,
+    size_t dataSize,
+    int width,
+    int height,
+    int format,
+    int64_t timestampNs,
+    uint32_t ptsRaw,
+    uint32_t scrRaw,
+    uint8_t timestampFlags
 );
 
 class UVCPreview {

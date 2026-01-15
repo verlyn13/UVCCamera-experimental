@@ -25,6 +25,7 @@
 #include "_onload.h"
 #include "utilbase.h"
 #include "LayoutContract.h"
+#include "../include/uvc_build_manifest.h"
 
 #define LOCAL_DEBUG 0
 
@@ -40,13 +41,24 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     LOGD("JNI_OnLoad");
 #endif
 
+    // ========== uvccamera-experimental TEST BUILD IDENTIFICATION ==========
+    // This is a SANDBOX build for testing, NOT for production use.
+    // See docs/PROMOTION_WORKFLOW.md for the correct workflow.
+#if defined(UVC_EXPERIMENTAL_BUILD) && UVC_EXPERIMENTAL_BUILD
+    LOGI("=======================================================");
+    LOGI("=== uvccamera-experimental TEST BUILD ===");
+    LOGI("=== Git: %s  Built: %s ===", UVC_BUILD_GIT_SHA, UVC_BUILD_TIMESTAMP);
+    LOGI("=== WARNING: This is a test build, NOT for production ===");
+    LOGI("=======================================================");
+#endif
+
     // ========== LAYOUT CONTRACT VALIDATION (P0 FIX - 2026-01-05) ==========
     // Run layout diagnostics first for tombstone correlation in case of crash
     LayoutContract::logLayoutDiagnostics();
     // Validate critical offsets - aborts if ABI is corrupted
     LayoutContract::validateCriticalOffsets();
 
-    // Log build ID for runtime verification (DECISION-017)
+    // Log libuvc build ID for runtime verification (DECISION-017)
     LOGI("libuvc build: %s", uvc_get_build_id());
 
     JNIEnv *env;

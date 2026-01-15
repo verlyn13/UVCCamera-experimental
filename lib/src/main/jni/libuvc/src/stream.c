@@ -58,6 +58,8 @@
 #endif
 
 #include <assert.h>		// XXX add assert for debugging
+#include <sys/resource.h>	// Thread priority (Phase 0, DECISION-007)
+#include <errno.h>			// For errno in priority testing
 
 #include "libuvc/libuvc.h"
 #include "libuvc/libuvc_internal.h"
@@ -68,6 +70,19 @@ uvc_frame_desc_t *uvc_find_frame_desc(uvc_device_handle_t *devh,
 		uint16_t format_id, uint16_t frame_id);
 static void *_uvc_user_caller(void *arg);
 static void _uvc_populate_frame(uvc_stream_handle_t *strmh);
+
+/** Get clock frequency with fallback (Phase 0, DECISION-006)
+ * @param ctrl Stream control structure
+ * @return Clock frequency in Hz, or 15MHz default if invalid
+ */
+static inline uint32_t getClockFrequency(const uvc_stream_ctrl_t* ctrl) {
+	if (ctrl && ctrl->dwClockFrequency > 0 && ctrl->dwClockFrequency < 1000000000) {
+		return ctrl->dwClockFrequency;
+	}
+	LOGW("Clock frequency missing/invalid (%u), using 15MHz default",
+		ctrl ? ctrl->dwClockFrequency : 0);
+	return 15000000;  // Common UVC default (15MHz)
+}
 
 struct format_table_entry {
 	enum uvc_frame_format format;
@@ -82,7 +97,7 @@ struct format_table_entry *_get_format_entry(enum uvc_frame_format format) {
     case _fmt: { \
     static enum uvc_frame_format _fmt##_children[] = __VA_ARGS__; \
     static struct format_table_entry _fmt##_entry = { \
-      _fmt, 0, {}, ARRAYSIZE(_fmt##_children), _fmt##_children }; \
+      _fmt, 1, {}, ARRAYSIZE(_fmt##_children), _fmt##_children }; /* abstract_fmt=1 (Phase 0 bug fix) */ \
     return &_fmt##_entry; }
 
 #define FMT(_fmt, ...) \
@@ -96,8 +111,9 @@ struct format_table_entry *_get_format_entry(enum uvc_frame_format format) {
 	ABS_FMT(UVC_FRAME_FORMAT_ANY,
 		{UVC_FRAME_FORMAT_UNCOMPRESSED, UVC_FRAME_FORMAT_COMPRESSED})
 
+	/* Include BY8 in UNCOMPRESSED children (Phase 0 bug fix) */
 	ABS_FMT(UVC_FRAME_FORMAT_UNCOMPRESSED,
-		{UVC_FRAME_FORMAT_YUYV, UVC_FRAME_FORMAT_UYVY, UVC_FRAME_FORMAT_GRAY8})
+		{UVC_FRAME_FORMAT_YUYV, UVC_FRAME_FORMAT_UYVY, UVC_FRAME_FORMAT_GRAY8, UVC_FRAME_FORMAT_BY8})
 	FMT(UVC_FRAME_FORMAT_YUYV,
 		{'Y', 'U', 'Y', '2', 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71})
 	FMT(UVC_FRAME_FORMAT_UYVY,
@@ -109,8 +125,10 @@ struct format_table_entry *_get_format_entry(enum uvc_frame_format format) {
 
 	ABS_FMT(UVC_FRAME_FORMAT_COMPRESSED,
 		{UVC_FRAME_FORMAT_MJPEG})
+	/* MJPEG GUID: Full 16-byte Windows GUID format (Phase 0 bug fix) */
 	FMT(UVC_FRAME_FORMAT_MJPEG,
-		{'M', 'J', 'P', 'G'})
+		{'M', 'J', 'P', 'G', 0x00, 0x00, 0x10, 0x00,
+		 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71})
 
 	default:
 		return NULL;
@@ -612,6 +630,8 @@ static void _uvc_swap_buffers(uvc_stream_handle_t *strmh) {
 		strmh->outbuf = tmp_buf;
 		strmh->hold_last_scr = strmh->last_scr;
 		strmh->hold_pts = strmh->pts;
+		strmh->hold_pts_valid = strmh->pts_valid;
+		strmh->hold_scr_valid = strmh->scr_valid;
 		strmh->hold_seq = strmh->seq;
 
 		pthread_cond_broadcast(&strmh->cb_cond);
@@ -622,6 +642,8 @@ static void _uvc_swap_buffers(uvc_stream_handle_t *strmh) {
 	strmh->got_bytes = 0;
 	strmh->last_scr = 0;
 	strmh->pts = 0;
+	strmh->pts_valid = 0;
+	strmh->scr_valid = 0;
 	strmh->bfh_err = 0;	// XXX
 }
 
@@ -660,7 +682,7 @@ static void _uvc_delete_transfer(struct libusb_transfer *transfer) {
 
 /** @internal
  * @brief Process a payload transfer
- * 
+ *
  * Processes stream, places frames into buffer, signals listeners
  * (such as user callback thread and any polling thread) on new frame
  *
@@ -745,22 +767,27 @@ static void _uvc_process_payload(uvc_stream_handle_t *strmh, const uint8_t *payl
 			// XXX saki some camera may send broken packet or failed to receive all data
 			if (LIKELY(variable_offset + 4 <= header_len)) {
 				strmh->pts = DW_TO_INT(payload + variable_offset);
+				strmh->pts_valid = 1;
 				variable_offset += 4;
 			} else {
 				MARK("bogus packet: header info has UVC_STREAM_PTS, but no data");
 				strmh->pts = 0;
+				strmh->pts_valid = 0;
 			}
 		}
 
 		if (header_info & UVC_STREAM_SCR) {
-			// @todo read the SOF token counter
-			// XXX saki some camera may send broken packet or failed to receive all data
-			if (LIKELY(variable_offset + 4 <= header_len)) {
-				strmh->last_scr = DW_TO_INT(payload + variable_offset);
-				variable_offset += 4;
+			/* SCR = 4 bytes STC + 2 bytes SOF (6 bytes total per UVC 1.5 spec)
+			 * Phase 0 bug fix: was reading 4 bytes, now reads 6 */
+			if (LIKELY(variable_offset + 6 <= header_len)) {
+				strmh->last_scr = DW_TO_INT(payload + variable_offset);  /* STC */
+				strmh->scr_valid = 1;
+				/* SOF available at: SW_TO_SHORT(payload + variable_offset + 4) */
+				variable_offset += 6;
 			} else {
-				MARK("bogus packet: header info has UVC_STREAM_SCR, but no data");
+				MARK("bogus packet: header info has UVC_STREAM_SCR, but insufficient data");
 				strmh->last_scr = 0;
+				strmh->scr_valid = 0;
 			}
 		}
 	}
@@ -889,19 +916,27 @@ static inline void _uvc_process_payload_iso(uvc_stream_handle_t *strmh, struct l
 					// XXX saki some camera may send broken packet or failed to receive all data
 					if (LIKELY(header_len >= 6)) {
 						strmh->pts = DW_TO_INT(pktbuf + 2);
+						strmh->pts_valid = 1;
 					} else {
 						MARK("bogus packet: header info has UVC_STREAM_PTS, but no data");
 						strmh->pts = 0;
+						strmh->pts_valid = 0;
 					}
 				}
 
 				if (header_info & UVC_STREAM_SCR) {
-					// XXX saki some camera may send broken packet or failed to receive all data
-					if (LIKELY(header_len >= 10)) {
-						strmh->last_scr = DW_TO_INT(pktbuf + 6);
+					/* SCR = 4 bytes STC + 2 bytes SOF (6 bytes total per UVC 1.5 spec)
+					 * Header layout: [len(1)][info(1)][PTS(4)][SCR(6)]
+					 * Minimum header_len for PTS+SCR = 2 + 4 + 6 = 12
+					 * Phase 0 bug fix: was checking >= 10, now >= 12 */
+					if (LIKELY(header_len >= 12)) {
+						strmh->last_scr = DW_TO_INT(pktbuf + 6);  /* STC at offset 6 */
+						strmh->scr_valid = 1;
+						/* SOF available at: SW_TO_SHORT(pktbuf + 10) */
 					} else {
-						MARK("bogus packet: header info has UVC_STREAM_SCR, but no data");
+						MARK("bogus packet: header info has UVC_STREAM_SCR, but insufficient data");
 						strmh->last_scr = 0;
+						strmh->scr_valid = 0;
 					}
 				}
 
@@ -929,11 +964,18 @@ static inline void _uvc_process_payload_iso(uvc_stream_handle_t *strmh, struct l
 			// from "if (pkt->actual_length - header_len > 0)"
 			if (LIKELY(pkt->actual_length > header_len)) {
 				const size_t odd_bytes = pkt->actual_length - header_len;
-				assert(strmh->got_bytes + odd_bytes < strmh->size_buf);
-				assert(strmh->outbuf);
-				assert(pktbuf);
-				memcpy(strmh->outbuf + strmh->got_bytes, pktbuf + header_len, odd_bytes);
-				strmh->got_bytes += odd_bytes;
+				/* Replace production asserts with bounds checks (Phase 0 bug fix) */
+				if (UNLIKELY(!strmh->outbuf || !pktbuf)) {
+					MARK("bogus packet: null buffer pointer");
+					strmh->bfh_err |= UVC_STREAM_ERR;
+				} else if (UNLIKELY(strmh->got_bytes + odd_bytes >= strmh->size_buf)) {
+					LOGE("Buffer overflow prevented: got_bytes=%zu + odd_bytes=%zu >= size_buf=%zu",
+						 strmh->got_bytes, odd_bytes, strmh->size_buf);
+					strmh->bfh_err |= UVC_STREAM_ERR;
+				} else {
+					memcpy(strmh->outbuf + strmh->got_bytes, pktbuf + header_len, odd_bytes);
+					strmh->got_bytes += odd_bytes;
+				}
 			}
 #ifdef USE_EOF
 			if ((pktbuf[1] & UVC_STREAM_EOF) && strmh->got_bytes != 0) {
@@ -952,7 +994,7 @@ static inline void _uvc_process_payload_iso(uvc_stream_handle_t *strmh, struct l
 
 /** @internal
  * @brief Isochronous transfer callback
- * 
+ *
  * Processes stream, places frames into buffer, signals listeners
  * (such as user callback thread and any polling thread) on new frame
  *
@@ -1045,7 +1087,7 @@ static void _uvc_stream_callback(struct libusb_transfer *transfer) {
 #if 0
 /** @internal
  * @brief Isochronous transfer callback
- * 
+ *
  * Processes stream, places frames into buffer, signals listeners
  * (such as user callback thread and any polling thread) on new frame
  *
@@ -1145,9 +1187,11 @@ static void _uvc_iso_callback(struct libusb_transfer *transfer) {
 						// XXX saki some camera may send broken packet or failed to receive all data
 						if (LIKELY(header_len >= 6)) {
 							strmh->pts = DW_TO_INT(pktbuf + 2);
+							strmh->pts_valid = 1;
 						} else {
 							MARK("bogus packet: header info has UVC_STREAM_PTS, but no data");
 							strmh->pts = 0;
+							strmh->pts_valid = 0;
 						}
 					}
 
@@ -1155,9 +1199,11 @@ static void _uvc_iso_callback(struct libusb_transfer *transfer) {
 						// XXX saki some camera may send broken packet or failed to receive all data
 						if (LIKELY(header_len >= 10)) {
 							strmh->last_scr = DW_TO_INT(pktbuf + 6);
+							strmh->scr_valid = 1;
 						} else {
 							MARK("bogus packet: header info has UVC_STREAM_SCR, but no data");
 							strmh->last_scr = 0;
+							strmh->scr_valid = 0;
 						}
 					}
 
@@ -1440,6 +1486,8 @@ uvc_error_t uvc_stream_start_bandwidth(uvc_stream_handle_t *strmh,
 	strmh->fid = 0;
 	strmh->pts = 0;
 	strmh->last_scr = 0;
+	strmh->pts_valid = 0;
+	strmh->scr_valid = 0;
 	strmh->bfh_err = 0;	// XXX
 
 	frame_desc = uvc_find_frame_desc_stream(strmh, ctrl->bFormatIndex, ctrl->bFrameIndex);
@@ -1459,9 +1507,28 @@ uvc_error_t uvc_stream_start_bandwidth(uvc_stream_handle_t *strmh,
 	const uint32_t dwMaxVideoFrameSize = ctrl->dwMaxVideoFrameSize <= frame_desc->dwMaxVideoFrameBufferSize
 		? ctrl->dwMaxVideoFrameSize : frame_desc->dwMaxVideoFrameBufferSize;
 
-	// Get the interface that provides the chosen format and frame configuration
+	/* Get the interface that provides the chosen format and frame configuration.
+	 * Phase 0 bug fix: Search by bInterfaceNumber instead of using it as array index.
+	 * bInterfaceNumber is a logical ID, not necessarily equal to array index. */
 	interface_id = strmh->stream_if->bInterfaceNumber;
-	interface = &strmh->devh->info->config->interface[interface_id];
+	interface = NULL;
+	{
+		const struct libusb_config_descriptor *cfg = strmh->devh->info->config;
+		int idx;
+		for (idx = 0; idx < cfg->bNumInterfaces; idx++) {
+			const struct libusb_interface *itf = &cfg->interface[idx];
+			if (itf->num_altsetting > 0 &&
+			    itf->altsetting[0].bInterfaceNumber == interface_id) {
+				interface = itf;
+				break;
+			}
+		}
+	}
+	if (UNLIKELY(!interface)) {
+		LOGE("FORENSIC: Interface %d not found in config", interface_id);
+		ret = UVC_ERROR_INVALID_PARAM;
+		goto fail;
+	}
 
 	/* A VS interface uses isochronous transfers if it has multiple altsettings.
 	 * (UVC 1.5: 2.4.3. VideoStreaming Interface, on page 19) */
@@ -1487,7 +1554,7 @@ uvc_error_t uvc_stream_start_bandwidth(uvc_stream_handle_t *strmh,
 
 		struct libusb_transfer *transfer;
 		int transfer_id;
-		
+
 		if ((bandwidth_factor > 0) && (bandwidth_factor < 1.0f)) {
 			config_bytes_per_packet = (size_t)(strmh->cur_ctrl.dwMaxPayloadTransferSize * bandwidth_factor);
 			if (!config_bytes_per_packet) {
@@ -1685,6 +1752,24 @@ uvc_error_t uvc_stream_start_iso(uvc_stream_handle_t *strmh,
 static void *_uvc_user_caller(void *arg) {
 	uvc_stream_handle_t *strmh = (uvc_stream_handle_t *) arg;
 
+	/* Boost thread priority for real-time frame delivery (Phase 0, DECISION-007)
+	 * PRIO_PROCESS with tid=0 sets the calling thread's priority.
+	 * Nice values: -20 (highest) to 19 (lowest), default is 0.
+	 * Request -10 (high priority without requiring CAP_SYS_NICE) */
+#ifdef __ANDROID__
+	{
+		int prev_priority = getpriority(PRIO_PROCESS, 0);
+		int result = setpriority(PRIO_PROCESS, 0, -10);
+		int actual_priority = getpriority(PRIO_PROCESS, 0);
+		int err = (result == 0) ? 0 : errno;
+		LOGI("UVC callback thread priority: prev=%d, requested=-10, actual=%d, result=%d, errno=%d",
+		     prev_priority, actual_priority, result, err);
+		if (result != 0) {
+			LOGW("Failed to boost thread priority (may need CAP_SYS_NICE): errno=%d", err);
+		}
+	}
+#endif
+
 	uint32_t last_seq = 0;
 
 	for (; 1 ;) {
@@ -1755,7 +1840,13 @@ void _uvc_populate_frame(uvc_stream_handle_t *strmh) {
 	}
 	memcpy(frame->data, strmh->holdbuf, strmh->hold_bytes/*frame->data_bytes*/);	// XXX
 
-	/** @todo set the frame time */
+	/* Set PTS/SCR timestamps from UVC payload header (Phase 0, TARGETED-002) */
+	frame->capture_time_pts = strmh->hold_pts;
+	frame->capture_time_scr = strmh->hold_last_scr;
+	frame->capture_time_pts_valid = strmh->hold_pts_valid;
+	frame->capture_time_scr_valid = strmh->hold_scr_valid;
+
+	/** @todo set the frame time (system capture_time) */
 }
 
 /** Poll for a frame
