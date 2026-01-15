@@ -30,7 +30,7 @@ USB device enumeration and permission management.
 ### Opening a Camera
 
 ```java
-// Using file descriptor (recommended)
+// Using file descriptor (recommended for modern apps)
 camera.openSimple(int fd, String usbfsPath);
 
 // Using UsbControlBlock (legacy)
@@ -41,6 +41,21 @@ camera.open(UsbControlBlock ctrlBlock);
 |-----------|------|-------------|
 | `fd` | `int` | USB file descriptor from `UsbDeviceConnection.getFileDescriptor()` |
 | `usbfsPath` | `String` | USB filesystem path (e.g., `/dev/bus/usb/001/002`) |
+
+> **⚠️ CRITICAL: `openSimple()` Ownership Model**
+>
+> When using `openSimple()`, the **native layer owns the USB session**. The following Java-layer artifacts are **NOT populated**:
+>
+> | Method | Returns with `openSimple()` |
+> |--------|----------------------------|
+> | `getUsbControlBlock()` | `null` |
+> | `getDevice()` | `null` |
+> | `getDeviceName()` | `null` |
+> | `mCtrlBlock.getFileDescriptor()` | N/A (no ctrlBlock) |
+>
+> **Consumer applications MUST NOT gate behavior on Java-layer FD checks.** Use `getPreviewState()` or `querySessionDiagnostic()` instead.
+>
+> See [ScopeCam Integration Guide §0](./ScopeCam-Integration-Guide.md#0-warm-state-architecture-critical) for correct patterns.
 
 ### Configuring Preview
 

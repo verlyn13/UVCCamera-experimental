@@ -3,22 +3,320 @@ title: ScopeCam Native Integration Guide
 category: integration
 component: jni
 status: active
-version: "1.0"
-last_updated: 2024-12-29
-tags: [scopecam, kotlin, jni, integration, stability]
-priority: high
+version: "2.0"
+last_updated: 2026-01-14
+tags: [scopecam, kotlin, jni, integration, stability, warm-state]
+priority: critical
 ---
 
 # ScopeCam Native Integration Guide
 
 This document provides integration instructions for the ScopeCam Kotlin agent to wire up the native stability APIs from UVCCamera library.
 
+> **⚠️ CRITICAL UPDATE (2026-01-14):** This guide has been updated with mandatory WARM state gating patterns. Consumer applications MUST use native-based state checks, NOT Java-layer FD checks. See [Section 0: WARM State Architecture](#0-warm-state-architecture-critical).
+
 ## Overview
 
-The UVCCamera library (v1.x.x+) now exposes:
+The UVCCamera library (v2.x.x+) now exposes:
+- **WARM State Machine**: Native-controlled COLD→WARM→HOT transitions
+- **Surface Lease API**: `suspendSurfaceLease()` / `acquireSurfaceLease()`
+- **Native Diagnostics**: `getPreviewState()` / `querySessionDiagnostic()`
 - **Readiness Callback**: Know when native preview thread is ready
 - **Graduated Cleanup**: Cleanup at 4 different levels
 - **Hard Reset**: Nuclear option for DeviceBusy recovery
+
+---
+
+## 0. WARM State Architecture (CRITICAL)
+
+### 0.1 The Ownership Model
+
+When using `openSimple(fd, path)`, the native layer owns the USB session:
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                    OWNERSHIP AFTER openSimple()                     │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  NATIVE OWNS:                        KOTLIN OWNS:                   │
+│  ├── USB file descriptor (dup'd)     ├── Android lifecycle          │
+│  ├── Session state machine           ├── Surface lifecycle          │
+│  ├── Preview thread                  ├── USB permission flow        │
+│  └── Frame processing                ├── UsbDeviceConnection        │
+│                                      └── Foreground Service         │
+│                                                                     │
+│  CRITICAL: mCtrlBlock is NULL when using openSimple()               │
+│  Java-layer FD checks will ALWAYS fail (-1)                         │
+│                                                                     │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+### 0.2 WARM Gate: The Correct Pattern
+
+**❌ PROHIBITED - Java-layer FD checks:**
+
+```kotlin
+// BROKEN: This pattern fails with openSimple()
+fun canEnterWarmState_WRONG(): Boolean {
+    return sessionHandle != null && usbFd >= 0  // ❌ ALWAYS FAILS
+}
+
+fun checkConnection_WRONG(): Boolean {
+    return currentCtrlBlock?.fileDescriptor?.let { it >= 0 } ?: false  // ❌ ALWAYS FALSE
+}
+```
+
+**✅ REQUIRED - Native-based state checks:**
+
+```kotlin
+// CORRECT: Query native layer for session truth
+fun canEnterWarmState(): Boolean {
+    val camera = uvcCamera ?: return false
+    val state = camera.getPreviewState()
+    val diag = camera.querySessionDiagnostic()
+    
+    // Native session is alive and streaming
+    return state != UVCCamera.PREVIEW_STATE_COLD &&
+           (diag and UVCCamera.DIAG_RUNNING) != 0
+}
+
+fun isSessionHealthy(): Boolean {
+    val diag = uvcCamera?.querySessionDiagnostic() ?: return false
+    
+    val running = (diag and UVCCamera.DIAG_RUNNING) != 0
+    val notStagnant = (diag and UVCCamera.DIAG_STAGNATION) == 0
+    
+    return running && notStagnant
+}
+```
+
+### 0.3 State Truth Table
+
+| Check | ✅ Correct Source | ❌ WRONG Source |
+|-------|------------------|-----------------|
+| Session alive? | `getPreviewState() != COLD` | ~~`usbFd >= 0`~~ |
+| Thread running? | `(diag & DIAG_RUNNING) != 0` | ~~`ctrlBlock != null`~~ |
+| Can go WARM? | `state != COLD && running` | ~~`fd >= 0 && handle != null`~~ |
+| Stagnation? | `(diag & DIAG_STAGNATION) != 0` | N/A |
+
+### 0.4 Surface Lifecycle Integration
+
+```kotlin
+class CameraLifecycleManager(private val camera: UVCCamera) {
+    
+    /**
+     * Call BEFORE surface destruction (onSurfaceDestroyed, onPause, Gallery nav)
+     */
+    fun onSurfaceGoingAway() {
+        // 1. Transition to WARM (native continues streaming, no render)
+        camera.suspendSurfaceLease()
+        
+        // 2. Verify transition succeeded
+        val diag = camera.querySessionDiagnostic()
+        val isWarm = (diag and UVCCamera.DIAG_STATE_WARM) != 0
+        val stillRunning = (diag and UVCCamera.DIAG_RUNNING) != 0
+        
+        if (!isWarm || !stillRunning) {
+            Log.w(TAG, "WARM transition issue: diag=0x${diag.toString(16)}")
+        }
+    }
+    
+    /**
+     * Call when surface becomes available (onSurfaceCreated, onResume)
+     */
+    fun onSurfaceAvailable(surface: Surface) {
+        when (camera.getPreviewState()) {
+            UVCCamera.PREVIEW_STATE_WARM -> {
+                // Fast path: instant preview resume
+                camera.acquireSurfaceLease(surface)
+                verifyHotState()
+            }
+            UVCCamera.PREVIEW_STATE_HOT -> {
+                // Surface swap scenario
+                camera.suspendSurfaceLease()
+                camera.acquireSurfaceLease(surface)
+                verifyHotState()
+            }
+            UVCCamera.PREVIEW_STATE_COLD -> {
+                // Cold start - full initialization needed
+                performColdStart(surface)
+            }
+        }
+    }
+    
+    private fun verifyHotState() {
+        val diag = camera.querySessionDiagnostic()
+        if ((diag and UVCCamera.DIAG_STATE_HOT) == 0) {
+            Log.e(TAG, "Failed HOT transition: diag=0x${diag.toString(16)}")
+            // Trigger recovery
+        }
+    }
+}
+```
+
+### 0.5 Single-Owner Surface Lease Pattern
+
+**CRITICAL:** Exactly ONE component may call native `attachSurface()` / `detachSurface()`. All other components must request through that single owner.
+
+This prevents the "attach then detach 19ms later" race condition where two paths compete to control the surface.
+
+See `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` for the complete `SurfaceLeaseController` implementation.
+
+**Key requirements:**
+- All surface operations through `SurfaceLeaseController`
+- All operations on a single camera thread (not main thread)
+- Operations are idempotent ("ensure" semantics)
+- Surface identity tracked via generation token
+
+### 0.6 Required Diagnostic Logging
+
+Add logging at every lifecycle edge:
+
+```kotlin
+private fun logCameraState(event: String) {
+    val state = camera?.getPreviewState() ?: -1
+    val diag = camera?.querySessionDiagnostic() ?: 0
+    
+    val stateName = when (state) {
+        UVCCamera.PREVIEW_STATE_COLD -> "COLD"
+        UVCCamera.PREVIEW_STATE_WARM -> "WARM"
+        UVCCamera.PREVIEW_STATE_HOT -> "HOT"
+        else -> "UNKNOWN($state)"
+    }
+    
+    Log.i(TAG, "CAMERA_STATE [$event]: state=$stateName, diag=0x${diag.toString(16)}")
+}
+
+// Call at: onSurfaceCreated, onSurfaceDestroyed, onPause, onResume, Gallery nav
+```
+
+---
+
+## 0.7 Foreground Service Requirement (Android 14+)
+
+USB sessions require a Foreground Service with `connectedDevice` type to survive lifecycle transitions.
+
+### Manifest Declaration
+
+```xml
+<!-- Base FGS permission (Android 9+) -->
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+<!-- USB camera FGS type (Android 14+) -->
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE"/>
+
+<application>
+    <service
+        android:name=".service.UsbCameraService"
+        android:foregroundServiceType="connectedDevice"
+        android:exported="false" />
+</application>
+```
+
+### Service Implementation
+
+```kotlin
+class UsbCameraService : Service() {
+    
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val notification = createNotification()
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(
+                NOTIFICATION_ID,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE
+            )
+        } else {
+            startForeground(NOTIFICATION_ID, notification)
+        }
+        
+        return START_NOT_STICKY
+    }
+    
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, UsbCameraService::class.java)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(intent)
+            } else {
+                context.startService(intent)
+            }
+        }
+        
+        fun stop(context: Context) {
+            context.stopService(Intent(context, UsbCameraService::class.java))
+        }
+    }
+}
+```
+
+### FGS Lifecycle Rules
+
+| Event | FGS Action |
+|-------|------------|
+| USB device attached | `UsbCameraService.start()` |
+| Gallery navigation | **DO NOT STOP** - WARM state keeps USB alive |
+| Screen lock | **DO NOT STOP** - FGS maintains connection |
+| USB device detached | `UsbCameraService.stop()` |
+| App closed by user | `UsbCameraService.stop()` |
+
+---
+
+## 0.8 Prohibited Patterns
+
+The following patterns are **PROHIBITED** in ScopeCam:
+
+### FD-Based Truth (Wrong Layer)
+
+```kotlin
+// ❌ Java-layer FD check (always fails with openSimple)
+if (usbDeviceConnection?.fileDescriptor?.let { it >= 0 } == true) { }
+
+// ❌ ctrlBlock null check (ctrlBlock is null with openSimple)
+if (currentCtrlBlock != null) { }
+
+// ❌ Caching FD from Java layer
+val cachedFd = usbDeviceConnection?.fileDescriptor  // Will be -1
+```
+
+### Surface Lease Violations
+
+```kotlin
+// ❌ Multiple paths calling native attach/detach
+class RingBufferController {
+    fun attachSurfaceToSession() {
+        camera.acquireSurfaceLease(surface)  // ❌ Direct call
+    }
+}
+
+class StateHandler {
+    fun safeSetPreviewSurfaceRes() {
+        camera.suspendSurfaceLease()         // ❌ Competing detach
+        camera.acquireSurfaceLease(surface)  // ❌ Competing attach
+    }
+}
+
+// ❌ Surface operations on main thread
+override fun surfaceDestroyed(holder: SurfaceHolder) {
+    camera.suspendSurfaceLease()  // ❌ Main thread!
+}
+```
+
+### Lifecycle Violations
+
+```kotlin
+// ❌ Full disconnect on surface destroy
+fun onSurfaceDestroyed() {
+    camera.close()    // ❌ Kills USB session
+    camera.release()  // ❌ Full teardown
+}
+
+// ❌ Stopping FGS on Gallery navigation
+fun onPause() {
+    UsbCameraService.stop(context)  // ❌ USB will drop
+}
+```
 
 ---
 
