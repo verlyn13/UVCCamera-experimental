@@ -247,6 +247,65 @@ if ((diag and UVCCamera.DIAG_STATE_WARM) != 0) {
 }
 ```
 
+### NativeSnapshot (Contracted Handshake)
+
+For recording coordination, Kotlin builds a `NativeSnapshot` from native APIs:
+
+```kotlin
+data class NativeSnapshot(
+    val previewState: PreviewState,     // COLD/WARM/HOT
+    val diagMask: Int,                  // native bitmask
+    val running: Boolean,               // thread alive
+    val surfaceAttached: Boolean,       // surface bound
+    val stagnant: Boolean,              // no effective output
+    val outputMode: OutputMode,         // IDLE / DIRECT_WINDOW / RING_BUFFER
+)
+
+fun nativeSnapshot(): NativeSnapshot {
+    val state = camera.getPreviewState()
+    val diag = camera.querySessionDiagnostic()
+    return NativeSnapshot(
+        previewState = PreviewState.fromNative(state),
+        diagMask = diag,
+        running = (diag and DIAG_RUNNING) != 0,
+        surfaceAttached = (diag and DIAG_SURFACE_BOUND) != 0,
+        stagnant = (diag and DIAG_STAGNATION) != 0,
+        outputMode = OutputMode.fromDiag(diag),
+    )
+}
+```
+
+**Rule:** Kotlin NEVER infers readiness from USB FD, Java ctrl blocks, or surface callbacks. It uses the snapshot.
+
+### PIPELINE_READY Log Point (Native Requirement)
+
+When transitioning to HOT state, native MUST log a single canonical event:
+
+```
+PIPELINE_READY running=1 surface=1 state=HOT stagnant=0 outputMode=DIRECT_WINDOW
+```
+
+**Location:** `UVCPreview.cpp` when `mPreviewState` transitions to `HOT`
+
+This log point enables Kotlin to verify the transition completed. Kotlin waits for `PIPELINE_READY` via snapshot changes rather than guessing.
+
+### HOT Gate Contract (Recording Prerequisite)
+
+**Recording may start ONLY when:**
+
+```
+previewState == HOT && surfaceAttached && !stagnant
+```
+
+If invariant fails, Kotlin must:
+1. Request HOT transition via `acquireSurfaceLease()`
+2. Await `PIPELINE_READY` (with timeout)
+3. Then start recording
+
+This prevents "frames=0" recordings caused by starting before the pipeline is ready.
+
+See: `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` Part 0
+
 ---
 
 ## Telemetry

@@ -371,39 +371,97 @@ suspend fun stopRecording() {
 
 ## 0.9 Video Recording Architecture
 
-Video recording follows the **same single-owner pattern** as surface lease.
+Video recording follows the **same single-owner pattern** as surface lease, plus a **HOT gate contract**.
 
 **See full directive:** `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md`
+
+### The HOT Gate Contract (MANDATORY)
+
+**Recording may start ONLY when:**
+
+```kotlin
+previewState == HOT &&
+surfaceAttached == true &&
+stagnant == false
+```
+
+If invariant fails → Kotlin must **transition and await**, or **fail cleanly**.
+
+### NativeSnapshot (Single-Call Diagnostic)
+
+Kotlin NEVER infers readiness from USB FD, Java ctrl blocks, or surface callbacks. It uses the snapshot:
+
+```kotlin
+data class NativeSnapshot(
+    val previewState: PreviewState,     // COLD/WARM/HOT
+    val diagMask: Int,                  // native bitmask
+    val running: Boolean,               // thread alive
+    val surfaceAttached: Boolean,       // surface bound
+    val stagnant: Boolean,              // no effective output
+    val outputMode: OutputMode,         // IDLE / DIRECT_WINDOW / RING_BUFFER
+)
+
+// Build from existing native APIs
+fun CameraEngine.nativeSnapshot(): NativeSnapshot {
+    val state = camera.getPreviewState()
+    val diag = camera.querySessionDiagnostic()
+    
+    return NativeSnapshot(
+        previewState = PreviewState.fromNative(state),
+        diagMask = diag,
+        running = (diag and DIAG_RUNNING) != 0,
+        surfaceAttached = (diag and DIAG_SURFACE_BOUND) != 0,
+        stagnant = (diag and DIAG_STAGNATION) != 0,
+        outputMode = OutputMode.fromDiag(diag),
+    )
+}
+```
 
 ### Recording Invariants
 
 | Invariant | Rule |
 |-----------|------|
+| **HOT Gate** | Recording starts ONLY after gate passes |
+| **First-Frame SLA** | Abort if no frame within 1s |
 | **Single Encoder Consumer** | ONE loop drains MediaCodec output |
 | **Stop is State Transition** | Not cancellation - orderly shutdown |
 | **Muxer Finalization Once** | Stop muxer exactly once |
 | **Capture Commit** | MediaStore + DB insert as single transaction |
+| **No Empty Recordings** | frames=0 → abort, never commit |
 
-### Correct Stop Pattern
+### RecordingCoordinator (Single Owner)
+
+UI must NOT directly start recording. UI calls `RecordingCoordinator.requestStart()`:
 
 ```kotlin
-// ✅ CORRECT: Single drain path, orderly shutdown, capture commit
-suspend fun stopRecording() {
-    // 1. Signal stop (close inputs, signal EOS)
-    closeFrameInput()
-    signalEncoderEos()
+class RecordingCoordinator(...) {
+    private val startMutex = Mutex()
+
+    suspend fun requestStart(): Result<Unit> = startMutex.withLock {
+        // 1. Snapshot
+        val s0 = cameraEngine.nativeSnapshot()
+        
+        // 2. Gate check
+        if (!isReadyForRecord(s0)) {
+            cameraEngine.requestHot(reason = "RECORD_GATE")
+            val ready = awaitHotWithTimeout(2_500)
+            if (ready == null) return Result.failure(Timeout)
+        }
+        
+        // 3. Start encoder
+        recorder.start()
+        
+        // 4. First-frame SLA
+        if (!recorder.awaitFirstFrame(1_000)) {
+            recorder.stopAndDiscard()
+            return Result.failure(NoFrames)
+        }
+        
+        Result.success(Unit)
+    }
     
-    // 2. Wait for THE SAME drain loop to finish
-    drainJob?.join()
-    
-    // 3. Finalize muxer
-    muxer.stop()
-    encoder.release()
-    
-    // 4. Capture commit (MediaStore + DB)
-    val saveResult = mediaStorageHelper.saveVideo(...)
-    if (saveResult is Success) {
-        commitCapture(saveResult, capturedMediaDao, MediaType.VIDEO, ...)
+    private fun isReadyForRecord(s: NativeSnapshot): Boolean {
+        return s.previewState == HOT && s.surfaceAttached && !s.stagnant
     }
 }
 ```

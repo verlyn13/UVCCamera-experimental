@@ -325,6 +325,8 @@ uvccamera-experimental              scopecam-engine
 
 4. **Capture Commit Bug:** Videos saved to MediaStore but NOT inserted into app DB → invisible in app gallery. **Capture Commit** pattern required.
 
+5. **HOT Gate Contract:** Recording may start ONLY when `previewState == HOT && surfaceAttached && !stagnant`. **RecordingCoordinator** enforces gate + first-frame SLA.
+
 **Architectural Boundaries:**
 
 ```
@@ -353,13 +355,21 @@ Both photo AND video MUST use the same `commitCapture()` function.
 
 **ScopeCam Required Actions:**
 1. **`SurfaceLeaseController`** - Single owner of surface attach/detach
-2. **`RecordingPipelineController`** - Single owner of codec/muxer
-3. **`commitCapture()`** - Shared by photo AND video (DB insert after MediaStore save)
-4. **Reconciliation job** - Recover from crashes (MediaStore → DB sync)
-5. **Thread confinement** - Camera ops on camera thread, not main
-6. Replace all `usbFd >= 0` checks with native state queries
-7. Add FGS with `connectedDevice` type
-8. Stop = state transition + join, not cancel + final drain
+2. **`RecordingCoordinator`** - Single owner of recording start (HOT gate + first-frame SLA)
+3. **`RecordingPipelineController`** - Single owner of codec/muxer
+4. **`commitCapture()`** - Shared by photo AND video (DB insert after MediaStore save)
+5. **Reconciliation job** - Recover from crashes (MediaStore → DB sync)
+6. **Thread confinement** - Camera ops on camera thread, not main
+7. Replace all `usbFd >= 0` checks with native state queries (`NativeSnapshot`)
+8. Add FGS with `connectedDevice` type
+9. Stop = state transition + join, not cancel + final drain
+10. **No empty recordings** - frames=0 must abort, never commit
+
+**Native (uvccamera-experimental) Requirements:**
+1. **Idempotent surface operations** - `attachSurface`/`detachSurface` log outcome
+2. **PIPELINE_READY log point** - Log when HOT becomes true
+3. **Deterministic diagnostics** - `stagnant` well-defined (no frame for 500ms)
+4. **NativeSnapshot support** - All state queryable via single call
 
 ---
 

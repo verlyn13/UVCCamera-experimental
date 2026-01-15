@@ -4,7 +4,7 @@
 **Source Authority:** ARCH-DECISIONS-001-R2 + Video Recording Analysis (2026-01-14)  
 **Applies To:** `scopecam-engine` repository  
 **Priority:** P0 - CRITICAL  
-**Revision:** R2 (2026-01-14) - Added critical bug fixes from expert consultation
+**Revision:** R3 (2026-01-14) - Added HOT Gate Contract + NativeSnapshot
 
 ---
 
@@ -19,9 +19,207 @@ Multiple critical architectural issues have been identified in video recording:
 | **C. Wrong Exit Condition** | Drain loop exits early | Using scope state vs EOS observation |
 | **D. Deadlock Risk** | Stop hangs | Joining frame job before EOS signal |
 | **E. No Thread Serialization** | Intermittent codec errors | Multiple threads touching codec |
-| **F. No MediaStore Publish** | Video not visible in gallery | Missing publish step |
+| **F. No Capture Commit** | Video not visible in app gallery | Missing DB insert |
+| **G. No HOT Gate** | `frames=0` recordings | Recording started before pipeline ready |
 
-**This follows the same pattern as the Surface Lease Race:** Multiple paths competing for control of a single-owner resource.
+**Core Principle:** Recording is a **contracted handshake**, not a best-effort command.
+
+---
+
+## Part 0: The HOT Gate Contract (MANDATORY)
+
+### The Gatekeeper Invariant
+
+**Recording may start ONLY when:**
+
+```kotlin
+previewState == HOT &&
+surfaceAttached == true &&
+stagnant == false
+```
+
+If invariant fails → Kotlin must **transition and await**, or **fail cleanly**.
+
+### Contract Behavior
+
+A record button press produces ONE of three outcomes:
+
+| Outcome | Behavior |
+|---------|----------|
+| **Normal** | Invariant passes → starts recording |
+| **Transition** | Invariant fails → request HOT → await → start |
+| **Abort** | Timeout or unrecoverable → fail with user message |
+
+**No half-recordings. No frames=0 but file committed.**
+
+### Native Snapshot (Single-Call Diagnostic)
+
+Native provides an atomic snapshot. Kotlin NEVER infers readiness from USB FD, Java ctrl blocks, or surface callbacks alone.
+
+```kotlin
+data class NativeSnapshot(
+    val previewState: PreviewState,     // COLD/WARM/HOT
+    val diagMask: Int,                  // native bitmask
+    val running: Boolean,               // thread alive
+    val surfaceAttached: Boolean,       // surface bound
+    val stagnant: Boolean,              // no effective output
+    val outputMode: OutputMode,         // IDLE / DIRECT_WINDOW / RING_BUFFER
+    val lastFrameTsNs: Long?,           // optional
+    val framesProduced: Long?           // optional
+)
+
+// Build from existing native APIs
+fun CameraEngine.nativeSnapshot(): NativeSnapshot {
+    val state = camera.getPreviewState()
+    val diag = camera.querySessionDiagnostic()
+    
+    return NativeSnapshot(
+        previewState = PreviewState.fromNative(state),
+        diagMask = diag,
+        running = (diag and DIAG_RUNNING) != 0,
+        surfaceAttached = (diag and DIAG_SURFACE_BOUND) != 0,
+        stagnant = (diag and DIAG_STAGNATION) != 0,
+        outputMode = OutputMode.fromDiag(diag),
+        lastFrameTsNs = null,  // TODO: expose from native if needed
+        framesProduced = null  // TODO: expose from native if needed
+    )
+}
+```
+
+### RecordingCoordinator (Single Owner)
+
+```kotlin
+class RecordingCoordinator(
+    private val cameraEngine: CameraEngine,
+    private val recorder: VideoRecordingManager,
+    private val clock: Clock,
+    private val logger: RecordingLogger,
+) {
+    private val startMutex = Mutex()
+
+    suspend fun requestStart(): Result<Unit> = startMutex.withLock {
+        val reqId = logger.newRequestId()
+        logger.ui("TAP_RECORD", reqId)
+
+        // 1) Snapshot
+        val s0 = cameraEngine.nativeSnapshot()
+        logger.gate("GATE_ENTRY", reqId, s0)
+
+        // 2) Gate: enforce HOT + not stagnant
+        if (!isReadyForRecord(s0)) {
+            logger.gate("GATE_FAIL", reqId, s0, reason = "NOT_HOT_OR_STAGNANT")
+
+            // Request HOT
+            val t0 = clock.nowMs()
+            cameraEngine.requestHot(reason = "RECORD_GATE")
+
+            // Await readiness (2.5s timeout)
+            val ready = cameraEngine.observeNativeSnapshots()
+                .filter { isReadyForRecord(it) }
+                .firstOrNullWithTimeout(2_500)
+
+            if (ready == null) {
+                val sTimeout = cameraEngine.nativeSnapshot()
+                logger.gate("GATE_ABORT_TIMEOUT", reqId, sTimeout)
+                return Result.failure(RecordingStartException.Timeout(sTimeout))
+            }
+
+            logger.gate("GATE_PASS", reqId, ready, latencyMs = clock.nowMs() - t0)
+        } else {
+            logger.gate("GATE_PASS", reqId, s0, latencyMs = 0)
+        }
+
+        // 3) Start encoder
+        recorder.start()
+        logger.rec("ENCODER_STARTED", reqId)
+
+        // 4) First-frame SLA (1s deadline)
+        val firstFrameOk = recorder.awaitFirstFrame(timeoutMs = 1_000)
+        if (!firstFrameOk) {
+            logger.rec("ABORT_NO_FRAMES", reqId)
+            recorder.stopAndDiscard()  // No garbage files, no commit
+            return Result.failure(RecordingStartException.NoFrames())
+        }
+
+        logger.rec("FIRST_FRAME", reqId)
+        Result.success(Unit)
+    }
+
+    private fun isReadyForRecord(s: NativeSnapshot): Boolean {
+        return s.previewState == PreviewState.HOT &&
+               s.surfaceAttached &&
+               !s.stagnant
+    }
+}
+```
+
+### Why Single Owner Matters
+
+| Without Coordinator | With Coordinator |
+|--------------------|------------------|
+| UI directly starts recording | UI calls `requestStart()` |
+| Double-tap creates two starts | Mutex prevents race |
+| frames=0 committed as success | First-frame SLA aborts early |
+| No clear failure types | Explicit `Timeout` / `NoFrames` |
+
+---
+
+---
+
+## Part 0-A: Native Responsibilities (uvccamera-experimental)
+
+### Idempotent Surface Lease Operations
+
+Native MUST ensure:
+
+```cpp
+// Both operations are idempotent and log their outcome
+void attachSurface(Surface* surface) {
+    // If already attached with same surface → no-op, log "SURFACE_ATTACH_NOP"
+    // If attached with different surface → swap, log "SURFACE_ATTACH_SWAP"
+    // If detached → attach, log "SURFACE_ATTACH_NEW"
+}
+
+void detachSurface() {
+    // If already detached → no-op, log "SURFACE_DETACH_NOP"
+    // If attached → detach, log "SURFACE_DETACH"
+}
+```
+
+### Deterministic Diagnostics
+
+| Field | Definition | Native Source |
+|-------|------------|---------------|
+| `previewState` | Actual pipeline capability | `getPreviewState()` |
+| `running` | Thread alive | `(diag & DIAG_RUNNING) != 0` |
+| `surfaceAttached` | Surface bound | `(diag & DIAG_SURFACE_BOUND) != 0` |
+| `stagnant` | No frame progressed for N ms | `(diag & DIAG_STAGNATION) != 0` |
+
+**Stagnant definition:** "No frame progressed through pipeline for 500ms" or "output mode is IDLE + no surface"
+
+### PIPELINE_READY Log Point
+
+When HOT becomes true, native MUST log a single canonical event:
+
+```
+PIPELINE_READY running=1 surface=1 state=HOT stagnant=0 outputMode=DIRECT_WINDOW
+```
+
+Kotlin waits for this via snapshot changes. Kotlin NEVER guesses HOT has happened.
+
+### DeviceBusy Debounce (UX Semantics)
+
+During WARM→HOT, transient `DeviceBusy` is expected. Users cannot act on it.
+
+```kotlin
+// In Kotlin error handler
+val withinDebounce = clock.nowMs() - lastHotRequestAtMs < 500
+if (error == DeviceBusy && withinDebounce) {
+    uiState = UiState.Reconnecting  // Not error
+    return
+}
+uiState = UiState.Error(error)
+```
 
 ---
 
@@ -581,13 +779,56 @@ suspend fun stopRecordingAndCommit() {
 }
 ```
 
-### Required Log Events (Golden Trace)
+### Required Log Events (Golden Trace - Complete)
 
 ```
+# 1. UI tap
+UI TAP_RECORD reqId=rec_001
+
+# 2. Gate check
+GATE_ENTRY reqId=rec_001 state=WARM running=1 surface=0 stagnant=0
+GATE_FAIL reqId=rec_001 reason=NOT_HOT_OR_STAGNANT
+HOT_REQUESTED reqId=rec_001 reason=RECORD_GATE
+
+# 3. Native transitions
+NATIVE SURFACE_ATTACH_NEW surface=0x12345
+NATIVE PIPELINE_READY running=1 surface=1 state=HOT stagnant=0 outputMode=DIRECT_WINDOW
+
+# 4. Gate passes
+GATE_PASS reqId=rec_001 state=HOT latencyToHotMs=127
+
+# 5. Encoder starts
+ENCODER_STARTED reqId=rec_001
+
+# 6. First frame SLA
+FIRST_FRAME reqId=rec_001 ptsUs=0 source=RING_BUFFER
+
+# 7. Recording in progress...
+
+# 8. Stop sequence
+STOP_REQUESTED reqId=rec_001
+FRAME_CHANNEL_CLOSED reqId=rec_001
+EOS_SIGNALED reqId=rec_001
+DRAIN_EOS_OBSERVED reqId=rec_001
+DRAIN_LOOP_EXITED reqId=rec_001 sawEos=true
+MUXER_STOPPED reqId=rec_001
+
+# 9. Persistence
 VIDEO_MEDIASTORE_SUCCESS uri=content://media/external/video/media/12345
 CAPTURE_COMMIT_SUCCESS type=VIDEO id=abc123 uri=content://... sizeBytes=1234567 sessionId=sess_001
 VIDEO_STOP_COMPLETE dbId=abc123 uri=content://...
 ```
+
+### Contract Violation Detection
+
+If you ever see `ENCODER_STARTED` without a prior `GATE_PASS`, that's a **contract violation**:
+
+```
+# BAD: No gate check
+ENCODER_STARTED reqId=rec_001  ← CONTRACT VIOLATION!
+```
+
+Fail builds/tests on this pattern.
 
 ### MediaStore Pattern (Unchanged)
 
@@ -941,6 +1182,23 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 
 ## Part XI: Implementation Checklist
 
+### Phase 0: HOT Gate Contract (P0 - CRITICAL)
+
+**This eliminates frames=0 recordings at the source:**
+- [ ] Implement `NativeSnapshot` data class
+- [ ] Implement `cameraEngine.nativeSnapshot()` using existing native APIs
+- [ ] Create `RecordingCoordinator` as single owner
+- [ ] Implement `isReadyForRecord()` gate check
+- [ ] Implement HOT request with 2.5s timeout
+- [ ] Implement first-frame SLA (1s deadline)
+- [ ] Implement `stopAndDiscard()` for abort path
+- [ ] Add DeviceBusy debounce (500ms window)
+
+**Contract tests (required):**
+- [ ] Test: Start from HOT → first frame < 1s
+- [ ] Test: Start from WARM → transition to HOT → record
+- [ ] Test: Start while reconnecting → wait or fail cleanly, never empty file
+
 ### Phase 1: Fix Critical Bugs (P0 - IMMEDIATE)
 
 **Bug A: Channel Reuse (frames=0)**
@@ -1032,6 +1290,18 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 
 ## Part XII: Success Criteria
 
+### HOT Gate Contract (Hard Quality Gates)
+
+| Test | Expected Result |
+|------|-----------------|
+| **Start from HOT** | First frame < 1s |
+| **Start from WARM** | Transition to HOT, then record |
+| **Start while reconnecting** | Wait or fail cleanly, never empty file |
+| **GATE_PASS before ENCODER_STARTED** | Always (contract test) |
+| **frames=0 recording** | NEVER committed to MediaStore or DB |
+
+### Recording Pipeline
+
 | Test | Expected Result |
 |------|-----------------|
 | Normal recording | Valid MP4, visible in **app gallery**, correct duration |
@@ -1050,30 +1320,33 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 
 | Bug | How to Verify |
 |-----|---------------|
+| **HOT Gate** | `GATE_PASS` appears before every `ENCODER_STARTED` |
+| **First-Frame SLA** | `ABORT_NO_FRAMES` if no frame within 1s |
 | **A. Channel Reuse** | Record → stop → record again → frames > 0 |
 | **B. Thread Serialization** | Add thread name logging to all codec calls |
 | **C. Drain Exit** | Log shows `DRAIN_EOS_OBSERVED` before `DRAIN_LOOP_EXITED` |
 | **D. Stop Deadlock** | Stop completes with wedged frame processing |
 | **E. MediaStore** | Video appears in system gallery |
-| **F. DB Insert** | Video appears in **app gallery** (the bug that was found) |
+| **F. DB Insert** | Video appears in **app gallery** |
 | **G. Reconciliation** | Kill app mid-save → restart → video recovered |
 
-### Golden Trace (Complete)
+### "No Empty Recordings" Gate
+
+A recording that produces `frames=0` must:
+- ❌ NOT be committed to MediaStore
+- ❌ NOT be inserted into DB
+- ✅ Surface a clear failure outcome (toast/dialog/log)
+
+### Contract Violation Detection
 
 ```
-VIDEO_SAVE_REQUEST file=... filename=... durationMs=...
-VIDEO_MEDIASTORE_SUCCESS uri=content://media/external/video/media/12345
-CAPTURE_COMMIT_SUCCESS type=VIDEO id=abc123 uri=content://... sizeBytes=... sessionId=...
-VIDEO_STOP_COMPLETE dbId=abc123 uri=content://...
-```
+# GOOD: Contract satisfied
+GATE_ENTRY reqId=rec_001 ...
+GATE_PASS reqId=rec_001 ...
+ENCODER_STARTED reqId=rec_001
 
-### What Was Missing Before (The Bug)
-
-```
-VIDEO_MEDIASTORE_SUCCESS uri=content://...    ← This happened ✅
-// CAPTURE_COMMIT_SUCCESS ← THIS WAS MISSING! ❌
-// Video saved to MediaStore but not to DB
-// App gallery queries DB → video invisible
+# BAD: Contract violation (fail test)
+ENCODER_STARTED reqId=rec_001  ← No GATE_PASS!
 ```
 
 ---
