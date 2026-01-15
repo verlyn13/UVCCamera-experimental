@@ -1,4 +1,51 @@
-# UVCCamera
+# uvccamera-experimental
+
+> **⚠️ This is a SANDBOX repository for testing UVC library improvements.**
+>
+> This fork is used for isolated development and testing of libuvc/libusb changes
+> before they are promoted to [scopecam-engine](../scopecam-engine) via patches.
+>
+> **This repository does NOT produce production binaries.**
+
+---
+
+## Purpose
+
+This repository serves as a **testing ground** for UVC library improvements:
+
+| What It Does | What It Does NOT Do |
+|--------------|---------------------|
+| ✅ Test libuvc changes in isolation | ❌ Produce binaries for scopecam-engine |
+| ✅ Validate PTS/SCR timestamp extraction | ❌ Sync .so files to other projects |
+| ✅ Prototype GET_INFO compliance | ❌ Serve as a build dependency |
+| ✅ Debug USB camera issues | ❌ Replace scopecam-engine's native code |
+
+## Current Development Focus
+
+- [ ] **Phase 0**: PTS/SCR timestamp extraction in libuvc
+- [ ] **Phase 1**: GET_INFO function compliance
+- [ ] **Phase 2**: Clock synchronizer prototype
+
+See [docs/status/IMPLEMENTATION-STATUS.md](docs/status/IMPLEMENTATION-STATUS.md) for detailed progress.
+
+## Promotion Workflow
+
+When changes are validated here, they are promoted to scopecam-engine via **patches**:
+
+```bash
+# 1. Create a patch from your changes
+cd lib/src/main/jni/libuvc
+git diff > ~/patches/libuvc-my-feature.patch
+
+# 2. Document the change
+# 3. Submit patch to scopecam-engine for review
+```
+
+See [docs/PROMOTION_WORKFLOW.md](docs/PROMOTION_WORKFLOW.md) for the full workflow.
+
+---
+
+## Upstream: UVCCamera
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/alexey-pelykh/UVCCamera?style=flat&logo=github)](https://github.com/alexey-pelykh/UVCCamera)
 [![GitHub License](https://img.shields.io/github/license/alexey-pelykh/UVCCamera)](./LICENSE.md)

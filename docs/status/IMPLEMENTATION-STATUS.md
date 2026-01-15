@@ -1,8 +1,8 @@
 # Implementation Status: ARCH-DECISIONS-001-R2
 
-**Last Updated:** 2026-01-13
-**Current Phase:** Phase 0 (INTEGRATED - awaiting device testing)
-**Overall Progress:** Phase 0-Pre COMPLETE, Phase 0 code INTEGRATED into scopecam-engine
+**Last Updated:** 2026-01-14
+**Current Phase:** Phase 0 (INTEGRATED - awaiting device testing) + WARM Gate Documentation
+**Overall Progress:** Phase 0-Pre COMPLETE, Phase 0 code INTEGRATED, WARM Gate docs COMPLETE
 
 ---
 
@@ -46,6 +46,23 @@
 - [ ] PTS/SCR reliability verification
 - [ ] Thread priority verification
 - [ ] Fill PTS_RELIABILITY_REPORT.md with test results
+
+### WARM Gate Documentation (2026-01-14)
+
+**Issue Identified:** Consumer application (scopecam-engine) uses Java-layer FD checks for WARM gate eligibility, which ALWAYS fails with `openSimple()` because `mCtrlBlock` is null.
+
+**Documentation Updates in uvccamera-experimental:**
+- [x] `ScopeCam-Integration-Guide.md` - Added Section 0: WARM State Architecture (CRITICAL)
+- [x] `ScopeCam-Integration-Guide.md` - Added Section 0.6: FGS Requirements
+- [x] `ScopeCam-Integration-Guide.md` - Added Section 0.7: Prohibited Patterns
+- [x] `api-reference.md` - Added `openSimple()` ownership warning
+- [x] `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` - Created binding directive for scopecam-engine
+
+**Directive issued to scopecam-engine:**
+- [ ] Replace all FD-based checks with `getPreviewState()` / `querySessionDiagnostic()`
+- [ ] Replace `camera.close()` in `onSurfaceDestroyed` with `suspendSurfaceLease()`
+- [ ] Add FGS with `connectedDevice` type
+- [ ] Verify 20x Gallery navigation without crash
 
 ---
 
@@ -547,6 +564,9 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 | 2026-01-13 | 0-Pre | 0-Pre.3 | Sync script fully tested with scopecam-engine |
 | 2026-01-13 | 0-Pre | 0-Pre.5 | Build manifest generation integrated into sync |
 | 2026-01-13 | Infra | Cross-Repo | Added collaboration docs to both CLAUDE.md files |
+| 2026-01-14 | Docs | WARM Gate | ScopeCam-Integration-Guide.md §0 - WARM state architecture |
+| 2026-01-14 | Docs | WARM Gate | api-reference.md - openSimple() ownership warning |
+| 2026-01-14 | Docs | WARM Gate | patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md - binding directive |
 
 <!-- Template:
 | 2026-01-12 | 0-Pre | 0-Pre.1 | Vendored tl::expected v0.6.1 |
