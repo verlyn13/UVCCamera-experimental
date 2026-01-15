@@ -1,0 +1,24 @@
+# tl::expected Integration Patch
+#
+# This is a documentation-only patch. The tl::expected library was already
+# integrated into the codebase at the following locations:
+#
+# - third_party/tl/expected.hpp (vendored implementation)
+# - include/uvc/expected.h (UVC namespace wrapper)
+#
+# See docs/EXPECTED_USAGE.md for usage patterns and guidelines.
+#
+# Files already present (no changes needed):
+# - lib/src/main/jni/third_party/tl/expected.hpp
+# - lib/src/main/jni/include/uvc/expected.h
+#
+# This patch exists for tracking purposes in the Phase 0 deliverables.
+
+--- /dev/null
++++ docs/EXPECTED_USAGE.md
+@@ -0,0 +1,150 @@
++# tl::expected Integration
++
++**Status:** Integrated (Phase 0, DECISION-016)
++...
++(See docs/EXPECTED_USAGE.md for full content)

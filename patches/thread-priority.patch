@@ -1,0 +1,35 @@
+diff --git a/lib/src/main/jni/libuvc/src/stream.c b/lib/src/main/jni/libuvc/src/stream.c
+--- a/lib/src/main/jni/libuvc/src/stream.c
++++ b/lib/src/main/jni/libuvc/src/stream.c
+@@ -60,6 +60,8 @@
+ #endif
+
+ #include <assert.h>		// XXX add assert for debugging
++#include <sys/resource.h>	// Thread priority (Phase 0, DECISION-007)
++#include <errno.h>			// For errno in priority testing
+
+ #include "libuvc/libuvc.h"
+ #include "libuvc/libuvc_internal.h"
+@@ -1703,6 +1705,23 @@ static void *_uvc_user_caller(void *arg) {
+ static void *_uvc_user_caller(void *arg) {
+ 	uvc_stream_handle_t *strmh = (uvc_stream_handle_t *) arg;
+
++	/* Boost thread priority for real-time frame delivery (Phase 0, DECISION-007)
++	 * PRIO_PROCESS with tid=0 sets the calling thread's priority.
++	 * Nice values: -20 (highest) to 19 (lowest), default is 0.
++	 * Request -10 (high priority without requiring CAP_SYS_NICE) */
++#ifdef __ANDROID__
++	{
++		int prev_priority = getpriority(PRIO_PROCESS, 0);
++		int result = setpriority(PRIO_PROCESS, 0, -10);
++		int actual_priority = getpriority(PRIO_PROCESS, 0);
++		int err = (result == 0) ? 0 : errno;
++		LOGI("UVC callback thread priority: prev=%d, requested=-10, actual=%d, result=%d, errno=%d",
++		     prev_priority, actual_priority, result, err);
++		if (result != 0) {
++			LOGW("Failed to boost thread priority (may need CAP_SYS_NICE): errno=%d", err);
++		}
++	}
++#endif
++
+ 	uint32_t last_seq = 0;
