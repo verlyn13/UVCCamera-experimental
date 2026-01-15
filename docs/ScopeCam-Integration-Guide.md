@@ -342,6 +342,29 @@ suspend fun stopRecording() {
     encodingJob?.cancel()      // Cancel drain loop
     drainEncoderFinal()        // Start ANOTHER drain → RACE!
 }
+
+// ❌ Channel reuse bug (causes frames=0 on second recording)
+class VideoRecordingManager {
+    private val frameChannel = Channel<VideoFrameData>(5)  // Created ONCE
+    
+    fun stop() {
+        frameChannel.close()  // Closed here, NEVER recreated!
+    }
+}
+
+// ❌ Using Dispatchers.Default for codec ops (allows concurrent access)
+private val scope = CoroutineScope(Dispatchers.Default)  // WRONG!
+
+// ❌ Drain loop exits on scope state instead of EOS
+while (!sawEos && isActive) {  // WRONG: isActive not relevant
+    // Should exit only on BUFFER_FLAG_END_OF_STREAM observation
+}
+
+// ❌ Joining frame job BEFORE signaling EOS (deadlock risk)
+suspend fun stopRecording() {
+    frameProcessingJob.join()       // May hang forever!
+    encoder.signalEndOfInputStream()  // EOS comes too late
+}
 ```
 
 ---
