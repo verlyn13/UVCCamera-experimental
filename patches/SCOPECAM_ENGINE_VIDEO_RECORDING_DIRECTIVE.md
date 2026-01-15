@@ -4,17 +4,65 @@
 **Source Authority:** ARCH-DECISIONS-001-R2 + Video Recording Analysis (2026-01-14)  
 **Applies To:** `scopecam-engine` repository  
 **Priority:** P0 - CRITICAL  
-**Revision:** R1 (2026-01-14)
+**Revision:** R2 (2026-01-14) - Added critical bug fixes from expert consultation
 
 ---
 
 ## Executive Summary
 
-A critical architectural issue has been identified in video recording: **concurrent access to MediaCodec's `dequeueOutputBuffer()`** from multiple coroutines (`drainEncoder()` and `drainEncoderFinal()`).
+Multiple critical architectural issues have been identified in video recording:
 
-**Root Cause:** Violation of MediaCodec's single-consumer rule. Two coroutines racing to dequeue during stop/cancel.
+| Bug | Symptom | Root Cause |
+|-----|---------|------------|
+| **A. Concurrent Dequeue** | `IllegalStateException` crash | Two drain paths racing |
+| **B. Channel Reuse** | `frames=0` after first recording | Closed channel not recreated |
+| **C. Wrong Exit Condition** | Drain loop exits early | Using scope state vs EOS observation |
+| **D. Deadlock Risk** | Stop hangs | Joining frame job before EOS signal |
+| **E. No Thread Serialization** | Intermittent codec errors | Multiple threads touching codec |
+| **F. No MediaStore Publish** | Video not visible in gallery | Missing publish step |
 
 **This follows the same pattern as the Surface Lease Race:** Multiple paths competing for control of a single-owner resource.
+
+---
+
+## CRITICAL BUG: Channel Lifecycle (The "frames=0" Bug)
+
+**This is likely the #1 cause of "no frames recorded":**
+
+```kotlin
+// ❌ BROKEN: Channel created once, closed on stop, never recreated
+class VideoRecordingManager {
+    private val frameChannel = Channel<VideoFrameData>(CAPACITY)  // Created ONCE
+    
+    fun stop() {
+        frameChannel.close()  // Closed here
+    }
+    
+    fun start() {
+        // Channel is STILL CLOSED from previous recording!
+        // processFrames() immediately terminates → frames=0
+    }
+}
+```
+
+**Fix: Channel must be PER-SESSION:**
+
+```kotlin
+// ✅ CORRECT: Channel created per recording session
+class VideoRecordingManager {
+    private var frameChannel: Channel<VideoFrameData>? = null
+    
+    fun start() {
+        frameChannel = Channel(CAPACITY)  // Fresh channel per session
+        // ... start processing
+    }
+    
+    fun stop() {
+        frameChannel?.close()
+        frameChannel = null  // Clear for next session
+    }
+}
+```
 
 ---
 
@@ -90,17 +138,44 @@ Both can be active during stop/cancel → race → crash.
 
 ## Part III: The Correct Pattern (2026-Grade)
 
+### Threading Requirement: Single Codec Dispatcher
+
+**MANDATORY:** All MediaCodec and MediaMuxer calls MUST be on a single-threaded dispatcher:
+
+```kotlin
+// ✅ CORRECT: Create a dedicated single-thread dispatcher for all codec ops
+private val codecDispatcher = Dispatchers.Default.limitedParallelism(1)
+// OR: Executors.newSingleThreadExecutor().asCoroutineDispatcher()
+
+// ❌ BROKEN: Using Dispatchers.Default allows concurrent access
+private val scope = CoroutineScope(Dispatchers.Default)  // WRONG!
+```
+
+**Why?** Even with the `drainInProgress` assertion, you still have:
+- `signalEndOfInputStream()` called from stop thread
+- Drain loop calling dequeue
+- Potential surface rendering calls
+
+All must be serialized.
+
+---
+
 ### Single-Owner Recording Pipeline
 
 ```kotlin
 /**
  * SINGLE OWNER of all MediaCodec/Muxer operations.
- * Mirrors SurfaceLeaseController pattern for recording.
+ * 
+ * CRITICAL REQUIREMENTS:
+ * 1. All codec/muxer calls on codecDispatcher (single-threaded)
+ * 2. Channel is PER-SESSION (created in start, closed in stop)
+ * 3. Drain loop exits on EOS observation, not scope state
+ * 4. Stop signals EOS BEFORE joining frame processing
  */
-class RecordingPipelineController(
-    private val recordingDispatcher: CoroutineDispatcher  // Single-threaded!
-) {
-    private val scope = CoroutineScope(recordingDispatcher + SupervisorJob())
+class RecordingPipelineController {
+    // MANDATORY: Single-threaded dispatcher for ALL codec/muxer operations
+    private val codecDispatcher = Dispatchers.Default.limitedParallelism(1)
+    private val scope = CoroutineScope(codecDispatcher + SupervisorJob())
     
     // State machine
     private sealed class State {
@@ -111,123 +186,198 @@ class RecordingPipelineController(
     
     private val state = AtomicReference<State>(State.Idle)
     
-    // Single drain loop - THE ONLY code that calls dequeueOutputBuffer
+    // PER-SESSION resources (created in start, cleared in stop)
+    private var frameChannel: Channel<VideoFrameData>? = null
+    private var encoder: MediaCodec? = null
+    private var muxer: MediaMuxer? = null
     private var drainJob: Job? = null
+    private var frameJob: Job? = null
     
     // Runtime assertion - makes concurrent access impossible
     private val drainInProgress = AtomicBoolean(false)
     
     /**
-     * Start recording. Creates encoder, muxer, starts single drain loop.
+     * Start recording. Creates FRESH channel, encoder, muxer, starts single drain loop.
      */
     suspend fun startRecording(
-        config: RecordingConfig,
-        frameSource: ReceiveChannel<FrameData>
-    ): Result<RecordingSession> = withContext(recordingDispatcher) {
+        config: RecordingConfig
+    ): Result<RecordingSession> = withContext(codecDispatcher) {
         // State transition: Idle → Recording
         check(state.compareAndSet(State.Idle, State.Recording(config.sessionId))) {
             "Cannot start: not idle"
         }
         
         try {
-            val encoder = createEncoder(config)
-            val muxer = createMuxer(config.tempFile)
+            // CRITICAL: Create FRESH channel per session
+            frameChannel = Channel(FRAME_QUEUE_CAPACITY)
+            
+            encoder = createEncoder(config)
+            muxer = createMuxer(config.tempFile)
             
             // Start THE ONLY drain loop
             drainJob = scope.launch {
-                drainLoop(encoder, muxer, config.sessionId)
+                drainLoop(config.sessionId)
             }
             
             // Start frame ingestion (feeds encoder input)
-            scope.launch {
-                ingestFrames(encoder, frameSource, config.sessionId)
+            frameJob = scope.launch {
+                ingestFrames(config.sessionId)
             }
             
             log("STARTED sessionId=${config.sessionId}")
-            Result.success(RecordingSession(config.sessionId))
+            Result.success(RecordingSession(config.sessionId, frameChannel!!))
             
         } catch (e: Exception) {
+            cleanup()
             state.set(State.Idle)
             Result.failure(e)
         }
     }
     
     /**
-     * Stop recording. Signals EOS, waits for drain to complete, finalizes.
+     * Stop recording. 
+     * 
+     * CRITICAL STOP ORDER (prevents deadlock):
+     * 1. Transition state → STOPPING
+     * 2. Close frame channel (stops intake)
+     * 3. Signal EOS to encoder (BEFORE joining frame job!)
+     * 4. Await drain completion (with timeout)
+     * 5. Stop muxer exactly once
+     * 6. Release resources
+     * 7. Publish to MediaStore
      */
-    suspend fun stopRecording(): Result<Uri> = withContext(recordingDispatcher) {
+    suspend fun stopRecording(): Result<Uri> = withContext(codecDispatcher) {
         val currentState = state.get()
         check(currentState is State.Recording) { "Not recording" }
         
-        // State transition: Recording → Stopping
-        state.set(State.Stopping(currentState.sessionId))
-        log("STOP_REQUESTED sessionId=${currentState.sessionId}")
+        val sessionId = currentState.sessionId
+        state.set(State.Stopping(sessionId))
+        log("STOP_REQUESTED sessionId=$sessionId")
         
         try {
-            // 1. Close frame input (stop accepting new frames)
-            closeFrameInput()
+            // 1. Close frame channel (stops intake)
+            frameChannel?.close()
+            log("FRAME_CHANNEL_CLOSED")
             
-            // 2. Signal EOS to encoder
-            signalEncoderEos()
+            // 2. Signal EOS IMMEDIATELY (don't wait for frame job!)
+            //    This prevents deadlock if frame processing is wedged
+            encoder?.signalEndOfInputStream()
             log("EOS_SIGNALED")
             
-            // 3. Wait for drain loop to complete (it will see EOS and exit)
-            drainJob?.join()
+            // 3. Now join frame job (with timeout - don't block forever)
+            withTimeoutOrNull(FRAME_JOB_TIMEOUT_MS) {
+                frameJob?.join()
+            } ?: log("FRAME_JOB_TIMEOUT (continuing anyway)")
+            
+            // 4. Wait for drain loop to complete (it will see EOS and exit)
+            //    Bounded wait - fail cleanly if exceeded
+            val drainCompleted = withTimeoutOrNull(DRAIN_TIMEOUT_MS) {
+                drainJob?.join()
+                true
+            } ?: false
+            
+            if (!drainCompleted) {
+                log("DRAIN_TIMEOUT - forcing cleanup")
+                drainJob?.cancel()
+            }
             log("DRAIN_COMPLETED")
             
-            // 4. Stop muxer (exactly once, here)
-            stopMuxer()
+            // 5. Stop muxer (exactly once, here)
+            muxer?.stop()
             log("MUXER_STOPPED")
             
-            // 5. Release codec
-            releaseEncoder()
+            // 6. Release codec
+            encoder?.release()
+            encoder = null
             log("CODEC_RELEASED")
             
-            // 6. Publish to MediaStore
-            val uri = publishToMediaStore()
+            // 7. Clear per-session resources
+            frameChannel = null
+            muxer = null
+            drainJob = null
+            frameJob = null
+            
+            // 8. Publish to MediaStore
+            val uri = publishToMediaStore(sessionId)
             log("MEDIASTORE_PUBLISHED uri=$uri")
             
             state.set(State.Idle)
             Result.success(uri)
             
         } catch (e: Exception) {
-            // Cleanup and surface error
-            cleanupFailedRecording()
+            log("STOP_ERROR: ${e.message}")
+            cleanup()
             state.set(State.Idle)
             Result.failure(e)
         }
     }
     
+    private fun cleanup() {
+        frameChannel?.close()
+        frameChannel = null
+        drainJob?.cancel()
+        drainJob = null
+        frameJob?.cancel()
+        frameJob = null
+        try { muxer?.stop() } catch (_: Exception) {}
+        muxer = null
+        try { encoder?.release() } catch (_: Exception) {}
+        encoder = null
+    }
+    
+    companion object {
+        private const val FRAME_QUEUE_CAPACITY = 5
+        private const val FRAME_JOB_TIMEOUT_MS = 1000L
+        private const val DRAIN_TIMEOUT_MS = 3000L
+    }
+    
     /**
      * THE ONLY drain loop. Single consumer of encoder output.
+     * 
+     * CRITICAL: Exit condition is EOS observation, NOT scope active state.
+     * The loop must drain until it sees BUFFER_FLAG_END_OF_STREAM.
      */
-    private suspend fun drainLoop(
-        encoder: MediaCodec,
-        muxer: MediaMuxer,
-        sessionId: String
-    ) {
+    private suspend fun drainLoop(sessionId: String) {
         log("DRAIN_LOOP_STARTED sessionId=$sessionId drainLoopId=1")
+        
+        val encoder = this.encoder ?: return
+        val muxer = this.muxer ?: return
         
         val bufferInfo = MediaCodec.BufferInfo()
         var trackIndex = -1
         var sawEos = false
+        var consecutiveTimeouts = 0
         
-        while (!sawEos && isActive) {
+        // Exit ONLY on EOS observation (or fatal error / excessive timeouts)
+        while (!sawEos) {
             // Runtime assertion: prove single-consumer
             check(drainInProgress.compareAndSet(false, true)) {
                 "INVARIANT VIOLATION: Concurrent dequeue detected!"
             }
             
             try {
-                val outputIndex = encoder.dequeueOutputBuffer(bufferInfo, TIMEOUT_US)
+                val outputIndex = encoder.dequeueOutputBuffer(bufferInfo, DEQUEUE_TIMEOUT_US)
                 
                 when {
+                    outputIndex == MediaCodec.INFO_TRY_AGAIN_LATER -> {
+                        consecutiveTimeouts++
+                        // Safety valve: if EOS signaled but we've timed out many times, fail cleanly
+                        if (consecutiveTimeouts > MAX_CONSECUTIVE_TIMEOUTS && 
+                            state.get() is State.Stopping) {
+                            log("DRAIN_TIMEOUT_EXCEEDED - exiting")
+                            break
+                        }
+                        continue
+                    }
                     outputIndex == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED -> {
                         trackIndex = muxer.addTrack(encoder.outputFormat)
                         muxer.start()
                         log("MUXER_STARTED track=$trackIndex")
+                        consecutiveTimeouts = 0
                     }
                     outputIndex >= 0 -> {
+                        consecutiveTimeouts = 0
+                        
                         if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_CODEC_CONFIG != 0) {
                             encoder.releaseOutputBuffer(outputIndex, false)
                             continue
@@ -239,6 +389,7 @@ class RecordingPipelineController(
                         }
                         encoder.releaseOutputBuffer(outputIndex, false)
                         
+                        // THIS is the correct exit condition: observe EOS on OUTPUT
                         if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) {
                             sawEos = true
                             log("DRAIN_EOS_OBSERVED")
@@ -250,11 +401,15 @@ class RecordingPipelineController(
             }
         }
         
-        log("DRAIN_LOOP_EXITED sessionId=$sessionId")
+        log("DRAIN_LOOP_EXITED sessionId=$sessionId sawEos=$sawEos")
     }
     
     companion object {
-        private const val TIMEOUT_US = 10_000L
+        private const val FRAME_QUEUE_CAPACITY = 5
+        private const val FRAME_JOB_TIMEOUT_MS = 1000L
+        private const val DRAIN_TIMEOUT_MS = 3000L
+        private const val DEQUEUE_TIMEOUT_US = 10_000L
+        private const val MAX_CONSECUTIVE_TIMEOUTS = 100  // ~1 second of timeouts
     }
 }
 ```
@@ -412,7 +567,125 @@ class TimestampEnforcer {
 
 ---
 
-## Part VII: Runtime Assertions (Seatbelt)
+## Part VII: Performance (Critical for Real-Time)
+
+### 🚨 WRONG: Bitmap Decode Pipeline
+
+The current pattern is **not viable for production**:
+
+```kotlin
+// ❌ BROKEN: CPU bitmap decode kills real-time performance
+fun processFrame(frameData: ByteArray) {
+    val bitmap = BitmapFactory.decodeByteArray(frameData, 0, frameData.size)  // GC churn!
+    surfaceRenderer?.renderFrame(bitmap, ...)  // CPU copy!
+}
+```
+
+**Problems:**
+- Crushes CPU and GC
+- Breaks real-time at 30fps
+- Introduces latency and frame drops
+- OOM on high-res streams
+
+### ✅ CORRECT: Surface Input Encoding (2026-Grade)
+
+```kotlin
+// Recording should tap into native ring buffer / GL texture path
+// NOT decode every frame to Bitmap
+
+// Option 1: Surface input encoder (best)
+val inputSurface = encoder.createInputSurface()
+// Native or GL renders directly to this surface
+
+// Option 2: If MJPEG, use native decode (libjpeg-turbo)
+// Upload to GL texture, render to encoder surface - no Bitmap
+```
+
+**Architecture alignment:** Native owns capture pipeline. Recording should consume from native ring buffer with stable memory strategy (already exists).
+
+### 🚨 WRONG: Frame Copy on Every onFrame()
+
+```kotlin
+// ❌ BROKEN: Enormous memory churn at 720p/1080p
+fun onFrame(frameData: ByteArray) {
+    val data = frameData.copyOf()  // Full copy every frame!
+    channel.send(VideoFrameData(data, ...))
+}
+```
+
+**Fix:** Use ring buffer reference, pooled buffers, or native handles.
+
+---
+
+## Part VIII: Frame Routing (The "frames=0" Diagnosis)
+
+### Root Causes (Check in Order)
+
+1. **Closed channel bug** (most likely)
+   - Channel created once, closed on first stop, never recreated
+   - Fix: per-session channel
+
+2. **Frame routing not enabled**
+   - Preview consumes from RingBufferController
+   - Recording listens to different flow that isn't wired
+   - Fix: Recording must explicitly subscribe to native callback path
+
+3. **Service boundary not wired**
+   - `VideoRecordingManager.onFrame()` never called
+   - Add intake log at boundary: `RECORDING [FRAME_INTAKE] count=... bytes=...`
+
+### Service-Owned Recording Start Procedure
+
+```kotlin
+// In CameraService (not UI!)
+suspend fun startRecording(config: RecordingConfig): Result<RecordingSession> {
+    // 1. Enable frame emission from native (if gated)
+    cameraManager.safeEnableCaptureFrames()
+    log("FRAMES_ENABLED")
+    
+    // 2. Start recording pipeline
+    val session = recordingController.startRecording(config)
+    
+    // 3. Attach recording consumer to stream
+    cameraManager.frames()
+        .onEach { frame -> recordingController.onFrame(frame) }
+        .launchIn(recordingScope)
+    log("RECORDING_CONSUMER_ATTACHED")
+    
+    // 4. Verify first frame arrives (with timeout)
+    val firstFrame = withTimeoutOrNull(2000) {
+        recordingController.awaitFirstFrame()
+    }
+    if (firstFrame == null) {
+        log("ERROR: No frames received - aborting")
+        recordingController.stopRecording()
+        return Result.failure(NoFramesException())
+    }
+    
+    return Result.success(session)
+}
+```
+
+### Pro Expectation
+
+Recording should consume from the **same native pipeline as preview**, ideally from the ring buffer:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  Native Ring Buffer                                                  │
+│       │                                                              │
+│       ├──► Preview (SurfaceView)                                     │
+│       │                                                              │
+│       └──► Recording (MediaCodec input surface)                      │
+│            Same source, single native pipeline                       │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+NOT two parallel flows where one can be off.
+
+---
+
+## Part IX: Runtime Assertions (Seatbelt)
 
 Add these to catch violations immediately:
 
@@ -443,7 +716,7 @@ In debug builds, these throw immediately on violation. In release, they can log 
 
 ---
 
-## Part VIII: Logging (Golden Trace)
+## Part X: Logging (Golden Trace)
 
 ### Required Log Events
 
@@ -501,53 +774,90 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 
 ---
 
-## Part IX: Implementation Checklist
+## Part XI: Implementation Checklist
 
-### Phase 1: Instrumentation (Do First)
+### Phase 1: Fix Critical Bugs (P0 - IMMEDIATE)
 
-- [ ] Add session-scoped file logging for recording timeline
-- [ ] Add `RecordingEvent` enum and logging
-- [ ] Add runtime invariant assertions (`drainInProgress`, `muxerStopped`)
-- [ ] Capture logs that survive app crash
+**Bug A: Channel Reuse (frames=0)**
+- [ ] Make `frameChannel` per-session (created in start, null'd in stop)
+- [ ] Verify: second recording receives frames
+
+**Bug B: Codec Thread Serialization**
+- [ ] Create `codecDispatcher = Dispatchers.Default.limitedParallelism(1)`
+- [ ] Ensure ALL MediaCodec/MediaMuxer calls happen on this dispatcher
+- [ ] Verify: `signalEndOfInputStream()` also on codec dispatcher
+
+**Bug C: Drain Loop Exit Condition**
+- [ ] Remove `isActive()` check from drain loop
+- [ ] Exit ONLY on `BUFFER_FLAG_END_OF_STREAM` observation
+- [ ] Add timeout safety valve for excessive TRY_AGAIN_LATER
+
+**Bug D: Stop Sequencing (Deadlock Prevention)**
+- [ ] Signal EOS BEFORE joining frame processing job
+- [ ] Add bounded timeouts on all joins
+- [ ] Ensure stop completes even if frame processing is wedged
 
 ### Phase 2: Single Drain Loop (P0)
 
 - [ ] Create `RecordingPipelineController` class
 - [ ] Implement single `drainLoop()` as THE ONLY dequeue path
 - [ ] Remove `drainEncoderFinal()` entirely
-- [ ] Route all stop operations through state machine
+- [ ] Add `drainInProgress` runtime assertion
 
-### Phase 3: Stop Semantics (P0)
-
-- [ ] Change stop to: close inputs → signal EOS → await drain → finalize
-- [ ] Remove `cancel()` + second drain pattern
-- [ ] Ensure muxer stop happens exactly once
-
-### Phase 4: Atomic Publishing (P1)
+### Phase 3: MediaStore Publishing (P0)
 
 - [ ] Implement `IS_PENDING` MediaStore pattern
 - [ ] Handle failure: delete pending entry, surface error
+- [ ] Log `MEDIASTORE_PUBLISHED uri=... size=... duration=...`
 - [ ] Verify: valid video visible in gallery, or nothing
 
-### Phase 5: Verification
+### Phase 4: Frame Routing Verification (P0)
+
+- [ ] Add intake log at service boundary: `FRAME_INTAKE count=... bytes=...`
+- [ ] Verify frames flow: native → channel → encoder
+- [ ] Ensure recording uses same source as preview (ring buffer)
+- [ ] Add "first frame received" verification in start procedure
+
+### Phase 5: Performance (P1 - Plan Now, Execute Later)
+
+- [ ] Identify Bitmap decode usage (mark as dev-only if keeping)
+- [ ] Plan Surface input encoding path from native ring buffer
+- [ ] Remove per-frame `copyOf()` - use pooled buffers or native handles
+
+### Phase 6: Verification
 
 - [ ] Test 1: Record 2-3s → stop → save (expect: visible, playable)
 - [ ] Test 2: Record 2-3s → stop quickly (<300ms) (expect: no crash)
+- [ ] Test 3: Record → stop → record again (expect: frames in second recording)
 - [ ] Verify: `drainLoopId` never duplicated
+- [ ] Verify: All codec calls on single thread
 - [ ] Verify: Golden trace in logs
 
 ---
 
-## Part X: Success Criteria
+## Part XII: Success Criteria
 
 | Test | Expected Result |
 |------|-----------------|
 | Normal recording | Valid MP4, visible in gallery, correct duration |
 | Quick stop (<300ms) | Either valid short video, or clean failure + user feedback |
+| **Second recording** | Frames received (channel recreated) |
 | `drainLoopId` | Never more than 1 per recording |
 | Dequeue calls | Always single-threaded (assertion never trips) |
 | Muxer stop | Exactly once per recording |
+| EOS drain | Loop exits on EOS observation, not scope state |
+| Stop timeout | Completes within 5s even if frame processing wedged |
 | Crash recovery | Temp files cleaned up, no corrupt videos visible |
+
+### Critical Bug Verification
+
+| Bug | How to Verify |
+|-----|---------------|
+| **A. Channel Reuse** | Record → stop → record again → frames > 0 |
+| **B. Thread Serialization** | Add thread name logging to all codec calls |
+| **C. Drain Exit** | Log shows `DRAIN_EOS_OBSERVED` before `DRAIN_LOOP_EXITED` |
+| **D. Stop Deadlock** | Stop completes with wedged frame processing |
+| **E. MediaStore** | Video appears in gallery after stop |
 
 ---
 
@@ -559,5 +869,7 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 
 **This directive is BINDING. Non-compliance results in:**
 - MediaCodec crashes (concurrent dequeue)
+- `frames=0` on second recording (channel reuse bug)
+- Stop hangs (deadlock)
 - Corrupt/invisible recordings
 - User data loss
