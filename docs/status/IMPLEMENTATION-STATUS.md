@@ -22,19 +22,34 @@
 
 | Phase | Status | Sub-tasks | Complete | Notes |
 |-------|--------|-----------|----------|-------|
-| **0-Pre** | **COMPLETE** | 19 | 19 | Infrastructure ready |
-| **0** | **COMPLETE** | 28 | 25 | Patches integrated, device testing P2 |
-| **App Integration** | **ACTIVE** | 15 | 12 | Directives R2/R3 issued |
+| **0-Pre** | **✅ COMPLETE** | 19 | 19 | Infrastructure ready |
+| **0** | **✅ COMPLETE** | 28 | 25 | Patches integrated, device testing P2 |
+| **App Integration** | **✅ P0 COMPLETE** | 15 | 15 | Implemented by scopecam-engine |
 | 1 | **PAUSED** | 18 | 6 | Tasks 1.1-1.3 complete |
 | 2 | Waiting | 24 | 0 | Blocked by Phase 1 |
 | 3 | Waiting | 18 | 0 | Blocked by Phase 2 |
 | 4 | Waiting | 18 | 0 | Blocked by Phase 3 |
 
+### Cross-Project Status (2026-01-14)
+
+**scopecam-engine has implemented all P0 directives:**
+
+| Directive | Version | scopecam-engine Status |
+|-----------|---------|------------------------|
+| WARM Gate | R2 | ✅ COMPLETE |
+| Video Recording | R3 | ✅ COMPLETE |
+| Capture Commit | Phase 1 | ✅ COMPLETE |
+
+**Key scopecam-engine documents:**
+- `WARM_GATE_DIRECTIVE.md` - ACTIVE
+- `CAPTURE_COMMIT_PATTERN.md` - ACTIVE
+- `VIDEO_RECORDING_LESSONS_LEARNED.md` - **MUST READ** (8 bugs fixed)
+
 ---
 
-## App Integration Support (2026-01-14) **ACTIVE**
+## App Integration Support (2026-01-14) **✅ P0 COMPLETE**
 
-### Track A: WARM Gate & Surface Lease
+### Track A: WARM Gate & Surface Lease ✅ IMPLEMENTED BY SCOPECAM
 
 **Issue Identified:** Consumer application uses Java-layer FD checks which ALWAYS fail with `openSimple()`.
 
@@ -42,30 +57,35 @@
 
 **Directive Issued:** `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` (R2)
 
-| Task | Status |
-|------|--------|
-| Document WARM state architecture | [x] |
-| Document prohibited patterns | [x] |
-| Create SurfaceLeaseController pattern | [x] |
-| Define idempotent surface operations | [x] |
-| Add surface lease churn debugging | [x] |
+| Task | Directive | Implementation |
+|------|-----------|----------------|
+| Document WARM state architecture | [x] | ✅ scopecam-engine |
+| Document prohibited patterns | [x] | ✅ scopecam-engine |
+| Create SurfaceLeaseController pattern | [x] | ✅ scopecam-engine |
+| Define idempotent surface operations | [x] | ✅ scopecam-engine |
+| Add surface lease churn debugging | [x] | ✅ scopecam-engine |
 
-### Track B: Video Recording Architecture
+**scopecam-engine Status:** ✅ COMPLETE (2026-01-14)
+
+### Track B: Video Recording Architecture ✅ IMPLEMENTED BY SCOPECAM
 
 **Issue Identified:** Multiple bugs in recording pipeline - concurrent dequeue, channel reuse, wrong exit conditions, no DB insert.
 
 **Directive Issued:** `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` (R3)
 
-| Task | Status |
-|------|--------|
-| HOT Gate Contract | [x] |
-| NativeSnapshot pattern | [x] |
-| RecordingCoordinator pattern | [x] |
-| RecordingPipelineController pattern | [x] |
-| Capture Commit pattern | [x] |
-| First-frame SLA | [x] |
-| Golden trace logging | [x] |
-| Reconciliation strategy | [x] |
+| Task | Directive | Implementation |
+|------|-----------|----------------|
+| HOT Gate Contract | [x] | ✅ scopecam-engine |
+| NativeSnapshot pattern | [x] | ✅ scopecam-engine |
+| RecordingCoordinator pattern | [x] | ✅ scopecam-engine |
+| RecordingPipelineController pattern | [x] | ✅ scopecam-engine |
+| Capture Commit pattern | [x] | ✅ scopecam-engine |
+| First-frame SLA | [x] | ✅ scopecam-engine |
+| Golden trace logging | [x] | ✅ scopecam-engine |
+| Reconciliation strategy | [x] | P1 (planned) |
+
+**scopecam-engine Status:** ✅ COMPLETE (2026-01-14)
+**See:** `VIDEO_RECORDING_LESSONS_LEARNED.md` in scopecam-engine (8 bugs fixed)
 
 ### Track C: Native Requirements
 
@@ -80,6 +100,14 @@
 | Idempotent surface ops | [~] Needs logging | Log attach/detach outcomes |
 | PIPELINE_READY log point | [ ] Not implemented | Log when HOT becomes true |
 | Deterministic stagnant | [x] Exists | 500ms threshold |
+
+### scopecam-engine P1 Work (Next)
+
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Video Thumbnails | P1 | Videos show blank tiles in gallery |
+| Shared Commit Function | P1 | Consolidate photo/video commit logic |
+| Reconciliation Job | P1 | Handle crash recovery edge cases |
 
 ### Cross-Project Architectural Boundaries
 

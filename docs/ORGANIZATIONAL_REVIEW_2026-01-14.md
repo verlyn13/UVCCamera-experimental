@@ -165,7 +165,7 @@ patches/
 
 ## Action Items
 
-### Immediate (This Session)
+### Immediate (This Session) ✅ COMPLETE
 
 1. ✅ Update `docs/status/IMPLEMENTATION-STATUS.md` with:
    - Video recording directive work
@@ -180,6 +180,18 @@ patches/
 3. ✅ Add DECISION-023 to `adr-proposal.md`
 
 4. ✅ Update `CLAUDE.md` phase dependencies
+
+### Cross-Project Sync (2026-01-14) ✅ ALIGNED
+
+**scopecam-engine has implemented all P0 directives:**
+
+| Directive | uvccamera Status | scopecam Status |
+|-----------|------------------|-----------------|
+| WARM Gate (R2) | ✅ Issued | ✅ COMPLETE |
+| Video Recording (R3) | ✅ Issued | ✅ COMPLETE |
+| Capture Commit | ✅ Documented | ✅ COMPLETE |
+
+**Both repos now show consistent status.**
 
 ### Deferred (Future Session)
 

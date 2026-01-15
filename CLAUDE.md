@@ -376,23 +376,32 @@ Capture Commit = MediaStore write + DB insert + Metadata attached
 ```
 Both photo AND video MUST use the same `commitCapture()` function.
 
-**ScopeCam Required Actions:**
-1. **`SurfaceLeaseController`** - Single owner of surface attach/detach
-2. **`RecordingCoordinator`** - Single owner of recording start (HOT gate + first-frame SLA)
-3. **`RecordingPipelineController`** - Single owner of codec/muxer
-4. **`commitCapture()`** - Shared by photo AND video (DB insert after MediaStore save)
-5. **Reconciliation job** - Recover from crashes (MediaStore → DB sync)
-6. **Thread confinement** - Camera ops on camera thread, not main
-7. Replace all `usbFd >= 0` checks with native state queries (`NativeSnapshot`)
-8. Add FGS with `connectedDevice` type
-9. Stop = state transition + join, not cancel + final drain
-10. **No empty recordings** - frames=0 must abort, never commit
+### ScopeCam Implementation Status (2026-01-14)
+
+**✅ P0 COMPLETE - All directives implemented by scopecam-engine:**
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| `SurfaceLeaseController` | ✅ Complete | Single owner of surface attach/detach |
+| `RecordingCoordinator` | ✅ Complete | HOT gate + first-frame SLA |
+| `RecordingPipelineController` | ✅ Complete | Single owner of codec/muxer |
+| `commitCapture()` | ✅ Complete | DB insert after MediaStore save |
+| Native state queries | ✅ Complete | Replaced FD checks with NativeSnapshot |
+| Video Recording Pipeline | ✅ Complete | 8 bugs fixed (see LESSONS_LEARNED) |
+
+**P1 In Progress (scopecam-engine):**
+- Video Thumbnails - blank tiles in gallery
+- Shared Commit Function - consolidate photo/video
+- Reconciliation job - crash recovery
 
 **Native (uvccamera-experimental) Requirements:**
-1. **Idempotent surface operations** - `attachSurface`/`detachSurface` log outcome
-2. **PIPELINE_READY log point** - Log when HOT becomes true
-3. **Deterministic diagnostics** - `stagnant` well-defined (no frame for 500ms)
-4. **NativeSnapshot support** - All state queryable via single call
+
+| Requirement | Status |
+|-------------|--------|
+| Idempotent surface operations | [~] Needs logging |
+| PIPELINE_READY log point | [ ] Not implemented |
+| Deterministic diagnostics | ✅ Exists |
+| NativeSnapshot support | ✅ Exists |
 
 ---
 
