@@ -1,5 +1,13 @@
 # Directive: uvccamera-experimental → scopecam-engine
 
+> **⚠️ STATUS: HISTORICAL**
+> 
+> This directive (2026-01-13) covers Phase 0 patch handoff only.
+> 
+> **Current binding directives:**
+> - `SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` (R2) - Surface lease, FD truth
+> - `SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` (R3) - Recording, capture commit
+
 **Date:** 2026-01-13
 **From:** uvccamera-experimental (testing sandbox)
 **To:** scopecam-engine (production engine)

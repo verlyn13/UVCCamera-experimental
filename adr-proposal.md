@@ -637,13 +637,84 @@ Phase 4: XU & Polish (Weeks 10-12)
 
 ---
 
+## Part VI: App Integration Decisions (R2.1)
+
+### DECISION-023: Session Truth Model (Native Authority)
+
+**Status:** FINAL (2026-01-14)
+**Evidence:** App debugging, FD ownership analysis
+
+**Decision:** When using `openSimple()`, native is the sole owner of USB session truth.
+
+**Background:**
+- `openSimple(fd)` passes an FD directly to native, which `dup()`s it
+- Native stores the duplicated FD in `mFd` and owns its lifecycle
+- Java-layer `mCtrlBlock` is NOT set by `openSimple()`
+- Any Java-layer FD checks return invalid/null values
+
+**Contract:**
+1. **Kotlin MUST NOT** infer session state from `UsbDeviceConnection.getFileDescriptor()` or `UsbControlBlock`
+2. **Kotlin MUST** use `getPreviewState()` / `querySessionDiagnostic()` for session state
+3. **Native MUST** provide deterministic diagnostics via `NativeSnapshot` pattern
+
+**Implications:**
+- "WARM gate" must use native state, not Java FD checks
+- Recording prerequisites must query native (`previewState == HOT`)
+- Surface attachment status must be queried from native (`DIAG_SURFACE_BOUND`)
+
+**See:** `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md`
+
+---
+
+### DECISION-024: Recording Contract (HOT Gate)
+
+**Status:** FINAL (2026-01-14)
+**Evidence:** Video recording debugging, frames=0 analysis
+
+**Decision:** Recording may start ONLY when HOT gate passes.
+
+**Invariant:**
+```
+previewState == HOT && surfaceAttached && !stagnant
+```
+
+**Contract Behavior:**
+1. If invariant passes → start recording
+2. If invariant fails → request HOT, await with timeout, then start
+3. If timeout → abort with user-actionable error
+
+**First-Frame SLA:** If no frame received within 1s after encoder start, abort and discard (no empty recordings).
+
+**See:** `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md`
+
+---
+
+### DECISION-025: Capture Commit Pattern (DB-First)
+
+**Status:** FINAL (2026-01-14)
+**Evidence:** "Video saved but not visible" bug analysis
+
+**Decision:** Room DB is the source of truth for captured media. MediaStore is the storage backend.
+
+**Capture Commit = MediaStore write + DB insert + Metadata attached**
+
+**Contract:**
+1. Both photo AND video MUST use the same `commitCapture()` function
+2. If MediaStore succeeds but DB fails, log warning and attempt reconciliation later
+3. Reconciliation job runs on app start to sync MediaStore → DB
+
+**See:** `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` Part V
+
+---
+
 ## Document Control
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-01-12 | Claude | Initial evidence-based decisions |
 | 1.1 | 2026-01-12 | Claude | Red team review corrections |
-| **2.0** | **2026-01-12** | **Claude** | **R2: Locked ship-ready decisions** |
+| 2.0 | 2026-01-12 | Claude | R2: Locked ship-ready decisions |
+| **2.1** | **2026-01-14** | **Claude** | **R2.1: App integration decisions** |
 
 **R2 New Decisions:**
 - DECISION-016: tl::expected (vendored)
@@ -655,6 +726,11 @@ Phase 4: XU & Polish (Weeks 10-12)
 - DECISION-022: MediaCodec ownership (Kotlin Surface)
 - PRINCIPLE-008: C ABI boundary
 
+**R2.1 New Decisions:**
+- DECISION-023: Session Truth Model (Native Authority)
+- DECISION-024: Recording Contract (HOT Gate)
+- DECISION-025: Capture Commit Pattern (DB-First)
+
 **Locked in R2:** Clock frequency (already parsed), all "Important Decisions" from refinement session.
 
 **Authority:** This document is the binding architectural specification for ScopeCam UVCCamera modernization.
@@ -663,4 +739,4 @@ Phase 4: XU & Polish (Weeks 10-12)
 
 ---
 
-*End of ARCH-DECISIONS-001-R2*
+*End of ARCH-DECISIONS-001-R2.1*

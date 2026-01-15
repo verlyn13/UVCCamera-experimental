@@ -42,12 +42,29 @@
 
 ## Authoritative Documents
 
+### Architecture & Decisions
+
 | Document | Purpose |
 |----------|---------|
-| `adr-proposal.md` | ARCH-DECISIONS-001-R2 (binding decisions) |
-| `imp-plan.md` | Concrete implementation plan |
+| `adr-proposal.md` | ARCH-DECISIONS-001-R2.1 (binding decisions) |
+| `imp-plan.md` | Concrete implementation plan (native phases) |
+| `docs/architecture.md` | System architecture, NativeSnapshot, PIPELINE_READY |
+
+### Status & Progress
+
+| Document | Purpose |
+|----------|---------|
 | `docs/status/IMPLEMENTATION-STATUS.md` | Current progress tracker |
 | `docs/PROMOTION_WORKFLOW.md` | Patch promotion process |
+| `docs/README.md` | Documentation index |
+
+### App Integration Directives
+
+| Document | Purpose |
+|----------|---------|
+| `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` | Surface lease + WARM gate (R2) |
+| `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` | Video recording + capture commit (R3) |
+| `docs/ScopeCam-Integration-Guide.md` | Complete integration patterns |
 
 ---
 
@@ -193,13 +210,19 @@ Pre-push hooks:
 ```
 Phase 0-Pre (Infrastructure) ✅ COMPLETE
     ↓
-Phase 0 (PTS/SCR Timestamps) ✅ COMPLETE & SYNCED
+Phase 0 (PTS/SCR Timestamps) ✅ COMPLETE & INTEGRATED
     ↓
-Phase 1 (GET_INFO Compliance) ← CURRENT FOCUS (Task 1.1 complete)
+Phase 1 (GET_INFO Compliance) ⏸️ PAUSED (Tasks 1.1-1.3 complete)
     ↓
-Phase 2 (Clock Synchronizer)
+Phase 2 (Clock Synchronizer) WAITING
     ↓
-Phase 3-4 (Advanced Features)
+Phase 3-4 (Advanced Features) WAITING
+
+PARALLEL TRACK:
+App Integration Support ← ACTIVE (Directives R2/R3 issued)
+├── WARM Gate Directive (R2)
+├── Video Recording Directive (R3)
+└── Native requirements tracking
 ```
 
 ### Deliverables per Phase

@@ -1,8 +1,8 @@
 # Implementation Status: ARCH-DECISIONS-001-R2
 
 **Last Updated:** 2026-01-14
-**Current Phase:** Phase 0 (INTEGRATED - awaiting device testing) + WARM Gate Documentation
-**Overall Progress:** Phase 0-Pre COMPLETE, Phase 0 code INTEGRATED, WARM Gate docs COMPLETE
+**Current Phase:** App Integration Support (Active) + Phase 1 (Paused)
+**Overall Progress:** Phase 0 COMPLETE, App Integration ACTIVE, Phase 1 partially complete
 
 ---
 
@@ -20,49 +20,106 @@
 
 ## Phase Summary
 
-| Phase | Status | Sub-tasks | Complete | Blocked |
-|-------|--------|-----------|----------|---------|
-| **0-Pre** | **COMPLETE** | 19 | 19 | 0 |
-| **0** | **INTEGRATED** | 28 | 25 | 3 (device testing) |
-| 1 | Waiting | 18 | 0 | 0 |
-| 2 | Waiting | 24 | 0 | 0 |
-| 3 | Waiting | 18 | 0 | 0 |
-| 4 | Waiting | 18 | 0 | 0 |
+| Phase | Status | Sub-tasks | Complete | Notes |
+|-------|--------|-----------|----------|-------|
+| **0-Pre** | **COMPLETE** | 19 | 19 | Infrastructure ready |
+| **0** | **COMPLETE** | 28 | 25 | Patches integrated, device testing P2 |
+| **App Integration** | **ACTIVE** | 15 | 12 | Directives R2/R3 issued |
+| 1 | **PAUSED** | 18 | 6 | Tasks 1.1-1.3 complete |
+| 2 | Waiting | 24 | 0 | Blocked by Phase 1 |
+| 3 | Waiting | 18 | 0 | Blocked by Phase 2 |
+| 4 | Waiting | 18 | 0 | Blocked by Phase 3 |
 
-### Phase 0 Integration Status (2026-01-13)
+---
 
-**Patches created in uvccamera-experimental:**
-- [x] `libuvc-pts-scr-plumbing.patch` - PTS/SCR timestamp extraction
-- [x] `thread-priority.patch` - Callback thread priority boost
-- [x] `tl-expected-integration.patch` - Documentation only
+## App Integration Support (2026-01-14) **ACTIVE**
 
-**Integration by scopecam-engine:**
+### Track A: WARM Gate & Surface Lease
+
+**Issue Identified:** Consumer application uses Java-layer FD checks which ALWAYS fail with `openSimple()`.
+
+**Root Cause:** `openSimple()` does not set `mCtrlBlock`, so Java-layer FD checks return invalid values.
+
+**Directive Issued:** `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` (R2)
+
+| Task | Status |
+|------|--------|
+| Document WARM state architecture | [x] |
+| Document prohibited patterns | [x] |
+| Create SurfaceLeaseController pattern | [x] |
+| Define idempotent surface operations | [x] |
+| Add surface lease churn debugging | [x] |
+
+### Track B: Video Recording Architecture
+
+**Issue Identified:** Multiple bugs in recording pipeline - concurrent dequeue, channel reuse, wrong exit conditions, no DB insert.
+
+**Directive Issued:** `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` (R3)
+
+| Task | Status |
+|------|--------|
+| HOT Gate Contract | [x] |
+| NativeSnapshot pattern | [x] |
+| RecordingCoordinator pattern | [x] |
+| RecordingPipelineController pattern | [x] |
+| Capture Commit pattern | [x] |
+| First-frame SLA | [x] |
+| Golden trace logging | [x] |
+| Reconciliation strategy | [x] |
+
+### Track C: Native Requirements
+
+**Requirements for native code to support app integration:**
+
+| Requirement | Status | Notes |
+|-------------|--------|-------|
+| `getPreviewState()` | [x] Exists | Used for WARM/HOT detection |
+| `querySessionDiagnostic()` | [x] Exists | Bitmask for state |
+| `suspendSurfaceLease()` | [x] Exists | HOT→WARM |
+| `acquireSurfaceLease()` | [x] Exists | WARM→HOT |
+| Idempotent surface ops | [~] Needs logging | Log attach/detach outcomes |
+| PIPELINE_READY log point | [ ] Not implemented | Log when HOT becomes true |
+| Deterministic stagnant | [x] Exists | 500ms threshold |
+
+### Cross-Project Architectural Boundaries
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  NATIVE (uvccamera) OWNS:             KOTLIN (scopecam) OWNS:       │
+│  ├── USB session (FD after dup)       ├── Android lifecycle         │
+│  ├── Preview pipeline                 ├── UI surfaces (single owner)│
+│  ├── Frame production                 ├── Recording (single owner)  │
+│  ├── Ring buffer                      ├── MediaStore publishing     │
+│  ├── Timestamps (PTS/SCR)             ├── DB persistence (Room)     │
+│  └── WARM/HOT state machine           ├── Gallery view model        │
+│                                       └── Reconciliation            │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Phase 0 Status (2026-01-13) **COMPLETE**
+
+### Patches Created
+
+| Patch | Content | Status |
+|-------|---------|--------|
+| `libuvc-pts-scr-plumbing.patch` | PTS/SCR timestamp extraction | [x] Created |
+| `thread-priority.patch` | Callback thread priority boost | [x] Created |
+| `tl-expected-integration.patch` | Documentation only | [x] Created |
+
+### Integration by scopecam-engine
+
 - [x] Patches applied to `third_party/libuvc/`
 - [x] StreamTelemetry.h extended (v2→v3, fields 37→41)
 - [x] NativeTelemetry.kt updated
-- [x] APK built: `app-qa-debug.apk` (32 MB)
+- [x] APK built successfully
 
-**Awaiting device testing:**
+### Device Testing (P2)
+
 - [ ] PTS/SCR reliability verification
 - [ ] Thread priority verification
 - [ ] Fill PTS_RELIABILITY_REPORT.md with test results
-
-### WARM Gate Documentation (2026-01-14)
-
-**Issue Identified:** Consumer application (scopecam-engine) uses Java-layer FD checks for WARM gate eligibility, which ALWAYS fails with `openSimple()` because `mCtrlBlock` is null.
-
-**Documentation Updates in uvccamera-experimental:**
-- [x] `ScopeCam-Integration-Guide.md` - Added Section 0: WARM State Architecture (CRITICAL)
-- [x] `ScopeCam-Integration-Guide.md` - Added Section 0.6: FGS Requirements
-- [x] `ScopeCam-Integration-Guide.md` - Added Section 0.7: Prohibited Patterns
-- [x] `api-reference.md` - Added `openSimple()` ownership warning
-- [x] `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` - Created binding directive for scopecam-engine
-
-**Directive issued to scopecam-engine:**
-- [ ] Replace all FD-based checks with `getPreviewState()` / `querySessionDiagnostic()`
-- [ ] Replace `camera.close()` in `onSurfaceDestroyed` with `suspendSurfaceLease()`
-- [ ] Add FGS with `connectedDevice` type
-- [ ] Verify 20x Gallery navigation without crash
 
 ---
 
@@ -251,14 +308,15 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 
 ---
 
-## Phase 1: UVC Compliance (Weeks 2-3)
+## Phase 1: UVC Compliance (Weeks 2-3) **PAUSED**
 
-**Status:** 🔄 **IN PROGRESS** (2026-01-13) - GET_INFO implemented
+**Status:** ⏸️ **PAUSED** - Tasks 1.1-1.3 complete, 1.4-1.5 awaiting device testing
 **ADR Reference:** DECISION-011
+**Pause Reason:** App integration support took priority
 
-### Tasks
+### Completed Tasks
 
-#### 1.1: GET_INFO Function
+#### 1.1: GET_INFO Function ✅
 - [x] Implement `uvc_get_info()` in ctrl.c
 - [x] Add debug logging (LOGD/LOGI/LOGW)
 - [x] Define `uvc_ctrl_caps_t` struct
@@ -268,9 +326,8 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 
 **Files:** `libuvc/src/ctrl.c`, `libuvc/include/libuvc/libuvc.h`
 **Decision:** DECISION-011
-**Status:** Core implementation complete, awaiting device testing
 
-#### 1.2: Control Capability Cache
+#### 1.2: Control Capability Cache ✅
 - [x] Create cache structure in device handle
 - [x] Implement cache lookup/store functions
 - [x] Integrate cache with uvc_get_info()
@@ -280,9 +337,8 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 
 **Files:** `libuvc/src/ctrl.c`, `libuvc/src/device.c`, `libuvc/include/libuvc/libuvc_internal.h`
 **Decision:** DECISION-011
-**Status:** Complete - cache eliminates repeated USB requests
 
-#### 1.3: GET_INFO Fallback (Empirical Inference)
+#### 1.3: GET_INFO Fallback (Empirical Inference) ✅
 - [x] Replace dangerous CTRL_TIMEOUT_MILLIS=0 with safe timeouts
 - [x] Add BLACKLIST state to uvc_ctrl_cap_source_t
 - [x] Extend cache entry with timestamp metadata
@@ -295,7 +351,6 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 
 **Files:** `libuvc/src/ctrl.c`, `libuvc/src/device.c`, `libuvc/include/libuvc/libuvc.h`, `libuvc/include/libuvc/libuvc_internal.h`
 **Decision:** DECISION-011
-**Status:** Complete - professional-grade empirical discovery with thread safety and blacklisting
 
 #### 1.4: GET_INFO Verification
 - [ ] Test exposure control on Linux
@@ -564,13 +619,31 @@ This repository is a **SANDBOX** for testing UVC library improvements:
 | 2026-01-13 | 0-Pre | 0-Pre.3 | Sync script fully tested with scopecam-engine |
 | 2026-01-13 | 0-Pre | 0-Pre.5 | Build manifest generation integrated into sync |
 | 2026-01-13 | Infra | Cross-Repo | Added collaboration docs to both CLAUDE.md files |
-| 2026-01-14 | Docs | WARM Gate | ScopeCam-Integration-Guide.md §0 - WARM state architecture |
-| 2026-01-14 | Docs | WARM Gate | api-reference.md - openSimple() ownership warning |
-| 2026-01-14 | Docs | WARM Gate | patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md - binding directive |
+| 2026-01-13 | 0 | All | Phase 0 code integrated into scopecam-engine |
+| 2026-01-13 | 1 | 1.1-1.3 | GET_INFO + cache + empirical inference complete |
+| 2026-01-14 | App | WARM Gate | ScopeCam-Integration-Guide.md §0 - WARM state architecture |
+| 2026-01-14 | App | WARM Gate | api-reference.md - openSimple() ownership warning |
+| 2026-01-14 | App | WARM Gate | WARM Gate Directive R1 created |
+| 2026-01-14 | App | Surface Lease | Surface lease churn debugging, SurfaceLeaseController pattern |
+| 2026-01-14 | App | Surface Lease | WARM Gate Directive R2 - surface ownership |
+| 2026-01-14 | App | Recording | Video Recording Directive R1 - single drain loop |
+| 2026-01-14 | App | Recording | Video Recording Directive R2 - critical bug fixes (6 bugs) |
+| 2026-01-14 | App | Recording | Capture Commit pattern - DB-first architecture |
+| 2026-01-14 | App | Recording | Video Recording Directive R3 - HOT gate contract |
+| 2026-01-14 | Docs | Architecture | architecture.md - NativeSnapshot, PIPELINE_READY |
+| 2026-01-14 | Docs | Org Review | Comprehensive organizational review |
 
-<!-- Template:
-| 2026-01-12 | 0-Pre | 0-Pre.1 | Vendored tl::expected v0.6.1 |
--->
+---
+
+## Directive Version History
+
+| Directive | Version | Date | Key Changes |
+|-----------|---------|------|-------------|
+| WARM Gate | R1 | 2026-01-14 | Initial FD truth, native state APIs |
+| WARM Gate | R2 | 2026-01-14 | SurfaceLeaseController, idempotency, debug hardening |
+| Video Recording | R1 | 2026-01-14 | Single drain loop, state-transition stop |
+| Video Recording | R2 | 2026-01-14 | 6 critical bugs, thread serialization, MediaStore |
+| Video Recording | R3 | 2026-01-14 | HOT gate contract, capture commit, RecordingCoordinator |
 
 ---
 
