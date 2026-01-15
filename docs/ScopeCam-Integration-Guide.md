@@ -382,45 +382,113 @@ Video recording follows the **same single-owner pattern** as surface lease.
 | **Single Encoder Consumer** | ONE loop drains MediaCodec output |
 | **Stop is State Transition** | Not cancellation - orderly shutdown |
 | **Muxer Finalization Once** | Stop muxer exactly once |
-| **Atomic File Publishing** | Valid video OR discarded + error |
+| **Capture Commit** | MediaStore + DB insert as single transaction |
 
 ### Correct Stop Pattern
 
 ```kotlin
-// ✅ CORRECT: Single drain path, orderly shutdown
+// ✅ CORRECT: Single drain path, orderly shutdown, capture commit
 suspend fun stopRecording() {
     // 1. Signal stop (close inputs, signal EOS)
     closeFrameInput()
     signalEncoderEos()
     
     // 2. Wait for THE SAME drain loop to finish
-    drainJob?.join()  // Sees EOS and exits naturally
+    drainJob?.join()
     
-    // 3. Then finalize (exactly once)
+    // 3. Finalize muxer
     muxer.stop()
     encoder.release()
-    publishToMediaStore()
-}
-```
-
-### RecordingPipelineController
-
-Similar to `SurfaceLeaseController`, create a single owner for codec/muxer:
-
-```kotlin
-class RecordingPipelineController(
-    private val recordingDispatcher: CoroutineDispatcher  // Single-threaded!
-) {
-    // THE ONLY code that calls dequeueOutputBuffer
-    private suspend fun drainLoop(encoder: MediaCodec, muxer: MediaMuxer) {
-        // Runtime assertion: prove single-consumer
-        check(drainInProgress.compareAndSet(false, true)) {
-            "INVARIANT VIOLATION: Concurrent dequeue!"
-        }
-        // ... single drain loop ...
+    
+    // 4. Capture commit (MediaStore + DB)
+    val saveResult = mediaStorageHelper.saveVideo(...)
+    if (saveResult is Success) {
+        commitCapture(saveResult, capturedMediaDao, MediaType.VIDEO, ...)
     }
 }
 ```
+
+---
+
+## 0.10 Capture Commit Pattern (Cross-Project Boundary)
+
+### Architectural Decision: DB-First Gallery
+
+**ScopeCam uses Room DB as the source of truth for "captured media".**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    SOURCE OF TRUTH ARCHITECTURE                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Native (uvccamera-experimental):     Kotlin (scopecam-engine):              │
+│  ├── Frame production                 ├── Recording pipeline                 │
+│  ├── Ring buffer                      ├── MediaStore I/O                     │
+│  ├── Timestamps (PTS/SCR)             ├── DB persistence (Room)              │
+│  └── Session state                    ├── Gallery view model                 │
+│                                       └── Reconciliation                     │
+│                                                                              │
+│  BOUNDARY: Native delivers frames. Kotlin owns capture persistence.          │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### What is "Capture Commit"?
+
+```
+Capture Commit = MediaStore write + DB insert + Metadata attached
+```
+
+Both photo AND video MUST use the same commit path:
+
+```kotlin
+// Shared by PhotoCaptureHelper AND UvcCameraService
+suspend fun commitCapture(
+    save: SaveResult.Success,
+    capturedMediaDao: CapturedMediaDao,
+    mediaType: MediaType,  // PHOTO or VIDEO
+    ...
+): String {
+    val entity = CapturedMediaEntity(...)
+    capturedMediaDao.insert(entity)
+    Timber.i("CAPTURE_COMMIT_SUCCESS type=%s id=%s uri=%s", ...)
+    return entity.id
+}
+```
+
+### Why This Matters
+
+| Without Commit Pattern | With Commit Pattern |
+|------------------------|---------------------|
+| Photo inserts to DB ✅ | Photo uses `commitCapture()` |
+| Video skips DB ❌ | Video uses `commitCapture()` |
+| Gallery shows photos only | Gallery shows both |
+| Drift between photo/video | Single code path, no drift |
+
+### Required: Reconciliation
+
+Even with commit pattern, crashes can cause divergence. Run reconciliation:
+- On app start (debounced)
+- When gallery opens with empty/small DB
+
+```kotlin
+// MediaStore item exists but DB row missing → insert
+// DB row exists but MediaStore file deleted → mark missing
+```
+
+**Rule:** Never delete user's successfully saved capture. Reconcile later.
+
+### App-Layer Responsibility Summary
+
+| Responsibility | Owner |
+|----------------|-------|
+| Frame delivery | Native (uvccamera) |
+| MediaCodec encoding | Kotlin (scopecam-engine) |
+| MediaStore save | Kotlin (scopecam-engine) |
+| **DB insert** | **Kotlin (scopecam-engine)** |
+| **Reconciliation** | **Kotlin (scopecam-engine)** |
+| Gallery query | Kotlin (scopecam-engine) |
+| Thumbnails | Kotlin (scopecam-engine) |
 
 ---
 

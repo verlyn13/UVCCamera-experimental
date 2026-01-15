@@ -312,7 +312,7 @@ uvccamera-experimental              scopecam-engine
 | Document | Purpose |
 |----------|---------|
 | `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` | Surface lease + WARM gate (R2) |
-| `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` | Video recording architecture (R1) |
+| `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` | Video recording + capture commit (R2) |
 | `docs/ScopeCam-Integration-Guide.md` §0 | Integration patterns |
 
 **Key Issues Identified:**
@@ -321,29 +321,45 @@ uvccamera-experimental              scopecam-engine
 
 2. **Surface Lease Race:** Two competing paths attach/detach surfaces. **Single Owner** pattern required via `SurfaceLeaseController`.
 
-3. **Video Recording Race:** Two competing `dequeueOutputBuffer()` paths (`drainEncoder` + `drainEncoderFinal`). **Single Owner** pattern required via `RecordingPipelineController`.
+3. **Video Recording Race:** Two competing `dequeueOutputBuffer()` paths. **Single Owner** pattern required via `RecordingPipelineController`.
 
-**Architectural Pattern (applies to ALL resources):**
+4. **Capture Commit Bug:** Videos saved to MediaStore but NOT inserted into app DB → invisible in app gallery. **Capture Commit** pattern required.
+
+**Architectural Boundaries:**
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  NATIVE OWNS:                         KOTLIN OWNS:                   │
+│  NATIVE (uvccamera) OWNS:             KOTLIN (scopecam) OWNS:        │
 │  ├── USB session (FD after dup)       ├── Android lifecycle          │
 │  ├── Preview pipeline                 ├── UI surfaces (single owner) │
 │  ├── Frame production                 ├── Recording (single owner)   │
-│  └── WARM/HOT state machine           └── MediaStore publishing      │
+│  ├── Ring buffer                      ├── MediaStore publishing      │
+│  ├── Timestamps (PTS/SCR)             ├── DB persistence (Room)      │
+│  └── WARM/HOT state machine           ├── Gallery view model         │
+│                                       └── Reconciliation             │
 │                                                                      │
 │  INVARIANT: ONE component controls each resource. Others REQUEST.    │
+│  BOUNDARY: Native delivers frames. Kotlin owns capture persistence.  │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+
+**Source of Truth:** Room DB is gallery source-of-truth. MediaStore is storage backend.
+
+**Capture Commit Pattern:**
+```
+Capture Commit = MediaStore write + DB insert + Metadata attached
+```
+Both photo AND video MUST use the same `commitCapture()` function.
 
 **ScopeCam Required Actions:**
 1. **`SurfaceLeaseController`** - Single owner of surface attach/detach
 2. **`RecordingPipelineController`** - Single owner of codec/muxer
-3. **Thread confinement** - Camera ops on camera thread, not main
-4. Replace all `usbFd >= 0` checks with native state queries
-5. Add FGS with `connectedDevice` type
-6. Stop = state transition + join, not cancel + final drain
+3. **`commitCapture()`** - Shared by photo AND video (DB insert after MediaStore save)
+4. **Reconciliation job** - Recover from crashes (MediaStore → DB sync)
+5. **Thread confinement** - Camera ops on camera thread, not main
+6. Replace all `usbFd >= 0` checks with native state queries
+7. Add FGS with `connectedDevice` type
+8. Stop = state transition + join, not cancel + final drain
 
 ---
 

@@ -462,67 +462,232 @@ The drain loop exits naturally when it sees EOS. No second drain needed.
 
 ---
 
-## Part V: File Publishing (Atomic from User's Perspective)
+## Part V: Capture Commit Pattern (Source of Truth)
 
-### 2026-Grade MediaStore Pattern
+### Architectural Decision: DB-First Gallery
+
+**ScopeCam uses Room DB as the source of truth for "captured media".**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CAPTURE COMMIT = TRANSACTIONAL                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  MediaStore write succeeds                                                   │
+│       +                                                                      │
+│  DB insert succeeds                                                          │
+│       +                                                                      │
+│  Metadata attached                                                           │
+│       =                                                                      │
+│  CAPTURE COMMITTED (visible in gallery)                                      │
+│                                                                              │
+│  If any step fails → reconciliation recovers later (never delete user data) │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Why DB-first?** For scientific/pro workflows: sessions, metadata, calibration, audit trails.
+
+### The Commit Pattern (Shared for Photo AND Video)
+
+```kotlin
+/**
+ * App-level commit: MediaStore is storage backend; Room is gallery source-of-truth.
+ * Commit = "Saved to MediaStore" + "Inserted into CapturedMediaDao"
+ * 
+ * BOTH photo and video MUST use this same commit path.
+ */
+suspend fun commitCapture(
+    save: SaveResult.Success,
+    capturedMediaDao: CapturedMediaDao,
+    mediaType: MediaType,
+    cameraId: String,
+    width: Int,
+    height: Int,
+    durationMs: Long?,  // null for photos
+    sessionId: String?,
+    metadataJson: String,
+    capturedAtMs: Long = System.currentTimeMillis(),
+): String {
+    val mediaId = UUID.randomUUID().toString()
+
+    val entity = CapturedMediaEntity(
+        id = mediaId,
+        mediaStoreUri = save.mediaStoreUri,
+        filePath = save.filePath,
+        mediaType = mediaType.name,
+        capturedAtMs = capturedAtMs,
+        cameraId = cameraId,
+        resolutionWidth = width,
+        resolutionHeight = height,
+        durationMs = durationMs ?: 0L,
+        sizeBytes = save.sizeBytes,
+        sessionId = sessionId,
+        metadataJson = metadataJson
+    )
+
+    capturedMediaDao.insert(entity)
+
+    Timber.i(
+        "CAPTURE_COMMIT_SUCCESS type=%s id=%s uri=%s sizeBytes=%d sessionId=%s",
+        mediaType.name, mediaId, save.mediaStoreUri, save.sizeBytes, sessionId
+    )
+
+    return mediaId
+}
+```
+
+### Video Stop Flow (Complete)
+
+```kotlin
+suspend fun stopRecordingAndCommit() {
+    val stats = videoRecordingManager.stop()
+    
+    // 1. Save to MediaStore (storage backend)
+    val saveResult = mediaStorageHelper.saveVideo(
+        videoFile = outputFile,
+        filename = filename,
+        durationMs = stats.durationMs
+    )
+
+    when (saveResult) {
+        is SaveResult.Success -> {
+            Timber.i("VIDEO_MEDIASTORE_SUCCESS uri=%s", saveResult.mediaStoreUri)
+
+            // 2. Commit to DB (gallery source-of-truth)
+            val dbId = commitCapture(
+                save = saveResult,
+                capturedMediaDao = capturedMediaDao,
+                mediaType = MediaType.VIDEO,
+                cameraId = cameraId,
+                width = width,
+                height = height,
+                durationMs = stats.durationMs,
+                sessionId = sessionId,
+                metadataJson = metadataJson
+            )
+
+            // 3. Cleanup temp
+            outputFile.delete()
+
+            Timber.i("VIDEO_STOP_COMPLETE dbId=%s uri=%s", dbId, saveResult.mediaStoreUri)
+        }
+
+        is SaveResult.Failure -> {
+            Timber.e("VIDEO_MEDIASTORE_FAILURE error=%s", saveResult.error)
+            // DO NOT delete temp file - keep for forensics/retry
+        }
+    }
+}
+```
+
+### Required Log Events (Golden Trace)
+
+```
+VIDEO_MEDIASTORE_SUCCESS uri=content://media/external/video/media/12345
+CAPTURE_COMMIT_SUCCESS type=VIDEO id=abc123 uri=content://... sizeBytes=1234567 sessionId=sess_001
+VIDEO_STOP_COMPLETE dbId=abc123 uri=content://...
+```
+
+### MediaStore Pattern (Unchanged)
 
 ```kotlin
 class MediaStorePublisher(private val context: Context) {
     
     /**
      * Publish video atomically using IS_PENDING pattern.
-     * User sees either: valid playable video, or nothing (with error).
      */
-    suspend fun publishVideo(tempFile: File, metadata: VideoMetadata): Uri {
+    suspend fun publishVideo(tempFile: File, metadata: VideoMetadata): SaveResult {
         val resolver = context.contentResolver
         
         // 1. Create pending entry
         val values = ContentValues().apply {
             put(MediaStore.Video.Media.DISPLAY_NAME, metadata.fileName)
             put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
-            put(MediaStore.Video.Media.RELATIVE_PATH, "DCIM/ScopeCam")
-            put(MediaStore.Video.Media.IS_PENDING, 1)  // Not visible yet
+            put(MediaStore.Video.Media.RELATIVE_PATH, "Movies/ScopeCam")
+            put(MediaStore.Video.Media.IS_PENDING, 1)
         }
         
         val uri = resolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values)
-            ?: throw IOException("Failed to create MediaStore entry")
+            ?: return SaveResult.Failure("Failed to create MediaStore entry")
         
         try {
-            // 2. Copy temp file to MediaStore
+            // 2. Copy temp file
             resolver.openOutputStream(uri)?.use { output ->
-                tempFile.inputStream().use { input ->
-                    input.copyTo(output)
-                }
+                tempFile.inputStream().use { input -> input.copyTo(output) }
             }
             
-            // 3. Make visible (atomic from user's perspective)
-            val updateValues = ContentValues().apply {
+            // 3. Make visible
+            resolver.update(uri, ContentValues().apply {
                 put(MediaStore.Video.Media.IS_PENDING, 0)
-            }
-            resolver.update(uri, updateValues, null, null)
+            }, null, null)
             
-            // 4. Delete temp file
-            tempFile.delete()
-            
-            return uri
+            return SaveResult.Success(uri.toString(), tempFile.absolutePath, tempFile.length())
             
         } catch (e: Exception) {
-            // Cleanup: delete the pending entry
             resolver.delete(uri, null, null)
-            tempFile.delete()
             throw e
         }
     }
 }
 ```
 
-### Alternative: Temp File + Rename
+---
+
+## Part V-A: Reconciliation (P1 - Required for Robustness)
+
+### Why Reconciliation is Required
+
+Even with the commit pattern, real-world failures can cause DB/MediaStore divergence:
+- App crash after MediaStore save, before DB insert
+- Room migration bug
+- Process death mid-transaction
+- User deletes from MediaStore externally
+
+### Reconciliation Strategy (DB-First)
 
 ```kotlin
-// Write to: /data/data/com.app/cache/recording_123.mp4.tmp
-// On success: rename to recording_123.mp4, then publish
-// On failure: delete .tmp file
+/**
+ * Run on app start (debounced) and when gallery opens with empty/small DB.
+ */
+suspend fun reconcileCapturedMedia() {
+    // 1. Query MediaStore for ScopeCam items
+    val mediaStoreItems = queryMediaStore("Movies/ScopeCam", "Pictures/ScopeCam")
+    
+    // 2. For each MediaStore item not in DB, insert minimal entity
+    for (item in mediaStoreItems) {
+        if (!capturedMediaDao.existsByUri(item.uri)) {
+            val entity = CapturedMediaEntity(
+                id = UUID.randomUUID().toString(),
+                mediaStoreUri = item.uri,
+                mediaType = item.type.name,
+                capturedAtMs = item.dateAdded * 1000,
+                // ... minimal metadata
+            )
+            capturedMediaDao.insert(entity)
+            Timber.i("RECONCILE_INSERTED uri=%s", item.uri)
+        }
+    }
+    
+    // 3. For each DB row whose URI no longer resolves, mark as missing
+    for (entity in capturedMediaDao.getAll()) {
+        if (!uriExists(entity.mediaStoreUri)) {
+            capturedMediaDao.markMissing(entity.id)
+            Timber.w("RECONCILE_MISSING uri=%s", entity.mediaStoreUri)
+        }
+    }
+}
 ```
+
+### Failure Handling
+
+| Scenario | Action |
+|----------|--------|
+| MediaStore write succeeds, DB insert fails | Log `CAPTURE_COMMIT_FAILED will_reconcile=true`, reconciliation recovers |
+| DB row exists, MediaStore file deleted | Mark as "missing" in DB (don't delete row) |
+| App reinstall | Reconciliation rebuilds DB from MediaStore |
+
+**Rule:** Never delete user's successfully saved capture. Reconcile later.
 
 ---
 
@@ -804,34 +969,64 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 - [ ] Remove `drainEncoderFinal()` entirely
 - [ ] Add `drainInProgress` runtime assertion
 
-### Phase 3: MediaStore Publishing (P0)
+### Phase 3: Capture Commit Pattern (P0 - CRITICAL)
+
+**This is why videos don't appear in gallery:**
+- [ ] Create shared `commitCapture()` function for photo AND video
+- [ ] After `saveVideo()` success, call `commitCapture()` to insert into `CapturedMediaDao`
+- [ ] Log `CAPTURE_COMMIT_SUCCESS type=VIDEO id=... uri=...`
+- [ ] Verify: video appears in app gallery (not just system gallery)
+
+**Commit must include:**
+- [ ] `mediaStoreUri` from SaveResult
+- [ ] `mediaType = VIDEO`
+- [ ] `durationMs` from recording stats
+- [ ] `sizeBytes` from SaveResult
+- [ ] `sessionId` for scientific workflows
+- [ ] `metadataJson` (never empty - use `"{}"` if needed)
+
+### Phase 4: MediaStore Publishing (P0)
 
 - [ ] Implement `IS_PENDING` MediaStore pattern
-- [ ] Handle failure: delete pending entry, surface error
-- [ ] Log `MEDIASTORE_PUBLISHED uri=... size=... duration=...`
-- [ ] Verify: valid video visible in gallery, or nothing
+- [ ] Handle failure: log but DO NOT delete temp file (forensics/retry)
+- [ ] Log `VIDEO_MEDIASTORE_SUCCESS uri=... sizeBytes=...`
 
-### Phase 4: Frame Routing Verification (P0)
+### Phase 5: Reconciliation (P1)
+
+- [ ] Implement reconciliation job (runs on app start, gallery open)
+- [ ] MediaStore item exists but DB missing → insert minimal entity
+- [ ] DB row exists but MediaStore file deleted → mark as "missing"
+- [ ] Log `RECONCILE_INSERTED` / `RECONCILE_MISSING`
+- [ ] **Rule:** Never delete user's successfully saved capture
+
+### Phase 6: Frame Routing Verification (P0)
 
 - [ ] Add intake log at service boundary: `FRAME_INTAKE count=... bytes=...`
 - [ ] Verify frames flow: native → channel → encoder
 - [ ] Ensure recording uses same source as preview (ring buffer)
 - [ ] Add "first frame received" verification in start procedure
 
-### Phase 5: Performance (P1 - Plan Now, Execute Later)
+### Phase 7: Performance (P1 - Plan Now, Execute Later)
 
 - [ ] Identify Bitmap decode usage (mark as dev-only if keeping)
 - [ ] Plan Surface input encoding path from native ring buffer
 - [ ] Remove per-frame `copyOf()` - use pooled buffers or native handles
 
-### Phase 6: Verification
+### Phase 8: Video Thumbnails (P1)
 
-- [ ] Test 1: Record 2-3s → stop → save (expect: visible, playable)
+- [ ] Use system thumbnail APIs (ContentResolver.loadThumbnail)
+- [ ] Cache thumbnails keyed by MediaStore URI + lastModified
+- [ ] Generate lazily on scroll with cancellation
+
+### Phase 9: Verification
+
+- [ ] Test 1: Record → stop → **video visible in app gallery**
 - [ ] Test 2: Record 2-3s → stop quickly (<300ms) (expect: no crash)
 - [ ] Test 3: Record → stop → record again (expect: frames in second recording)
+- [ ] Test 4: Kill app during save → restart → **reconciliation recovers video**
 - [ ] Verify: `drainLoopId` never duplicated
 - [ ] Verify: All codec calls on single thread
-- [ ] Verify: Golden trace in logs
+- [ ] Verify: Golden trace shows `VIDEO_MEDIASTORE_SUCCESS` AND `CAPTURE_COMMIT_SUCCESS`
 
 ---
 
@@ -839,15 +1034,17 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 
 | Test | Expected Result |
 |------|-----------------|
-| Normal recording | Valid MP4, visible in gallery, correct duration |
+| Normal recording | Valid MP4, visible in **app gallery**, correct duration |
 | Quick stop (<300ms) | Either valid short video, or clean failure + user feedback |
 | **Second recording** | Frames received (channel recreated) |
+| **App gallery** | Video appears (DB insert happened) |
+| **System gallery** | Video also appears (MediaStore save happened) |
 | `drainLoopId` | Never more than 1 per recording |
 | Dequeue calls | Always single-threaded (assertion never trips) |
 | Muxer stop | Exactly once per recording |
 | EOS drain | Loop exits on EOS observation, not scope state |
 | Stop timeout | Completes within 5s even if frame processing wedged |
-| Crash recovery | Temp files cleaned up, no corrupt videos visible |
+| Crash recovery | Reconciliation recovers video on next app start |
 
 ### Critical Bug Verification
 
@@ -857,7 +1054,27 @@ RECORDING [DRAIN_LOOP_STARTED] sessionId=rec_001 drainLoopId=2  ← BUG: Second 
 | **B. Thread Serialization** | Add thread name logging to all codec calls |
 | **C. Drain Exit** | Log shows `DRAIN_EOS_OBSERVED` before `DRAIN_LOOP_EXITED` |
 | **D. Stop Deadlock** | Stop completes with wedged frame processing |
-| **E. MediaStore** | Video appears in gallery after stop |
+| **E. MediaStore** | Video appears in system gallery |
+| **F. DB Insert** | Video appears in **app gallery** (the bug that was found) |
+| **G. Reconciliation** | Kill app mid-save → restart → video recovered |
+
+### Golden Trace (Complete)
+
+```
+VIDEO_SAVE_REQUEST file=... filename=... durationMs=...
+VIDEO_MEDIASTORE_SUCCESS uri=content://media/external/video/media/12345
+CAPTURE_COMMIT_SUCCESS type=VIDEO id=abc123 uri=content://... sizeBytes=... sessionId=...
+VIDEO_STOP_COMPLETE dbId=abc123 uri=content://...
+```
+
+### What Was Missing Before (The Bug)
+
+```
+VIDEO_MEDIASTORE_SUCCESS uri=content://...    ← This happened ✅
+// CAPTURE_COMMIT_SUCCESS ← THIS WAS MISSING! ❌
+// Video saved to MediaStore but not to DB
+// App gallery queries DB → video invisible
+```
 
 ---
 
