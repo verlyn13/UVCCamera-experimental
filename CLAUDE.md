@@ -305,35 +305,45 @@ uvccamera-experimental              scopecam-engine
 - scopecam-engine **owns its build ID** and provenance
 - We **prove changes work** before they adopt them
 
-### WARM Gate Directive (2026-01-14)
+### Binding Directives (2026-01-14)
 
-**CRITICAL:** A binding directive has been issued to scopecam-engine regarding WARM state gating:
+**CRITICAL:** Binding directives have been issued to scopecam-engine:
 
 | Document | Purpose |
 |----------|---------|
-| `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` | Binding directive for scopecam-engine |
-| `docs/ScopeCam-Integration-Guide.md` §0 | WARM state architecture |
-| `docs/api-reference.md` | `openSimple()` ownership warning |
+| `patches/SCOPECAM_ENGINE_WARM_GATE_DIRECTIVE.md` | Surface lease + WARM gate (R2) |
+| `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md` | Video recording architecture (R1) |
+| `docs/ScopeCam-Integration-Guide.md` §0 | Integration patterns |
 
 **Key Issues Identified:**
 
-1. **WARM Gate (FD Truth):** Java-layer FD checks ALWAYS fail with `openSimple()` because `mCtrlBlock` is null. ScopeCam MUST use `getPreviewState()` / `querySessionDiagnostic()` for session truth.
+1. **WARM Gate (FD Truth):** Java-layer FD checks ALWAYS fail with `openSimple()`. Use `getPreviewState()` / `querySessionDiagnostic()`.
 
-2. **Surface Lease Race:** Two competing paths attach/detach surfaces, causing "attach then detach 19ms later" and frozen first frames. **Single Owner** pattern required.
+2. **Surface Lease Race:** Two competing paths attach/detach surfaces. **Single Owner** pattern required via `SurfaceLeaseController`.
+
+3. **Video Recording Race:** Two competing `dequeueOutputBuffer()` paths (`drainEncoder` + `drainEncoderFinal`). **Single Owner** pattern required via `RecordingPipelineController`.
+
+**Architectural Pattern (applies to ALL resources):**
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  NATIVE OWNS:                         KOTLIN OWNS:                   │
+│  ├── USB session (FD after dup)       ├── Android lifecycle          │
+│  ├── Preview pipeline                 ├── UI surfaces (single owner) │
+│  ├── Frame production                 ├── Recording (single owner)   │
+│  └── WARM/HOT state machine           └── MediaStore publishing      │
+│                                                                      │
+│  INVARIANT: ONE component controls each resource. Others REQUEST.    │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 **ScopeCam Required Actions:**
-1. **Introduce `SurfaceLeaseController`** - Single owner of all native surface operations
-2. **Remove competing attach paths** - Route through single controller
-3. **Thread confinement** - All surface ops on camera thread, not main
+1. **`SurfaceLeaseController`** - Single owner of surface attach/detach
+2. **`RecordingPipelineController`** - Single owner of codec/muxer
+3. **Thread confinement** - Camera ops on camera thread, not main
 4. Replace all `usbFd >= 0` checks with native state queries
-5. Use `suspendSurfaceLease()` on surface destruction (via controller)
-6. Use `acquireSurfaceLease()` on surface creation (via controller)
-7. Add FGS with `connectedDevice` type
-
-**Architectural Constraints:**
-- Native owns: USB session, preview pipeline, state machine
-- Kotlin owns: Android lifecycle, UI surfaces, lease decisions
-- **ONE component controls attach/detach; others REQUEST**
+5. Add FGS with `connectedDevice` type
+6. Stop = state transition + join, not cancel + final drain
 
 ---
 

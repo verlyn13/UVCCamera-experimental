@@ -318,6 +318,87 @@ fun onPause() {
 }
 ```
 
+### Video Recording Violations
+
+```kotlin
+// ❌ Two competing drain paths (causes MediaCodec crash)
+class VideoRecorder {
+    fun drainEncoder() {
+        encoder.dequeueOutputBuffer(...)  // Path A
+    }
+    
+    fun drainEncoderFinal() {
+        encoder.dequeueOutputBuffer(...)  // Path B - RACE!
+    }
+    
+    fun stop() {
+        encodingJob?.cancel()
+        drainEncoderFinal()  // ❌ Two dequeue paths active
+    }
+}
+
+// ❌ Cancel + final drain pattern
+suspend fun stopRecording() {
+    encodingJob?.cancel()      // Cancel drain loop
+    drainEncoderFinal()        // Start ANOTHER drain → RACE!
+}
+```
+
+---
+
+## 0.9 Video Recording Architecture
+
+Video recording follows the **same single-owner pattern** as surface lease.
+
+**See full directive:** `patches/SCOPECAM_ENGINE_VIDEO_RECORDING_DIRECTIVE.md`
+
+### Recording Invariants
+
+| Invariant | Rule |
+|-----------|------|
+| **Single Encoder Consumer** | ONE loop drains MediaCodec output |
+| **Stop is State Transition** | Not cancellation - orderly shutdown |
+| **Muxer Finalization Once** | Stop muxer exactly once |
+| **Atomic File Publishing** | Valid video OR discarded + error |
+
+### Correct Stop Pattern
+
+```kotlin
+// ✅ CORRECT: Single drain path, orderly shutdown
+suspend fun stopRecording() {
+    // 1. Signal stop (close inputs, signal EOS)
+    closeFrameInput()
+    signalEncoderEos()
+    
+    // 2. Wait for THE SAME drain loop to finish
+    drainJob?.join()  // Sees EOS and exits naturally
+    
+    // 3. Then finalize (exactly once)
+    muxer.stop()
+    encoder.release()
+    publishToMediaStore()
+}
+```
+
+### RecordingPipelineController
+
+Similar to `SurfaceLeaseController`, create a single owner for codec/muxer:
+
+```kotlin
+class RecordingPipelineController(
+    private val recordingDispatcher: CoroutineDispatcher  // Single-threaded!
+) {
+    // THE ONLY code that calls dequeueOutputBuffer
+    private suspend fun drainLoop(encoder: MediaCodec, muxer: MediaMuxer) {
+        // Runtime assertion: prove single-consumer
+        check(drainInProgress.compareAndSet(false, true)) {
+            "INVARIANT VIOLATION: Concurrent dequeue!"
+        }
+        // ... single drain loop ...
+    }
+}
+```
+
 ---
 
 ## 1. Library Update Required
